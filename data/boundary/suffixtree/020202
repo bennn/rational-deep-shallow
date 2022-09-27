@@ -1,0 +1,38 @@
+cpu time: 102848 real time: 102873 gc time: 778
+Running time is 64.65% contracts
+66819/103359 ms
+
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:11:12")
+  33023 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? any)
+("(interface for label-datum)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  30691 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(interface for make-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:17:5")
+  1843 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("(interface for node-find-child)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  664 ms
+  (-> any/c Any (or/c #f node?))
+("(interface for node-suffix-link)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  173.5 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "typed-data.rkt:13:12")
+  167 ms
+  (-> node? any)
+("(interface for node-follow/k)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  138.5 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("(interface for node-parent)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  47.5 ms
+  (-> any/c (or/c #f node?))
+("(interface for node-up-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  38.5 ms
+  (-> any/c label?)
+("(interface for node-up-splice-leaf!)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  27 ms
+  (-> any/c any/c any/c (values node? node?))
+("(interface for node-add-leaf!)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:29:3")
+  5.5 ms
+  (-> any/c any/c node?)

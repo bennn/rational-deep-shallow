@@ -1,0 +1,33 @@
+cpu time: 5756 real time: 5757 gc time: 118
+Running time is 12.14% contracts
+788/6492 ms
+
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data.rkt:5:9")
+  307 ms
+  (-> world? any)
+  (-> snake? posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data.rkt:3:9")
+  138.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data.rkt" "data.rkt:8:9")
+  87.5 ms
+  (-> posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data.rkt" "data.rkt:3:9")
+  74.5 ms
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data.rkt:17:9")
+  63.5 ms
+  (-> posn? posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  47.5 ms
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "data.rkt:5:9")
+  43 ms
+  (-> world? any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data.rkt" "data.rkt:17:9")
+  21 ms
+  (-> posn? posn? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:239:2")
+  5.5 ms
+  (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d)))

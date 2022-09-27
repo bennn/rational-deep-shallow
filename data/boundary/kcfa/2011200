@@ -1,0 +1,32 @@
+cpu time: 4350 real time: 4351 gc time: 141
+Running time is 71.59% contracts
+3518/4914 ms
+
+("/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/ui.rkt" "denotable.rkt:71:9")
+  1579 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  604 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  493.5 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/ui.rkt" "denotable.rkt:36:8")
+  411.5 ms
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
+  391.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
+("(/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:41:5")
+  22 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:233:2")
+  6 ms
+  (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d))))
+("(interface for Closure3)" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  5.5 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) Closure?)
+("(interface for Closure-benv)" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  5 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)))

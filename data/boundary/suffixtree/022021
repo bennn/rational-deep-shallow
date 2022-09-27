@@ -1,0 +1,65 @@
+cpu time: 126053 real time: 126083 gc time: 1128
+Running time is 59.92% contracts
+75853/126595 ms
+
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:11:12")
+  35776 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? any)
+("(interface for label-datum)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  33264 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(interface for make-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:17:5")
+  2096 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("(interface for node-children)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  2019.5 ms
+  (-> any/c (listof node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:13:12")
+  773.5 ms
+  (-> node? any)
+("(interface for node-up-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  305.5 ms
+  (-> any/c label?)
+("(interface for node-parent)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  230.5 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "label.rkt:116:9")
+  229 ms
+  (-> label? exact-integer? (or/c symbol? char?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:93:9")
+  198.5 ms
+  (-> node? any/c (or/c #f node?))
+("(interface for node-suffix-link)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  172 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:13:12")
+  133 ms
+  (-> node? any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:161:9")
+  118.5 ms
+  (-> node? label? (-> any/c any/c) (-> any/c any/c any/c) (-> any/c any/c any/c any/c) (-> node? index? label? index? any/c) any/c)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:204:9")
+  112.5 ms
+  (-> node? index? boolean?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "label.rkt:107:9")
+  92 ms
+  (-> label? index?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:126:9")
+  72 ms
+  (-> node? index? label? (values node? node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "label.rkt:124:8")
+  70 ms
+  (->* (label? index?) (index?) label?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:56:9")
+  59.5 ms
+  (-> node? label? node?)
+("(/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt structs)" "(interface for make-node)" "typed-data.rkt:60:5")
+  59.5 ms
+  (-> any/c any/c any/c any/c node?)
+("(interface for make-node)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:19:5")
+  49 ms
+  (-> any/c any/c any/c any/c node?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:49:9")
+  22 ms
+  (-> node? boolean?)

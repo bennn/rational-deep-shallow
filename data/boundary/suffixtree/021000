@@ -1,0 +1,29 @@
+cpu time: 85921 real time: 85941 gc time: 683
+Running time is 66.5% contracts
+57497/86463 ms
+
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:11:12")
+  28288.5 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? any)
+("(interface for label-datum)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  26869.5 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(interface for make-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:17:5")
+  1849 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("(interface for node-children)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  264 ms
+  (-> any/c (listof node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:251:8")
+  100 ms
+  (-> label? label? boolean?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:107:9")
+  78.5 ms
+  (-> label? index?)
+("(interface for node-up-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  42 ms
+  (-> any/c label?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:116:9")
+  5 ms
+  (-> label? exact-integer? (or/c symbol? char?))

@@ -1,0 +1,62 @@
+cpu time: 28195 real time: 28202 gc time: 211
+Running time is 22.95% contracts
+6640/28936 ms
+
+("(interface for snake-segs)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  2339 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
+  1554.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("(interface for snake-dir)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  738 ms
+  (-> any/c (or/c right left down up))
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data-adaptor.rkt:10:12")
+  428 ms
+  (-> snake? posn? any)
+  (-> world? any)
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data-adaptor.rkt:8:12")
+  307.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  267.5 ms
+  (-> posn? any)
+  (-> real? real? any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt:6:12")
+  239.5 ms
+  (-> posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/main.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:22:9")
+  156 ms
+  (-> world? world?)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:42:9")
+  151.5 ms
+  (-> world? (or/c right left down up) world?)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "collide.rkt:13:9")
+  98.5 ms
+  (-> snake? boolean?)
+("(interface for world-snake)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  97.5 ms
+  (-> any/c snake?)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt:8:12")
+  92.5 ms
+  (-> snake? any)
+("(interface for world-food)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  60 ms
+  (-> any/c posn?)
+("(interface for posn3)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  43.5 ms
+  (-> any/c any/c posn?)
+("(interface for snake10)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  38.5 ms
+  (-> any/c any/c snake?)
+("(interface for world17)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  16.5 ms
+  (-> any/c any/c world?)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "collide.rkt:24:9")
+  6 ms
+  (-> snake? boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

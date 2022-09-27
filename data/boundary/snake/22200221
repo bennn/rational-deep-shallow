@@ -1,0 +1,51 @@
+cpu time: 23133 real time: 23138 gc time: 195
+Running time is 24.23% contracts
+5789/23889 ms
+
+("(interface for snake-segs)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  2349.5 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
+  1436.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("(interface for snake-dir)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  803.5 ms
+  (-> any/c (or/c right left down up))
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  250.5 ms
+  (-> posn? any)
+  (-> real? real? any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt:6:12")
+  195 ms
+  (-> posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  185 ms
+  (-> snake? snake?)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:42:9")
+  140.5 ms
+  (-> world? (or/c right left down up) any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt:8:12")
+  93.5 ms
+  (-> snake? any)
+("(interface for world-snake)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  84 ms
+  (-> any/c snake?)
+("(interface for snake10)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  71.5 ms
+  (-> any/c any/c snake?)
+("/users/ben_g/bnd-bench/snake/cfg/main.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:22:9")
+  62.5 ms
+  (-> world? any)
+("(interface for world-food)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  61.5 ms
+  (-> any/c posn?)
+("(interface for world17)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  27.5 ms
+  (-> any/c any/c world?)
+("(interface for posn3)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  22 ms
+  (-> any/c any/c posn?)
+("(interface for handle-key)" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "main.rkt:11:22")
+  6 ms
+  (-> any/c any/c world?)

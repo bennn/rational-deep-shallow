@@ -1,0 +1,22 @@
+cpu time: 5598 real time: 5599 gc time: 108
+Running time is 20.37% contracts
+1295/6355 ms
+
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data.rkt" "data.rkt:3:9")
+  671 ms
+  (-> snake? (cons/c posn? (listof posn?)))
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data.rkt" "data.rkt:8:9")
+  223.5 ms
+  (-> posn? real?)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "data.rkt:5:9")
+  197.5 ms
+  (-> world? snake?)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:42:9")
+  126 ms
+  (-> world? (or/c up down left right) world?)
+("/users/ben_g/bnd-bench/snake/cfg/main.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:22:9")
+  60 ms
+  (-> world? world?)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/data.rkt" "data.rkt:17:9")
+  16.5 ms
+  (-> posn? posn? boolean?)

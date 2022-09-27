@@ -1,0 +1,47 @@
+cpu time: 8471 real time: 8472 gc time: 120
+Running time is 28.25% contracts
+2603/9211 ms
+
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data.rkt:3:9")
+  1344.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/cut-tail.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
+  457 ms
+  (-> (cons/c posn? (listof posn?)) any)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data.rkt:3:9")
+  217 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data.rkt:5:9")
+  162 ms
+  (-> snake? posn? any)
+  (-> world? any)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data.rkt:8:9")
+  116 ms
+  (-> real? real? any)
+  (-> posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data.rkt:17:9")
+  76.5 ms
+  (-> posn? posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "handlers.rkt:21:9")
+  71.5 ms
+  (-> world? boolean?)
+("/users/ben_g/bnd-bench/snake/cfg/main.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:22:9")
+  70.5 ms
+  (-> world? world?)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "data.rkt:5:9")
+  33 ms
+  (-> world? any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "collide.rkt:13:9")
+  22 ms
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/collide.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "collide.rkt:24:9")
+  16 ms
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "handlers.rkt:13:9")
+  11 ms
+  (-> world? string? world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:227:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))

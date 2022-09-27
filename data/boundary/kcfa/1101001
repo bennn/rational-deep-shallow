@@ -1,0 +1,25 @@
+cpu time: 4309 real time: 4309 gc time: 142
+Running time is 72.89% contracts
+3463/4751 ms
+
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:74:4")
+  1698.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(interface for State-store)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  555.5 ms
+  (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:44:4")
+  531.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:42:4")
+  378.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
+("(interface for State3)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  288 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) any/c State?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:257:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (listof (dict-value-contract d))))

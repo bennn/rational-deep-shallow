@@ -1,0 +1,22 @@
+cpu time: 8008 real time: 8010 gc time: 120
+Running time is 41.03% contracts
+3589/8747 ms
+
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data.rkt:3:9")
+  2935 ms
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (or/c right left down up))
+("(interface for cut-tail)" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  376 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data.rkt:8:9")
+  255.5 ms
+  (-> posn? real?)
+  (-> real? real? posn?)
+("/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  16.5 ms
+  (-> snake? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:239:2")
+  5.5 ms
+  (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d)))

@@ -1,0 +1,25 @@
+cpu time: 2596 real time: 2596 gc time: 138
+Running time is 49.4% contracts
+1491/3018 ms
+
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:44:4")
+  456 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:42:4")
+  423 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
+("(interface for State3)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  320 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) any/c State?)
+("(interface for State-store)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  275.5 ms
+  (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(interface for State-benv)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  5.5 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)))
+("(interface for Closure-benv)" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  5.5 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)))
+("(interface for Closure3)" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  5.5 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) Closure?)

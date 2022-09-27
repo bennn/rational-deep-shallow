@@ -1,0 +1,36 @@
+cpu time: 11371 real time: 11374 gc time: 145
+Running time is 14.87% contracts
+1800/12102 ms
+
+("(interface for snake-segs)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  518 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data-adaptor.rkt:10:12")
+  408.5 ms
+  (-> world? any)
+  (-> snake? posn? any)
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "data-adaptor.rkt:8:12")
+  261.5 ms
+  (-> snake? any)
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("/users/ben_g/bnd-bench/snake/cfg/main.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:22:9")
+  165 ms
+  (-> world? world?)
+("(interface for world-snake)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  128 ms
+  (-> any/c snake?)
+("(interface for world-food)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  103.5 ms
+  (-> any/c posn?)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:42:9")
+  98.5 ms
+  (-> world? (or/c up down left right) world?)
+("(interface for world17)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  64 ms
+  (-> any/c any/c world?)
+("(interface for snake-slither)" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:12:22")
+  42.5 ms
+  (-> any/c snake?)
+("(interface for snake10)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  10.5 ms
+  (-> any/c any/c snake?)

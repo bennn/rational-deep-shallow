@@ -1,0 +1,43 @@
+cpu time: 15130 real time: 15133 gc time: 189
+Running time is 24.62% contracts
+3861/15682 ms
+
+("/users/ben_g/bnd-bench/suffixtree/cfg/data.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "data.rkt:18:15")
+  1349 ms
+  (-> node? any)
+  (-> node? (listof node?) any)
+  (-> node? (or/c #f node?) any)
+  (-> node? label? any)
+("(interface for node-find-child)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  1089.5 ms
+  (-> any/c Any (or/c #f node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "label.rkt:116:9")
+  551 ms
+  (-> label? exact-integer? any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/data.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "#<blame-no-swap>")
+  311 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "label.rkt:236:9")
+  168 ms
+  (-> label? exact-integer? any)
+("(interface for node-follow/k)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  163.5 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/data.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  108 ms
+  (-> node? any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:251:8")
+  55 ms
+  (-> label? label? any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "label.rkt:124:8")
+  43 ms
+  (->* (label? index?) (index?) any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:107:9")
+  11 ms
+  (-> label? any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "label.rkt:49:9")
+  6 ms
+  (-> (or/c string? (vectorof (or/c symbol? char?))) any)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:66:9")
+  5.5 ms
+  (-> (vectorof (or/c symbol? char?)) any)

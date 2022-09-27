@@ -1,0 +1,31 @@
+cpu time: 4381 real time: 4381 gc time: 135
+Running time is 74.51% contracts
+3665/4918 ms
+
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:74:4")
+  1618 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(interface for State-store)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  558 ms
+  (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:44:4")
+  475.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:42:4")
+  393 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
+("(interface for State3)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  318 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) any/c State?)
+("/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/ui.rkt" "denotable-adapted.rkt:14:12")
+  285.5 ms
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(interface for State-benv)" "/users/ben_g/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  5.5 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:49:9")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? Binding?)

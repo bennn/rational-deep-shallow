@@ -1,0 +1,29 @@
+cpu time: 628 real time: 628 gc time: 138
+Running time is 12.66% contracts
+322/2543 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  182.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  56.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  35.5 ms
+  (->*m (string?) ((or/c (is-a?/c font%) #f) any/c natural?) (values (and/c real? (not/c negative?)) (and/c real? (not/c negative?)) (and/c real? (not/c negative?)) (and/c real? (not/c negative?))))
+  (->*m ((is-a?/c bitmap%) real? real? real? real? (and/c real? (not/c negative?)) (and/c real? (not/c negative?))) ((or/c (quote solid) (quote opaque) (quote xor)) (is-a?/c color%) (or/c (is-a?/c bitmap%) #f)) boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  23.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/array-broadcast.rkt" "no-negative-party" "(lib math/private/array/array-broadcast.rkt):42:9")
+  6 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (vectorof index?) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/contract.rkt" "no-negative-party" "<pkgs>/plot-lib/plot/private/common/contract.rkt:21:3")
+  6 ms
+  (-> contract? contract?)
+("(interface for sql-timestamp-tz)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/date-time.rkt" "(lib plot/private/common/date-time.rkt)")
+  6 ms
+  (-> any/c (or/c exact-integer? #f))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:96:19")
+  6 ms
+  gl-config%/c

@@ -1,0 +1,42 @@
+cpu time: 14809 real time: 14812 gc time: 143
+Running time is 26.45% contracts
+4102/15506 ms
+
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
+  1375.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("(interface for snake-segs)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  1017 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(interface for snake-dir)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  725 ms
+  (-> any/c (or/c right left down up))
+("/users/ben_g/bnd-bench/snake/cfg/cut-tail.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
+  537 ms
+  (-> (cons/c posn? (listof posn?)) any)
+("/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  233 ms
+  (-> posn? any)
+  (-> real? real? any)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "handlers.rkt:21:9")
+  76.5 ms
+  (-> world? any)
+("(interface for world-snake)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  50.5 ms
+  (-> any/c snake?)
+("(interface for snake10)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  44.5 ms
+  (-> any/c any/c snake?)
+("(interface for posn3)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  27 ms
+  (-> any/c any/c posn?)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "handlers.rkt:13:9")
+  5.5 ms
+  (-> world? string? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:50:3")
+  5.5 ms
+  (->* (bound-identifier-mapping? identifier?) ((-> any)) any)
+("(interface for world-change-dir)" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "handlers.rkt:10:22")
+  5 ms
+  (-> any/c any/c world?)

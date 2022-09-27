@@ -1,0 +1,19 @@
+cpu time: 5503 real time: 5504 gc time: 117
+Running time is 11.69% contracts
+730/6246 ms
+
+("(interface for cut-tail)" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  392.5 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:42:9")
+  161.5 ms
+  (-> world? (or/c up down left right) world?)
+("/users/ben_g/bnd-bench/snake/cfg/data.rkt" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "data.rkt:5:9")
+  107 ms
+  (-> world? snake?)
+("/users/ben_g/bnd-bench/snake/cfg/main.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion.rkt:22:9")
+  64 ms
+  (-> world? world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:266:2")
+  5 ms
+  (->i ((d dict?)) (_r (d) (apply dict-implements/c (for/list ((sym ...) #:when (dict-implements? d sym)) sym))))

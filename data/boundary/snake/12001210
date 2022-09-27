@@ -1,0 +1,40 @@
+cpu time: 6539 real time: 6540 gc time: 104
+Running time is 46.49% contracts
+3378/7266 ms
+
+("(interface for snake-segs)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  1921.5 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(interface for snake-dir)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  734.5 ms
+  (-> any/c (or/c right left down up))
+("(interface for cut-tail)" "/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  428.5 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/bnd-bench/snake/cfg/motion-help.rkt" "/users/ben_g/bnd-bench/snake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  79 ms
+  (-> snake? any)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "handlers.rkt:21:9")
+  58.5 ms
+  (-> world? any)
+("(interface for posn3)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  51 ms
+  (-> any/c any/c posn?)
+("(interface for world->world)" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "main.rkt:9:22")
+  41.5 ms
+  (-> any/c world?)
+("(interface for world-snake)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  30.5 ms
+  (-> any/c snake?)
+("(interface for snake10)" "/users/ben_g/bnd-bench/snake/cfg/data-adaptor.rkt" "data-adaptor.rkt")
+  17.5 ms
+  (-> any/c any/c snake?)
+("(interface for world-change-dir)" "/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "handlers.rkt:10:22")
+  5.5 ms
+  (-> any/c any/c world?)
+("/users/ben_g/bnd-bench/snake/cfg/handlers.rkt" "/users/ben_g/bnd-bench/snake/cfg/main.rkt" "handlers.rkt:13:9")
+  5 ms
+  (-> world? string? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:204:2")
+  5 ms
+  (->i ((d (dict-implements/c dict-set))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r dict?))

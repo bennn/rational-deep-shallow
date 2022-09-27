@@ -1,0 +1,16 @@
+cpu time: 967 real time: 967 gc time: 120
+Running time is 18.65% contracts
+278/1488 ms
+
+("(interface for match-up*)" "/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "main.rkt:15:2")
+  128.5 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) any/c (cons/c (vectorof automaton?) (vectorof automaton?)))
+("(interface for death-birth)" "/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "main.rkt:13:2")
+  127 ms
+  (->* ((cons/c (vectorof automaton?) (vectorof automaton?)) any/c) (#:random any/c) (cons/c (vectorof automaton?) (vectorof automaton?)))
+("(interface for population-payoffs)" "/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "main.rkt:12:2")
+  16.5 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) (listof (and/c real? nonnegative?)))
+("/users/ben_g/bnd-bench/fsm/cfg/automata.rkt" "/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "automata.rkt:137:9")
+  5.5 ms
+  (-> automaton? any)

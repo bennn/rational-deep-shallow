@@ -1,0 +1,21 @@
+cpu time: 525 real time: 525 gc time: 115
+Running time is 32.26% contracts
+356/1102 ms
+
+("(interface for read-bit)" "/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "huffman.rkt:29:3")
+  135.5 ms
+  (-> (or/c g135 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) exact-integer?)
+("(/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt typed-module13)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt:15:2")
+  107.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt:49:13")
+  95.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> (vectorof index?) any))
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (vectorof index?))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt:16:9")
+  12 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (sequence/c any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:189:2")
+  5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))

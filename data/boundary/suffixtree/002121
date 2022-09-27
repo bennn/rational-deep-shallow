@@ -1,0 +1,77 @@
+cpu time: 60584 real time: 60599 gc time: 576
+Running time is 42.73% contracts
+26121/61129 ms
+
+("(interface for label-element-equal?)" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "structs.rkt:9:2")
+  17890.5 ms
+  (-> Any Any boolean?)
+("(interface for node-children)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  3390 ms
+  (-> any/c (listof node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:13:12")
+  1229.5 ms
+  (-> node? any)
+("(interface for label-ref)" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "structs.rkt:11:2")
+  779.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for node-up-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  491.5 ms
+  (-> any/c label?)
+("(interface for label-element-equal?)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  456 ms
+  (-> Any Any boolean?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:93:9")
+  285 ms
+  (-> node? any/c (or/c #f node?))
+("(interface for node-suffix-link)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  271.5 ms
+  (-> any/c (or/c #f node?))
+("(interface for node-parent)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  249.5 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:204:9")
+  215 ms
+  (-> node? index? boolean?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:13:12")
+  207.5 ms
+  (-> node? any)
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) any)
+("(interface for label-ref)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  145.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt structs)" "(interface for make-node)" "typed-data.rkt:60:5")
+  125.5 ms
+  (-> any/c any/c any/c any/c node?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:161:9")
+  108.5 ms
+  (-> node? label? (-> any/c any/c) (-> any/c any/c any/c) (-> any/c any/c any/c any/c) (-> node? index? label? index? any/c) any/c)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:49:9")
+  66 ms
+  (-> node? boolean?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:126:9")
+  57 ms
+  (-> node? index? label? (values node? node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "structs.rkt:56:9")
+  53 ms
+  (-> node? label? node?)
+("(interface for sublabel)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  27 ms
+  (->* (any/c any/c) (any/c) label?)
+("(interface for make-node)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:19:5")
+  26.5 ms
+  (-> any/c any/c any/c any/c node?)
+("(interface for sublabel)" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "structs.rkt:12:2")
+  25.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:20:12")
+  5.5 ms
+  (-> suffix-tree? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> mutable-bound-id-set? mutable-bound-id-set?)
+("(interface for make-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "structs.rkt:8:2")
+  5 ms
+  (-> (or/c string? (vectorof (or/c symbol? char?))) label?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

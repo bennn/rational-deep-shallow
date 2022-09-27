@@ -1,0 +1,28 @@
+cpu time: 1775 real time: 1775 gc time: 121
+Running time is 4.25% contracts
+107/2507 ms
+
+("(interface for attach-edge-property)" "/users/ben_g/bnd-bench/mbta/cfg/t-graph.rkt" "t-graph.rkt:12:16")
+  59.5 ms
+  (->* (any/c) (#:for-each Any #:init any/c) (values (-> any/c any/c (set/c (or/c green E D C B red Mattapan Braintree orange blue))) any/c (-> any/c any/c any/c void?)))
+("(interface for graph?)" "/users/ben_g/bnd-bench/mbta/base/t-graph-types.rkt" "/users/ben_g/bnd-bench/mbta/base/t-graph-types.rkt:16:56")
+  15 ms
+  (or/c struct-predicate-procedure?/c (-> Any boolean?))
+("(/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/array-indexing.rkt typed-module17)" "no-negative-party" "(lib math/private/array/array-indexing.rkt):14:2")
+  5.5 ms
+  (-> (struct/c Settable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?)) (vectorof exact-integer?) any/c any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/matrix/matrix-basic.rkt" "no-negative-party" "(lib math/private/matrix/matrix-basic.rkt):124:9")
+  5.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):28:8")
+  5.5 ms
+  (case-> (-> vector? (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c)) (-> (or/c (vectorof index? #:immutable #f) (vectorof exact-integer?)) vector? (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/data/queue.rkt" "no-negative-party" "<collects>/data/queue.rkt:125:2")
+  5 ms
+  (-> queue? boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):150:9")
+  5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))

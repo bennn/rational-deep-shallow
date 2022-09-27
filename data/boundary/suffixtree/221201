@@ -1,0 +1,43 @@
+cpu time: 14708 real time: 14712 gc time: 175
+Running time is 24.59% contracts
+3764/15310 ms
+
+("(interface for node-find-child)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  1514.5 ms
+  (-> any/c Any (or/c #f node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/data.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  677.5 ms
+  (-> node? (or/c #f node?))
+  (-> node? label?)
+  (-> node? (or/c #f node?) void?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/data.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  664.5 ms
+  (-> node? (listof node?))
+  (-> node? label?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "label.rkt:116:9")
+  287 ms
+  (-> label? exact-integer? (or/c symbol? char?))
+("(interface for node-follow/k)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  237 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "label.rkt:107:9")
+  157 ms
+  (-> label? index?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:251:8")
+  85.5 ms
+  (-> label? label? boolean?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:107:9")
+  69 ms
+  (-> label? index?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "label.rkt:124:8")
+  39.5 ms
+  (->* (label? index?) (index?) label?)
+("(interface for node-up-splice-leaf!)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  16.5 ms
+  (-> any/c any/c any/c (values node? node?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:66:9")
+  11 ms
+  (-> (vectorof (or/c symbol? char?)) label?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/lcs.rkt" "label.rkt:116:9")
+  5 ms
+  (-> label? exact-integer? (or/c symbol? char?))

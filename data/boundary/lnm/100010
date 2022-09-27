@@ -1,0 +1,34 @@
+cpu time: 656 real time: 656 gc time: 137
+Running time is 12.42% contracts
+317/2553 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  209 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  59 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/db-lib/db/base.rkt" "no-negative-party" "db-lib/db/base.rkt:293:2")
+  7 ms
+  (->* () (#:debug? any/c #:password (or/c string? #f) #:port exact-positive-integer? #:server string? #:ssl (or/c (quote yes) (quote no)) #:ssl-context (or/c (quote auto) (quote secure)) #:user string?) data-source?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/array-print.rkt" "no-negative-party" "(lib math/private/array/array-print.rkt):21:9")
+  6.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) symbol? output-port? (or/c #t #f 1 0) Any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):33:9")
+  6.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> Any exact-integer?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):13:13")
+  6 ms
+  (-> (struct/c Mutable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?) vector?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):123:9")
+  6 ms
+  (-> (or/c (vectorof exact-integer?) (vectorof index? #:immutable #f)) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:95:19")
+  6 ms
+  dc-path%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/utils.rkt" "no-negative-party" "pict-lib/pict/private/utils.rkt:205:4")
+  5.5 ms
+  (->* (positive? positive?) (#:boldness (real-in 0 1) #:border-color (or/c string? (is-a?/c color%)) #:border-width (or/c #f (real-in 0 255)) #:color (or/c #f string? (is-a?/c color%))) pict?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:89:19")
+  5.5 ms
+  pdf-dc%/c

@@ -1,0 +1,24 @@
+cpu time: 2665 real time: 2665 gc time: 113
+Running time is 46.81% contracts
+1510/3226 ms
+
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  567.5 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) State?)
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  488.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
+  437.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? (set/c Closure?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  6 ms
+  (-> bound-id-table? (listof identifier?))
+("/users/ben_g/bnd-bench/kcfa/cfg/structs.rkt" "no-negative-party" "structs.rkt:18:8")
+  5.5 ms
+  (or/c struct-predicate-procedure? struct-type-property-predicate-procedure? (-> any/c any))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:49:9")
+  5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))

@@ -1,0 +1,16 @@
+cpu time: 528 real time: 528 gc time: 105
+Running time is 18.26% contracts
+202/1106 ms
+
+("(interface for read-bit)" "/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "huffman.rkt:29:3")
+  125 ms
+  (-> (or/c g61 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) exact-integer?)
+("(interface for read-signed-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:36:3")
+  29.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) g378) any/c exact-integer?)
+("(interface for make-bit-port)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:35:3")
+  25.5 ms
+  (-> any/c (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t)))
+("(interface for write-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:37:3")
+  22 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) g378) any/c any/c void?)

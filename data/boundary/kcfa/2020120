@@ -1,0 +1,19 @@
+cpu time: 1188 real time: 1188 gc time: 115
+Running time is 2.31% contracts
+40/1734 ms
+
+("(interface for Closure3)" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  17 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) Closure?)
+("(/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:41:5")
+  6 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("(interface for Closure-benv)" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  6 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
+  5.5 ms
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:242:2")
+  5.5 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) any))) (_r (listof any/c)))

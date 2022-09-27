@@ -1,0 +1,46 @@
+cpu time: 41835 real time: 41844 gc time: 251
+Running time is 78.73% contracts
+33380/42395 ms
+
+("(interface for label-datum)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  29195.5 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(interface for make-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt:17:5")
+  1872.5 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "label.rkt:116:9")
+  776 ms
+  (-> label? exact-integer? any)
+("(interface for node-find-child)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  663 ms
+  (-> any/c Any (or/c #f node?))
+("(interface for node-children)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  284 ms
+  (-> any/c (listof node?))
+("(interface for node-suffix-link)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  162.5 ms
+  (-> any/c (or/c #f node?))
+("(interface for node-follow/k)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  151 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "label.rkt:236:9")
+  138 ms
+  (-> label? exact-integer? any)
+("(interface for node-parent)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  69.5 ms
+  (-> any/c (or/c #f node?))
+("(interface for node-up-label)" "/users/ben_g/bnd-bench/suffixtree/cfg/typed-data.rkt" "typed-data.rkt")
+  26.5 ms
+  (-> any/c label?)
+("/users/ben_g/bnd-bench/suffixtree/cfg/label.rkt" "/users/ben_g/bnd-bench/suffixtree/cfg/structs.rkt" "label.rkt:124:8")
+  20.5 ms
+  (->* (label? index?) (index?) any)
+("(interface for node-up-splice-leaf!)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  10.5 ms
+  (-> any/c any/c any/c (values node? node?))
+("(interface for node-add-leaf!)" "/users/ben_g/bnd-bench/suffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:29:3")
+  5 ms
+  (-> any/c any/c node?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:62:4")
+  5 ms
+  (-> module-identifier-mapping? (-> identifier? any/c any) void?)

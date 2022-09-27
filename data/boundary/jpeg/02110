@@ -1,0 +1,19 @@
+cpu time: 537 real time: 537 gc time: 121
+Running time is 17.18% contracts
+194/1129 ms
+
+("(interface for read-bit)" "/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "huffman.rkt:29:3")
+  94 ms
+  (-> (or/c g61 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) exact-integer?)
+("(interface for read-signed-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:36:3")
+  50 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) g378) any/c exact-integer?)
+("(interface for write-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:37:3")
+  39.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) g378) any/c any/c void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> free-id-set? (listof any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5 ms
+  (syntax-class/c ((-> any/c any/c) (or/c string? symbol? #f)) ())

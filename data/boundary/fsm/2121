@@ -1,0 +1,28 @@
+cpu time: 3016 real time: 3016 gc time: 156
+Running time is 10.04% contracts
+358/3565 ms
+
+("/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "population.rkt:76:9")
+  128.5 ms
+  (->* ((cons/c (vectorof automaton?) (vectorof automaton?)) natural?) (#:random (or/c real? #f)) (cons/c (vectorof automaton?) (vectorof automaton?)))
+("/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "population.rkt:48:9")
+  96 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) (listof (and/c real? nonnegative?)))
+("(/users/ben_g/bnd-bench/fsm/cfg/automata-adapted.rkt population)" "(interface for automaton-payoff)" "automata-adapted.rkt:42:4")
+  51.5 ms
+  (-> any/c (and/c real? nonnegative?))
+("/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "population.rkt:54:9")
+  30 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) natural? (cons/c (vectorof automaton?) (vectorof automaton?)))
+("/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "/users/ben_g/bnd-bench/fsm/cfg/utilities.rkt" "utilities.rkt:33:9")
+  24 ms
+  (->* ((listof (and/c real? nonnegative?)) natural?) (#:random (or/c real? #f)) any)
+("(/users/ben_g/bnd-bench/fsm/cfg/automata-adapted.rkt population)" "/users/ben_g/bnd-bench/fsm/cfg/automata.rkt" "automata.rkt:53:8")
+  16.5 ms
+  (-> automaton? (and/c real? nonnegative?))
+("(/users/ben_g/bnd-bench/fsm/cfg/automata-adapted.rkt population)" "/users/ben_g/bnd-bench/fsm/cfg/automata.rkt" "automata.rkt:144:9")
+  6 ms
+  (-> automaton? automaton? natural? (values automaton? automaton?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

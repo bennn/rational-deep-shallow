@@ -1,0 +1,25 @@
+cpu time: 7311 real time: 7312 gc time: 143
+Running time is 88.12% contracts
+6967/7906 ms
+
+("/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "huffman.rkt:86:9")
+  5732 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t)) (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)) byte?)
+("/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "huffman.rkt:37:9")
+  974.5 ms
+  (-> bytes? bytes? (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)))
+("/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "huffman.rkt:162:9")
+  116.5 ms
+  (-> (vectorof (or/c natural? #f)) (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)))
+("/users/ben_g/bnd-bench/jpeg/cfg/bit-ports.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "bit-ports.rkt:91:9")
+  87.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) exact-integer? natural? void?)
+("/users/ben_g/bnd-bench/jpeg/cfg/bit-ports.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "bit-ports.rkt:36:9")
+  29 ms
+  (-> (or/c input-port? output-port?) (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)))
+("/users/ben_g/bnd-bench/jpeg/cfg/bit-ports.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "bit-ports.rkt:78:9")
+  21 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) natural? exact-integer?)
+("/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "no-negative-party" "jfif.rkt:555:9")
+  6 ms
+  (->* ((or/c bytes? input-port? string?)) (#:with-body? boolean? #:with-misc-sections? boolean?) any)

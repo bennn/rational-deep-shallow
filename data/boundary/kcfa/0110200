@@ -1,0 +1,32 @@
+cpu time: 4034 real time: 4034 gc time: 128
+Running time is 72.36% contracts
+3314/4580 ms
+
+("/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/ui.rkt" "denotable.rkt:71:9")
+  1546.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  606 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  444 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
+  382 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
+("/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/ui.rkt" "denotable.rkt:36:8")
+  302 ms
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  11.5 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  11 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:49:9")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:221:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r dict?))

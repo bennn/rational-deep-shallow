@@ -1,0 +1,37 @@
+cpu time: 615 real time: 615 gc time: 137
+Running time is 16.32% contracts
+406/2484 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  259.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  89.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  7 ms
+  (->*m (string?) ((or/c (is-a?/c font%) #f) any/c natural?) (values (and/c real? (not/c negative?)) (and/c real? (not/c negative?)) (and/c real? (not/c negative?)) (and/c real? (not/c negative?))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):49:13")
+  7 ms
+  (-> (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("(interface for in-reach)" "/users/ben_g/bnd-bench/lnm/cfg/lnm-plot.rkt" "lnm-plot.rkt:42:3")
+  6.5 ms
+  (-> any/c any/c (listof string?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/parameters.rkt" "no-negative-party" "(lib plot/private/common/parameters.rkt):336:10")
+  6.5 ms
+  (parameter/c (or/c (-> any/c (listof (and/c real? nonnegative?))) (listof (and/c real? nonnegative?))) (or/c (-> (listof real?) any) (listof any/c)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "<pkgs>/pict-lib/pict/main.rkt:206:3")
+  6.5 ms
+  (->i ((w (and/c rational? (not/c negative?))) (h (and/c rational? (not/c negative?)))) ((corner-radius rational?) #:angle (angle rational?) #:draw-border? (draw-border? any/c) #:color (color (or/c #f string? (is-a?/c color%))) #:border-color (border-color (or/c #f string? (is-a?/c color%))) #:border-width (border-width (or/c #f (and/c rational? (not/c negative?))))) #:pre (draw-border? border-color border-width) (if (not draw-border?) (and (or (unsupplied-arg? border-color) (not border-color)) (or (unsupplied-arg? border-width) (not border-width))) #t) (_ pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/utils.rkt" "no-negative-party" "<pkgs>/pict-lib/pict/private/utils.rkt:95:4")
+  6 ms
+  (->* (number? pict-convertible? pict-path? (-> pict? pict-path? (values number? number?)) pict-path? (-> pict? pict-path? (values number? number?))) ((or/c #f number?) (or/c #f string?) boolean? boolean? #:hide-arrowhead? any/c #:style (or/c #f symbol?)) pict?)
+("(interface for -inf.bf)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/bigfloat/bigfloat-constants.rkt" "<pkgs>/math-lib/math/private/bigfloat/mpfr.rkt:989:20")
+  6 ms
+  (and/c (promise/c ^TYPE?) (not/c promise/name?))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  5.5 ms
+  (->*m ((is-a?/c dc-path%)) (real? real? (or/c (quote odd-even) (quote winding))) void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:93:19")
+  5.5 ms
+  radial-gradient%/c

@@ -1,0 +1,28 @@
+cpu time: 2694 real time: 2694 gc time: 120
+Running time is 49.72% contracts
+1611/3240 ms
+
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  615.5 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  521.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
+  434 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
+("(/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:39:5")
+  17.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
+  11 ms
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+("(/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:41:5")
+  6.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:237:2")
+  5 ms
+  (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d)))

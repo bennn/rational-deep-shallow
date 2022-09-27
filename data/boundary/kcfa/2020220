@@ -1,0 +1,16 @@
+cpu time: 1195 real time: 1196 gc time: 113
+Running time is 1.56% contracts
+27/1728 ms
+
+("(interface for Closure-benv)" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  10.5 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)))
+("(/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:39:5")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
+  5.5 ms
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+("(/users/ben_g/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:41:5")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))

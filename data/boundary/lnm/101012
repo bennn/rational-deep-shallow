@@ -1,0 +1,28 @@
+cpu time: 699 real time: 699 gc time: 137
+Running time is 12.02% contracts
+312/2592 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  208 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  64.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:89:19")
+  8.5 ms
+  pdf-dc%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):41:9")
+  6.5 ms
+  (-> (struct/c Mutable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?) vector?) (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):175:8")
+  6.5 ms
+  (-> (struct/c Settable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?)) (-> (vectorof index?) any/c any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/db-lib/db/main.rkt" "no-negative-party" "db-lib/db/main.rkt:31:2")
+  6.5 ms
+  (->* (#:database string? #:user string?) (#:allow-cleartext-password? boolean? #:debug? any/c #:notice-handler (or/c (quote output) (quote error) output-port? procedure?) #:notification-handler (or/c (quote output) (quote error) output-port? procedure?) #:password (or/c string? (list/c (quote hash) string?) #f) #:port (or/c exact-positive-integer? #f) #:server (or/c string? #f) #:socket (or/c path-string? (quote guess) #f) #:ssl (or/c (quote yes) (quote no) (quote optional)) #:ssl-context ssl-client-context?) connection?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/utils.rkt" "no-negative-party" "pict-lib/pict/private/utils.rkt:68:4")
+  6 ms
+  (case-> (-> pict-convertible? number? number? pict?) (-> pict-convertible? number? pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "no-negative-party" "(lib math/private/statistics/expected-values.rkt):113:9")
+  5 ms
+  (->* (real? (or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?))) #:bias (or/c real? #t #f)) any)

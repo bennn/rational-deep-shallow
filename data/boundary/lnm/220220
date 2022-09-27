@@ -1,0 +1,19 @@
+cpu time: 610 real time: 610 gc time: 133
+Running time is 13.06% contracts
+334/2553 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  289.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  24 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):49:13")
+  8 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> (vectorof index?) any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/parameters.rkt" "no-negative-party" "(lib plot/private/common/parameters.rkt):160:10")
+  6 ms
+  (parameter/c (-> any/c any/c any/c invertible-function?) (-> real? real? invertible-function? any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/db-lib/db/base.rkt" "no-negative-party" "db-lib/db/base.rkt:282:2")
+  6 ms
+  (->* () (#:database (or/c string? #f) #:debug? any/c #:notice-handler (or/c (quote output) (quote error)) #:password (or/c string? #f) #:port exact-positive-integer? #:server string? #:socket (or/c string? (quote guess)) #:user string?) data-source?)

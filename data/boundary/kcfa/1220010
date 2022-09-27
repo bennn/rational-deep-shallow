@@ -1,0 +1,20 @@
+cpu time: 2608 real time: 2609 gc time: 119
+Running time is 46.24% contracts
+1468/3174 ms
+
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  510 ms
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  (-> (or/c exp? Call?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) State?)
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  484.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
+  452 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? (set/c Closure?))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  11 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? Binding?)
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  10 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) Closure?)

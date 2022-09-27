@@ -1,0 +1,36 @@
+cpu time: 7695 real time: 7696 gc time: 142
+Running time is 86.44% contracts
+7174/8299 ms
+
+("(interface for read-huffman-coded-value)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:42:3")
+  5450.5 ms
+  (-> (or/c g697 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) (or/c (vector/c any/c (vectorof (or/c natural? #f)) any/c (vectorof (or/c natural? #f)) any/c (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)) byte?)
+("(interface for make-huffman-table)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:41:3")
+  1229.5 ms
+  (-> any/c any/c (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt:49:13")
+  134.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> (vectorof index?) any))
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (vectorof index?))
+("(interface for compute-huffman-table-for-freqs)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:43:3")
+  126 ms
+  (-> (vectorof (or/c natural? #f)) (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)))
+("(interface for write-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:37:3")
+  86.5 ms
+  (-> (or/c g697 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) any/c any/c void?)
+("(interface for read-signed-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:36:3")
+  63.5 ms
+  (-> (or/c g697 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) any/c exact-integer?)
+("(/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt typed-module13)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt:15:2")
+  36 ms
+  (-> (vectorof exact-integer?) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("(interface for make-bit-port)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:35:3")
+  26 ms
+  (-> any/c (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt:16:9")
+  16 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (sequence/c any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:177:2")
+  5 ms
+  (-> dict? boolean?)

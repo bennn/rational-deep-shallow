@@ -1,0 +1,22 @@
+cpu time: 564 real time: 564 gc time: 137
+Running time is 13.37% contracts
+326/2438 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  225 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/db-lib/db/base.rkt" "no-negative-party" "<pkgs>/db-lib/db/base.rkt:268:2")
+  74 ms
+  (->* () (#:allow-cleartext-password? boolean? #:database string? #:debug? any/c #:notice-handler (or/c (quote output) (quote error)) #:notification-handler (or/c (quote output) (quote error)) #:password (or/c string? #f) #:port exact-positive-integer? #:server string? #:socket (or/c string? (quote guess)) #:ssl (or/c (quote yes) (quote optional) (quote no)) #:user string?) data-source?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):113:9")
+  9 ms
+  (-> (or/c (vectorof exact-integer?) (vectorof index? #:immutable #f)) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/bnd-bench/lnm/cfg/lnm-plot.rkt" "/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "summary.rkt:173:9")
+  6.5 ms
+  (-> summary? string? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:100:19")
+  6.5 ms
+  (->* () (#:color (or/c string? (is-a?/c color%)) #:gradient (or/c #f (is-a?/c linear-gradient%) (is-a?/c radial-gradient%)) #:immutable? any/c #:stipple (or/c #f (is-a?/c bitmap%)) #:style (or/c (quote transparent) (quote solid) (quote opaque) (quote xor) (quote hilite) (quote panel) (quote bdiagonal-hatch) (quote crossdiag-hatch) (quote fdiagonal-hatch) (quote cross-hatch) (quote horizontal-hatch) (quote vertical-hatch)) #:transformation (or/c #f (vector/c (vector/c real? real? real? real? real? real?) real? real? real? real? real?))) (is-a?/c brush%))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):13:13")
+  5 ms
+  (-> (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?) vector? (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c))

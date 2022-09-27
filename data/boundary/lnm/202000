@@ -1,0 +1,28 @@
+cpu time: 646 real time: 646 gc time: 131
+Running time is 13.07% contracts
+329/2514 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  265 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  28 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/draw-attribs.rkt" "no-negative-party" "(lib plot/private/common/draw-attribs.rkt):210:9")
+  6 ms
+  (->* ((or/c string? symbol? (list/c real? real? real?) (recursive-contract g377 #:impersonator)) (or/c string? symbol? (list/c real? real? real?) (recursive-contract g377 #:impersonator)) natural?) (#:end? boolean? #:start? boolean?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/plotmetrics.rkt" "no-negative-party" "(lib plot/private/common/plotmetrics.rkt):56:9")
+  6 ms
+  (-> g185 g183)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/parameters.rkt" "no-negative-party" "(lib plot/private/common/parameters.rkt):327:10")
+  6 ms
+  (parameter/c (or/c (-> any/c (listof (and/c real? nonnegative?))) (listof (and/c real? nonnegative?))) (or/c (-> (listof ivl?) any) (listof any/c)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/db-lib/db/main.rkt" "no-negative-party" "db-lib/db/main.rkt:31:2")
+  6 ms
+  (->* (#:database string? #:user string?) (#:allow-cleartext-password? boolean? #:debug? any/c #:notice-handler (or/c (quote output) (quote error) output-port? procedure?) #:notification-handler (or/c (quote output) (quote error) output-port? procedure?) #:password (or/c string? (list/c (quote hash) string?) #f) #:port (or/c exact-positive-integer? #f) #:server (or/c string? #f) #:socket (or/c path-string? (quote guess) #f) #:ssl (or/c (quote yes) (quote no) (quote optional)) #:ssl-context ssl-client-context?) connection?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:89:19")
+  6 ms
+  pdf-dc%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/plot3d/surface.rkt" "no-negative-party" "(lib plot/private/plot3d/surface.rkt):47:9")
+  5.5 ms
+  (->* ((-> any/c any/c real?)) ((or/c real? #f) (or/c real? #f) (or/c real? #f) (or/c real? #f) #:alpha (and/c real? nonnegative?) #:color (or/c string? symbol? (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (recursive-contract g131 #:impersonator) (list/c real? real? real?)) #:label (or/c string? #f pict?) #:line-color (or/c string? symbol? (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (recursive-contract g131 #:impersonator) (list/c real? real? real?)) #:line-style (or/c (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (quote transparent) (quote solid) (quote dot) (quote long-dash) (quote short-dash) (quote dot-dash)) #:line-width (and/c real? nonnegative?) #:samples (and/c exact-integer? positive?) #:style (or/c (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (quote transparent) (quote solid) (quote bdiagonal-hatch) (quote fdiagonal-hatch) (quote crossdiag-hatch) (quote horizontal-hatch) (quote vertical-hatch) (quote cross-hatch)) #:z-max (or/c real? #f) #:z-min (or/c real? #f)) any)

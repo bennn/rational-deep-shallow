@@ -1,0 +1,28 @@
+cpu time: 7647 real time: 7649 gc time: 146
+Running time is 86.61% contracts
+7141/8245 ms
+
+("/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "huffman.rkt:86:9")
+  5897.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)) byte?)
+("/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "huffman.rkt:37:9")
+  1030.5 ms
+  (-> bytes? bytes? (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)))
+("(interface for write-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:37:3")
+  72.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) g378) any/c any/c void?)
+("(interface for read-bit)" "/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "huffman.rkt:29:3")
+  52.5 ms
+  (-> (or/c g135 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) exact-integer?)
+("/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "huffman.rkt:162:9")
+  52 ms
+  (-> (vectorof (or/c natural? #f)) (or/c (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #t) (vector/c bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) bytes? (vectorof (or/c natural? #f)) (vectorof exact-integer?) #:immutable #f)))
+("(interface for make-bit-port)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:35:3")
+  19.5 ms
+  (-> any/c (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t)))
+("(interface for read-signed-bits)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "jfif.rkt:36:3")
+  11.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f) g378) any/c exact-integer?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:279:2")
+  5 ms
+  (->* () #:rest (listof (or/c (quote dict-ref) (quote dict-set!) (quote dict-set) (quote dict-remove!) (quote dict-remove) (quote dict-count) (quote dict-iterate-first) (quote dict-iterate-next) (quote dict-iterate-key) (quote dict-iterate-value) (quote dict-has-key?) (quote dict-ref!) (quote dict-set*!) (quote dict-set*) (quote dict-update!) (quote dict-update) (quote dict-map) (quote dict-for-each) (quote dict-keys) (quote dict-values) (quote dict->list) (quote dict-copy) (quote dict-empty?) (quote dict-clear) (quote dict-clear!))) flat-contract?)

@@ -1,0 +1,16 @@
+cpu time: 204158 real time: 204212 gc time: 9208
+Running time is 99.78% contracts
+204198/204657 ms
+
+("/users/ben_g/bnd-bench/forth/cfg/command.rkt" "/users/ben_g/bnd-bench/forth/cfg/eval.rkt" "command.rkt:32:8")
+  122373.5 ms
+  (recursive-contract g298 #:impersonator)
+("/users/ben_g/bnd-bench/forth/cfg/command.rkt" "/users/ben_g/bnd-bench/forth/cfg/eval.rkt" "command.rkt:91:8")
+  81768.5 ms
+  (listof (recursive-contract (object/c-opaque (field (descr #<procedure:string?>) (exec (-> (recursive-contract g285 #:impersonator) (listof exact-integer?) (and/c any/c Any) (recursive-contract g280 #:impersonator))) (id #<procedure:symbol?>))) #:impersonator))
+("/users/ben_g/bnd-bench/forth/cfg/eval.rkt" "/users/ben_g/bnd-bench/forth/cfg/main.rkt" "eval.rkt:54:9")
+  50 ms
+  (-> (listof string?) (values (or/c #f (recursive-contract g77 #:impersonator)) any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  6 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

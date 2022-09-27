@@ -1,0 +1,28 @@
+cpu time: 681 real time: 681 gc time: 159
+Running time is 13.66% contracts
+356/2603 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  214 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  105.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("(interface for in-reach)" "/users/ben_g/bnd-bench/lnm/cfg/lnm-plot.rkt" "lnm-plot.rkt:33:3")
+  6.5 ms
+  (-> any/c any/c (listof string?))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  6.5 ms
+  (->m (and/c real? (not/c negative?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d-untyped.rkt" "no-negative-party" "<pkgs>/plot-lib/plot/private/no-gui/plot2d-untyped.rkt:15:3")
+  6 ms
+  (->* ((or/c (or/c renderer2d? nonrenderer?) (listof (recursive-contract (treeof elem-contract) #:flat))) (is-a?/c dc<%>) real? real? (>=/c 0) (>=/c 0)) (#:aspect-ratio (or/c (and/c rational? positive?) #f) #:legend-anchor (or/c (or/c (quote top-left) (quote top) (quote top-right) (quote left) (quote center) (quote right) (quote bottom-left) (quote bottom) (quote bottom-right)) (or/c (quote no-legend) (quote outside-global-top) (quote outside-top-left) (quote outside-top) (quote outside-top-right) (quote outside-left-top) (quote outside-left) (quote outside-left-bottom) (quote outside-right-top) (quote outside-right) (quote outside-right-bottom) (quote outside-bottom-left) (quote outside-bottom) (quote outside-bottom-right))) #:title (or/c string? pict? #f) #:x-label (or/c string? pict? #f) #:x-max (or/c real? #f) #:x-min (or/c real? #f) #:y-label (or/c string? pict? #f) #:y-max (or/c real? #f) #:y-min (or/c real? #f)) (object/c (get-plot-bounds (->m (vectorof (vector/c real? real?)))) (plot->dc (->m (vectorof real?) (vectorof real?))) (dc->plot (->m (vectorof real?) (vectorof real?))) (plane-vector (->m (vectorof real?))) (get-plot-metrics-functions (->m (list/c (-> (vectorof (vector/c real? real?))) (-> (vectorof real?) (vectorof real?)) (-> (vectorof real?) (vectorof real?)) (-> (vectorof real?)))))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):49:13")
+  6 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> (vectorof index?) any))
+("(interface for stream-filter)" "/users/ben_g/bnd-bench/lnm/cfg/lnm-plot.rkt" "lnm-plot.rkt:30:3")
+  5.5 ms
+  (-> (-> string? any) (sequence/c any/c) (sequence/c string?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:100:19")
+  5.5 ms
+  (->* () (#:color (or/c string? (is-a?/c color%)) #:gradient (or/c #f (is-a?/c linear-gradient%) (is-a?/c radial-gradient%)) #:immutable? any/c #:stipple (or/c #f (is-a?/c bitmap%)) #:style (or/c (quote transparent) (quote solid) (quote opaque) (quote xor) (quote hilite) (quote panel) (quote bdiagonal-hatch) (quote crossdiag-hatch) (quote fdiagonal-hatch) (quote cross-hatch) (quote horizontal-hatch) (quote vertical-hatch)) #:transformation (or/c #f (vector/c (vector/c real? real? real? real? real? real?) real? real? real? real? real?))) (is-a?/c brush%))

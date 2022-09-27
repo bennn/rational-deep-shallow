@@ -1,0 +1,16 @@
+cpu time: 752 real time: 752 gc time: 125
+Running time is 16.72% contracts
+212/1265 ms
+
+("(interface for death-birth)" "/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "main.rkt:13:2")
+  105.5 ms
+  (->* ((cons/c (vectorof automaton?) (vectorof automaton?)) any/c) (#:random any/c) (cons/c (vectorof automaton?) (vectorof automaton?)))
+("(interface for match-up*)" "/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "main.rkt:15:2")
+  65.5 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) any/c (cons/c (vectorof automaton?) (vectorof automaton?)))
+("(interface for population-payoffs)" "/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "main.rkt:12:2")
+  35 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) (listof (and/c real? nonnegative?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/format.rkt" "no-negative-party" "<collects>/racket/format.rkt:57:2")
+  5.5 ms
+  (->* () (#:align (or/c (quote left) (quote right) (quote center)) #:left-pad-string non-empty-string? #:limit-marker string? #:limit-prefix? boolean? #:max-width (or/c natural? +inf.0) #:min-width natural? #:pad-string non-empty-string? #:right-pad-string non-empty-string? #:separator string? #:width (or/c natural? #f)) #:rest (listof any/c) string?)

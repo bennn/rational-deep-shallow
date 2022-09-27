@@ -1,0 +1,25 @@
+cpu time: 638 real time: 638 gc time: 139
+Running time is 12.61% contracts
+315/2499 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  152.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  104 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  30.5 ms
+  (->*m ((or/c (listof (is-a?/c point%)) (listof (cons/c real? real?)))) (real? real?) void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/plot2d/line.rkt" "no-negative-party" "(lib plot/private/plot2d/line.rkt):346:9")
+  9 ms
+  (->* ((or/c natural? (sequence/c real?))) ((and/c real? nonnegative?) (or/c #f (or/c natural? (sequence/c real?))) #:alpha (and/c real? nonnegative?) #:color (or/c string? symbol? (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g430 1 0 (recursive-contract g458 #:impersonator) (list/c real? real? real?)) #:label (or/c string? #f pict?) #:samples (and/c exact-integer? positive?) #:style (or/c (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g430 1 0 (quote transparent) (quote solid) (quote dot) (quote long-dash) (quote short-dash) (quote dot-dash)) #:width (and/c real? nonnegative?) #:x-max (or/c real? #f) #:x-min (or/c real? #f) #:y-max (or/c real? #f) #:y-min (or/c real? #f)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:95:19")
+  6.5 ms
+  dc-path%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:97:19")
+  6.5 ms
+  bitmap%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "pict-lib/pict/main.rkt:135:3")
+  6 ms
+  (->* () #:rest (or/c (cons/c real? (listof pict-convertible?)) (listof pict-convertible?)) pict-convertible?)

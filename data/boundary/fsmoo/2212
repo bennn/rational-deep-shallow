@@ -1,0 +1,13 @@
+cpu time: 273690 real time: 273728 gc time: 15135
+Running time is 97.18% contracts
+266499/274236 ms
+
+("/users/ben_g/bnd-bench/fsmoo/cfg/automata.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/population.rkt" "automata.rkt:47:9")
+  266486.5 ms
+  (-> natural? (recursive-contract (recursive-contract g326 #:impersonator) #:impersonator))
+("/users/ben_g/bnd-bench/fsmoo/cfg/population.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/utilities.rkt" "utilities.rkt:29:9")
+  6 ms
+  (->* ((listof (and/c real? nonnegative?)) natural?) (#:random (or/c real? #f)) (listof natural?))
+("/users/ben_g/bnd-bench/fsmoo/cfg/main.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/population.rkt" "population.rkt:59:9")
+  6 ms
+  (-> natural? (object/c-opaque (death-birth (->* (any/c natural?) (#:random (or/c (and/c real? nonnegative?) #f)) void?)) (match-up* (-> any/c natural? void?)) (payoffs (-> any/c (listof (and/c real? nonnegative?)))) (field (a* (vectorof (recursive-contract (object/c (clone (-> any/c (recursive-contract g76 #:impersonator))) (equal (-> any/c (recursive-contract g77 #:impersonator) boolean?)) (jump (-> any/c natural? (and/c real? nonnegative?) void?)) (match-pair (-> any/c (recursive-contract g77 #:impersonator) natural? (values (recursive-contract g76 #:impersonator) (recursive-contract g76 #:impersonator)))) (pay (-> any/c (and/c real? nonnegative?))) (reset (-> any/c (recursive-contract g76 #:impersonator))) (field (current natural?) (original natural?) (payoff (and/c real? nonnegative?)) (table (vectorof (vectorof natural?))))) #:impersonator))) (b* (vectorof (recursive-contract (object/c (clone (-> any/c (recursive-contract g76 #:impersonator))) (equal (-> any/c (recursive-contract g77 #:impersonator) boolean?)) (jump (-> any/c natural? (and/c real? nonnegative?) void?)) (match-pair (-> any/c (recursive-contract g77 #:impersonator) natural? (values (recursive-contract g76 #:impersonator) (recursive-contract g76 #:impersonator)))) (pay (-> any/c (and/c real? nonnegative?))) (reset (-> any/c (recursive-contract g76 #:impersonator))) (field (current natural?) (original natural?) (payoff (and/c real? nonnegative?)) (table (vectorof (vectorof natural?))))) #:impersonator))))))

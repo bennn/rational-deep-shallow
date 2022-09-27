@@ -1,0 +1,24 @@
+cpu time: 2648 real time: 2648 gc time: 117
+Running time is 48.44% contracts
+1555/3209 ms
+
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  589 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  533.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
+  410 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  11.5 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+("/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "no-negative-party" "benv.rkt:43:8")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5 ms
+  (-> mutable-bound-id-set? mutable-bound-id-set?)

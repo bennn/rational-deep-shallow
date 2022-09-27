@@ -1,0 +1,19 @@
+cpu time: 786 real time: 786 gc time: 125
+Running time is 16.43% contracts
+213/1293 ms
+
+("/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "population.rkt:76:9")
+  112 ms
+  (->* ((cons/c (vectorof automaton?) (vectorof automaton?)) natural?) (#:random (or/c real? #f)) (cons/c (vectorof automaton?) (vectorof automaton?)))
+("/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "population.rkt:54:9")
+  67.5 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) natural? (cons/c (vectorof automaton?) (vectorof automaton?)))
+("/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "/users/ben_g/bnd-bench/fsm/cfg/utilities.rkt" "utilities.rkt:33:9")
+  14 ms
+  (->* ((listof (and/c real? nonnegative?)) natural?) (#:random (or/c real? #f)) (listof natural?))
+("(/users/ben_g/bnd-bench/fsm/cfg/automata-adapted.rkt population)" "(interface for automaton-payoff)" "automata-adapted.rkt:42:4")
+  11.5 ms
+  (-> any/c (and/c real? nonnegative?))
+("/users/ben_g/bnd-bench/fsm/cfg/main.rkt" "/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "population.rkt:48:9")
+  7.5 ms
+  (-> (cons/c (vectorof automaton?) (vectorof automaton?)) any)

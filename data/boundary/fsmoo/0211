@@ -1,0 +1,16 @@
+cpu time: 181119 real time: 181177 gc time: 13185
+Running time is 97.66% contracts
+177427/181674 ms
+
+("(/users/ben_g/bnd-bench/fsmoo/cfg/automata-adapted.rkt population)" "(interface for make-random-automaton)" "automata-adapted.rkt:48:4")
+  177221.5 ms
+  (-> any/c (recursive-contract (recursive-contract g24 #:impersonator) #:impersonator))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  180.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))
+("/users/ben_g/bnd-bench/fsmoo/cfg/main.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/utilities.rkt" "utilities.rkt:22:9")
+  19 ms
+  (-> (listof real?) real? any)
+("/users/ben_g/bnd-bench/fsmoo/cfg/main.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/population.rkt" "population.rkt:59:9")
+  6 ms
+  (-> natural? (object/c-opaque (death-birth (->* (any/c natural?) (#:random (or/c (and/c real? nonnegative?) #f)) void?)) (match-up* (-> any/c natural? void?)) (payoffs (-> any/c (listof (and/c real? nonnegative?)))) (field (a* (vectorof (recursive-contract (object/c (clone (-> any/c (recursive-contract g76 #:impersonator))) (equal (-> any/c (recursive-contract g77 #:impersonator) boolean?)) (jump (-> any/c natural? (and/c real? nonnegative?) void?)) (match-pair (-> any/c (recursive-contract g77 #:impersonator) natural? (values (recursive-contract g76 #:impersonator) (recursive-contract g76 #:impersonator)))) (pay (-> any/c (and/c real? nonnegative?))) (reset (-> any/c (recursive-contract g76 #:impersonator))) (field (current natural?) (original natural?) (payoff (and/c real? nonnegative?)) (table (vectorof (vectorof natural?))))) #:impersonator))) (b* (vectorof (recursive-contract (object/c (clone (-> any/c (recursive-contract g76 #:impersonator))) (equal (-> any/c (recursive-contract g77 #:impersonator) boolean?)) (jump (-> any/c natural? (and/c real? nonnegative?) void?)) (match-pair (-> any/c (recursive-contract g77 #:impersonator) natural? (values (recursive-contract g76 #:impersonator) (recursive-contract g76 #:impersonator)))) (pay (-> any/c (and/c real? nonnegative?))) (reset (-> any/c (recursive-contract g76 #:impersonator))) (field (current natural?) (original natural?) (payoff (and/c real? nonnegative?)) (table (vectorof (vectorof natural?))))) #:impersonator))))))

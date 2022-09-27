@@ -1,0 +1,28 @@
+cpu time: 1964 real time: 1964 gc time: 138
+Running time is 5.42% contracts
+147/2703 ms
+
+("/users/ben_g/bnd-bench/mbta/cfg/t-graph.rkt" "/users/ben_g/bnd-bench/mbta/cfg/t-view.rkt" "cfg/t-graph.rkt:61:9")
+  61 ms
+  (-> (object/c-opaque (find-path (-> any/c string? string? (listof (listof (list/c string? (set/c (or/c green E D C B red Mattapan Braintree orange blue))))))) (render (-> any/c (set/c string?) string?)) (station (-> any/c string? (or/c string? (listof string?)))) (station? (-> any/c string? boolean?)) (field (G #<procedure:graph?>) (bundles (listof (list/c string? (set/c (or/c green E D C B red Mattapan Braintree orange blue))))) (connection-on (-> string? string? (set/c (or/c green E D C B red Mattapan Braintree orange blue)))) (stations (listof string?)))))
+("(interface for attach-edge-property)" "/users/ben_g/bnd-bench/mbta/cfg/t-graph.rkt" "cfg/t-graph.rkt:12:16")
+  43 ms
+  (->* (any/c) (#:for-each Any #:init any/c) (values (-> any/c any/c (set/c (or/c green E D C B red Mattapan Braintree orange blue))) any/c (-> any/c any/c any/c void?)))
+("(interface for graph?)" "/users/ben_g/bnd-bench/mbta/base/t-graph-types.rkt" "base/t-graph-types.rkt:16:56")
+  16 ms
+  (or/c struct-predicate-procedure?/c (-> Any boolean?))
+("(/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/array-indexing.rkt typed-module17)" "no-negative-party" "(lib math/private/array/array-indexing.rkt):13:2")
+  5.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (vectorof exact-integer?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/matrix/matrix-basic.rkt" "no-negative-party" "(lib math/private/matrix/matrix-basic.rkt):124:9")
+  5.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):21:9")
+  5.5 ms
+  (-> (vectorof index?) vector? (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):49:13")
+  5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (vectorof index?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):33:9")
+  5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> Any exact-integer?) any)

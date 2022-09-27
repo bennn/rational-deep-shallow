@@ -1,0 +1,10 @@
+cpu time: 275020 real time: 275106 gc time: 14858
+Running time is 98.65% contracts
+271698/275406 ms
+
+("/users/ben_g/bnd-bench/fsmoo/cfg/automata.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/population.rkt" "automata.rkt:47:9")
+  271691.5 ms
+  (-> natural? (recursive-contract (recursive-contract g146 #:impersonator) #:impersonator))
+("(/users/ben_g/bnd-bench/fsmoo/cfg/population-adapted.rkt main)" "(interface for build-random-population)" "population-adapted.rkt:30:4")
+  6.5 ms
+  (-> any/c (object/c (death-birth (->* (any/c natural?) (#:random (or/c (and/c real? nonnegative?) #f)) void?)) (match-up* (-> any/c any/c void?)) (payoffs (-> any/c (listof (and/c real? nonnegative?)))) (field (a* (vectorof (recursive-contract (recursive-contract g41 #:impersonator) #:impersonator))) (b* (vectorof (recursive-contract (recursive-contract g41 #:impersonator) #:impersonator))))))

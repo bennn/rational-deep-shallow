@@ -1,0 +1,30 @@
+cpu time: 675 real time: 675 gc time: 208
+Running time is 25.62% contracts
+323/1259 ms
+
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt:49:13")
+  199.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> (vectorof index?) any))
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (vectorof index?))
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)
+("(/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt typed-module13)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt:15:2")
+  66 ms
+  (-> (vectorof exact-integer?) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt:16:9")
+  28 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (sequence/c any/c))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-mutable-array.rkt" "no-negative-party" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-mutable-array.rkt:48:9")
+  6 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt" "no-negative-party" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt:67:9")
+  6 ms
+  (->* ((struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c))) (exact-integer?) (sequence/c (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  6 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt" "no-negative-party" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt:33:9")
+  5.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> Any exact-integer?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> mutable-free-id-set? identifier? void?)

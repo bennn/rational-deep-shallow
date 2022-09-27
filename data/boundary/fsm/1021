@@ -1,0 +1,16 @@
+cpu time: 286 real time: 286 gc time: 26
+Running time is 7.4% contracts
+62/831 ms
+
+("(/users/ben_g/bnd-bench/fsm/cfg/automata-adapted.rkt population)" "(interface for automaton-payoff)" "automata-adapted.rkt:42:4")
+  33.5 ms
+  (-> any/c (and/c real? nonnegative?))
+("/users/ben_g/bnd-bench/fsm/cfg/population.rkt" "/users/ben_g/bnd-bench/fsm/cfg/utilities.rkt" "utilities.rkt:33:9")
+  13.5 ms
+  (->* ((listof (and/c real? nonnegative?)) natural?) (#:random (or/c real? #f)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:233:2")
+  7.5 ms
+  (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  7 ms
+  (->* () (dict? #:phase (or/c #f exact-integer?)) mutable-bound-id-table?)

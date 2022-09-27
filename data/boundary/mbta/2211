@@ -1,0 +1,22 @@
+cpu time: 1801 real time: 1801 gc time: 207
+Running time is 6.31% contracts
+165/2615 ms
+
+("(interface for attach-edge-property)" "/users/ben_g/bnd-bench/mbta/cfg/t-graph.rkt" "cfg/t-graph.rkt:12:16")
+  131.5 ms
+  (->* (any/c) (#:for-each Any #:init any/c) (values (-> any/c any/c (set/c (or/c green E D C B red Mattapan Braintree orange blue))) any/c (-> any/c any/c any/c void?)))
+("(interface for graph?)" "/users/ben_g/bnd-bench/mbta/base/t-graph-types.rkt" "base/t-graph-types.rkt:16:56")
+  11.5 ms
+  (or/c struct-predicate-procedure?/c (-> Any boolean?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-indexing.rkt" "no-negative-party" "(lib math/private/array/typed-array-indexing.rkt):227:9")
+  6 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (listof (or/c (and/c exact-integer? negative? (not/c fixnum?)) (and/c fixnum? negative?) Slice-Dots? Slice-New-Axis? (or/c natural? (sequence/c exact-integer?)) Slice?)) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("(interface for in-neighbors)" "/users/ben_g/bnd-bench/mbta/cfg/t-graph.rkt" "cfg/t-graph.rkt:11:16")
+  5.5 ms
+  (-> any/c any/c (sequence/c string?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):41:9")
+  5.5 ms
+  (-> (struct/c Mutable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?) vector?) (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/matrix/matrix-types.rkt" "no-negative-party" "(lib math/private/matrix/matrix-types.rkt):49:9")
+  5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)

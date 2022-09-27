@@ -1,0 +1,22 @@
+cpu time: 1711 real time: 1711 gc time: 120
+Running time is 2.33% contracts
+56/2405 ms
+
+("(interface for attach-edge-property)" "/users/ben_g/bnd-bench/mbta/cfg/t-graph.rkt" "cfg/t-graph.rkt:12:16")
+  22.5 ms
+  (->* (any/c) (#:for-each Any #:init any/c) (values (-> any/c any/c (set/c (or/c green E D C B red Mattapan Braintree orange blue))) any/c (-> any/c any/c any/c void?)))
+("(interface for graph?)" "/users/ben_g/bnd-bench/mbta/base/t-graph-types.rkt" "base/t-graph-types.rkt:16:56")
+  11 ms
+  (or/c struct-predicate-procedure?/c (-> Any boolean?))
+("(interface for in-neighbors)" "/users/ben_g/bnd-bench/mbta/cfg/t-graph.rkt" "cfg/t-graph.rkt:11:16")
+  6 ms
+  (-> any/c any/c (sequence/c string?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):70:9")
+  6 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/matrix/matrix-types.rkt" "no-negative-party" "(lib math/private/matrix/matrix-types.rkt):35:9")
+  5.5 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/matrix/matrix-basic.rkt" "no-negative-party" "(lib math/private/matrix/matrix-basic.rkt):136:8")
+  5 ms
+  (case-> (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any))) (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any/c (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any))))

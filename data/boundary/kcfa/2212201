@@ -1,0 +1,21 @@
+cpu time: 2598 real time: 2598 gc time: 119
+Running time is 48.93% contracts
+1539/3144 ms
+
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  563.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  530 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
+  435 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcollapse.rkt" "no-negative-party" "<collects>/syntax/modcollapse.rkt:33:2")
+  5 ms
+  (case-> (-> module-path-index? (or/c #f module-path?)) (-> (or/c symbol? module-path-index?) (or/c (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?)))))) path? symbol? (-> (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?)))))))) (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?))))))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:242:2")
+  5 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) any))) (_r (listof any/c)))

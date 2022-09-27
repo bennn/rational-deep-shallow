@@ -1,0 +1,32 @@
+cpu time: 614 real time: 614 gc time: 155
+Running time is 11.05% contracts
+285/2574 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  210.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  34 ms
+  (->*m ((or/c (listof (is-a?/c point%)) (listof (cons/c real? real?)))) (real? real?) void?)
+  (->*m (string?) ((or/c (is-a?/c font%) #f) any/c natural?) (values (and/c real? (not/c negative?)) (and/c real? (not/c negative?)) (and/c real? (not/c negative?)) (and/c real? (not/c negative?))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/parameters.rkt" "no-negative-party" "(lib plot/private/common/parameters.rkt):135:8")
+  6.5 ms
+  (object/c-opaque (copy-from (-> any/c (recursive-contract (object/c-opaque (copy-from (-> any/c (recursive-contract g908 #:impersonator) (and/c any/c Any) void?)) (get-command (-> any/c string?)) (get-editor-margin (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (get-file (-> any/c (or/c path? string? #f))) (get-level-2 (-> any/c boolean?)) (get-margin (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (get-mode (-> any/c (or/c (quote preview) (quote file) (quote printer)))) (get-orientation (-> any/c (or/c (quote portrait) (quote landscape)))) (get-paper-name (-> any/c string?)) (get-preview-command (-> any/c string?)) (get-scaling (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (get-translation (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (set-command (-> any/c string? void?)) (set-editor-margin (-> any/c natural? natural? void?)) (set-file (-> any/c (or/c path? string? #f) void?)) (set-level-2 (-> any/c (and/c any/c Any) void?)) (set-margin (-> any/c (and/c real? nonnegative?) (and/c real? nonnegative?) void?)) (set-mode (-> any/c (or/c (quote preview) (quote file) (quote printer)) void?)) (set-orientation (-> any/c (or/c (quote portrait) (quote landscape)) void?)) (set-paper-name (-> any/c string? void?)) (set-preview-command (-> any/c string? void?)) (set-scaling (-> any/c (and/c real? nonnegative?) (and/c real? nonnegative?) void?)) (set-translation (-> any/c real? real? void?))) #:impersonator) any/c void?)) (get-command (-> any/c string?)) (get-editor-margin (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (get-file (-> any/c (or/c path? string? #f))) (get-level-2 (-> any/c boolean?)) (get-margin (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (get-mode (-> any/c (or/c (quote preview) (quote file) (quote printer)))) (get-orientation (-> any/c (or/c (quote portrait) (quote landscape)))) (get-paper-name (-> any/c string?)) (get-preview-command (-> any/c string?)) (get-scaling (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (get-translation (-> any/c (box/c (and/c real? nonnegative?)) (box/c (and/c real? nonnegative?)) void?)) (set-command (-> any/c string? void?)) (set-editor-margin (-> any/c natural? natural? void?)) (set-file (-> any/c (or/c path? string? #f) void?)) (set-level-2 (-> any/c any/c void?)) (set-margin (-> any/c (and/c real? nonnegative?) (and/c real? nonnegative?) void?)) (set-mode (-> any/c (or/c (quote preview) (quote file) (quote printer)) void?)) (set-orientation (-> any/c (or/c (quote portrait) (quote landscape)) void?)) (set-paper-name (-> any/c string? void?)) (set-preview-command (-> any/c string? void?)) (set-scaling (-> any/c (and/c real? nonnegative?) (and/c real? nonnegative?) void?)) (set-translation (-> any/c real? real? void?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:54:11")
+  6.5 ms
+  (->* ((or/c path-string? input-port?)) ((or/c (quote unknown) (quote unknown/mask) (quote unknown/alpha) (quote gif) (quote gif/mask) (quote gif/alpha) (quote jpeg) (quote jpeg/alpha) (quote png) (quote png/mask) (quote png/alpha) (quote xbm) (quote xbm/alpha) (quote xpm) (quote xpm/alpha) (quote bmp) (quote bmp/alpha)) (or/c (is-a?/c color%) #f) any/c #:backing-scale (>/c 0.0) #:save-data-from-file? any/c #:try-@2x? any/c) (instanceof/c bitmap%/c))
+("/users/ben_g/bnd-bench/lnm/cfg/bitstring.rkt" "/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "bitstring.rkt:33:9")
+  5.5 ms
+  (-> string? index?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):228:8")
+  5.5 ms
+  (parameter/c (-> (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)) any/c any/c any/c Any) (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) symbol? output-port? (or/c #t #f 1 0) Any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:85:19")
+  5.5 ms
+  brush%/c
+("(interface for -9.bf)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/bigfloat/bigfloat-constants.rkt" "<pkgs>/math-lib/math/private/bigfloat/mpfr.rkt:1014:20")
+  5.5 ms
+  (and/c (promise/c ^TYPE?) (not/c promise/name?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

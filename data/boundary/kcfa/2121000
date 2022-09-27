@@ -1,0 +1,19 @@
+cpu time: 1195 real time: 1195 gc time: 117
+Running time is 2.93% contracts
+51/1724 ms
+
+("(interface for analyze)" "/users/ben_g/bnd-bench/kcfa/cfg/main.rkt" "main.rkt:10:3")
+  17 ms
+  (-> any/c (and/c hash? (hash/c symbol? (set/c (or/c exp? Call?)))))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:49:9")
+  16.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/bnd-bench/kcfa/cfg/ai.rkt" "/users/ben_g/bnd-bench/kcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  6 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("(interface for Call-args)" "/users/ben_g/bnd-bench/kcfa/cfg/structs-adapted.rkt" "structs-adapted.rkt")
+  5.5 ms
+  (-> any/c (listof (or/c Call? exp?)))
+("(/users/ben_g/bnd-bench/kcfa/cfg/time-adapted.rkt ai)" "(interface for alloc)" "time-adapted.rkt:25:3")
+  5.5 ms
+  (-> any/c (-> any/c Binding?))

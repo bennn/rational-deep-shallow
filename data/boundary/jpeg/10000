@@ -1,0 +1,39 @@
+cpu time: 758 real time: 758 gc time: 142
+Running time is 35.2% contracts
+428/1216 ms
+
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt:49:13")
+  125 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (-> (vectorof index?) any))
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (vectorof index?))
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)
+("/users/ben_g/bnd-bench/jpeg/cfg/bit-ports.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/huffman.rkt" "bit-ports.rkt:74:9")
+  78.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) any)
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt:16:9")
+  71 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) (sequence/c any/c))
+("(/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt typed-module13)" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/array-struct.rkt:15:2")
+  55 ms
+  (-> (vectorof exact-integer?) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/bnd-bench/jpeg/cfg/bit-ports.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "bit-ports.rkt:91:9")
+  31.5 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) exact-integer? natural? any)
+("/users/ben_g/bnd-bench/jpeg/cfg/bit-ports.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "bit-ports.rkt:36:9")
+  28 ms
+  (-> (or/c input-port? output-port?) (or/c g66 (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)))
+("/users/ben_g/bnd-bench/jpeg/cfg/bit-ports.rkt" "/users/ben_g/bnd-bench/jpeg/cfg/jfif.rkt" "bit-ports.rkt:78:9")
+  17 ms
+  (-> (or/c (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #t) (vector/c natural? natural? (or/c input-port? output-port?) #:immutable #f)) natural? any)
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-mutable-array.rkt" "no-negative-party" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-mutable-array.rkt:13:13")
+  5.5 ms
+  (-> (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?) vector? (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt" "no-negative-party" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-sequence.rkt:96:9")
+  5.5 ms
+  (->* ((listof (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)))) (exact-integer?) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt" "no-negative-party" "/users/ben_g/bnd-bench/jpeg/base/math/private/array/typed-array-struct.rkt:228:8")
+  5.5 ms
+  (parameter/c (-> (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)) any/c any/c any/c Any) (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) symbol? output-port? (or/c #t #f 1 0) Any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

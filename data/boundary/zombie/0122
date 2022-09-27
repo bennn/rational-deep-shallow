@@ -1,0 +1,18 @@
+cpu time: 4738 real time: 4739 gc time: 102
+Running time is 57.64% contracts
+3026/5249 ms
+
+("/users/ben_g/bnd-bench/zombie/cfg/main.rkt" "/users/ben_g/bnd-bench/zombie/cfg/zombie.rkt" "#<blame-yes-swap>")
+  1702 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g594 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g594 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g604 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g604 #:chaperone))))) #:chaperone)))
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g594 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g594 #:chaperone))))) #:chaperone) (-> real? real? string? (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g604 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g604 #:chaperone))))) #:chaperone)))
+("/users/ben_g/bnd-bench/zombie/cfg/main.rkt" "/users/ben_g/bnd-bench/zombie/cfg/zombie.rkt" "#<blame-no-swap>")
+  1015 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g594 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g594 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g604 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g604 #:chaperone))))) #:chaperone)))
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g594 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g594 #:chaperone))))) #:chaperone) (-> real? real? string? (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g604 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g604 #:chaperone))))) #:chaperone)))
+("/users/ben_g/bnd-bench/zombie/cfg/main.rkt" "/users/ben_g/bnd-bench/zombie/cfg/zombie.rkt" "zombie.rkt:320:8")
+  302 ms
+  (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g604 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g604 #:chaperone))))) #:chaperone)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:59:4")
+  6.5 ms
+  (-> any/c boolean?)

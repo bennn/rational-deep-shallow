@@ -1,0 +1,13 @@
+cpu time: 6517 real time: 6518 gc time: 119
+Running time is 0.34% contracts
+24/7043 ms
+
+("/users/ben_g/bnd-bench/fsmoo/cfg/population.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/utilities.rkt" "utilities.rkt:29:9")
+  12 ms
+  (->* ((listof (and/c real? nonnegative?)) natural?) (#:random (or/c real? #f)) any)
+("/users/ben_g/bnd-bench/fsmoo/cfg/main.rkt" "/users/ben_g/bnd-bench/fsmoo/cfg/population.rkt" "population.rkt:59:9")
+  6 ms
+  (-> natural? (object/c-opaque (death-birth (->* (any/c natural?) (#:random (or/c (and/c real? nonnegative?) #f)) void?)) (match-up* (-> any/c natural? void?)) (payoffs (-> any/c (listof (and/c real? nonnegative?)))) (field (a* (vectorof (recursive-contract (object/c (clone (-> any/c (recursive-contract g226 #:impersonator))) (equal (-> any/c (recursive-contract g227 #:impersonator) boolean?)) (jump (-> any/c natural? (and/c real? nonnegative?) void?)) (match-pair (-> any/c (recursive-contract g227 #:impersonator) natural? (values (recursive-contract g226 #:impersonator) (recursive-contract g226 #:impersonator)))) (pay (-> any/c (and/c real? nonnegative?))) (reset (-> any/c (recursive-contract g226 #:impersonator))) (field (current natural?) (original natural?) (payoff (and/c real? nonnegative?)) (table (vectorof (vectorof natural?))))) #:impersonator))) (b* (vectorof (recursive-contract (object/c (clone (-> any/c (recursive-contract g226 #:impersonator))) (equal (-> any/c (recursive-contract g227 #:impersonator) boolean?)) (jump (-> any/c natural? (and/c real? nonnegative?) void?)) (match-pair (-> any/c (recursive-contract g227 #:impersonator) natural? (values (recursive-contract g226 #:impersonator) (recursive-contract g226 #:impersonator)))) (pay (-> any/c (and/c real? nonnegative?))) (reset (-> any/c (recursive-contract g226 #:impersonator))) (field (current natural?) (original natural?) (payoff (and/c real? nonnegative?)) (table (vectorof (vectorof natural?))))) #:impersonator))))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:279:2")
+  6 ms
+  (->* () #:rest (listof (or/c (quote dict-ref) (quote dict-set!) (quote dict-set) (quote dict-remove!) (quote dict-remove) (quote dict-count) (quote dict-iterate-first) (quote dict-iterate-next) (quote dict-iterate-key) (quote dict-iterate-value) (quote dict-has-key?) (quote dict-ref!) (quote dict-set*!) (quote dict-set*) (quote dict-update!) (quote dict-update) (quote dict-map) (quote dict-for-each) (quote dict-keys) (quote dict-values) (quote dict->list) (quote dict-copy) (quote dict-empty?) (quote dict-clear) (quote dict-clear!))) flat-contract?)

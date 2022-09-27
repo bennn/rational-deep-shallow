@@ -1,0 +1,31 @@
+cpu time: 632 real time: 632 gc time: 165
+Running time is 13.45% contracts
+353/2625 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  268.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  37.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("(interface for fix-vector-field3d-fun)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/plot3d/point.rkt" "<pkgs>/plot-lib/plot/private/plot3d/point.rkt:11:2")
+  9 ms
+  (-> any/c (or/c (-> (or/c (vector/c real? real? real? #:immutable #f) (vector/c real? real? real? #:immutable #t)) (or/c natural? (sequence/c any/c))) (-> real? real? real? (or/c natural? (sequence/c any/c)))) (-> any/c any/c any/c (vectorof real?)))
+("(interface for stream-filter)" "/users/ben_g/bnd-bench/lnm/cfg/lnm-plot.rkt" "lnm-plot.rkt:30:3")
+  7 ms
+  (-> (-> string? any) (sequence/c any/c) (sequence/c string?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):175:8")
+  7 ms
+  (-> (struct/c Settable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?)) (-> (vectorof index?) any/c any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:41:11")
+  7 ms
+  (->* (exact-positive-integer? exact-positive-integer?) (any/c #:backing-scale (>/c 0.0)) (instanceof/c bitmap%/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/plotmetrics.rkt" "no-negative-party" "(lib plot/private/common/plotmetrics.rkt):56:9")
+  6 ms
+  (-> g185 g183)
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  6 ms
+  (->*m ((or/c (listof (is-a?/c point%)) (listof (cons/c real? real?)))) (real? real?) void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

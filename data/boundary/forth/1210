@@ -1,0 +1,16 @@
+cpu time: 211570 real time: 211626 gc time: 9253
+Running time is 99.73% contracts
+211533/212107 ms
+
+("/users/ben_g/bnd-bench/forth/cfg/command.rkt" "/users/ben_g/bnd-bench/forth/cfg/eval.rkt" "command.rkt:32:8")
+  125349 ms
+  (recursive-contract g171 #:impersonator)
+("/users/ben_g/bnd-bench/forth/cfg/command.rkt" "/users/ben_g/bnd-bench/forth/cfg/eval.rkt" "command.rkt:91:8")
+  86127 ms
+  (listof (recursive-contract (object/c-opaque (field (descr #<procedure:string?>) (exec (-> (recursive-contract g150 #:impersonator) (listof exact-integer?) (and/c any/c Any) (recursive-contract g159 #:impersonator))) (id #<procedure:symbol?>))) #:impersonator))
+("/users/ben_g/bnd-bench/forth/cfg/eval.rkt" "/users/ben_g/bnd-bench/forth/cfg/main.rkt" "eval.rkt:54:9")
+  51 ms
+  (-> (listof string?) (values (or/c #f (recursive-contract g145 #:impersonator)) (listof exact-integer?)))
+("(interface for stack-pop)" "/users/ben_g/bnd-bench/forth/cfg/command.rkt" "command.rkt:23:3")
+  5.5 ms
+  (-> any/c (values exact-integer? (listof exact-integer?)))

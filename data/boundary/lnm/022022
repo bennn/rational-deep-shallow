@@ -1,0 +1,25 @@
+cpu time: 790 real time: 790 gc time: 160
+Running time is 13.27% contracts
+380/2860 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  255.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  93.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/bnd-bench/lnm/cfg/summary.rkt" "no-negative-party" "summary.rkt:154:9")
+  7 ms
+  (-> summary? (-> string? boolean?) (sequence/c string?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):137:8")
+  6.5 ms
+  (case-> (-> (listof any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any))) (-> (or/c (vectorof exact-integer?) (vectorof index? #:immutable #f)) (listof any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "<pkgs>/pict-lib/pict/main.rkt:206:3")
+  6 ms
+  (->i ((w (and/c rational? (not/c negative?))) (h (and/c rational? (not/c negative?)))) ((corner-radius rational?) #:angle (angle rational?) #:draw-border? (draw-border? any/c) #:color (color (or/c #f string? (is-a?/c color%))) #:border-color (border-color (or/c #f string? (is-a?/c color%))) #:border-width (border-width (or/c #f (and/c rational? (not/c negative?))))) #:pre (draw-border? border-color border-width) (if (not draw-border?) (and (or (unsupplied-arg? border-color) (not border-color)) (or (unsupplied-arg? border-width) (not border-width))) #t) (_ pict?))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  6 ms
+  (->m (is-a?/c color%))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:93:19")
+  5 ms
+  radial-gradient%/c
