@@ -106,7 +106,7 @@
 ; ("0000010" ("cpu time: 1075 real time: 1075 gc time: 99" "cpu time: 1067 real time: 1067 gc time: 89" "cpu time: 1069 real time: 1069 gc time: 89" "cpu time: 1093 real time: 1093 gc time: 99" "cpu time: 1063 real time: 1063 gc time: 97" "cpu time: 1092 real time: 1092 gc time: 89" "cpu time: 1081 real time: 1082 gc time: 99" "cpu time: 1074 real time: 1074 gc time: 89"))
 ; ("0000020" ("cpu time: 1098 real time: 1098 gc time: 120" "cpu time: 1097 real time: 1097 gc time: 121" "cpu time: 1083 real time: 1083 gc time: 106" "cpu time: 1104 real time: 1104 gc time: 107" "cpu time: 1085 real time: 1085 gc time: 106" "cpu time: 1112 real time: 1112 gc time: 120" "cpu time: 1102 real time: 1102 gc time: 113" "cpu time: 1080 real time: 1080 gc time: 107"))
   (with-input-from-file
-    (glob1 (format "../out/output/1/0-run-info.rkt/*-~a.out" bm-name))
+    (glob1 (format "../../data/runtime/*-~a.out" bm-name))
     (lambda ()
       (void (read-line))
       (for/list ((ln (in-lines)))
@@ -122,9 +122,9 @@
   [else (car mm)]))
 
 (define (pi-perf pi cfg)
-(for/first ((ci (in-list pi))
-#:when (equal? (cfg-id ci) cfg))
-(cfg-perf ci)))
+  (for/first ((ci (in-list pi))
+  #:when (equal? (cfg-id ci) cfg))
+  (cfg-perf ci)))
 
 (define (overhead pp pi)
   (/ pp (if (number? pi) pi (cfg-perf (pi-untyped-cfg pi)))))
@@ -134,13 +134,13 @@
   ci))
 
 (define (benchmark->profile-dir bm-name)
-  (benchmark->x-dir bm-name 'p "profile"))
+  (benchmark->x-dir bm-name "profile"))
 
 (define (benchmark->boundary-dir bm-name)
-  (benchmark->x-dir bm-name 'b "boundary"))
+  (benchmark->x-dir bm-name "boundary"))
 
-(define (benchmark->x-dir bm-name sym str)
-  (define dd (format "../out/bnd/~a-~a/" sym bm-name))
+(define (benchmark->x-dir bm-name str)
+  (define dd (format "../../data/~a/~a/" str bm-name))
   (if (directory-exists? dd)
     dd
     (raise-arguments-error
@@ -150,7 +150,7 @@
     "inferred path" dd)))
 
 (define (benchmark->home-dir bm-name)
-  (define dd (format "../rds-cloudlab/benchmarks/~a/" bm-name))
+  (define dd (format "../gtp-bench/~a/" bm-name))
   (if (directory-exists? dd)
     dd
     (raise-arguments-error 'benchmark->home-dir
@@ -496,6 +496,8 @@
       (regexp-match? #rx"dict\\.rkt" str)
       (regexp-match? #rx"boundmap\\.rkt" str)
       (regexp-match? #rx"contract\\.rkt" str)
+      (regexp-match? #rx"blame-no-swap" str)
+      (regexp-match? #rx"blame-yes-swap" str)
       ))
 
 ; /: contract violation
