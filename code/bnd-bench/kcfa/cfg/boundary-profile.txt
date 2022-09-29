@@ -1,0 +1,28 @@
+cpu time: 3173 real time: 3175 gc time: 121
+Running time is 77.17% contracts
+2635/3414 ms
+
+("(/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:74:4")
+  1204 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(interface for State-store)" "/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  414 ms
+  (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:44:4")
+  383 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:42:4")
+  359.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
+("(interface for State3)" "/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt")
+  252 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) any/c State?)
+("(/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:39:5")
+  10.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
+("(interface for Closure3)" "/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt")
+  6 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)) Closure?)
+("(/home/ben/code/blame-trail/rds/out/bnd/bnd-bench/kcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:41:5")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
