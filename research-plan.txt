@@ -66,7 +66,7 @@ code. Hence, for a program with N modules developers can choose between
 3^N configurations of the modules of the program --- each module can be
 untyped, deeply typed or shallowly typed. Preliminary experiments with the
 GTP benchmarks show that the three-dimensional space allows developers to
-bypass the stale areas of the two-dimenantional spaces of deep and shallow
+bypass the ``dead'' areas of the two-dimenantional spaces of deep and shallow
 semantics when considered separately. 
 
 However, the three-dimensional world poses an important research problem.
@@ -83,33 +83,45 @@ world: how can developers navigate it?
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-Q: How can developers navigate the three-dimensional navigation of type
-migration in a three-way semantics?
+Q: How can developers navigate the three-dimensional space of type
+migration?
 
-Refined Q: Can profiler information help developers navigate the
-three-dimensional space of type migration in a three-way semantics?
+Q': Can profiler data help developers navigate the
+three-dimensional space of type migration?
 
-More refined Q: Can a combination of feature and statistical profiler
-information help developers navigate the three-dimensional space of
-type migration in a three-way semantics?
+Q'': What kind of profiler data can help developers
+navigate the three-dimensional space of type migration?
 
-Even more refined Q: How do different strategies of interpreting feature
-and statistical profiler information compare in how they help developers
-navigate the three-dimensional space of type migration in a three-way
-semantics?
+[In the write up, we need here context about profiling techniques (in
+Racket) --- bring across strengths and weaknesses]
+
+Q''': Can a combination of feature and statistical profiler
+data help developers navigate the three-dimensional space of
+type migration?
+
+Q'''': Can developers interpret data from feature and statistical
+profilers to navigate the three-dimensional space of type migration?
+
+
+Q''''': How do different strategies of interpreting feature
+and statistical profiler data compare in how they help developers
+navigate the three-dimensional space of type migration?
 
 Important definitions
 ---------------------
 
-++ Navigation : A path of configuration in the lattice of a program.
+++ Navigation : A path of configurations in the lattice of a program where
+each configuration has more typed modules than the previous one.
 
-++ Successful navigation: A navigation that involves configurations bellow 
-a certain slowdown (currently 2x) and ends at a configurations with at
-least a percentage of type annotations.
+[[We need a term for the step/choice of the strategy]]
 
-++ Alternative successful navigation: A navigation that involves
-configurations bellow a certain slowdown (currently 2x) and ends at a
-configurations with type annotations at a target module.
+++ Successful navigation: A navigation that involves completes in a
+configuration below a certain slowdown (currently 2x --- the Takikawa
+constant).
+
+++ Alternative successful navigation: A navigation that involves completes in a
+configuration below a certain slowdown (currently 2x --- the Takikawa
+constant) *while keeping a number of modules untyped*.
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -121,15 +133,15 @@ The plan is to follow a rational program approach:
  1) Construction of scenarios. We will use the GTP benchmarks.  The
  potential placements of type annotations in the benchmarks induces  a
  three-dimensional lattice for each benchmark. Each configuration of the
- lattice that doesn't satisfy the success criterion and has less overhead
- than the threshold is a migration scenario.
+ lattice that has higher slowdown than the threshold is a migration
+ scenario.
 
  2) Construction of modes: 
       +++ We will domain knowledge using the existing types of the modules
       to encode the possible ways a developer can interact with a program
       after a possible profiling round.
       +++ We will construct one mode per strategy. Each mode will have a
-      profiling info interpretation function that given profiler info will
+      profiling data interpretation function that given profiler data will
       return the next module to annotate. Then, the mode will used the
       domain knowledge to construct the next configuration. 
       +++ Current modes: 
@@ -139,14 +151,26 @@ The plan is to follow a rational program approach:
           --- Statistical Eager: same as Boundary Eager but using the
            module that contains the top self entry of the statistical
            profiler.
-      +++ Mode failure condition: A mode produces a configuration that
-      surpasses the slowdown threshold.
+      +++ Mode failure condition: A mode produces a configuration no
+      configuration that is below the accepted performance threshold
+      within the tolerated number of typing steps.
       +++ Mode success condition: A mode produces a configuration that
-      meets the type annotation success condition.
+      that is below the accepted performance threshold and within the
+      tolerated number of typing steps.
 
  3) Mode comparison: 
       ++ Success or Failure comparison
       ++ Navigation length (maybe weighted by type annotation burden) for
       scenarios where all modes succeed.
+
+ 4) As a first step we first construct the lattice and measure the
+ performance of each configuration for all the lattices without producing
+ profiler data. This acts as ground truth for the performance of the
+ different configurations. [[Ben, add details]]
+
+ 5) The second step involves profiling the configurations along a path
+ selected by one of the strategies.
+
+ 6) Threats to validity: benchmarks, overhead due to profiling.
 
  
