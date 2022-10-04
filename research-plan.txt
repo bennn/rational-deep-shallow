@@ -1,0 +1,152 @@
+This document describes the research plan for the project. It includes a
+discussion of relevant context, the research questions and sketches of the
+methods for answering them. As the proposal progresses, the document will
+be populated with information about (i) the status of each research
+question (answered/failed to answer); (ii) possible new questions and
+method adjustments; and (iii) discussion of problems that we encountered
+and how we solved them (or sidestep them).
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; CONTEXT  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Sound gradual typing faces two significant challenges that hinder its
+adoption by developers: the development cost of adding type annotations
+and the computational cost of checking these annotations. The combined
+effect of the two challenges manifests during the migration of typed to
+untyped code. To migrate code, the developer has to pick which part of the
+code to analyze in order to figure out the necessary type annotations to
+satisfy the type-checker. An intuitive selection criterion is based on
+the perceived complexity of the code; to optimize the benefits from types,
+most developers will chose, to migrate the part of the code that is most
+complex so that they get some peace of mind, and document the complex code
+for future maintenance and evolution. However, after significant
+  investment of time and energy, which usually involves multiple rounds of
+  back-and-forth with the type-checker and even refactorings of the code,
+  a developer may realize that the type annotations have caused
+  significant slow-downs to the code that make it practically unusable. So
+  the develop has to revert the annotations or stash them, which is
+  guaranteed to make the outdated quickly, and either abandon the
+  migration or restart it from scratch.  In fact, the empirical study of
+  the trade off space between annotations and performance in the context
+  of Typed Racket's natural semantics and the GTP benchmarks is rather
+  bleak [cite JFP 2019]. For many of applications there is no reliable
+  strategy to navigate the trade off; developers have to either forego
+  adding the annotations they want, or they have to pay an exorbitant
+  performance cost. In other words, the migration of untyped to typed code
+  under the rules of the natural/deep semantics seems an impossible
+  optimization problem.
+
+In response to this conundrum, PL researchers have opted to change the
+rules of engagement but to no avail. If the natural semantics is not
+viable, then some other semantics may offer a solution. Two such proposals
+have emerged. The transient/shallow semantics inlines strategic checks in
+typed code to avoid costly wrappers. The concrete/nominal semantics limits
+the space of type annotations (and with them the allowed interactions
+between typed and untyped code) to replace wrappers with tags, which can
+be checked efficiently. However, neither proposal has resulted in a
+satisfying solution. The nominal/concrete approach leads to lower
+performance slowdowns but hampers expressiveness significantly. The
+transient approach improves performance compared to natural but only for
+configurations with a small number of annotations. Specifically, while in
+natural developers should expect to face a steep rise of checking cost as
+they add annotations that drops steeply after a threshold (a bell shape),
+in transient the slope of cost is smooth but cost is roughly
+proportional to the number of type annotations and reaches its highest
+point when all possible annotations have been added.  
+
+Based on this latter observation, recently Greenman [PLDI 2022] has
+suggested  a mixed semantics: developers should be able to combine deep
+and shallow checks (and no checks) to get the maximum type checking
+benefits with the minimum performance penalty. Greenman's proposal has
+been implemented for Typed Racket and initial empirical data is promising.
+In detail, developers can choose if the types of a Typed Racket module
+should be enforced deeply or shallowly when it interacts with untyped
+code. Hence, for a program with N modules developers can choose between
+3^N configurations of the modules of the program --- each module can be
+untyped, deeply typed or shallowly typed. Preliminary experiments with the
+GTP benchmarks show that the three-dimensional space allows developers to
+bypass the stale areas of the two-dimenantional spaces of deep and shallow
+semantics when considered separately. 
+
+However, the three-dimensional world poses an important research problem.
+The three-dimensional space is more complex that the two dimensional ones,
+and bound to impose a higher cognitive load for developers when they
+select which part of the code to type next. In other words, there is an
+open research question about the pragmatics of the three-dimensional
+world: how can developers navigate it?
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;; RESEARCH QUESTION ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+Q: How can developers navigate the three-dimensional navigation of type
+migration in a three-way semantics?
+
+Refined Q: Can profiler information help developers navigate the
+three-dimensional space of type migration in a three-way semantics?
+
+More refined Q: Can a combination of feature and statistical profiler
+information help developers navigate the three-dimensional space of
+type migration in a three-way semantics?
+
+Even more refined Q: How do different strategies of interpreting feature
+and statistical profiler information compare in how they help developers
+navigate the three-dimensional space of type migration in a three-way
+semantics?
+
+Important definitions
+---------------------
+
+++ Navigation : A path of configuration in the lattice of a program.
+
+++ Successful navigation: A navigation that involves configurations bellow 
+a certain slowdown (currently 2x) and ends at a configurations with at
+least a percentage of type annotations.
+
+++ Alternative successful navigation: A navigation that involves
+configurations bellow a certain slowdown (currently 2x) and ends at a
+configurations with type annotations at a target module.
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; METHOD ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+The plan is to follow a rational program approach: 
+
+ 1) Construction of scenarios. We will use the GTP benchmarks.  The
+ potential placements of type annotations in the benchmarks induces  a
+ three-dimensional lattice for each benchmark. Each configuration of the
+ lattice that doesn't satisfy the success criterion and has less overhead
+ than the threshold is a migration scenario.
+
+ 2) Construction of modes: 
+      +++ We will domain knowledge using the existing types of the modules
+      to encode the possible ways a developer can interact with a program
+      after a possible profiling round.
+      +++ We will construct one mode per strategy. Each mode will have a
+      profiling info interpretation function that given profiler info will
+      return the next module to annotate. Then, the mode will used the
+      domain knowledge to construct the next configuration. 
+      +++ Current modes: 
+          --- Boundary Eager: look at the top boundary identified by the
+          feature profiler, if it is shallow turn it into deep, if it is
+          untyped turn it into shallow.
+          --- Statistical Eager: same as Boundary Eager but using the
+           module that contains the top self entry of the statistical
+           profiler.
+      +++ Mode failure condition: A mode produces a configuration that
+      surpasses the slowdown threshold.
+      +++ Mode success condition: A mode produces a configuration that
+      meets the type annotation success condition.
+
+ 3) Mode comparison: 
+      ++ Success or Failure comparison
+      ++ Navigation length (maybe weighted by type annotation burden) for
+      scenarios where all modes succeed.
+
+ 
