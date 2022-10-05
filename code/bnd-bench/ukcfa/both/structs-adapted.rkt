@@ -28,8 +28,8 @@
 (define-type Var Symbol)
 
 (module* ai typed/racket/base
- (require (submod ".."))
- (require/typed "structs.rkt"
+  (require (submod "..") require-typed-check)
+ (require/typed/check "structs.rkt"
   [Stx-label (-> Stx Label)]
   [Ref-var (-> Ref Var)]
   [Lam-formals (-> Lam (Listof Var))]
@@ -40,8 +40,8 @@
  (provide Stx-label Ref-var Lam-formals Lam-call Call-fun Call-args))
 
 (module* benv typed/racket/base
- (require (submod ".."))
- (require/typed "structs.rkt"
+  (require (submod "..") require-typed-check)
+ (require/typed/check "structs.rkt"
   [Stx-label (-> Stx Label)]
   [Ref-var (-> Ref Var)]
   [Lam-formals (-> Lam (Listof Var))]
@@ -52,8 +52,8 @@
  (provide Stx-label Ref-var Lam-formals Lam-call Call-fun Call-args))
 
 (module* denotable typed/racket/base
- (require (submod ".."))
- (require/typed "structs.rkt"
+  (require (submod "..") require-typed-check)
+ (require/typed/check "structs.rkt"
   [Stx-label (-> Stx Label)]
   [Ref-var (-> Ref Var)]
   [Lam-formals (-> Lam (Listof Var))]
@@ -64,8 +64,8 @@
  (provide Stx-label Ref-var Lam-formals Lam-call Call-fun Call-args))
 
 (module* main typed/racket/base
- (require (submod ".."))
- (require/typed "structs.rkt"
+  (require (submod "..") require-typed-check)
+ (require/typed/check "structs.rkt"
   [Stx-label (-> Stx Label)]
   [Ref-var (-> Ref Var)]
   [Lam-formals (-> Lam (Listof Var))]
@@ -76,8 +76,8 @@
  (provide Stx-label Ref-var Lam-formals Lam-call Call-fun Call-args))
 
 (module* time typed/racket/base
- (require (submod ".."))
- (require/typed "structs.rkt"
+  (require (submod "..") require-typed-check)
+ (require/typed/check "structs.rkt"
   [Stx-label (-> Stx Label)]
   [Ref-var (-> Ref Var)]
   [Lam-formals (-> Lam (Listof Var))]
@@ -88,8 +88,8 @@
  (provide Stx-label Ref-var Lam-formals Lam-call Call-fun Call-args))
 
 (module* ui typed/racket/base
- (require (submod ".."))
- (require/typed "structs.rkt"
+  (require (submod "..") require-typed-check)
+ (require/typed/check "structs.rkt"
   [Stx-label (-> Stx Label)]
   [Ref-var (-> Ref Var)]
   [Lam-formals (-> Lam (Listof Var))]
