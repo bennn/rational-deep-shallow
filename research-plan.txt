@@ -16,35 +16,39 @@ and the computational cost of checking these annotations. The combined
 effect of the two challenges manifests during the migration of typed to
 untyped code. To migrate code, the developer has to pick which part of the
 code to analyze in order to figure out the necessary type annotations to
-satisfy the type-checker. An intuitive selection criterion is based on
-the perceived complexity of the code; to optimize the benefits from types,
+satisfy the type-checker. An intuitive selection criterion is based on the
+perceived complexity of the code; to optimize the benefits from types,
 most developers will chose, to migrate the part of the code that is most
-complex so that they get some peace of mind, and document the complex code
-for future maintenance and evolution. However, after significant
-  investment of time and energy, which usually involves multiple rounds of
-  back-and-forth with the type-checker and even refactorings of the code,
-  a developer may realize that the type annotations have caused
-  significant slow-downs to the code that make it practically unusable. So
-  the develop has to revert the annotations or stash them, which is
-  guaranteed to make the outdated quickly, and either abandon the
-  migration or restart it from scratch.  In fact, the empirical study of
-  the trade off space between annotations and performance in the context
-  of Typed Racket's natural semantics and the GTP benchmarks is rather
-  bleak [cite JFP 2019]. For many of applications there is no reliable
-  strategy to navigate the trade off; developers have to either forego
-  adding the annotations they want, or they have to pay an exorbitant
-  performance cost. In other words, the migration of untyped to typed code
-  under the rules of the natural/deep semantics seems an impossible
-  optimization problem.
+complex so that they get some peace of mind, and document the complex
+code for future maintenance and evolution. However, after significant
+investment of time and energy, which usually involves multiple rounds of
+back-and-forth with the type-checker and even refactoring of the code, a
+developer may realize that the type annotations have caused significant
+slow-downs to the code that make it practically unusable. At this point
+the developer has to face a dilemma: either  revert the annotations or
+stash them, which is guaranteed to quickly make the annotations and the
+code out of sync; or try to add more annotations in the hope that the
+additional annotations will reduce the number of dynamic checks and enable
+type-aware optimizations. Unfortunately, empirical evidence indicate that
+the prospects of the second option are currently bleak. Specifically the
+study of  the trade off between annotations and performance in the context
+of Typed Racket's natural semantics suggest that in many scenarios there
+is no reliable strategy to navigate the trade off; developers have to
+either forego adding the annotations they want, or they have to pay an
+exorbitant performance cost. In other words, the migration of untyped to
+typed code under the rules of the natural/deep semantics seems an
+impossible optimization problem.
 
 In response to this conundrum, PL researchers have opted to change the
-rules of engagement but to no avail. If the natural semantics is not
+rules of engagement. If the natural semantics is not
 viable, then some other semantics may offer a solution. Two such proposals
 have emerged. The transient/shallow semantics inlines strategic checks in
 typed code to avoid costly wrappers. The concrete/nominal semantics limits
 the space of type annotations (and with them the allowed interactions
 between typed and untyped code) to replace wrappers with tags, which can
-be checked efficiently. However, neither proposal has resulted in a
+be checked efficiently. 
+
+However, neither proposal has resulted in a
 satisfying solution. The nominal/concrete approach leads to lower
 performance slowdowns but hampers expressiveness significantly. The
 transient approach improves performance compared to natural but only for
@@ -55,7 +59,7 @@ in transient the slope of cost is smooth but cost is roughly
 proportional to the number of type annotations and reaches its highest
 point when all possible annotations have been added.  
 
-Based on this latter observation, recently Greenman [PLDI 2022] has
+Based on this latter observation, recently, Greenman [PLDI 2022] has
 suggested  a mixed semantics: developers should be able to combine deep
 and shallow checks (and no checks) to get the maximum type checking
 benefits with the minimum performance penalty. Greenman's proposal has
@@ -103,9 +107,17 @@ Q'''': Can developers interpret data from feature and statistical
 profilers to navigate the three-dimensional space of type migration?
 
 
-Q''''': How do different strategies of interpreting feature
-and statistical profiler data compare in how they help developers
+Q''''': How do different strategies of interpreting feature and
+statistical profiler data compare in terms of how they help developers
 navigate the three-dimensional space of type migration?
+
+Q'''''': How do different strategies of interpreting feature and
+statistical profiler data compare in terms of how they help developers
+obtain a configuration of a given program where (i) a specific set of modules
+are typed; (ii) at most K components overall are typed; and (iii) the
+configuration has a slow down below a given threshold?
+
+
 
 Important definitions
 ---------------------
@@ -115,14 +127,14 @@ each configuration has more typed modules than the previous one.
 
 [[We need a term for the step/choice of the strategy]]
 
-++ Successful navigation: A navigation that involves completes in a
-configuration below a certain slowdown (currently 2x --- the Takikawa
-constant).
+++ Migration target: A set of components of a program that are typed. 
+A migration target is fulfilled if the components that consist the target
+are fulfilled in the configuration.
 
-++ Alternative successful navigation: A navigation that involves completes in a
-configuration below a certain slowdown (currently 2x --- the Takikawa
-constant) *while keeping a number of modules untyped*.
-
+++ Successful navigation: A navigation that reaches a
+configuration where (i) the migration target is fulfilled; 
+(ii) at most K components overall are typed; and (iii) the
+configuration has a slow down below a given threshold?
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; METHOD ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -133,8 +145,18 @@ The plan is to follow a rational program approach:
  1) Construction of scenarios. We will use the GTP benchmarks.  The
  potential placements of type annotations in the benchmarks induces  a
  three-dimensional lattice for each benchmark. Each configuration of the
- lattice that has higher slowdown than the threshold is a migration
- scenario.
+ lattice that has higher slowdown than the threshold and where the
+ migration target is fulfilled but no other components are typed. 
+
+ Note: Starting form configurations where the migration target is
+ fulfilled is sufficient and all other components is sufficient. If the
+ slowdown of this configuration is below the slowdown threshold then the
+ scenario is uninteresting. If the slowdown is above the threshold, given
+ that the target must be fulfilled eventually, the goal is to determine
+ what other components besides the type need to be typed in order for the
+ slowdown to fall below the threshold. After all, the slowdown of a
+ configuration does not depend on how the configuration was constructed,
+ it is an intrinsic characteristic of the configuration. 
 
  2) Construction of modes: 
       +++ We will domain knowledge using the existing types of the modules
@@ -163,14 +185,22 @@ The plan is to follow a rational program approach:
       ++ Navigation length (maybe weighted by type annotation burden) for
       scenarios where all modes succeed.
 
- 4) As a first step we first construct the lattice and measure the
- performance of each configuration for all the lattices without producing
- profiler data. This acts as ground truth for the performance of the
- different configurations. [[Ben, add details]]
+ 4) Data collection:
+      (i) We construct the lattice for each benchmark and measure the
+      performance of each configuration for all the lattices without
+      producing profiler data. This acts as ground truth for the
+      performance of the different configurations. [[Ben, add details]]
+      
+      (ii) We construct the set of scenarios. [[We need more details here]]
 
- 5) The second step involves profiling the configurations along a path
- selected by one of the strategies.
+      (ii) Starting from the scenarios, we use the profilers 
+      to construct the navigations.
 
- 6) Threats to validity: benchmarks, overhead due to profiling.
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;; Threats To validity ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  
+
+ 1) Selection of benchmarks.
+ 2) Selection of migration targets for the construction of scenarios.
+ 3) Unaccounted overhead due to profiling.
