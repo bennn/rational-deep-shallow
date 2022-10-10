@@ -9,12 +9,15 @@
 
 (unsafe-require/typed/check "data.rkt"
   [#:struct label ([datum : (Vectorof (U Char Symbol))]
-                   [i : Natural] [j : Natural])]
+                   [i : Natural] [j : Natural])
+                   #:extra-constructor-name make-label]
   [#:struct node ([up-label : Label]
                   [parent : (U #f Node)]
                   [children : (Listof Node)]
-                  [suffix-link : (U #f Node)])]
-  [#:struct suffix-tree ([root : Node])])
+                  [suffix-link : (U #f Node)])
+                  #:extra-constructor-name make-node]
+  [#:struct suffix-tree ([root : Node])
+  #:extra-constructor-name make-suffix-tree])
 
 (define-type Label label)
 (define-type Tree suffix-tree)
