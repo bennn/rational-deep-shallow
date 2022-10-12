@@ -37,7 +37,7 @@
                      (Pairof Node Index))]
   )
 
-(define dummy-node (node (make-label "dummy") #f '() #f))
+(define dummy-node (make-node (make-label "dummy") #f '() #f))
 
 
 ;; skip-count: node label -> (values node number)
