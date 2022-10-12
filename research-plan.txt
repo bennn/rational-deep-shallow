@@ -157,7 +157,7 @@ The plan is to follow a rational program approach:
  migration target is fulfilled but no other components are typed. 
 
  Note: Starting form configurations where the migration target is
- fulfilled is sufficient and all other components is sufficient. If the
+ fulfilled and all other components are untyped is sufficient. If the
  slowdown of this configuration is below the slowdown threshold then the
  scenario is uninteresting. If the slowdown is above the threshold, given
  that the target must be fulfilled eventually, the goal is to determine
@@ -167,26 +167,28 @@ The plan is to follow a rational program approach:
  it is an intrinsic characteristic of the configuration. 
 
  2) Construction of modes: 
-      +++ We will domain knowledge using the existing types of the modules
+      +++ We will use domain knowledge and the existing types of the modules
       to encode the possible ways a developer can interact with a program
       after a possible profiling round.
       +++ We will construct one mode per strategy. Each mode will have a
       profiling data interpretation function that given profiler data will
-      return the next module to annotate. Then, the mode will used the
+      return the next module to annotate. Then, the mode will use the
       domain knowledge to construct the next configuration. 
       +++ Current modes: 
-          --- Boundary Eager: look at the top boundary identified by the
-          feature profiler, if it is shallow turn it into deep, if it is
-          untyped turn it into shallow.
-          --- Statistical Eager: same as Boundary Eager but using the
-           module that contains the top self entry of the statistical
-           profiler.
-      +++ Mode failure condition: A mode produces a configuration no
-      configuration that is below the accepted performance threshold
-      within the tolerated number of typing steps.
-      +++ Mode success condition: A mode produces a configuration that
-      that is below the accepted performance threshold and within the
-      tolerated number of typing steps.
+          --- Boundary Eager (UD => DD, US => SS, SD => DD):
+           look at the top boundary identified by the
+           feature profiler and the least-typed module in the boundary. If
+           it is untyped, change it to match the other module. If it is shallow,
+           change it to deep.
+          --- Statistical Eager (U => S, S => D):
+           look at the module with the highest **self** time and improve its
+           types by one step.
+      +++ Mode failure condition: A mode produces no configuration that is
+      below the accepted performance threshold within the tolerated number of
+      typing steps.
+      +++ Mode success condition: A mode produces a configuration that is below
+      the accepted performance threshold within the tolerated number of typing
+      steps.
 
  3) Mode comparison: 
       ++ Success or Failure comparison
@@ -197,8 +199,19 @@ The plan is to follow a rational program approach:
       (i) We construct the lattice for each benchmark and measure the
       performance of each configuration for all the lattices without
       producing profiler data. This acts as ground truth for the
-      performance of the different configurations. [[Ben, add details]]
-      
+      performance of the different configurations.
+      - [quadT] is running on Cloudlab Utah using m510 nodes and the default
+        ubuntu OS. Each node has an Intel Xeon D-1548 CPU running at 2.0 GHz
+        and 64 GB RAM.
+      - [morsecode forth fsm fsmoo mbta sieve acquire jpeg kcfa lnm snake
+        suffixtree take5 tetris zombie synth] all ran on Cloudlab Wisconsin
+        using c220g1 nodes and the default ubuntu OS. Each node has two
+        Intel E5-2630 CPUs running at 2.40 GHz and 128GB RAM.
+      - [dungeon gregor quadU zordoz] have no data for various reasons:
+        dungeon was too slow because of a TR bug, gregor and quadU are large
+        with good overall performance, and zordoz cannot run some shallow/deep
+        mixes. Hope to fix dungeon and zordoz soon.
+
       (ii) We construct the set of scenarios. [[We need more details here]]
 
       (ii) Starting from the scenarios, we use the profilers 
