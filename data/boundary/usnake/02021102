@@ -1,0 +1,16 @@
+cpu time: 4527 real time: 4527 gc time: 123
+Running time is 5.24% contracts
+286/5444 ms
+
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  129.5 ms
+  (-> world? (or/c right left down up) world?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
+  89 ms
+  (-> world? snake?)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  61.5 ms
+  (-> world? world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

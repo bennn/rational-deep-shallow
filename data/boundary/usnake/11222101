@@ -1,0 +1,40 @@
+cpu time: 8362 real time: 8362 gc time: 131
+Running time is 34.92% contracts
+3248/9300 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  990.5 ms
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
+  902 ms
+  (-> snake? (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  707.5 ms
+  (-> world? snake?)
+  (-> world? posn?)
+  (-> snake? posn? world?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
+  239 ms
+  (-> posn? real?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  176 ms
+  (-> world? (or/c right left down up) any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  96 ms
+  (-> posn? posn? boolean?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  62 ms
+  (-> world? boolean?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  39.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
+  18 ms
+  (-> posn? posn? boolean?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
+  11.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  5.5 ms
+  (-> world? string? world?)

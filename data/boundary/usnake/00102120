@@ -1,0 +1,40 @@
+cpu time: 11473 real time: 11473 gc time: 136
+Running time is 38.04% contracts
+4781/12567 ms
+
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-segs)" "data-adaptor.rkt:96:5")
+  1396 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
+  1361.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-dir)" "data-adaptor.rkt:95:5")
+  1112.5 ms
+  (-> any/c (or/c up down left right))
+("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
+  641.5 ms
+  (-> (cons/c posn? (listof posn?)) any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  115 ms
+  (-> world? boolean?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt handlers)" "(interface for world-snake)" "data-adaptor.rkt:73:5")
+  50 ms
+  (-> any/c snake?)
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  44 ms
+  (-> real? real? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  22 ms
+  (-> world? string? world?)
+("(interface for world->world)" "/users/ben_g/usnake/cfg/main.rkt" "main.rkt:9:22")
+  22 ms
+  (-> any/c world?)
+("(interface for world-change-dir)" "/users/ben_g/usnake/cfg/handlers.rkt" "handlers.rkt:10:22")
+  5.5 ms
+  (-> any/c any/c world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> bound-id-set? sequence?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

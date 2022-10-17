@@ -1,0 +1,40 @@
+cpu time: 14722 real time: 14722 gc time: 148
+Running time is 47.54% contracts
+7440/15648 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
+  4366.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> snake? (or/c right left down up))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  1120.5 ms
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  667 ms
+  (-> snake? posn? world?)
+  (-> world? posn?)
+  (-> world? snake?)
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  558 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
+  348.5 ms
+  (-> real? real? posn?)
+  (-> posn? real?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
+  127.5 ms
+  (-> world? snake?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  102 ms
+  (-> posn? posn? boolean?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  75.5 ms
+  (-> world? any)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  68 ms
+  (-> world? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  6 ms
+  (-> world? string? any)

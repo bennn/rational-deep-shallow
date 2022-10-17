@@ -1,0 +1,25 @@
+cpu time: 5215 real time: 5215 gc time: 119
+Running time is 33.76% contracts
+2078/6153 ms
+
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
+  1160 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
+  667 ms
+  (-> (cons/c posn? (listof posn?)) any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  124.5 ms
+  (-> world? boolean?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt handlers)" "(interface for world-snake)" "data-adaptor.rkt:73:5")
+  61 ms
+  (-> any/c snake?)
+("(interface for world->world)" "/users/ben_g/usnake/cfg/main.rkt" "main.rkt:9:22")
+  31.5 ms
+  (-> any/c world?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  28 ms
+  (-> world? string? world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

@@ -1,0 +1,43 @@
+cpu time: 10226 real time: 10226 gc time: 136
+Running time is 46.09% contracts
+5142/11156 ms
+
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-segs)" "data-adaptor.rkt:96:5")
+  1373 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
+  1166 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-dir)" "data-adaptor.rkt:95:5")
+  950 ms
+  (-> any/c (or/c up down left right))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for snake-segs)" "data-adaptor.rkt:108:5")
+  741.5 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  510.5 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  95.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  69 ms
+  (-> world? (or/c up down left right) any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-snake)" "data-adaptor.rkt:109:5")
+  62 ms
+  (-> any/c snake?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
+  57 ms
+  (-> any/c posn?)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  55.5 ms
+  (-> world? any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt handlers)" "(interface for world-snake)" "data-adaptor.rkt:73:5")
+  50.5 ms
+  (-> any/c snake?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
+  5.5 ms
+  (-> snake? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:182:2")
+  5.5 ms
+  (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any)

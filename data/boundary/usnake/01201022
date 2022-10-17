@@ -1,0 +1,46 @@
+cpu time: 14434 real time: 14434 gc time: 138
+Running time is 36.55% contracts
+5595/15305 ms
+
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
+  1397 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-segs)" "data-adaptor.rkt:96:5")
+  1184 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-dir)" "data-adaptor.rkt:95:5")
+  1021.5 ms
+  (-> any/c (or/c up down left right))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for snake-segs)" "data-adaptor.rkt:108:5")
+  741 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data-adaptor.rkt:10:12")
+  233.5 ms
+  (-> snake? posn? any)
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data-adaptor.rkt:8:12")
+  222.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  210 ms
+  (-> world? (or/c up down left right) world?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
+  127.5 ms
+  (-> any/c posn?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-snake)" "data-adaptor.rkt:109:5")
+  125 ms
+  (-> any/c snake?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  119 ms
+  (-> world? any)
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  107.5 ms
+  (-> real? real? any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt handlers)" "(interface for world-snake)" "data-adaptor.rkt:73:5")
+  89.5 ms
+  (-> any/c snake?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  11 ms
+  (-> world? string? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:233:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d))))

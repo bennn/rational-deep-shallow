@@ -1,0 +1,28 @@
+cpu time: 7298 real time: 7298 gc time: 118
+Running time is 50.1% contracts
+4119/8220 ms
+
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-segs)" "data-adaptor.rkt:96:5")
+  1351 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
+  1085 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-dir)" "data-adaptor.rkt:95:5")
+  883 ms
+  (-> any/c (or/c up down left right))
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  606 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  95.5 ms
+  (-> snake? any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt handlers)" "(interface for world-snake)" "data-adaptor.rkt:73:5")
+  76.5 ms
+  (-> any/c snake?)
+("(interface for world->world)" "/users/ben_g/usnake/cfg/main.rkt" "main.rkt:9:22")
+  16 ms
+  (-> any/c world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))

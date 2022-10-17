@@ -1,0 +1,48 @@
+cpu time: 7172 real time: 7172 gc time: 129
+Running time is 22.1% contracts
+1792/8107 ms
+
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  619 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  259 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  246.5 ms
+  (-> snake? posn? any)
+  (-> world? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
+  178 ms
+  (-> posn? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  119 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  98.5 ms
+  (-> world? world?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
+  68 ms
+  (-> world? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
+  59 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  59 ms
+  (-> world? boolean?)
+("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  52 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  11.5 ms
+  (-> world? string? world?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
+  11 ms
+  (-> posn? posn? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  6 ms
+  (->* (flat-contract? chaperone-contract?) (#:immutable (or/c (quote dont-care) #t #f)) contract?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

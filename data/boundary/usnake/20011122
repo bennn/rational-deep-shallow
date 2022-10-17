@@ -1,0 +1,50 @@
+cpu time: 11382 real time: 11382 gc time: 134
+Running time is 27.9% contracts
+3437/12316 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
+  1546 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  411.5 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  324 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
+  242 ms
+  (-> posn? any)
+  (-> real? real? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  225 ms
+  (-> world? any)
+  (-> snake? posn? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
+  190.5 ms
+  (-> posn? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  152.5 ms
+  (-> world? (or/c up down left right) world?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  103 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  79.5 ms
+  (-> world? world?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  72 ms
+  (-> snake? boolean?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
+  51.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
+  28 ms
+  (-> posn? posn? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:51:3")
+  5.5 ms
+  (-> bound-identifier-mapping? identifier? any/c void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:221:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r dict?))

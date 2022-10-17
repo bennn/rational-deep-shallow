@@ -1,0 +1,42 @@
+cpu time: 6395 real time: 6395 gc time: 126
+Running time is 21.08% contracts
+1543/7319 ms
+
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  527.5 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  293 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  273.5 ms
+  (-> world? any)
+  (-> snake? posn? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
+  104.5 ms
+  (-> world? any)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  99 ms
+  (-> world? world?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  73 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  70.5 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  57 ms
+  (-> world? boolean?)
+("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  20.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
+  13 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  5.5 ms
+  (-> world? string? world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/async-channel.rkt" "no-negative-party" "<collects>/racket/async-channel.rkt:277:19")
+  5.5 ms
+  (->* (async-channel? (-> any/c any/c) (-> any/c any/c)) #:rest (listof any/c) (and/c chaperone? async-channel?))

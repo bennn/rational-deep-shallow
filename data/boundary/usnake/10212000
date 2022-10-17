@@ -1,0 +1,38 @@
+cpu time: 5615 real time: 5615 gc time: 117
+Running time is 29.63% contracts
+1942/6553 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
+  1191 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  252 ms
+  (-> world? any)
+  (-> snake? posn? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  173 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
+  126.5 ms
+  (-> posn? any)
+  (-> real? real? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  90.5 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  46.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
+  45.5 ms
+  (-> world? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> free-id-set? free-id-set? boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5.5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:227:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))

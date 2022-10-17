@@ -1,0 +1,40 @@
+cpu time: 15420 real time: 15420 gc time: 147
+Running time is 38.88% contracts
+6366/16372 ms
+
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
+  1563.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-segs)" "data-adaptor.rkt:96:5")
+  1306 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-dir)" "data-adaptor.rkt:95:5")
+  1061 ms
+  (-> any/c (or/c up down left right))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
+  944.5 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for snake-segs)" "data-adaptor.rkt:108:5")
+  639 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data-adaptor.rkt:10:12")
+  292.5 ms
+  (-> snake? posn? any)
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data-adaptor.rkt:8:12")
+  283.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-snake)" "data-adaptor.rkt:109:5")
+  105 ms
+  (-> any/c snake?)
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  82 ms
+  (-> real? real? any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
+  77 ms
+  (-> any/c posn?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:53:3")
+  6 ms
+  (-> bound-identifier-mapping? (-> identifier? any/c any) (listof any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))

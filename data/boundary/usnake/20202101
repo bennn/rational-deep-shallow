@@ -1,0 +1,37 @@
+cpu time: 7549 real time: 7549 gc time: 128
+Running time is 31.2% contracts
+2648/8485 ms
+
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
+  1109 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for snake-segs)" "data-adaptor.rkt:108:5")
+  750 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  246.5 ms
+  (-> world? (or/c right left down up) any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  173 ms
+  (-> world? boolean?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-snake)" "data-adaptor.rkt:109:5")
+  142.5 ms
+  (-> any/c snake?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt handlers)" "(interface for world-snake)" "data-adaptor.rkt:73:5")
+  83 ms
+  (-> any/c snake?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
+  69.5 ms
+  (-> any/c posn?)
+("(interface for snake-slither)" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:12:22")
+  40 ms
+  (-> any/c snake?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  22.5 ms
+  (-> world? string? world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:60:4")
+  6 ms
+  (->* (module-identifier-mapping? identifier?) ((-> any)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:233:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d))))

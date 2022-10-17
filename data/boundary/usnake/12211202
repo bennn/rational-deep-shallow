@@ -1,0 +1,35 @@
+cpu time: 6378 real time: 6378 gc time: 120
+Running time is 30.48% contracts
+2225/7301 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
+  1225 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  325.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  247 ms
+  (-> snake? posn? any)
+  (-> world? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
+  150 ms
+  (-> posn? any)
+  (-> real? real? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  145 ms
+  (-> world? (or/c right left down up) world?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  61 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  60.5 ms
+  (-> world? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:59:4")
+  5.5 ms
+  (-> any/c boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:221:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r dict?))

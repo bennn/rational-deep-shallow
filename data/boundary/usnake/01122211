@@ -1,0 +1,37 @@
+cpu time: 11697 real time: 11697 gc time: 142
+Running time is 43.78% contracts
+5522/12612 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
+  3589.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> snake? (or/c right left down up))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  814 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  452 ms
+  (-> world? posn?)
+  (-> snake? posn? world?)
+  (-> world? snake?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
+  373 ms
+  (-> real? real? posn?)
+  (-> posn? real?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  137 ms
+  (-> world? (or/c up down left right) any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  109 ms
+  (-> posn? posn? boolean?)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  35.5 ms
+  (-> world? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/provide.rkt" "(lib syntax/parse/experimental/contract.rkt):43:33")
+  6 ms
+  macro argument contract
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:279:2")
+  5.5 ms
+  (->* () #:rest (listof (or/c (quote dict-ref) (quote dict-set!) (quote dict-set) (quote dict-remove!) (quote dict-remove) (quote dict-count) (quote dict-iterate-first) (quote dict-iterate-next) (quote dict-iterate-key) (quote dict-iterate-value) (quote dict-has-key?) (quote dict-ref!) (quote dict-set*!) (quote dict-set*) (quote dict-update!) (quote dict-update) (quote dict-map) (quote dict-for-each) (quote dict-keys) (quote dict-values) (quote dict->list) (quote dict-copy) (quote dict-empty?) (quote dict-clear) (quote dict-clear!))) flat-contract?)

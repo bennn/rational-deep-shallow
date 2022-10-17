@@ -1,0 +1,22 @@
+cpu time: 9363 real time: 9363 gc time: 131
+Running time is 43.68% contracts
+4499/10301 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
+  3352 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> snake? (or/c right left down up))
+("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
+  801 ms
+  (-> (cons/c posn? (listof posn?)) (listof posn?))
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
+  301.5 ms
+  (-> posn? real?)
+  (-> real? real? posn?)
+("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  39 ms
+  (-> snake? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5.5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

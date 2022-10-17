@@ -1,0 +1,33 @@
+cpu time: 6039 real time: 6039 gc time: 119
+Running time is 12.75% contracts
+885/6941 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  250 ms
+  (-> snake? posn? any)
+  (-> world? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
+  205 ms
+  (-> posn? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  197.5 ms
+  (-> snake? any)
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  80.5 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
+  63.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
+  32.5 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  28.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  22.5 ms
+  (-> world? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

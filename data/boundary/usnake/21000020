@@ -1,0 +1,25 @@
+cpu time: 10272 real time: 10272 gc time: 119
+Running time is 49.55% contracts
+5554/11207 ms
+
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
+  1604.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-segs)" "data-adaptor.rkt:96:5")
+  1300 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
+  1061 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-dir)" "data-adaptor.rkt:95:5")
+  928.5 ms
+  (-> any/c (or/c up down left right))
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  551 ms
+  (-> any/c (listof posn?))
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  103 ms
+  (-> real? real? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5.5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

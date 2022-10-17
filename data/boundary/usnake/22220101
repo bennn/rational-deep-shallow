@@ -1,0 +1,22 @@
+cpu time: 7961 real time: 7961 gc time: 131
+Running time is 19.89% contracts
+1771/8903 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  868.5 ms
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  670.5 ms
+  (-> snake? posn? world?)
+  (-> world? snake?)
+  (-> world? posn?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  133.5 ms
+  (-> world? (or/c right left down up) any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  93 ms
+  (-> posn? posn? boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:193:2")
+  5 ms
+  (->i ((d (dict-implements/c dict-set!))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r void?))

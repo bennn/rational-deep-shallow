@@ -1,0 +1,41 @@
+cpu time: 11447 real time: 11447 gc time: 132
+Running time is 25.53% contracts
+3154/12356 ms
+
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
+  1493.5 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
+  582 ms
+  (-> (cons/c posn? (listof posn?)) any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
+  278 ms
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  277.5 ms
+  (-> world? any)
+  (-> snake? posn? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
+  167.5 ms
+  (-> posn? any)
+  (-> real? real? any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  117 ms
+  (-> posn? posn? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
+  101 ms
+  (-> posn? any)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  55 ms
+  (-> world? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
+  49.5 ms
+  (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
+  27.5 ms
+  (-> posn? posn? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)

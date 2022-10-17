@@ -1,0 +1,25 @@
+cpu time: 3812 real time: 3812 gc time: 107
+Running time is 25.74% contracts
+1214/4716 ms
+
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for snake-segs)" "data-adaptor.rkt:108:5")
+  789 ms
+  (-> any/c (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
+  150 ms
+  (-> world? (or/c right left down up) any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-snake)" "data-adaptor.rkt:109:5")
+  103 ms
+  (-> any/c snake?)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  85.5 ms
+  (-> world? any)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
+  49.5 ms
+  (-> any/c posn?)
+("(interface for snake-slither)" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:12:22")
+  31.5 ms
+  (-> any/c snake?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))
