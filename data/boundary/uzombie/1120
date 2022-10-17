@@ -1,0 +1,19 @@
+cpu time: 2783 real time: 2784 gc time: 112
+Running time is 79.02% contracts
+2745/3474 ms
+
+("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
+  1814 ms
+  (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)
+("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
+  578 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g34 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g34 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)))
+("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
+  340.5 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g34 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g34 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:57:4")
+  6.5 ms
+  (-> module-identifier-mapping?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:229:2")
+  6 ms
+  (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))

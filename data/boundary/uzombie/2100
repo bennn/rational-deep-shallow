@@ -1,0 +1,13 @@
+cpu time: 2945 real time: 2945 gc time: 113
+Running time is 78.96% contracts
+2867/3631 ms
+
+("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
+  1884 ms
+  (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)
+("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
+  595.5 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g34 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g34 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)))
+("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
+  387.5 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g34 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g34 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)))

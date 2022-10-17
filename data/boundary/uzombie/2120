@@ -1,0 +1,16 @@
+cpu time: 2936 real time: 2936 gc time: 123
+Running time is 75.08% contracts
+2717/3618 ms
+
+("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
+  1737 ms
+  (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)
+("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
+  661 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g34 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g34 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)))
+("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
+  313 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g34 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g34 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g24 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g24 #:chaperone))))) #:chaperone)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))

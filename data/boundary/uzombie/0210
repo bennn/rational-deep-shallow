@@ -1,0 +1,28 @@
+cpu time: 2920 real time: 2920 gc time: 115
+Running time is 77.59% contracts
+2787/3592 ms
+
+("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
+  1628 ms
+  (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)
+("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
+  729 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
+("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
+  398 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
+("/users/ben_g/uzombie/cfg/math.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "math.rkt:21:9")
+  6.5 ms
+  (-> real? any)
+("/users/ben_g/uzombie/cfg/math.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "math.rkt:15:9")
+  6.5 ms
+  (-> real? real? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:51:3")
+  6.5 ms
+  (-> bound-identifier-mapping? identifier? any/c void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  6.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))
+("/users/ben_g/uzombie/cfg/math.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "math.rkt:19:9")
+  6 ms
+  (-> real? any)

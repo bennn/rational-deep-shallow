@@ -1,0 +1,33 @@
+cpu time: 5415 real time: 5415 gc time: 168
+Running time is 70.93% contracts
+4363/6151 ms
+
+("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:86:4")
+  2131 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt:14:12")
+  658.5 ms
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:48:4")
+  649 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:46:4")
+  505.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
+("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for State-store)" "denotable-adapted.rkt:78:3")
+  388 ms
+  (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  15.5 ms
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5 ms
+  (syntax-class/c ((-> any/c any/c) (or/c string? symbol? #f)) ())

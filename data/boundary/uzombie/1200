@@ -1,0 +1,19 @@
+cpu time: 2887 real time: 2887 gc time: 115
+Running time is 76.04% contracts
+2706/3558 ms
+
+("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
+  1929.5 ms
+  (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)
+("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
+  431.5 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
+("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
+  331 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  7 ms
+  (-> free-id-set? free-id-set? boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  6.5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

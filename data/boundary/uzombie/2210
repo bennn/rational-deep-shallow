@@ -1,0 +1,19 @@
+cpu time: 2953 real time: 2953 gc time: 116
+Running time is 78.97% contracts
+2863/3625 ms
+
+("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
+  1863.5 ms
+  (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)
+("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
+  510 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
+("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
+  471 ms
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
+("/users/ben_g/uzombie/cfg/math.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "math.rkt:21:9")
+  12.5 ms
+  (-> real? any)
+("/users/ben_g/uzombie/cfg/math.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "math.rkt:17:9")
+  5.5 ms
+  (-> real? real? any)
