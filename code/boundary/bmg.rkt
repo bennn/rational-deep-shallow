@@ -38,7 +38,14 @@
     (lambda ()
       (for ((cfgstr (in-lines)))
         (copy-configuration cfgstr bmdir cfg-dir)
-  (run-profile cfg-dir mode)
+  (define rrr
+    (let* ((r0 (run-profile cfg-dir mode))
+           (_v0 (unless r0
+                  (eprintf "ERROR check cfg ~s dir ~s~n" cfgstr cfg-dir)))
+           (r1 (or r0 (run-profile cfg-dir mode)))
+           (_v1 (unless r1
+                  (raise-arguments-error 'die "error, check the directory" "cfg" cfgstr "dir" cfg-dir))))
+      r1))
   (move-file (build-path cfg-dir default-out) (build-path out-dir cfgstr))
   (void)))))
 
