@@ -10,43 +10,49 @@ and how we solved them (or sidestep them).
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; CONTEXT  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-Sound gradual typing faces two significant challenges that hinder its
-adoption by developers: the development cost of adding type annotations
-and the computational cost of checking these annotations. The combined
-effect of the two challenges manifests during the migration of typed to
-untyped code. To migrate code, the developer has to pick which part of the
-code to analyze in order to figure out the necessary type annotations to
-satisfy the type-checker. An intuitive selection criterion is based on the
-perceived complexity of the code; to optimize the benefits from types,
-most developers will chose, to migrate the part of the code that is most
-complex so that they get some peace of mind, and document the complex
-code for future maintenance and evolution. However, after significant
-investment of time and energy, which usually involves multiple rounds of
-back-and-forth with the type-checker and even refactoring of the code, a
-developer may realize that the type annotations have caused significant
-slow-downs to the code that make it practically unusable. At this point
-the developer has to face a dilemma: either  revert the annotations or
-stash them, which is guaranteed to quickly make the annotations and the
-code out of sync; or try to add more annotations in the hope that the
-additional annotations will reduce the number of dynamic checks and enable
-type-aware optimizations. Unfortunately, empirical evidence indicate that
-the prospects of the second option are currently bleak. Specifically the
-study of  the trade off between annotations and performance in the context
-of Typed Racket's natural semantics suggest that in many scenarios there
-is no reliable strategy to navigate the trade off; developers have to
-either forego adding the annotations they want, or they have to pay an
-exorbitant performance cost. In other words, the migration of untyped to
-typed code under the rules of the natural/deep semantics seems an
-impossible optimization problem.
+Sound gradual typing faces two significant challenges:
 
-In response to this conundrum, PL researchers have opted to change the
-rules of engagement. If the natural semantics is not
-viable, then some other semantics may offer a solution. Two such proposals
-have emerged. The transient/shallow semantics inlines strategic checks in
-typed code to avoid costly wrappers. The concrete/nominal semantics limits
-the space of type annotations (and with them the allowed interactions
-between typed and untyped code) to replace wrappers with tags, which can
-be checked efficiently. 
+ - the development cost of adding type annotations;
+ - the computational cost of runtime checking these annotations.
+
+Both stand in its way of developer adoption. 
+
+The combined effect of these two challenges manifests itself during the
+development of a mixed-typed code base. When a developer gets confronted with
+such a code base, it could be for at least two different reasons:
+
+ - someone started migrating pieces of code from the untyped to the typed world
+ - someone added a typed piece of code to the untyped code repository.
+
+How this mixed-typed code came about doesn't matter for the second challenge,
+however. The injection of type-untype boundaries causes the addition of runtime
+checks and thus impose a cost.  More precisely, after a potentially significant
+investment of time into adding type annotations, a developer may realize that
+the type annotations cause significant slow-downs to the code. Indeed, the
+slow-downs might be so bad that the program is no longer unusable. 
+
+Unless the developer reverts these annotations, the question becomes
+
+ - how to make the program fast (enough) again.
+
+Research confirms that a fully-typed program can run _faster_ than the
+originally untyped program (in some variants of gradual typing). But, equipping
+an entire code base with type annotations is likely to represent a huge effort,
+so going that far is too much work. Hence, the developer must contemplate
+
+ - which component to type-annotate next to reduce the number of dynamic checks
+   (and/or enable type-sensitive code optimizations).
+
+Unfortunately, empirical evidence indicate that in many scenarios there is no
+reliable strategy to find this next step. 
+
+In response to this conundrum, PL researchers have opted to change the rules of
+engagement. If the natural semantics is not viable, then some other semantics
+may offer a solution. Two such proposals have emerged. The transient/shallow
+semantics inlines strategic checks in typed code to avoid costly wrappers. The
+concrete/nominal semantics limits the space of type annotations (and with them
+the allowed interactions between typed and untyped code) to replace wrappers
+with tags, which can be checked efficiently.
 
 However, neither proposal has resulted in a
 satisfying solution. The nominal/concrete approach leads to lower
