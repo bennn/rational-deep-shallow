@@ -79,6 +79,7 @@
      [(eq? mode profile-mode)
       (with-output-to-file
         default-out
+        #:exists 'replace
         (lambda ()
           (run-raco "profile" main.rkt)))]
      [else
