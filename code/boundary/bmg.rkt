@@ -85,12 +85,12 @@
       (raise-argument-error 'run-profile "(or/c 'boundary 'profile)" mode)])))
 
 (define (run-racket f0 f1)
-  (system (format "~a make ~a ~a && ~a ~a ~a"
+  (system (format "~a make -j 1 ~a ~a && ~a ~a ~a"
       raco f0 f1
       racket f0 f1)))
 
 (define (run-raco opt f1)
-  (system (format "~a make ~a && ~a ~a ~a"
+  (system (format "~a make -j 1 ~a && ~a ~a ~a"
       raco f1
       raco opt f1)))
 
