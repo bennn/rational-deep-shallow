@@ -30,6 +30,7 @@
   (unless (directory-exists? out-dir)
     (make-directory out-dir))
   (define cfg-dir (build-path bmdir "cfg"))
+  (void (clear-compiled! (build-path bmdir "base")))
   (unless (directory-exists? cfg-dir)
     (make-directory cfg-dir))
   ;; ---
@@ -48,6 +49,10 @@
       r1))
   (move-file (build-path cfg-dir default-out) (build-path out-dir cfgstr))
   (void)))))
+
+(define (clear-compiled! base-dir)
+  (for ((dd (in-glob (build-path base-dir "**" "compiled"))))
+    (delete-directory/files dd #:must-exist? #f)))
 
 (define (copy-configuration cfgstr bmdir cfg-dir)
   (for ((x (in-glob (build-path cfg-dir "*"))))
