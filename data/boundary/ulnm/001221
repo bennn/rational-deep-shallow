@@ -1,0 +1,22 @@
+cpu time: 526 real time: 526 gc time: 134
+Running time is 16.16% contracts
+399/2466 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  190.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/main.rkt" "no-negative-party" "pict-lib/pict/private/main.rkt:472:11")
+  82 ms
+  (->* () (#:bottom-circle-diameter (>/c 0) #:color-% (between/c 0 1) #:end-color (or/c string? (is-a?/c color%)) #:height-% (between/c 0 1) #:mercury-inset (>/c 0) #:start-color (or/c string? (is-a?/c color%)) #:stem-height (>/c 0) #:ticks natural? #:top-circle-diameter (>/c 0)) pict?)
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  82 ms
+  (->m real? real? void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):21:9")
+  33 ms
+  (-> (vectorof index?) vector? (struct/c Mutable-Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any) (-> (vectorof index?) any/c any) any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d-untyped.rkt" "no-negative-party" "plot-lib/plot/private/no-gui/plot2d-untyped.rkt:32:4")
+  5.5 ms
+  (->* ((or/c (or/c renderer2d? nonrenderer?) (listof (recursive-contract (treeof elem-contract) #:flat)))) (#:aspect-ratio (or/c (and/c rational? positive?) #f) #:height (or/c real? #f) #:legend-anchor (or/c (or/c (quote top-left) (quote top) (quote top-right) (quote left) (quote center) (quote right) (quote bottom-left) (quote bottom) (quote bottom-right)) (or/c (quote no-legend) (quote outside-global-top) (quote outside-top-left) (quote outside-top) (quote outside-top-right) (quote outside-left-top) (quote outside-left) (quote outside-left-bottom) (quote outside-right-top) (quote outside-right) (quote outside-right-bottom) (quote outside-bottom-left) (quote outside-bottom) (quote outside-bottom-right))) #:title (or/c string? pict? #f) #:width (or/c real? #f) #:x-label (or/c string? pict? #f) #:x-max (or/c real? #f) #:x-min (or/c real? #f) #:y-label (or/c string? pict? #f) #:y-max (or/c real? #f) #:y-min (or/c real? #f)) (and/c (is-a?/c bitmap%) (object/c (get-plot-bounds (->m (vectorof (vector/c real? real?)))) (plot->dc (->m (vectorof real?) (vectorof real?))) (dc->plot (->m (vectorof real?) (vectorof real?))) (plane-vector (->m (vectorof real?))) (get-plot-metrics-functions (->m (list/c (-> (vectorof (vector/c real? real?))) (-> (vectorof real?) (vectorof real?)) (-> (vectorof real?) (vectorof real?)) (-> (vectorof real?))))))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:41:11")
+  5.5 ms
+  (->* (exact-positive-integer? exact-positive-integer?) (any/c #:backing-scale (>/c 0.0)) (instanceof/c bitmap%/c))

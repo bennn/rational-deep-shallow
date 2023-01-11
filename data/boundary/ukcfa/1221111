@@ -1,24 +1,26 @@
-cpu time: 5134 real time: 5134 gc time: 152
-Running time is 68.28% contracts
-4003/5863 ms
+cpu time: 4111 real time: 4111 gc time: 141
+Running time is 72.76% contracts
+3429/4713 ms
 
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:71:9")
-  1789 ms
+  1593.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  536.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  716 ms
+  495.5 ms
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) State?)
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
-  (-> State? (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  535.5 ms
-  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  522 ms
+  394.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? (set/c Closure?))
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:36:8")
-  435 ms
+  386.5 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  17 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? Binding?)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
   5.5 ms
-  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))

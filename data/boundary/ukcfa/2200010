@@ -1,15 +1,17 @@
-cpu time: 3480 real time: 3480 gc time: 154
-Running time is 53.87% contracts
-2264/4202 ms
+cpu time: 2542 real time: 2542 gc time: 137
+Running time is 48.48% contracts
+1515/3124 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:48:4")
-  891 ms
+  517 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt:14:12")
-  764.5 ms
-  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  509 ms
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
-  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:46:4")
-  608 ms
+  483 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/time.rkt" "time.rkt:42:10")
+  5.5 ms
+  (-> (listof symbol?) (-> symbol? any))

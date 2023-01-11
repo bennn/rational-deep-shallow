@@ -1,22 +1,31 @@
-cpu time: 4845 real time: 4845 gc time: 155
-Running time is 69.76% contracts
-3999/5732 ms
+cpu time: 3544 real time: 3544 gc time: 148
+Running time is 70.6% contracts
+2929/4149 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:86:4")
-  2302.5 ms
+  1673 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:48:4")
-  710.5 ms
+  489.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:46:4")
-  573.5 ms
+  428 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for State-store)" "denotable-adapted.rkt:78:3")
-  385 ms
+  311 ms
   (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
-("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
-  16.5 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  6 ms
+  (-> immutable-bound-id-table? identifier? immutable-bound-id-table?)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/time.rkt" "time.rkt:42:10")
+  5.5 ms
+  (-> (listof symbol?) (-> symbol? Binding?))
 ("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
-  10.5 ms
+  5.5 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/format.rkt" "no-negative-party" "<collects>/racket/format.rkt:57:2")
+  5.5 ms
+  (->* () (#:align (or/c (quote left) (quote right) (quote center)) #:left-pad-string non-empty-string? #:limit-marker string? #:limit-prefix? boolean? #:max-width (or/c natural? +inf.0) #:min-width natural? #:pad-string non-empty-string? #:right-pad-string non-empty-string? #:separator string? #:width (or/c natural? #f)) #:rest (listof any/c) string?)
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
+  5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))

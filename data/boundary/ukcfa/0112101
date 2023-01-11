@@ -1,29 +1,24 @@
-cpu time: 3044 real time: 3044 gc time: 140
-Running time is 49.39% contracts
-1859/3764 ms
+cpu time: 2531 real time: 2532 gc time: 148
+Running time is 47.81% contracts
+1499/3134 ms
 
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  726 ms
-  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  671.5 ms
-  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  633.5 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  510 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  406 ms
+  339 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
-("/users/ben_g/ukcfa/cfg/main.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "ui.rkt:66:9")
-  21 ms
-  (-> (or/c exp? Call?) (and/c hash? (hash/c symbol? (set/c (or/c exp? Call?)))))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
-  16.5 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
-  6 ms
-  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
-  6 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+  5.5 ms
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:237:2")
-  6 ms
+  5.5 ms
   (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
+  5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))

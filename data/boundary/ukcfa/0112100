@@ -1,27 +1,28 @@
-cpu time: 4918 real time: 4918 gc time: 153
-Running time is 71.62% contracts
-4025/5620 ms
+cpu time: 4690 real time: 4691 gc time: 150
+Running time is 73.66% contracts
+3900/5294 ms
 
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:71:9")
-  1898.5 ms
+  1856 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  718.5 ms
+  696 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  645 ms
-  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  644 ms
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
   (-> State? (and/c hash? (hash/c symbol? Binding?)))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  376.5 ms
+  388.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:36:8")
-  359 ms
+  293.5 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
   16.5 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
   (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
-  11 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/structs.rkt" "structs.rkt:18:8")
+  5 ms
+  (-> Ref? any)

@@ -1,27 +1,30 @@
-cpu time: 5132 real time: 5133 gc time: 162
-Running time is 73.78% contracts
-4332/5871 ms
+cpu time: 4228 real time: 4229 gc time: 149
+Running time is 70.58% contracts
+3411/4833 ms
 
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:71:9")
-  2193.5 ms
+  1679 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  643.5 ms
-  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
-  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
-  (-> State? (and/c hash? (hash/c symbol? Binding?)))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  619.5 ms
+  550 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
+  515 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  (-> State? (and/c hash? (hash/c symbol? Binding?)))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  474 ms
+  360 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:36:8")
-  390.5 ms
+  286 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
-  5.5 ms
+  10 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
-  5 ms
-  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/time.rkt" "time.rkt:42:10")
+  5.5 ms
+  (-> (listof symbol?) (-> symbol? any))

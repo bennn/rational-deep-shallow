@@ -1,0 +1,19 @@
+cpu time: 509 real time: 509 gc time: 134
+Running time is 8.71% contracts
+215/2464 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  185 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  9 ms
+  (->m (is-a?/c brush%))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:91:19")
+  8 ms
+  record-dc%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/main.rkt" "no-negative-party" "pict-lib/pict/private/main.rkt:465:11")
+  6.5 ms
+  (->* (real?) ((or/c string? (is-a?/c color%)) (or/c string? (is-a?/c color%)) (or/c string? (is-a?/c color%))) pict?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/ticks.rkt" "no-negative-party" "(lib plot/private/common/ticks.rkt):694:9")
+  6 ms
+  (->* () (#:base (and/c exact-integer? positive?) #:divisors (listof (and/c exact-integer? positive?))) (-> real? real? (listof pre-tick?) any))

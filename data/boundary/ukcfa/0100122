@@ -1,19 +1,22 @@
-cpu time: 3201 real time: 3201 gc time: 144
-Running time is 59.17% contracts
-2318/3917 ms
+cpu time: 2835 real time: 2835 gc time: 144
+Running time is 58.02% contracts
+2000/3447 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:86:4")
-  1961 ms
+  1638 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for State-store)" "denotable-adapted.rkt:78:3")
-  333.5 ms
+  340 ms
   (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
-  11.5 ms
-  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
-  6 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
   5.5 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  5.5 ms
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("(interface for atom-eval)" "/users/ben_g/ukcfa/cfg/ui.rkt" "ui.rkt:16:3")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (-> any/c (set/c Closure?)))

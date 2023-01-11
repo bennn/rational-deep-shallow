@@ -1,32 +1,30 @@
-cpu time: 5097 real time: 5097 gc time: 166
-Running time is 71.16% contracts
-4146/5826 ms
+cpu time: 4177 real time: 4178 gc time: 171
+Running time is 73.07% contracts
+3501/4791 ms
 
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:71:9")
-  1985.5 ms
+  1768.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  630.5 ms
+  540 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  616 ms
+  490 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  (-> State? (and/c hash? (hash/c symbol? Binding?)))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  564 ms
+  356.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:36:8")
-  321.5 ms
+  311.5 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
+  17 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
+  11.5 ms
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
 ("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
-  11 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
-("(/users/ben_g/ukcfa/cfg/structs-adapted.rkt denotable)" "(interface for Call-args)" "structs-adapted.rkt:62:3")
   6 ms
-  (-> any/c (listof (or/c exp? Call?)))
-("/users/ben_g/ukcfa/cfg/denotable.rkt" "no-negative-party" "denotable.rkt:71:9")
-  5.5 ms
-  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:204:2")
-  5.5 ms
-  (->i ((d (dict-implements/c dict-set))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r dict?))
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)

@@ -1,14 +1,19 @@
-cpu time: 1416 real time: 1416 gc time: 129
-Running time is 1.66% contracts
-36/2138 ms
+cpu time: 1143 real time: 1143 gc time: 122
+Running time is 1.96% contracts
+34/1733 ms
 
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
+  11.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+("/users/ben_g/ukcfa/cfg/denotable.rkt" "no-negative-party" "denotable.rkt:36:8")
+  6 ms
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) State?)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
-  24 ms
-  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+  5.5 ms
   (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
-  6 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/ukcfa/cfg/denotable.rkt" "no-negative-party" "denotable.rkt:36:8")
   5.5 ms
-  (-> State? (listof symbol?))
+  (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (->* (mutable-free-id-set?) #:rest (listof free-id-set?) void?)

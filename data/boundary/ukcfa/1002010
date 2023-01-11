@@ -1,16 +1,22 @@
-cpu time: 2407 real time: 2407 gc time: 139
-Running time is 38.86% contracts
-1213/3120 ms
+cpu time: 2174 real time: 2174 gc time: 143
+Running time is 40.1% contracts
+1112/2773 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:48:4")
-  687 ms
+  551.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:46:4")
-  514.5 ms
+  526.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
-("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
+("(interface for analyze)" "/users/ben_g/ukcfa/cfg/main.rkt" "main.rkt:10:3")
+  17 ms
+  (-> any/c (and/c hash? (hash/c symbol? (set/c (or/c exp? Call?)))))
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for Closure-benv)" "benv-adapted.rkt:41:3")
+  6 ms
+  (-> any/c (and/c hash? (hash/c symbol? Binding?)))
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
   5.5 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
 ("(interface for format-mono-store)" "/users/ben_g/ukcfa/cfg/main.rkt" "main.rkt:11:3")
   5.5 ms
   (-> (and/c hash? (hash/c symbol? (set/c (or/c exp? Call?)))) string?)

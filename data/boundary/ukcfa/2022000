@@ -1,13 +1,19 @@
-cpu time: 1445 real time: 1445 gc time: 137
-Running time is 0.81% contracts
-18/2150 ms
+cpu time: 1179 real time: 1179 gc time: 131
+Running time is 2.26% contracts
+40/1769 ms
 
 ("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
-  6 ms
+  11.5 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
-("/users/ben_g/ukcfa/cfg/denotable.rkt" "no-negative-party" "denotable.rkt:64:9")
-  6 ms
-  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
+  11 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
-  5.5 ms
+  6 ms
   (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  6 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)
+("/users/ben_g/ukcfa/cfg/denotable.rkt" "no-negative-party" "denotable.rkt:64:9")
+  5.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))

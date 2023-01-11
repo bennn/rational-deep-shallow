@@ -1,18 +1,15 @@
-cpu time: 3167 real time: 3168 gc time: 147
-Running time is 49.88% contracts
-1927/3863 ms
+cpu time: 2563 real time: 2563 gc time: 154
+Running time is 47.71% contracts
+1508/3160 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:48:4")
-  806.5 ms
+  515.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable-adapted.rkt" "denotable-adapted.rkt:14:12")
-  690.5 ms
+  497.5 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
   (-> State? (and/c hash? (hash/c symbol? Binding?)))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:46:4")
-  425 ms
+  494.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:193:2")
-  5 ms
-  (->i ((d (dict-implements/c dict-set!))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r void?))

@@ -1,13 +1,19 @@
-cpu time: 2897 real time: 2897 gc time: 116
-Running time is 72.97% contracts
-2612/3579 ms
+cpu time: 2463 real time: 2463 gc time: 110
+Running time is 80.35% contracts
+2419/3010 ms
 
 ("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
-  1773.5 ms
+  1516 ms
   (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)
 ("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
-  457 ms
+  518 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
 ("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
-  381 ms
+  367.5 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
+("/users/ben_g/uzombie/cfg/math.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "math.rkt:19:9")
+  11.5 ms
+  (-> real? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> free-id-set? free-id-set?)

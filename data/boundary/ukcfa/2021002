@@ -1,13 +1,14 @@
-cpu time: 1446 real time: 1446 gc time: 138
-Running time is 1.39% contracts
-30/2158 ms
+cpu time: 1364 real time: 1364 gc time: 148
+Running time is 1.46% contracts
+29/1980 ms
 
-("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
-  18.5 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
+  17 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
 ("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
   6 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
-  5.5 ms
-  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
+  6 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))

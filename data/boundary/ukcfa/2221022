@@ -1,7 +1,7 @@
-cpu time: 1403 real time: 1403 gc time: 134
-Running time is 0.28% contracts
-6/2125 ms
+cpu time: 1163 real time: 1163 gc time: 144
+Running time is 0.34% contracts
+6/1777 ms
 
-("/users/ben_g/ukcfa/cfg/main.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "ui.rkt:66:9")
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "provide.rkt:94:18")
   6 ms
-  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? (set/c (or/c Call? exp?)))))
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

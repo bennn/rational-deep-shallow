@@ -1,0 +1,28 @@
+cpu time: 666 real time: 666 gc time: 157
+Running time is 13.14% contracts
+335/2550 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  231.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "/users/ben_g/ulnm/cfg/summary.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  64.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:94:19")
+  7.5 ms
+  region%/c
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  7 ms
+  (->m (is-a?/c color%))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/utils.rkt" "no-negative-party" "pict-lib/pict/private/utils.rkt:122:4")
+  6.5 ms
+  (->i ((width positive?) (height positive?)) (#:left-ear-extent (left-ear-extent (>=/c 0)) #:left-ear-arc (left-ear-arc (real-in 0 6.283185307179586)) #:left-ear-angle (left-ear-angle (real-in 0 6.283185307179586)) #:right-ear-extent (right-ear-extent (>=/c 0)) #:right-ear-arc (right-ear-arc (real-in 0 6.283185307179586)) #:right-ear-angle (right-ear-angle (real-in 0 6.283185307179586)) #:color (color (or/c #f string? (is-a?/c color%))) #:border-color (border-color (or/c #f string? (is-a?/c color%))) #:border-width (border-width (or/c #f (real-in 0 255)))) #:pre/desc (left-ear-arc left-ear-angle right-ear-arc right-ear-angle) (ear-positioning-errors left-ear-arc left-ear-angle right-ear-arc right-ear-angle) (values (_ pict?) (_ (-> (or/c (cons/c real? real?) (is-a?/c point%)) (cons/c real? real?)))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):49:13")
+  6 ms
+  (-> (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (struct/c Array (vectorof index?) any/c (box/c boolean?) any/c (-> (vectorof index?) any)))
+("(interface for sql-timestamp-nanosecond)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/date-time.rkt" "(lib plot/private/common/date-time.rkt)")
+  6 ms
+  (-> any/c natural?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "pict-lib/pict/main.rkt:244:3")
+  6 ms
+  (->i ((w (and/c rational? (not/c negative?))) (h (and/c rational? (not/c negative?)))) (#:draw-border? (draw-border? any/c) #:color (color (or/c #f string? (is-a?/c color%))) #:border-color (border-color (or/c #f string? (is-a?/c color%))) #:border-width (border-width (or/c #f (and/c rational? (not/c negative?))))) #:pre (draw-border? border-color border-width) (if (not draw-border?) (and (or (unsupplied-arg? border-color) (not border-color)) (or (unsupplied-arg? border-width) (not border-width))) #t) (_ pict?))

@@ -1,0 +1,22 @@
+cpu time: 566 real time: 566 gc time: 178
+Running time is 9.39% contracts
+239/2546 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  134 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:82:19")
+  81 ms
+  font%/c
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  6 ms
+  (->*m (string? real? real?) (any/c natural? real?) void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/plot3d/surface.rkt" "no-negative-party" "(lib plot/private/plot3d/surface.rkt):47:9")
+  6 ms
+  (->* ((-> any/c any/c real?)) ((or/c real? #f) (or/c real? #f) (or/c real? #f) (or/c real? #f) #:alpha (and/c real? nonnegative?) #:color (or/c string? symbol? (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (recursive-contract g131 #:impersonator) (list/c real? real? real?)) #:label (or/c string? #f pict?) #:line-color (or/c string? symbol? (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (recursive-contract g131 #:impersonator) (list/c real? real? real?)) #:line-style (or/c (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (quote transparent) (quote solid) (quote dot) (quote long-dash) (quote short-dash) (quote dot-dash)) #:line-width (and/c real? nonnegative?) #:samples (and/c exact-integer? positive?) #:style (or/c (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g103 1 0 (quote transparent) (quote solid) (quote bdiagonal-hatch) (quote fdiagonal-hatch) (quote crossdiag-hatch) (quote horizontal-hatch) (quote vertical-hatch) (quote cross-hatch)) #:z-max (or/c real? #f) #:z-min (or/c real? #f)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-array-struct.rkt" "no-negative-party" "(lib math/private/array/typed-array-struct.rkt):49:13")
+  6 ms
+  (-> (struct/c Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:279:2")
+  6 ms
+  (->* () #:rest (listof (or/c (quote dict-ref) (quote dict-set!) (quote dict-set) (quote dict-remove!) (quote dict-remove) (quote dict-count) (quote dict-iterate-first) (quote dict-iterate-next) (quote dict-iterate-key) (quote dict-iterate-value) (quote dict-has-key?) (quote dict-ref!) (quote dict-set*!) (quote dict-set*) (quote dict-update!) (quote dict-update) (quote dict-map) (quote dict-for-each) (quote dict-keys) (quote dict-values) (quote dict->list) (quote dict-copy) (quote dict-empty?) (quote dict-clear) (quote dict-clear!))) flat-contract?)

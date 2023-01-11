@@ -1,17 +1,16 @@
-cpu time: 3168 real time: 3168 gc time: 144
-Running time is 58.64% contracts
-2274/3877 ms
+cpu time: 2719 real time: 2719 gc time: 139
+Running time is 60.94% contracts
+2006/3292 ms
 
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:71:9")
-  1919 ms
+  1702.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/denotable.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "denotable.rkt:36:8")
-  331 ms
+  281 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
-  17.5 ms
-  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
-  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) Closure?)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
-  6 ms
+  17 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("(interface for analyze)" "/users/ben_g/ukcfa/cfg/main.rkt" "main.rkt:10:3")
+  5.5 ms
+  (-> any/c (and/c hash? (hash/c symbol? (set/c (or/c Call? exp?)))))

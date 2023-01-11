@@ -1,16 +1,16 @@
-cpu time: 2863 real time: 2863 gc time: 114
-Running time is 76.32% contracts
-2651/3473 ms
+cpu time: 2436 real time: 2436 gc time: 124
+Running time is 75.52% contracts
+2274/3011 ms
 
 ("(interface for w0)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:8:3")
-  1763.5 ms
+  1433 ms
   (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)
 ("(interface for world-on-tick)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:10:3")
-  527.5 ms
+  462.5 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
 ("(interface for world-on-mouse)" "/users/ben_g/uzombie/cfg/main.rkt" "main.rkt:9:3")
-  353 ms
+  372.5 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g68 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g68 #:chaperone))))) #:chaperone) (-> any/c any/c any/c (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g58 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g58 #:chaperone))))) #:chaperone)))
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
-  6.5 ms
+  6 ms
   (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))

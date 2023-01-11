@@ -1,15 +1,18 @@
-cpu time: 3873 real time: 3873 gc time: 104
-Running time is 81.82% contracts
-3718/4544 ms
+cpu time: 3418 real time: 3418 gc time: 101
+Running time is 81.83% contracts
+3263/3987 ms
 
 ("/users/ben_g/uzombie/cfg/main.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "#<blame-yes-swap>")
-  1984.5 ms
+  1764 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> real? real? string? (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
 ("/users/ben_g/uzombie/cfg/main.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "#<blame-no-swap>")
-  1228.5 ms
-  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> real? real? string? (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
+  1100.5 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
+  (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> real? real? string? (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
 ("/users/ben_g/uzombie/cfg/main.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "zombie.rkt:320:8")
-  505 ms
+  391.5 ms
   (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  6.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)

@@ -1,18 +1,21 @@
-cpu time: 3704 real time: 3704 gc time: 104
-Running time is 83.36% contracts
-3660/4390 ms
+cpu time: 3435 real time: 3435 gc time: 101
+Running time is 85.44% contracts
+3395/3973 ms
 
 ("/users/ben_g/uzombie/cfg/main.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "#<blame-yes-swap>")
-  2095.5 ms
+  1901.5 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> real? real? string? (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
 ("/users/ben_g/uzombie/cfg/main.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "#<blame-no-swap>")
-  1236 ms
+  1113 ms
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> real? real? string? (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
   (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g31 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g31 #:chaperone))))) #:chaperone) (-> (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)))
 ("/users/ben_g/uzombie/cfg/main.rkt" "/users/ben_g/uzombie/cfg/zombie.rkt" "zombie.rkt:320:8")
-  322 ms
+  369 ms
   (recursive-contract (-> symbol? (or/c (cons/c (quote stop-when) (-> boolean?)) (cons/c (quote to-draw) (-> image?)) (cons/c (quote on-tick) (-> (recursive-contract g41 #:chaperone))) (cons/c (quote on-mouse) (-> real? real? string? (recursive-contract g41 #:chaperone))))) #:chaperone)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
-  6 ms
+  5.5 ms
   (-> free-id-table? (listof identifier?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

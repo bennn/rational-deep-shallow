@@ -1,27 +1,26 @@
-cpu time: 3129 real time: 3129 gc time: 131
-Running time is 46.03% contracts
-1773/3851 ms
+cpu time: 2428 real time: 2428 gc time: 124
+Running time is 48.42% contracts
+1455/3004 ms
 
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  638.5 ms
+  587.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  560 ms
-  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
+  480 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
-  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  536.5 ms
+  340.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
-  16 ms
-  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
-  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
-  10.5 ms
+  17.5 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  17.5 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
-  5.5 ms
+  6 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
   5.5 ms

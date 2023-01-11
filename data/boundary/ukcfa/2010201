@@ -1,21 +1,23 @@
-cpu time: 3181 real time: 3181 gc time: 152
-Running time is 50.44% contracts
-1966/3898 ms
+cpu time: 2774 real time: 2774 gc time: 140
+Running time is 52.34% contracts
+1770/3381 ms
 
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  760.5 ms
+  750 ms
   (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  684.5 ms
+  567.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  503 ms
+  435 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
-  12 ms
-  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
-  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
-("/users/ben_g/ukcfa/cfg/structs.rkt" "no-negative-party" "structs.rkt:13:8")
+("(/users/ben_g/ukcfa/cfg/time-adapted.rkt ai)" "(interface for tick)" "time-adapted.rkt:24:3")
   6 ms
-  (-> Stx? symbol?)
+  (-> any/c any/c (listof symbol?))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
+  5.5 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+("/users/ben_g/ukcfa/cfg/structs.rkt" "no-negative-party" "structs.rkt:25:8")
+  5.5 ms
+  (-> Call? (listof (or/c Call? exp?)))

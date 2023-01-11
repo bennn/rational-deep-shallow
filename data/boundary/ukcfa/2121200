@@ -1,13 +1,13 @@
-cpu time: 1475 real time: 1475 gc time: 131
-Running time is 1.51% contracts
-33/2184 ms
+cpu time: 1165 real time: 1165 gc time: 123
+Running time is 1.01% contracts
+18/1731 ms
 
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  6 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
-  22 ms
+  6 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
   5.5 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
-  5.5 ms
-  (-> bound-id-set? bound-id-set?)
+  (->* (mutable-free-id-table?) #:rest key-value-pairs void?)

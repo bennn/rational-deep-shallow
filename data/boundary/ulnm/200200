@@ -1,0 +1,22 @@
+cpu time: 638 real time: 638 gc time: 132
+Running time is 13.71% contracts
+342/2490 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  256 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "/users/ben_g/ulnm/cfg/summary.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  60.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  7 ms
+  (->m (is-a?/c color%))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:93:19")
+  6.5 ms
+  radial-gradient%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):18:8")
+  6 ms
+  (-> (struct/c Mutable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?) vector?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "pict-lib/pict/main.rkt:206:3")
+  5.5 ms
+  (->i ((w (and/c rational? (not/c negative?))) (h (and/c rational? (not/c negative?)))) ((corner-radius rational?) #:angle (angle rational?) #:draw-border? (draw-border? any/c) #:color (color (or/c #f string? (is-a?/c color%))) #:border-color (border-color (or/c #f string? (is-a?/c color%))) #:border-width (border-width (or/c #f (and/c rational? (not/c negative?))))) #:pre (draw-border? border-color border-width) (if (not draw-border?) (and (or (unsupplied-arg? border-color) (not border-color)) (or (unsupplied-arg? border-width) (not border-width))) #t) (_ pict?))

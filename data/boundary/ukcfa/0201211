@@ -1,13 +1,19 @@
-cpu time: 3538 real time: 3539 gc time: 143
-Running time is 61.65% contracts
-2625/4257 ms
+cpu time: 2577 real time: 2577 gc time: 119
+Running time is 59.21% contracts
+1894/3199 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:86:4")
-  2200.5 ms
+  1560.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for State-store)" "denotable-adapted.rkt:78:3")
-  418.5 ms
+  316.5 ms
   (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
-("(interface for explore)" "/users/ben_g/ukcfa/cfg/ui.rkt" "ui.rkt:18:3")
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/time.rkt" "time.rkt:42:10")
+  6 ms
+  (-> (listof symbol?) (-> symbol? any))
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/time.rkt" "time.rkt:37:9")
   5.5 ms
-  (-> any/c any/c (set/c State?))
+  (-> Stx? (listof symbol?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (->* (mutable-free-id-set?) #:rest (listof free-id-set?) void?)

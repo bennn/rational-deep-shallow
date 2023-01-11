@@ -1,19 +1,19 @@
-cpu time: 2426 real time: 2426 gc time: 138
-Running time is 39.78% contracts
-1217/3058 ms
+cpu time: 2129 real time: 2129 gc time: 132
+Running time is 38.54% contracts
+1045/2710 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:48:4")
-  717 ms
+  585 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:46:4")
-  482 ms
+  443 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
-("/users/ben_g/ukcfa/cfg/main.rkt" "/users/ben_g/ukcfa/cfg/structs.rkt" "structs.rkt:21:8")
-  6 ms
-  (-> symbol? (listof symbol?) (or/c Call? exp?) any)
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:171:2")
-  6 ms
-  (-> any/c boolean?)
 ("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
-  5.5 ms
+  6 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
+  5.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:171:2")
+  5 ms
+  (-> any/c boolean?)

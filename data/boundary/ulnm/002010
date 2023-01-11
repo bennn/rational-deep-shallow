@@ -1,0 +1,34 @@
+cpu time: 677 real time: 677 gc time: 136
+Running time is 13.17% contracts
+351/2662 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  241 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "/users/ben_g/ulnm/cfg/summary.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  31.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("(class color-database%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw/private/color.rkt" "#<blame-no-swap>")
+  29 ms
+  (->m string? (or/c (is-a?/c color%) #f))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/plot2d/line.rkt" "no-negative-party" "(lib plot/private/plot2d/line.rkt):117:9")
+  9 ms
+  (->* ((-> any/c real?)) (real? real? #:alpha (and/c real? nonnegative?) #:color (or/c string? symbol? (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g430 1 0 (recursive-contract g458 #:impersonator) (list/c real? real? real?)) #:label (or/c string? #f pict?) #:samples (and/c exact-integer? positive?) #:style (or/c (and/c exact-integer? negative? (not/c fixnum?)) (and/c exact-integer? positive? (not/c fixnum?)) (and/c fixnum? negative?) (and/c fixnum? positive? (not/c index?)) (and/c index? positive? (not/c byte?)) g430 1 0 (quote transparent) (quote solid) (quote dot) (quote long-dash) (quote short-dash) (quote dot-dash)) #:width (and/c real? nonnegative?) #:x-max (or/c real? #f) #:x-min (or/c real? #f) #:y-max (or/c real? #f) #:y-min (or/c real? #f)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d-untyped.rkt" "no-negative-party" "<pkgs>/plot-lib/plot/private/no-gui/plot2d-untyped.rkt:15:3")
+  8 ms
+  (->* ((or/c (or/c renderer2d? nonrenderer?) (listof (recursive-contract (treeof elem-contract) #:flat))) (is-a?/c dc<%>) real? real? (>=/c 0) (>=/c 0)) (#:aspect-ratio (or/c (and/c rational? positive?) #f) #:legend-anchor (or/c (or/c (quote top-left) (quote top) (quote top-right) (quote left) (quote center) (quote right) (quote bottom-left) (quote bottom) (quote bottom-right)) (or/c (quote no-legend) (quote outside-global-top) (quote outside-top-left) (quote outside-top) (quote outside-top-right) (quote outside-left-top) (quote outside-left) (quote outside-left-bottom) (quote outside-right-top) (quote outside-right) (quote outside-right-bottom) (quote outside-bottom-left) (quote outside-bottom) (quote outside-bottom-right))) #:title (or/c string? pict? #f) #:x-label (or/c string? pict? #f) #:x-max (or/c real? #f) #:x-min (or/c real? #f) #:y-label (or/c string? pict? #f) #:y-max (or/c real? #f) #:y-min (or/c real? #f)) (object/c (get-plot-bounds (->m (vectorof (vector/c real? real?)))) (plot->dc (->m (vectorof real?) (vectorof real?))) (dc->plot (->m (vectorof real?) (vectorof real?))) (plane-vector (->m (vectorof real?))) (get-plot-metrics-functions (->m (list/c (-> (vectorof (vector/c real? real?))) (-> (vectorof real?) (vectorof real?)) (-> (vectorof real?) (vectorof real?)) (-> (vectorof real?)))))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:80:19")
+  7.5 ms
+  color%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/array/typed-mutable-array.rkt" "no-negative-party" "(lib math/private/array/typed-mutable-array.rkt):18:8")
+  6.5 ms
+  (-> (struct/c Mutable-Array (vectorof index?) index? (box/c boolean?) (-> void?) (-> (vectorof index?) any/c) (-> (vectorof index?) any/c void?) vector?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:235:2")
+  6.5 ms
+  (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d))))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  6 ms
+  (->*m ((is-a?/c bitmap%) real? real? real? real? (and/c real? (not/c negative?)) (and/c real? (not/c negative?))) ((or/c (quote solid) (quote opaque) (quote xor)) (is-a?/c color%) (or/c (is-a?/c bitmap%) #f)) boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:99:19")
+  5.5 ms
+  (->* () (#:cap (or/c (quote round) (quote projecting) (quote butt)) #:color (or/c string? (is-a?/c color%)) #:immutable? any/c #:join (or/c (quote round) (quote bevel) (quote miter)) #:stipple (or/c #f (is-a?/c bitmap%)) #:style (or/c (quote transparent) (quote solid) (quote xor) (quote hilite) (quote dot) (quote long-dash) (quote short-dash) (quote dot-dash) (quote xor-dot) (quote xor-long-dash) (quote xor-short-dash) (quote xor-dot-dash)) #:width (real-in 0 255)) (is-a?/c pen%))

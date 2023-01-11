@@ -1,0 +1,31 @@
+cpu time: 645 real time: 645 gc time: 131
+Running time is 11.98% contracts
+305/2546 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  194.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "/users/ben_g/ulnm/cfg/summary.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  55.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:87:19")
+  15.5 ms
+  bitmap-dc%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:191:2")
+  10 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/nonrenderer.rkt" "no-negative-party" "(lib plot/private/common/nonrenderer.rkt):39:9")
+  6.5 ms
+  (->* ((listof tick?)) (#:far? boolean?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/ticks.rkt" "no-negative-party" "(lib plot/private/common/ticks.rkt):220:9")
+  6 ms
+  (->* () (#:base (and/c exact-integer? positive?) #:scientific? boolean?) (-> real? real? (listof pre-tick?) any))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  6 ms
+  (->m (and/c real? (not/c negative?)))
+("(interface for sql-timestamp21)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/date-time.rkt" "(lib plot/private/common/date-time.rkt)")
+  5.5 ms
+  (-> any/c any/c any/c any/c any/c any/c any/c any/c sql-timestamp?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "<pkgs>/pict-lib/pict/main.rkt:134:3")
+  5.5 ms
+  (->* () #:rest (or/c (cons/c real? (listof pict-convertible?)) (listof pict-convertible?)) pict-convertible?)

@@ -1,10 +1,7 @@
-cpu time: 1336 real time: 1336 gc time: 128
-Running time is 0.59% contracts
-12/2047 ms
+cpu time: 1095 real time: 1095 gc time: 123
+Running time is 0.36% contracts
+6/1656 ms
 
-("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
   6 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:189:2")
-  6 ms
-  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)

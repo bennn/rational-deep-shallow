@@ -1,10 +1,17 @@
-cpu time: 1344 real time: 1344 gc time: 121
-Running time is 0.82% contracts
-17/2012 ms
+cpu time: 1132 real time: 1132 gc time: 129
+Running time is 2.73% contracts
+47/1701 ms
 
+("(interface for analyze)" "/users/ben_g/ukcfa/cfg/main.rkt" "main.rkt:10:3")
+  18 ms
+  (-> any/c (and/c hash? (hash/c symbol? (set/c (or/c Call? exp?)))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:49:9")
-  11 ms
+  11.5 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) (listof symbol?) (listof Binding?) (and/c hash? (hash/c symbol? Binding?)))
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:43:8")
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv.rkt" "benv.rkt:29:8")
+  11.5 ms
+  (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
+  (-> Closure? (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
   5.5 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) symbol? any)
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))

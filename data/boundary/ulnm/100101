@@ -1,0 +1,19 @@
+cpu time: 509 real time: 509 gc time: 131
+Running time is 10.04% contracts
+242/2406 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "main.rkt:99:3")
+  212.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/parameters.rkt" "no-negative-party" "(lib plot/private/common/parameters.rkt):224:11")
+  10 ms
+  (parameter/c real? any/c)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/utils.rkt" "no-negative-party" "(lib plot/private/common/utils.rkt):94:9")
+  7 ms
+  (-> (listof real?) (listof real?) any)
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/private/pict.rkt" "#<blame-no-swap>")
+  6.5 ms
+  (->m (is-a?/c color%))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "main.rkt:206:3")
+  5.5 ms
+  (->i ((w (and/c rational? (not/c negative?))) (h (and/c rational? (not/c negative?)))) ((corner-radius rational?) #:angle (angle rational?) #:draw-border? (draw-border? any/c) #:color (color (or/c #f string? (is-a?/c color%))) #:border-color (border-color (or/c #f string? (is-a?/c color%))) #:border-width (border-width (or/c #f (and/c rational? (not/c negative?))))) #:pre (draw-border? border-color border-width) (if (not draw-border?) (and (or (unsupplied-arg? border-color) (not border-color)) (or (unsupplied-arg? border-width) (not border-width))) #t) (_ pict?))

@@ -1,18 +1,23 @@
-cpu time: 3059 real time: 3059 gc time: 138
-Running time is 49.06% contracts
-1850/3771 ms
+cpu time: 2702 real time: 2702 gc time: 136
+Running time is 48.12% contracts
+1575/3273 ms
 
-("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  716.5 ms
-  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  714.5 ms
-  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  543 ms
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
-  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  413 ms
+  517 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
+  460.5 ms
+  (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
+("/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "/users/ben_g/ukcfa/cfg/time.rkt" "benv-adapted.rkt:12:12")
+  43.5 ms
+  (-> symbol? (listof symbol?) any)
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt time)" "(interface for empty-benv)" "benv-adapted.rkt:94:5")
+  5.5 ms
+  (and/c hash? (hash/c symbol? Binding?))
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:248:2")
-  6 ms
+  5.5 ms
   (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) (values (dict-key-contract d) (dict-value-contract d))))) (_r dict?))

@@ -1,0 +1,28 @@
+cpu time: 669 real time: 669 gc time: 158
+Running time is 14.8% contracts
+387/2614 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "<pkgs>/pict-lib/pict/main.rkt:99:3")
+  275.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "/users/ben_g/ulnm/cfg/summary.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  73.5 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "<pkgs>/pict-lib/pict/main.rkt:226:3")
+  8 ms
+  (->i ((r (and/c rational? (not/c negative?)))) (#:draw-border? (draw-border? any/c) #:color (color (or/c #f string? (is-a?/c color%))) #:border-color (border-color (or/c #f string? (is-a?/c color%))) #:border-width (border-width (or/c #f (and/c rational? (not/c negative?))))) #:pre (draw-border? border-color border-width) (if (not draw-border?) (and (or (unsupplied-arg? border-color) (not border-color)) (or (unsupplied-arg? border-width) (not border-width))) #t) (_ pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:94:19")
+  7 ms
+  region%/c
+("/users/ben_g/ulnm/cfg/lnm-plot.rkt" "/users/ben_g/ulnm/cfg/summary.rkt" "summary.rkt:173:9")
+  6 ms
+  (-> summary? string? real?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/common/ticks.rkt" "no-negative-party" "(lib plot/private/common/ticks.rkt):668:9")
+  6 ms
+  (->* () (#:formats (list/c string? string? string?) #:kind (or/c string? symbol?) #:number (and/c exact-integer? positive?) #:scales (listof string?)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "<pkgs>/draw-lib/racket/draw.rkt:88:19")
+  5.5 ms
+  post-script-dc%/c
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/db-lib/db/base.rkt" "no-negative-party" "<pkgs>/db-lib/db/base.rkt:152:2")
+  5.5 ms
+  (->* (connection? statement?) #:rest (listof any/c) any)

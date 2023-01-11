@@ -1,13 +1,16 @@
-cpu time: 3231 real time: 3231 gc time: 137
-Running time is 58.69% contracts
-2303/3924 ms
+cpu time: 2642 real time: 2642 gc time: 130
+Running time is 64.74% contracts
+2082/3215 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:86:4")
-  1950 ms
+  1831.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for State-store)" "denotable-adapted.rkt:78:3")
-  347.5 ms
+  239 ms
   (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
-("/users/ben_g/ukcfa/cfg/main.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "ui.rkt:66:9")
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt time)" "(interface for benv-extend)" "benv-adapted.rkt:96:5")
   5.5 ms
-  (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? (set/c (or/c Call? exp?)))))
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/provide.rkt" "(lib syntax/parse.rkt):11:26")
+  5.5 ms
+  macro argument contract

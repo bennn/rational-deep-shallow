@@ -1,19 +1,22 @@
-cpu time: 4235 real time: 4235 gc time: 151
-Running time is 62.64% contracts
-3116/4974 ms
+cpu time: 3584 real time: 3584 gc time: 141
+Running time is 69.8% contracts
+2925/4190 ms
 
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for store-join)" "denotable-adapted.rkt:86:4")
-  1674 ms
+  1675.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-update*)" "denotable-adapted.rkt:48:4")
-  584.5 ms
+  513.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ai)" "(interface for store-lookup)" "denotable-adapted.rkt:46:4")
-  529 ms
+  409.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) any/c (set/c Closure?))
 ("(/users/ben_g/ukcfa/cfg/denotable-adapted.rkt ui)" "(interface for State-store)" "denotable-adapted.rkt:78:3")
-  322 ms
+  315 ms
   (-> any/c (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
   6 ms
   (->* () (generic-set? #:phase (or/c #f exact-integer?)) mutable-bound-id-set?)
+("/users/ben_g/ukcfa/cfg/ui.rkt" "no-negative-party" "ui.rkt:74:9")
+  5 ms
+  (-> (and/c hash? (hash/c symbol? (set/c (or/c exp? Call?)))) string?)

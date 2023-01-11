@@ -1,0 +1,19 @@
+cpu time: 647 real time: 647 gc time: 130
+Running time is 13.29% contracts
+342/2569 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/plot-lib/plot/private/no-gui/plot2d.rkt" "pict-lib/pict/main.rkt:99:3")
+  255.5 ms
+  (->i ((draw (-> (is-a?/c dc<%>) real? real? any)) (w real?) (h real?)) ((d (or/c #f real?)) (a (or/c #f real?))) #:pre/name (draw) draw proc does not restore the dc state after being called (... draw) (p pict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/math-lib/math/private/statistics/expected-values.rkt" "/users/ben_g/ulnm/cfg/summary.rkt" "(lib math/private/statistics/expected-values.rkt):19:9")
+  66 ms
+  (->* ((or/c natural? (sequence/c real?))) ((or/c #f (or/c natural? (sequence/c real?)))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/draw-lib/racket/draw.rkt" "no-negative-party" "draw-lib/racket/draw.rkt:100:19")
+  7 ms
+  (->* () (#:color (or/c string? (is-a?/c color%)) #:gradient (or/c #f (is-a?/c linear-gradient%) (is-a?/c radial-gradient%)) #:immutable? any/c #:stipple (or/c #f (is-a?/c bitmap%)) #:style (or/c (quote transparent) (quote solid) (quote opaque) (quote xor) (quote hilite) (quote panel) (quote bdiagonal-hatch) (quote crossdiag-hatch) (quote fdiagonal-hatch) (quote cross-hatch) (quote horizontal-hatch) (quote vertical-hatch)) #:transformation (or/c #f (vector/c (vector/c real? real? real? real? real? real?) real? real? real? real? real?))) (is-a?/c brush%))
+("(class bitmap-dc%)" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "#<blame-no-swap>")
+  6.5 ms
+  (->m real? real? void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/pict-lib/pict/main.rkt" "no-negative-party" "pict-lib/pict/main.rkt:152:3")
+  6.5 ms
+  (->* (pict-convertible?) ((or/c (quote unsmoothed) (quote smoothed) (quote aligned)) #:make-bitmap (-> exact-positive-integer? exact-positive-integer? (is-a?/c bitmap%))) (is-a?/c bitmap%))

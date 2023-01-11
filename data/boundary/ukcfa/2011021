@@ -1,24 +1,29 @@
-cpu time: 3266 real time: 3266 gc time: 253
-Running time is 51.4% contracts
-2059/4006 ms
+cpu time: 2632 real time: 2632 gc time: 143
+Running time is 50.15% contracts
+1633/3256 ms
 
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:64:9")
-  777.5 ms
+  668.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) (listof Binding?) (listof (set/c Closure?)) (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:36:8")
-  681.5 ms
-  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
+  490 ms
   (-> (or/c Call? exp?) (and/c hash? (hash/c symbol? Binding?)) (and/c hash? (hash/c Binding? (set/c Closure?))) (listof symbol?) any)
-  (-> State? (and/c hash? (hash/c symbol? Binding?)))
+  (-> State? (and/c hash? (hash/c Binding? (set/c Closure?))))
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/denotable.rkt" "denotable.rkt:54:9")
-  582.5 ms
+  439.5 ms
   (-> (and/c hash? (hash/c Binding? (set/c Closure?))) Binding? any)
+("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
+  11.5 ms
+  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
 ("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "benv-adapted.rkt:9:12")
   6 ms
   (-> Lam? (and/c hash? (hash/c symbol? Binding?)) any)
 ("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-extend*)" "benv-adapted.rkt:47:5")
   6 ms
   (-> (and/c hash? (hash/c symbol? Binding?)) any/c any/c (and/c hash? (hash/c symbol? Binding?)))
-("(/users/ben_g/ukcfa/cfg/benv-adapted.rkt ai)" "(interface for benv-lookup)" "benv-adapted.rkt:45:5")
+("/users/ben_g/ukcfa/cfg/benv-adapted.rkt" "no-negative-party" "benv-adapted.rkt:12:12")
+  6 ms
+  (-> symbol? (listof symbol?) any)
+("/users/ben_g/ukcfa/cfg/ai.rkt" "/users/ben_g/ukcfa/cfg/ui.rkt" "ai.rkt:60:9")
   5.5 ms
-  (-> (and/c hash? (hash/c symbol? Binding?)) any/c Binding?)
+  (-> (set/c State?) (listof State?) (set/c State?))
