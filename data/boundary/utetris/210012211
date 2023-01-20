@@ -1,0 +1,28 @@
+cpu time: 4270 real time: 4270 gc time: 119
+Running time is 21.53% contracts
+1087/5046 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  989 ms
+  (-> block? block? any)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  39 ms
+  (-> block? any)
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  26 ms
+  (-> any/c any/c (listof block?))
+("(interface for blocks-row)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:9:4")
+  10.5 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:15:9")
+  5.5 ms
+  (-> real? real? block? any)
+("/users/ben_g/utetris/cfg/elim.rkt" "/users/ben_g/utetris/cfg/world.rkt" "elim.rkt:15:9")
+  5.5 ms
+  (-> (listof block?) (listof block?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:248:2")
+  5.5 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) (values (dict-key-contract d) (dict-value-contract d))))) (_r dict?))

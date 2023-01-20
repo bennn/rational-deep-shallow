@@ -1,0 +1,19 @@
+cpu time: 5279 real time: 5279 gc time: 123
+Running time is 15.93% contracts
+957/6006 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  874.5 ms
+  (-> block? block? any)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  67 ms
+  (-> block? any)
+("/users/ben_g/utetris/cfg/data.rkt" "/users/ben_g/utetris/cfg/world.rkt" "data.rkt:10:9")
+  5 ms
+  (-> tetra? (listof block?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/async-channel.rkt" "no-negative-party" "<collects>/racket/async-channel.rkt:277:19")
+  5 ms
+  (->* (async-channel? (-> any/c any/c) (-> any/c any/c)) #:rest (listof any/c) (and/c chaperone? async-channel?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
+  5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))

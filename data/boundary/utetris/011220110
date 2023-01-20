@@ -1,0 +1,32 @@
+cpu time: 10256 real time: 10256 gc time: 158
+Running time is 29.03% contracts
+3185/10970 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  2716 ms
+  (-> block? real?)
+  (-> real? real? symbol? block?)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  169.5 ms
+  (-> block? real?)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/elim.rkt" "bset.rkt:66:9")
+  112 ms
+  (-> (listof block?) natural? any)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/elim.rkt" "bset.rkt:61:9")
+  109 ms
+  (-> (listof block?) real? any)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/elim.rkt" "bset.rkt:76:9")
+  50.5 ms
+  (-> (listof block?) (listof block?) any)
+("/users/ben_g/utetris/cfg/data.rkt" "/users/ben_g/utetris/cfg/main.rkt" "data.rkt:10:9")
+  11.5 ms
+  (-> world? (listof block?))
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  5.5 ms
+  (-> tetra? (listof block?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:257:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (listof (dict-value-contract d))))

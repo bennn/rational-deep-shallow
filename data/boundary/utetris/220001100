@@ -1,0 +1,28 @@
+cpu time: 8245 real time: 8245 gc time: 144
+Running time is 1.58% contracts
+143/9044 ms
+
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  79.5 ms
+  (-> any/c any/c (listof block?))
+("(/users/ben_g/utetris/cfg/base-types.rkt main)" "(interface for world-blocks)" "base-types.rkt:124:5")
+  17.5 ms
+  (-> any/c (listof block?))
+("(interface for blocks-row)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:9:4")
+  17 ms
+  (-> any/c any/c (listof block?))
+("(interface for blocks-move)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:6:4")
+  6 ms
+  (-> any/c any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/base-types.rkt" "/users/ben_g/utetris/cfg/block.rkt" "base-types.rkt:8:12")
+  6 ms
+  (-> real? real? symbol? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:260:2")
+  6 ms
+  (->i ((d dict?)) (_r (d) (listof (cons/c (dict-key-contract d) (dict-value-contract d)))))
+("/users/ben_g/utetris/cfg/elim.rkt" "/users/ben_g/utetris/cfg/world.rkt" "elim.rkt:15:9")
+  5.5 ms
+  (-> (listof block?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)

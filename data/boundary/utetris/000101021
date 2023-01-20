@@ -1,0 +1,25 @@
+cpu time: 862 real time: 862 gc time: 30
+Running time is 7.39% contracts
+117/1576 ms
+
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  66 ms
+  (-> any/c any/c (listof block?))
+("(/users/ben_g/utetris/cfg/base-types.rkt world)" "(interface for world-blocks)" "base-types.rkt:162:5")
+  15 ms
+  (-> any/c (listof block?))
+("(interface for blocks-move)" "/users/ben_g/utetris/cfg/tetras.rkt" "tetras.rkt:7:4")
+  10.5 ms
+  (-> any/c any/c any/c (listof block?))
+("(interface for blocks-move)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:6:4")
+  9.5 ms
+  (-> any/c any/c any/c (listof block?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:204:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r dict?))
+("(interface for blocks-rotate-ccw)" "/users/ben_g/utetris/cfg/tetras.rkt" "tetras.rkt:9:4")
+  5 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  5 ms
+  (-> tetra? (listof block?) boolean?)

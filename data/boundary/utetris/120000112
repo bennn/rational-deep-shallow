@@ -1,0 +1,25 @@
+cpu time: 8343 real time: 8343 gc time: 146
+Running time is 0.97% contracts
+88/9095 ms
+
+("(/users/ben_g/utetris/cfg/base-types.rkt world)" "(interface for world-blocks)" "base-types.rkt:162:5")
+  42 ms
+  (-> any/c (listof block?))
+("(interface for eliminate-full-rows)" "/users/ben_g/utetris/cfg/world.rkt" "world.rkt:21:3")
+  18 ms
+  (-> any/c (listof block?))
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/world.rkt" "world.rkt:6:4")
+  6 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  5.5 ms
+  (-> tetra? (listof block?) any)
+("(/users/ben_g/utetris/cfg/base-types.rkt main)" "(interface for world-blocks)" "base-types.rkt:124:5")
+  5.5 ms
+  (-> any/c (listof block?))
+("/users/ben_g/utetris/cfg/main.rkt" "/users/ben_g/utetris/cfg/world.rkt" "world.rkt:108:9")
+  5.5 ms
+  (-> world? string? world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))

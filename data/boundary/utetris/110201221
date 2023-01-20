@@ -1,0 +1,25 @@
+cpu time: 10335 real time: 10335 gc time: 164
+Running time is 20.82% contracts
+2291/11000 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  2204 ms
+  (-> block? block? any)
+("(/users/ben_g/utetris/cfg/base-types.rkt world)" "(interface for world-blocks)" "base-types.rkt:162:5")
+  30 ms
+  (-> any/c (listof block?))
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  17 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  11.5 ms
+  (-> tetra? (listof block?) boolean?)
+("(/users/ben_g/utetris/cfg/base-types.rkt main)" "(interface for world-blocks)" "base-types.rkt:124:5")
+  11.5 ms
+  (-> any/c (listof block?))
+("(interface for blocks-move)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:6:4")
+  11 ms
+  (-> any/c any/c any/c (listof block?))
+("(interface for blocks-row)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:9:4")
+  5.5 ms
+  (-> any/c any/c (listof block?))

@@ -1,0 +1,31 @@
+cpu time: 15888 real time: 15888 gc time: 178
+Running time is 29.27% contracts
+4858/16593 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  3339.5 ms
+  (-> block? real?)
+  (-> block? symbol?)
+  (-> real? real? symbol? block?)
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  1394.5 ms
+  (-> block? block? any)
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  68 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/data.rkt" "/users/ben_g/utetris/cfg/world.rkt" "data.rkt:10:9")
+  27.5 ms
+  (-> world? (listof block?))
+  (-> tetra? (listof block?) world?)
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/world.rkt" "world.rkt:6:4")
+  11.5 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/elim.rkt" "/users/ben_g/utetris/cfg/world.rkt" "elim.rkt:15:9")
+  5.5 ms
+  (-> (listof block?) (listof block?))
+("(interface for blocks-row)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:9:4")
+  5.5 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> bound-id-set? (-> identifier? any/c) (listof any/c))

@@ -1,0 +1,28 @@
+cpu time: 8389 real time: 8389 gc time: 148
+Running time is 1.34% contracts
+123/9160 ms
+
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  51.5 ms
+  (-> any/c any/c (listof block?))
+("(interface for blocks-move)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:6:4")
+  24.5 ms
+  (-> any/c any/c any/c (listof block?))
+("(interface for blocks-row)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:9:4")
+  12 ms
+  (-> any/c any/c (listof block?))
+("(/users/ben_g/utetris/cfg/base-types.rkt main)" "(interface for world-blocks)" "base-types.rkt:124:5")
+  11.5 ms
+  (-> any/c (listof block?))
+("/users/ben_g/utetris/cfg/elim.rkt" "/users/ben_g/utetris/cfg/world.rkt" "elim.rkt:15:9")
+  6 ms
+  (-> (listof block?) any)
+("/users/ben_g/utetris/cfg/base-types.rkt" "/users/ben_g/utetris/cfg/block.rkt" "base-types.rkt:8:12")
+  6 ms
+  (-> real? real? symbol? any)
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  5.5 ms
+  (-> tetra? (listof block?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

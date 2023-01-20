@@ -1,0 +1,28 @@
+cpu time: 10097 real time: 10097 gc time: 163
+Running time is 19.69% contracts
+2132/10828 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  2057.5 ms
+  (-> block? block? any)
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  40 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/base-types.rkt" "/users/ben_g/utetris/cfg/world.rkt" "base-types.rkt:13:12")
+  6 ms
+  (-> tetra? (listof block?) any)
+("(/users/ben_g/utetris/cfg/base-types.rkt world)" "(interface for world-blocks)" "base-types.rkt:162:5")
+  6 ms
+  (-> any/c (listof block?))
+("(interface for blocks-move)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:6:4")
+  5.5 ms
+  (-> any/c any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  5.5 ms
+  (-> tetra? (listof block?) any)
+("/users/ben_g/utetris/cfg/tetras.rkt" "no-negative-party" "tetras.rkt:43:9")
+  5.5 ms
+  (-> tetra? symbol? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/format.rkt" "no-negative-party" "<collects>/racket/format.rkt:57:2")
+  5.5 ms
+  (->* () (#:align (or/c (quote left) (quote right) (quote center)) #:left-pad-string non-empty-string? #:limit-marker string? #:limit-prefix? boolean? #:max-width (or/c natural? +inf.0) #:min-width natural? #:pad-string non-empty-string? #:right-pad-string non-empty-string? #:separator string? #:width (or/c natural? #f)) #:rest (listof any/c) string?)

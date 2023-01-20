@@ -1,0 +1,26 @@
+cpu time: 2356 real time: 2356 gc time: 32
+Running time is 4.81% contracts
+148/3077 ms
+
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  68 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/data.rkt" "/users/ben_g/utetris/cfg/world.rkt" "data.rkt:10:9")
+  38.5 ms
+  (-> world? (listof block?))
+  (-> tetra? (listof block?) world?)
+("(interface for blocks-row)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:9:4")
+  21 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:260:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (listof (cons/c (dict-key-contract d) (dict-value-contract d)))))
+("/users/ben_g/utetris/cfg/elim.rkt" "/users/ben_g/utetris/cfg/world.rkt" "elim.rkt:15:9")
+  5 ms
+  (-> (listof block?) (listof block?))
+("/users/ben_g/utetris/cfg/aux.rkt" "/users/ben_g/utetris/cfg/world.rkt" "aux.rkt:19:9")
+  5 ms
+  (-> (listof tetra?) tetra?)
+("/users/ben_g/utetris/cfg/data.rkt" "/users/ben_g/utetris/cfg/world.rkt" "data.rkt:8:9")
+  5 ms
+  (-> tetra? (listof block?))

@@ -1,0 +1,46 @@
+cpu time: 12207 real time: 12207 gc time: 171
+Running time is 19.08% contracts
+2472/12951 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  2022 ms
+  (-> block? block? any)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/elim.rkt" "bset.rkt:66:9")
+  161 ms
+  (-> (listof block?) natural? boolean?)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/elim.rkt" "bset.rkt:76:9")
+  94 ms
+  (-> (listof block?) (listof block?) (listof block?))
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/elim.rkt" "bset.rkt:61:9")
+  88 ms
+  (-> (listof block?) real? (listof block?))
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/elim.rkt" "bset.rkt:41:9")
+  28.5 ms
+  (-> real? real? (listof block?) (listof block?))
+("(/users/ben_g/utetris/cfg/base-types.rkt main)" "(interface for world-blocks)" "base-types.rkt:124:5")
+  17 ms
+  (-> any/c (listof block?))
+("(/users/ben_g/utetris/cfg/base-types.rkt world)" "(interface for world-blocks)" "base-types.rkt:162:5")
+  16.5 ms
+  (-> any/c (listof block?))
+("(/users/ben_g/utetris/cfg/base-types.rkt tetras)" "(interface for tetra-blocks)" "base-types.rkt:141:5")
+  10.5 ms
+  (-> any/c (listof block?))
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:15:9")
+  6.5 ms
+  (-> real? real? block? any)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/world.rkt" "bset.rkt:76:9")
+  6 ms
+  (-> (listof block?) (listof block?) (listof block?))
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/tetras.rkt" "bset.rkt:31:9")
+  5.5 ms
+  (-> (listof block?) (listof block?) (listof block?))
+("/users/ben_g/utetris/cfg/bset.rkt" "no-negative-party" "bset.rkt:31:9")
+  5.5 ms
+  (-> (listof block?) (listof block?) (listof block?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:53:3")
+  5.5 ms
+  (-> bound-identifier-mapping? (-> identifier? any/c any) (listof any/c))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))

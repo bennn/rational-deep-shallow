@@ -1,0 +1,25 @@
+cpu time: 13167 real time: 13167 gc time: 175
+Running time is 28.43% contracts
+3955/13909 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  2785.5 ms
+  (-> block? real?)
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  1129.5 ms
+  (-> block? block? any)
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  17.5 ms
+  (-> tetra? (listof block?) any)
+("(interface for blocks-move)" "/users/ben_g/utetris/cfg/tetras.rkt" "tetras.rkt:7:4")
+  5.5 ms
+  (-> any/c any/c any/c (listof block?))
+("(interface for eliminate-full-rows)" "/users/ben_g/utetris/cfg/world.rkt" "world.rkt:21:3")
+  5.5 ms
+  (-> any/c (listof block?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> mutable-free-id-set? identifier? void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  5.5 ms
+  (->* () (dict? #:phase (or/c #f exact-integer?)) mutable-bound-id-table?)

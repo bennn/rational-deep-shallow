@@ -1,0 +1,22 @@
+cpu time: 4239 real time: 4240 gc time: 115
+Running time is 18.74% contracts
+931/4965 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  803 ms
+  (-> block? block? any)
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  84 ms
+  (-> block? any)
+("(interface for blocks-union)" "/users/ben_g/utetris/cfg/elim.rkt" "elim.rkt:8:4")
+  22 ms
+  (-> any/c any/c (listof block?))
+("/users/ben_g/utetris/cfg/data.rkt" "/users/ben_g/utetris/cfg/world.rkt" "data.rkt:10:9")
+  11 ms
+  (-> tetra? (listof block?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:242:2")
+  5.5 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) any))) (_r (listof any/c)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcollapse.rkt" "no-negative-party" "<collects>/syntax/modcollapse.rkt:33:2")
+  5 ms
+  (case-> (-> module-path-index? (or/c #f module-path?)) (-> (or/c symbol? module-path-index?) (or/c (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?)))))) path? symbol? (-> (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?)))))))) (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?))))))))

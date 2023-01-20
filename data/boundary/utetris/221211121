@@ -1,0 +1,26 @@
+cpu time: 15058 real time: 15058 gc time: 197
+Running time is 18.9% contracts
+2974/15731 ms
+
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/data.rkt" "data.rkt:5:9")
+  1491 ms
+  (-> block? any)
+  (-> real? real? symbol? any)
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:10:9")
+  1440.5 ms
+  (-> block? block? boolean?)
+("/users/ben_g/utetris/cfg/data.rkt" "/users/ben_g/utetris/cfg/tetras.rkt" "data.rkt:8:9")
+  11 ms
+  (-> posn? (listof block?) any)
+("/users/ben_g/utetris/cfg/tetras.rkt" "/users/ben_g/utetris/cfg/world.rkt" "tetras.rkt:38:9")
+  10.5 ms
+  (-> tetra? (listof block?) boolean?)
+("/users/ben_g/utetris/cfg/block.rkt" "/users/ben_g/utetris/cfg/bset.rkt" "block.rkt:15:9")
+  10 ms
+  (-> real? real? block? block?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:193:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set!))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r void?))
+("/users/ben_g/utetris/cfg/bset.rkt" "/users/ben_g/utetris/cfg/tetras.rkt" "bset.rkt:31:9")
+  5 ms
+  (-> (listof block?) (listof block?) any)
