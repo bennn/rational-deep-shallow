@@ -1,0 +1,13 @@
+cpu time: 1748 real time: 1748 gc time: 291
+Running time is 14.08% contracts
+351/2489 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  345 ms
+  (-> (listof Any) boolean?)
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:250:9")
+  3.5 ms
+  (-> state? (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g508))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g508))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g539 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:235:2")
+  2 ms
+  (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d))))

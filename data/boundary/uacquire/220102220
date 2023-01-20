@@ -1,0 +1,13 @@
+cpu time: 1174 real time: 1174 gc time: 280
+Running time is 0.54% contracts
+10/1843 ms
+
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for tree-state)" "tree-adapted.rkt:74:5")
+  6 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g11))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g11))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g91 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) state?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcode.rkt" "no-negative-party" "<collects>/syntax/modcode.rkt:26:2")
+  2.5 ms
+  (->* (path-string?) ((and/c path-string? relative-path?) #:choose (-> path? path? path? (or/c (quote src) (quote zo) (quote so) #f)) #:rkt-try-ss? boolean? #:roots (listof (or/c path-string? (quote same))) #:sub-path (and/c path-string? relative-path?) #:submodule? boolean?) (values path? (or/c (quote src) (quote zo) (quote so))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:229:2")
+  1.5 ms
+  (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))

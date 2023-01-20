@@ -1,0 +1,19 @@
+cpu time: 1746 real time: 1746 gc time: 297
+Running time is 16.43% contracts
+412/2504 ms
+
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:242:9")
+  300 ms
+  (-> string? tile? tile? tile? tile? tile? tile? (recursive-contract (object/c-opaque (go (-> any/c (recursive-contract g410 #:impersonator) void?)) (inform (-> any/c state? void?)) (keep (-> any/c (listof string?) (listof boolean?))) (receive-tile (-> any/c tile? void?)) (setup (-> any/c state? void?)) (take-turn (-> any/c (object/c-opaque (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel))))) (cash natural?) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))) (the-end (-> any/c state? (and/c any/c Any) void?)) (field (*bad (listof player?)) (*players (listof player?)) (choice (-> (object/c-opaque (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel))))) (cash natural?) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))) (name #<procedure:string?>))) #:impersonator) any)
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  104 ms
+  (-> (listof Any) boolean?)
+("(interface for turn%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:22:3")
+  3 ms
+  g324
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  2.5 ms
+  (-> free-id-table? natural?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt main)" "(interface for merging-which)" "board-adapted.rkt:74:5")
+  2 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c (values (cons/c string? (listof string?)) (listof string?)))

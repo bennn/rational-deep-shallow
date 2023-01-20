@@ -1,0 +1,13 @@
+cpu time: 1131 real time: 1131 gc time: 271
+Running time is 1.99% contracts
+38/1880 ms
+
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for tree-state)" "tree-adapted.rkt:74:5")
+  31.5 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g11))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g11))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g67 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) state?)
+("/users/ben_g/uacquire/cfg/board.rkt" "no-negative-party" "board.rkt:352:9")
+  3 ms
+  (-> (listof tile?) (listof (cons/c string? (listof tile?))) (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))))
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for lplaced%)" "tree-adapted.rkt:71:5")
+  3 ms
+  (recursive-contract g99 #:impersonator)

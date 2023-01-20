@@ -1,0 +1,10 @@
+cpu time: 588 real time: 588 gc time: 138
+Running time is 0.19% contracts
+3/1302 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  1.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt tree)" "(interface for what-kind-of-spot)" "board-adapted.rkt:168:5")
+  1 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c (or/c (quote FOUNDING) (quote GROWING) (quote MERGING) (quote SINGLETON) (quote IMPOSSIBLE)))

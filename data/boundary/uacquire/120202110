@@ -1,0 +1,16 @@
+cpu time: 1266 real time: 1266 gc time: 129
+Running time is 0.49% contracts
+11/2130 ms
+
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/main.rkt" "admin.rkt:75:8")
+  3 ms
+  (recursive-contract g333 #:impersonator)
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:558:9")
+  2.5 ms
+  (->* (state? (listof (list/c player? (listof (list/c string? boolean?))))) ((and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel))))) any)
+("(interface for hotel?)" "/users/ben_g/uacquire/cfg/board.rkt" "board.rkt:107:2")
+  2.5 ms
+  (or/c struct-predicate-procedure?/c struct-type-property-predicate-procedure? (-> Any boolean?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  2.5 ms
+  (->* () (dict? #:phase (or/c #f exact-integer?)) immutable-free-id-table?)

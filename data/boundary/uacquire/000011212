@@ -1,0 +1,16 @@
+cpu time: 1258 real time: 1258 gc time: 276
+Running time is 13.21% contracts
+271/2047 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  259.5 ms
+  (-> (listof Any) boolean?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt strategy)" "(interface for make-board)" "board-adapted.rkt:134:5")
+  4 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  3.5 ms
+  (recursive-contract g128 #:impersonator)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/format.rkt" "no-negative-party" "<collects>/racket/format.rkt:56:2")
+  3.5 ms
+  (->* () (#:align (or/c (quote left) (quote right) (quote center)) #:left-pad-string non-empty-string? #:limit-marker string? #:limit-prefix? boolean? #:max-width (or/c natural? +inf.0) #:min-width natural? #:pad-string non-empty-string? #:right-pad-string non-empty-string? #:separator string? #:width (or/c natural? #f)) #:rest (listof any/c) string?)

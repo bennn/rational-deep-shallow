@@ -1,0 +1,19 @@
+cpu time: 1360 real time: 1360 gc time: 281
+Running time is 0.64% contracts
+14/2107 ms
+
+("(interface for shares-available?)" "/users/ben_g/uacquire/cfg/admin.rkt" "admin.rkt:29:3")
+  3 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) any/c boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:260:2")
+  3 ms
+  (->i ((d dict?)) (_r (d) (listof (cons/c (dict-key-contract d) (dict-value-contract d)))))
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/main.rkt" "admin.rkt:75:8")
+  2.5 ms
+  (recursive-contract g703 #:impersonator)
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for lplaced%)" "tree-adapted.rkt:71:5")
+  2.5 ms
+  (recursive-contract g99 #:impersonator)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  2.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)

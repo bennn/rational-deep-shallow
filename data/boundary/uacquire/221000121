@@ -1,0 +1,13 @@
+cpu time: 1461 real time: 1461 gc time: 283
+Running time is 0.42% contracts
+10/2253 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcode.rkt" "no-negative-party" "<collects>/syntax/modcode.rkt:26:2")
+  3.5 ms
+  (->* (path-string?) ((and/c path-string? relative-path?) #:choose (-> path? path? path? (or/c (quote src) (quote zo) (quote so) #f)) #:rkt-try-ss? boolean? #:roots (listof (or/c path-string? (quote same))) #:sub-path (and/c path-string? relative-path?) #:submodule? boolean?) (values path? (or/c (quote src) (quote zo) (quote so))))
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:250:9")
+  3 ms
+  (-> state? (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g253))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g253))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g284 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator))
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt strategy)" "(interface for size-of-hotel)" "board-adapted.rkt:139:5")
+  3 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c natural?)

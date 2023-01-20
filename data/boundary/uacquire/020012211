@@ -1,0 +1,13 @@
+cpu time: 1815 real time: 1815 gc time: 306
+Running time is 19.62% contracts
+504/2566 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  496 ms
+  (recursive-contract g79 #:impersonator)
+("(interface for shares->string)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:158:3")
+  4 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) string?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt strategy)" "(interface for set-board)" "board-adapted.rkt:145:5")
+  3.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c any/c any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))

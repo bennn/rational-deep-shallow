@@ -1,0 +1,13 @@
+cpu time: 1544 real time: 1544 gc time: 288
+Running time is 0.37% contracts
+9/2315 ms
+
+("/users/ben_g/uacquire/cfg/basics.rkt" "no-negative-party" "basics.rkt:305:9")
+  3 ms
+  (-> (listof (and/c hash? (hash/c string? exact-integer?))) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  3 ms
+  (-> any/c boolean?)
+("/users/ben_g/uacquire/cfg/board.rkt" "/users/ben_g/uacquire/cfg/state.rkt" "board.rkt:424:9")
+  2.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))) tile? (or/c (quote FOUNDING) (quote GROWING) (quote MERGING) (quote SINGLETON) (quote IMPOSSIBLE)))

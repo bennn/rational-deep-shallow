@@ -1,0 +1,19 @@
+cpu time: 1862 real time: 1862 gc time: 293
+Running time is 9.87% contracts
+255/2583 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  240 ms
+  (-> (listof Any) boolean?)
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:227:8")
+  4 ms
+  (-> player? (or/c #f (recursive-contract g456 #:impersonator)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/async-channel.rkt" "no-negative-party" "<collects>/racket/async-channel.rkt:272:19")
+  4 ms
+  (->* (async-channel? (-> any/c any/c) (-> any/c any/c)) #:rest (listof any/c) (and/c impersonator? async-channel?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  4 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:227:8")
+  3 ms
+  (-> player? (or/c #f (recursive-contract g456 #:impersonator)))

@@ -1,0 +1,16 @@
+cpu time: 577 real time: 577 gc time: 140
+Running time is 1.23% contracts
+16/1296 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:21:3")
+  9.5 ms
+  (recursive-contract g264 #:impersonator)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt tree)" "(interface for make-board)" "board-adapted.rkt:166:5")
+  2.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  2.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcode.rkt" "no-negative-party" "<collects>/syntax/modcode.rkt:11:2")
+  1.5 ms
+  (->* (path-string?) ((and/c path-string? relative-path?) (-> any/c any) (or/c #f (-> path? boolean? any)) #:choose (-> path? path? path? (or/c (quote src) (quote zo) (quote so) #f)) #:compile (-> any/c any) #:extension-handler (or/c #f (-> path? boolean? any)) #:notify (-> any/c any) #:rkt-try-ss? boolean? #:roots (listof (or/c path-string? (quote same))) #:source-reader (-> any/c input-port? (or/c syntax? eof-object?)) #:sub-path (and/c path-string? relative-path?) #:submodule-path (listof symbol?)) any)

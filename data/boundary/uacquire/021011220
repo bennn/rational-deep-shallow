@@ -1,0 +1,16 @@
+cpu time: 924 real time: 924 gc time: 275
+Running time is 0.51% contracts
+9/1677 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  2.5 ms
+  (recursive-contract g130 #:impersonator)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt state)" "(interface for growing-which)" "board-adapted.rkt:105:5")
+  2.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c (or/c string? #f))
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:21:3")
+  2 ms
+  (recursive-contract g200 #:impersonator)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:227:2")
+  1.5 ms
+  (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))

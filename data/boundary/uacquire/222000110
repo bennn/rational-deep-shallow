@@ -1,0 +1,13 @@
+cpu time: 1491 real time: 1491 gc time: 286
+Running time is 0.43% contracts
+10/2235 ms
+
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for tree-state)" "tree-adapted.rkt:74:5")
+  3.5 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g11))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g11))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g41 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) state?)
+("/users/ben_g/uacquire/cfg/basics.rkt" "no-negative-party" "basics.rkt:238:9")
+  3.5 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) string? (and/c hash? (hash/c string? exact-integer?)))
+("/users/ben_g/uacquire/cfg/strategy.rkt" "no-negative-party" "strategy.rkt:128:8")
+  2.5 ms
+  (-> (object/c (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel))))) (cash natural?) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) any)

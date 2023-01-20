@@ -1,0 +1,16 @@
+cpu time: 1100 real time: 1100 gc time: 279
+Running time is 15.16% contracts
+281/1853 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  272.5 ms
+  (-> (listof Any) boolean?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt strategy)" "(interface for set-board)" "board-adapted.rkt:145:5")
+  3.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c any/c any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:330:9")
+  2.5 ms
+  (-> state? (and/c hash? (hash/c string? exact-integer?)) state?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt main)" "(interface for place-tile)" "board-adapted.rkt:80:5")
+  2.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))

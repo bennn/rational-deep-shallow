@@ -1,0 +1,19 @@
+cpu time: 1717 real time: 1717 gc time: 309
+Running time is 15.05% contracts
+372/2468 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  361 ms
+  (recursive-contract g128 #:impersonator)
+("/users/ben_g/uacquire/cfg/tree.rkt" "no-negative-party" "tree.rkt:144:8")
+  3 ms
+  (recursive-contract g341 #:impersonator)
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:250:9")
+  2.5 ms
+  (-> state? (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g253))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g253))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g284 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator))
+("(interface for turn%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:22:3")
+  2.5 ms
+  g326
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
+  2.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))

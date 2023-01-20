@@ -1,0 +1,10 @@
+cpu time: 1343 real time: 1343 gc time: 284
+Running time is 0.31% contracts
+7/2095 ms
+
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for tree-state)" "tree-adapted.rkt:74:5")
+  5 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g11))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g11))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g94 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) state?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:182:2")
+  1.5 ms
+  (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any)

@@ -1,0 +1,19 @@
+cpu time: 1185 real time: 1185 gc time: 274
+Running time is 0.75% contracts
+15/1938 ms
+
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:250:9")
+  9 ms
+  (-> state? (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g516))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g516))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g546 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
+  2 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))
+("(interface for shares--)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:157:3")
+  1.5 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) any/c (and/c hash? (hash/c string? exact-integer?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modresolve.rkt" "no-negative-party" "<collects>/syntax/modresolve.rkt:17:2")
+  1 ms
+  (->* ((or/c symbol? module-path-index?)) ((or/c (or/c path-string? (cons/c (quote submod) (cons/c path-string? (listof symbol?)))) (-> (or/c path-string? (cons/c (quote submod) (cons/c path-string? (listof symbol?))))) #f)) (or/c path? symbol? (cons/c (quote submod) (cons/c (or/c path? symbol?) (listof symbol?)))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/async-channel.rkt" "no-negative-party" "<collects>/racket/async-channel.rkt:277:19")
+  1 ms
+  (->* (async-channel? (-> any/c any/c) (-> any/c any/c)) #:rest (listof any/c) (and/c chaperone? async-channel?))

@@ -1,0 +1,13 @@
+cpu time: 1421 real time: 1421 gc time: 278
+Running time is 14.54% contracts
+316/2170 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  309 ms
+  (-> (listof Any) boolean?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt admin)" "(interface for found-hotel)" "board-adapted.rkt:46:5")
+  3.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))
+("(interface for random-s)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:32:3")
+  3 ms
+  (-> (object/c-opaque (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN))))) (cash #<procedure:exact-nonnegative-integer?>) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))

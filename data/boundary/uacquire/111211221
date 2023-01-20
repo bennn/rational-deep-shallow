@@ -1,0 +1,16 @@
+cpu time: 1354 real time: 1354 gc time: 279
+Running time is 0.24% contracts
+5/2103 ms
+
+("/users/ben_g/uacquire/cfg/strategy.rkt" "no-negative-party" "strategy.rkt:120:8")
+  1.5 ms
+  (-> (object/c (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel))))) (cash natural?) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:59:4")
+  1.5 ms
+  (-> any/c boolean?)
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:227:8")
+  1 ms
+  (-> player? (or/c #f (recursive-contract g1191 #:impersonator)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:231:2")
+  1 ms
+  (-> dict? natural?)

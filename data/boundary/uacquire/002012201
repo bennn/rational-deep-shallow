@@ -1,0 +1,22 @@
+cpu time: 2072 real time: 2072 gc time: 309
+Running time is 24.51% contracts
+689/2811 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  587 ms
+  (recursive-contract g80 #:impersonator)
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  90 ms
+  (-> (listof Any) boolean?)
+("(interface for turn%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:22:3")
+  4 ms
+  g326
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:227:8")
+  4 ms
+  (-> player? (and/c hash? (hash/c string? exact-integer?)))
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:285:9")
+  2 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) (recursive-contract g283 #:impersonator)))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) (recursive-contract g283 #:impersonator)))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract (object/c (acceptable-policies (-> any/c (listof (listof string?)) (listof (listof string?)))) (purchase (-> any/c (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (or/c (listof hand-out?) (recursive-contract g297 #:impersonator)))) (to-trees (-> any/c (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (listof (recursive-contract g297 #:impersonator)))) (field (hotel (or/c string? #f)) (reason (or/c (quote IMPOSSIBLE) (quote SINGLETON) (quote MERGING) (quote GROWING) (quote FOUNDING))) (state state?) (state/tile state?) (tile tile?))) #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) any)
+("/users/ben_g/uacquire/cfg/tree.rkt" "no-negative-party" "tree.rkt:144:8")
+  2 ms
+  (recursive-contract g341 #:impersonator)

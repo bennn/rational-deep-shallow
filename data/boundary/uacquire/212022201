@@ -1,0 +1,19 @@
+cpu time: 1073 real time: 1073 gc time: 278
+Running time is 0.8% contracts
+15/1820 ms
+
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:250:9")
+  6.5 ms
+  (-> state? (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g253))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g253))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g284 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:177:2")
+  2.5 ms
+  (-> dict? boolean?)
+("/users/ben_g/uacquire/cfg/tree.rkt" "no-negative-party" "tree.rkt:144:8")
+  2 ms
+  (recursive-contract g341 #:impersonator)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt state)" "(interface for place-tile)" "board-adapted.rkt:112:5")
+  2 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:294:8")
+  1.5 ms
+  (-> state? (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))))

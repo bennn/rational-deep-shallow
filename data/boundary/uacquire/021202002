@@ -1,0 +1,10 @@
+cpu time: 768 real time: 768 gc time: 278
+Running time is 0.3% contracts
+5/1502 ms
+
+("/users/ben_g/uacquire/cfg/basics.rkt" "no-negative-party" "basics.rkt:252:9")
+  3 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) (listof string?) any)
+("(interface for ordered-s)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:31:3")
+  1.5 ms
+  (-> (object/c-opaque (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel))))) (cash #<procedure:exact-nonnegative-integer?>) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))

@@ -1,0 +1,22 @@
+cpu time: 1188 real time: 1188 gc time: 290
+Running time is 0.9% contracts
+18/1939 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  6.5 ms
+  (recursive-contract g180 #:impersonator)
+("/users/ben_g/uacquire/cfg/tree.rkt" "no-negative-party" "tree.rkt:144:8")
+  2.5 ms
+  (recursive-contract g341 #:impersonator)
+("/users/ben_g/uacquire/cfg/basics.rkt" "no-negative-party" "basics.rkt:221:9")
+  2.5 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))
+("(/users/ben_g/uacquire/cfg/state-adapted.rkt strategy)" "(interface for state-board)" "state-adapted.rkt:234:5")
+  2 ms
+  (-> any/c (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:51:3")
+  2 ms
+  (-> bound-identifier-mapping? identifier? any/c void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  2 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))

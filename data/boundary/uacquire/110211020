@@ -1,0 +1,13 @@
+cpu time: 1633 real time: 1633 gc time: 292
+Running time is 0.25% contracts
+6/2440 ms
+
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for tree-state)" "tree-adapted.rkt:74:5")
+  2.5 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) g11))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) g11))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract g91 #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) state?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcode.rkt" "no-negative-party" "<collects>/syntax/modcode.rkt:11:2")
+  2 ms
+  (->* (path-string?) ((and/c path-string? relative-path?) (-> any/c any) (or/c #f (-> path? boolean? any)) #:choose (-> path? path? path? (or/c (quote src) (quote zo) (quote so) #f)) #:compile (-> any/c any) #:extension-handler (or/c #f (-> path? boolean? any)) #:notify (-> any/c any) #:rkt-try-ss? boolean? #:roots (listof (or/c path-string? (quote same))) #:source-reader (-> any/c input-port? (or/c syntax? eof-object?)) #:sub-path (and/c path-string? relative-path?) #:submodule-path (listof symbol?)) any)
+("(/users/ben_g/uacquire/cfg/state-adapted.rkt player)" "(interface for state0)" "state-adapted.rkt:204:5")
+  1.5 ms
+  (->* () #:rest any/c state?)

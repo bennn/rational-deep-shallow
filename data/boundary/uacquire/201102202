@@ -1,0 +1,13 @@
+cpu time: 1095 real time: 1095 gc time: 270
+Running time is 12.62% contracts
+234/1854 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  227.5 ms
+  (-> (listof Any) boolean?)
+("(interface for ordered-s)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:31:3")
+  3.5 ms
+  (-> (object/c-opaque (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN))))) (cash #<procedure:exact-nonnegative-integer?>) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))
+("/users/ben_g/uacquire/cfg/basics.rkt" "no-negative-party" "basics.rkt:214:9")
+  3 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))

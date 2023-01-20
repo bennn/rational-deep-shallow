@@ -1,0 +1,13 @@
+cpu time: 1255 real time: 1255 gc time: 139
+Running time is 9.44% contracts
+191/2024 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  187 ms
+  (-> (listof Any) boolean?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt admin)" "(interface for free-spot?)" "board-adapted.rkt:44:5")
+  2 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c boolean?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt main)" "(interface for grow-hotel)" "board-adapted.rkt:79:5")
+  2 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))

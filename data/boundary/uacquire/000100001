@@ -1,0 +1,13 @@
+cpu time: 1179 real time: 1179 gc time: 263
+Running time is 0.36% contracts
+7/1809 ms
+
+("(/users/ben_g/uacquire/cfg/state-adapted.rkt tree)" "(interface for state-board)" "state-adapted.rkt:273:5")
+  2.5 ms
+  (-> any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))
+("/users/ben_g/uacquire/cfg/tree.rkt" "no-negative-party" "tree.rkt:144:8")
+  2 ms
+  (recursive-contract g348 #:impersonator)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  2 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

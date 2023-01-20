@@ -1,0 +1,13 @@
+cpu time: 1387 real time: 1387 gc time: 283
+Running time is 14.33% contracts
+305/2129 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  300 ms
+  (-> (listof Any) boolean?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt strategy)" "(interface for set-board)" "board-adapted.rkt:145:5")
+  2.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c any/c any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:227:8")
+  2.5 ms
+  (-> string? (listof tile?) natural? (and/c hash? (hash/c string? exact-integer?)) (or/c #f (recursive-contract g1202 #:impersonator)) player?)

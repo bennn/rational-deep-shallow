@@ -1,0 +1,16 @@
+cpu time: 1454 real time: 1454 gc time: 290
+Running time is 0.43% contracts
+10/2202 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:229:2")
+  3 ms
+  (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))
+("(/users/ben_g/uacquire/cfg/state-adapted.rkt admin)" "(interface for player-external)" "state-adapted.rkt:116:5")
+  2.5 ms
+  (-> any/c (or/c #f (recursive-contract g117 #:impersonator)))
+("/users/ben_g/uacquire/cfg/basics.rkt" "no-negative-party" "basics.rkt:238:9")
+  2 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) string? (and/c hash? (hash/c string? exact-integer?)))
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt admin)" "(interface for size-of-hotel)" "board-adapted.rkt:43:5")
+  2 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c natural?)

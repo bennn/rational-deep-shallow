@@ -1,0 +1,10 @@
+cpu time: 1292 real time: 1292 gc time: 284
+Running time is 0.15% contracts
+3/2040 ms
+
+("(/users/ben_g/uacquire/cfg/state-adapted.rkt admin)" "(interface for player-external)" "state-adapted.rkt:116:5")
+  2 ms
+  (-> any/c (or/c #f (recursive-contract g99 #:impersonator)))
+("(interface for random-s)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:32:3")
+  1 ms
+  (-> (object/c-opaque (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN))))) (cash #<procedure:exact-nonnegative-integer?>) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))

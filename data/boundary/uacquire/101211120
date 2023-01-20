@@ -1,0 +1,16 @@
+cpu time: 1446 real time: 1446 gc time: 271
+Running time is 14.23% contracts
+313/2196 ms
+
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  305 ms
+  (-> (listof Any) boolean?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:60:4")
+  3 ms
+  (->* (module-identifier-mapping? identifier?) ((-> any)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:233:2")
+  2.5 ms
+  (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d))))
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:558:9")
+  2 ms
+  (->* (state? (listof (list/c player? (listof (list/c string? boolean?))))) ((and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel))))) any)

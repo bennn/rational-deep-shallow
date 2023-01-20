@@ -1,0 +1,19 @@
+cpu time: 984 real time: 984 gc time: 278
+Running time is 0.71% contracts
+13/1749 ms
+
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  4 ms
+  (-> free-id-table? natural?)
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:294:8")
+  3 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))) (listof player?) (listof tile?) (listof string?) (and/c hash? (hash/c string? exact-integer?)) (listof player?) state?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcode.rkt" "no-negative-party" "<collects>/syntax/modcode.rkt:11:2")
+  2.5 ms
+  (->* (path-string?) ((and/c path-string? relative-path?) (-> any/c any) (or/c #f (-> path? boolean? any)) #:choose (-> path? path? path? (or/c (quote src) (quote zo) (quote so) #f)) #:compile (-> any/c any) #:extension-handler (or/c #f (-> path? boolean? any)) #:notify (-> any/c any) #:rkt-try-ss? boolean? #:roots (listof (or/c path-string? (quote same))) #:source-reader (-> any/c input-port? (or/c syntax? eof-object?)) #:sub-path (and/c path-string? relative-path?) #:submodule-path (listof symbol?)) any)
+("/users/ben_g/uacquire/cfg/admin.rkt" "no-negative-party" "admin.rkt:291:8")
+  1.5 ms
+  g706
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  1.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

@@ -1,0 +1,16 @@
+cpu time: 1284 real time: 1284 gc time: 285
+Running time is 0.41% contracts
+9/2093 ms
+
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/main.rkt" "admin.rkt:75:8")
+  2.5 ms
+  (recursive-contract g688 #:impersonator)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt tree)" "(interface for distinct-and-properly-formed)" "board-adapted.rkt:180:5")
+  2.5 ms
+  (-> any/c (-> any/c boolean?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:279:2")
+  2 ms
+  (->* () #:rest (listof (or/c (quote dict-ref) (quote dict-set!) (quote dict-set) (quote dict-remove!) (quote dict-remove) (quote dict-count) (quote dict-iterate-first) (quote dict-iterate-next) (quote dict-iterate-key) (quote dict-iterate-value) (quote dict-has-key?) (quote dict-ref!) (quote dict-set*!) (quote dict-set*) (quote dict-update!) (quote dict-update) (quote dict-map) (quote dict-for-each) (quote dict-keys) (quote dict-values) (quote dict->list) (quote dict-copy) (quote dict-empty?) (quote dict-clear) (quote dict-clear!))) flat-contract?)
+("(/users/ben_g/uacquire/cfg/board-adapted.rkt state)" "(interface for found-hotel)" "board-adapted.rkt:110:5")
+  1.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))) any/c any/c (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN)))))

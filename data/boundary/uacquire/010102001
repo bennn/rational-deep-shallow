@@ -1,0 +1,16 @@
+cpu time: 1101 real time: 1101 gc time: 278
+Running time is 0.6% contracts
+11/1831 ms
+
+("/users/ben_g/uacquire/cfg/board.rkt" "/users/ben_g/uacquire/cfg/state.rkt" "board.rkt:424:9")
+  5.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))) tile? any)
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:21:3")
+  2 ms
+  (recursive-contract g270 #:impersonator)
+("/users/ben_g/uacquire/cfg/board.rkt" "no-negative-party" "board.rkt:622:9")
+  2 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))) (listof string?) natural? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:215:2")
+  1.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r void?))

@@ -1,0 +1,13 @@
+cpu time: 1735 real time: 1735 gc time: 305
+Running time is 18.6% contracts
+464/2495 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  457 ms
+  (recursive-contract g79 #:impersonator)
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:285:9")
+  3.5 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) (recursive-contract g301 #:impersonator)))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) (recursive-contract g301 #:impersonator)))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract (object/c (acceptable-policies (-> any/c (listof (listof string?)) (listof (listof string?)))) (purchase (-> any/c (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (or/c (listof hand-out?) (recursive-contract g315 #:impersonator)))) (to-trees (-> any/c (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (listof (recursive-contract g315 #:impersonator)))) (field (hotel (or/c string? #f)) (reason (or/c (quote IMPOSSIBLE) (quote SINGLETON) (quote MERGING) (quote GROWING) (quote FOUNDING))) (state state?) (state/tile state?) (tile tile?))) #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) any)
+("(interface for turn%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:22:3")
+  3.5 ms
+  g324

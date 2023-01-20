@@ -1,0 +1,16 @@
+cpu time: 1252 real time: 1252 gc time: 282
+Running time is 0.49% contracts
+10/2058 ms
+
+("/users/ben_g/uacquire/cfg/admin.rkt" "no-negative-party" "admin.rkt:75:8")
+  3 ms
+  (recursive-contract g690 #:impersonator)
+("(/users/ben_g/uacquire/cfg/tree-adapted.rkt admin)" "(interface for lplaced%)" "tree-adapted.rkt:71:5")
+  2.5 ms
+  (recursive-contract g96 #:impersonator)
+("/users/ben_g/uacquire/cfg/board.rkt" "no-negative-party" "board.rkt:603:9")
+  2.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))) tile? (or/c (quote FOUNDING) (quote GROWING) (quote MERGING) (quote SINGLETON)) (or/c string? #f) (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  2 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

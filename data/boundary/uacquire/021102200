@@ -1,0 +1,10 @@
+cpu time: 604 real time: 604 gc time: 135
+Running time is 0.34% contracts
+5/1336 ms
+
+("/users/ben_g/uacquire/cfg/board.rkt" "no-negative-party" "board.rkt:509:9")
+  2.5 ms
+  (-> (and/c hash? (hash/c tile? (or/c string? (quote UNTAKEN) (quote taken-no-hotel)))) string? any)
+("/users/ben_g/uacquire/cfg/state.rkt" "no-negative-party" "state.rkt:227:8")
+  2 ms
+  (-> string? (listof tile?) natural? (and/c hash? (hash/c string? exact-integer?)) (or/c #f (recursive-contract g1213 #:impersonator)) player?)

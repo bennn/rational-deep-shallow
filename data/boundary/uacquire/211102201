@@ -1,0 +1,10 @@
+cpu time: 1080 real time: 1080 gc time: 268
+Running time is 0.41% contracts
+8/1821 ms
+
+("/users/ben_g/uacquire/cfg/admin.rkt" "/users/ben_g/uacquire/cfg/tree.rkt" "tree.rkt:285:9")
+  5.5 ms
+  (-> (recursive-contract (object/c-opaque (founding (-> any/c natural? (listof (listof string?)) natural?)) (lookup-tile (-> any/c (-> (listof tile?) tile?) (listof hand-out?) (values (or/c #f tile?) (recursive-contract g301 #:impersonator)))) (merging (-> any/c natural? (listof (listof string?)) natural?)) (next (-> any/c tile? (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (-> (listof tile?) tile?) (values (or/c #f tile?) (recursive-contract g301 #:impersonator)))) (nothing-to-place? (-> any/c boolean?)) (to-state (-> any/c state?)) (traversal (-> any/c natural? (listof (listof string?)) (-> (recursive-contract (object/c (acceptable-policies (-> any/c (listof (listof string?)) (listof (listof string?)))) (purchase (-> any/c (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (or/c (listof hand-out?) (recursive-contract g315 #:impersonator)))) (to-trees (-> any/c (listof (list/c player? (listof (list/c string? boolean?)))) (listof string?) (listof (recursive-contract g315 #:impersonator)))) (field (hotel (or/c string? #f)) (reason (or/c (quote IMPOSSIBLE) (quote SINGLETON) (quote MERGING) (quote GROWING) (quote FOUNDING))) (state state?) (state/tile state?) (tile tile?))) #:impersonator) natural?) natural?)) (field (state state?))) #:impersonator) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcode.rkt" "no-negative-party" "<collects>/syntax/modcode.rkt:26:2")
+  2 ms
+  (->* (path-string?) ((and/c path-string? relative-path?) #:choose (-> path? path? path? (or/c (quote src) (quote zo) (quote so) #f)) #:rkt-try-ss? boolean? #:roots (listof (or/c path-string? (quote same))) #:sub-path (and/c path-string? relative-path?) #:submodule? boolean?) (values path? (or/c (quote src) (quote zo) (quote so))))

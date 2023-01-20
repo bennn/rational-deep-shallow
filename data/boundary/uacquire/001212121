@@ -1,0 +1,25 @@
+cpu time: 2914 real time: 2914 gc time: 332
+Running time is 12.34% contracts
+454/3675 ms
+
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/main.rkt" "main.rkt:16:3")
+  295.5 ms
+  (recursive-contract g83 #:impersonator)
+("(interface for distinct)" "/users/ben_g/uacquire/cfg/state.rkt" "state.rkt:168:2")
+  143 ms
+  (-> (listof Any) boolean?)
+("(interface for administrator%)" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:21:3")
+  5 ms
+  (recursive-contract g267 #:impersonator)
+("/users/ben_g/uacquire/cfg/main.rkt" "/users/ben_g/uacquire/cfg/player.rkt" "player.rkt:118:9")
+  3 ms
+  (-> natural? (listof (recursive-contract (object/c-opaque (go (-> any/c (recursive-contract g343 #:impersonator) void?)) (inform (-> any/c state? void?)) (keep (-> any/c (listof string?) (listof boolean?))) (receive-tile (-> any/c tile? void?)) (setup (-> any/c state? void?)) (take-turn (-> any/c (object/c (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN))))) (cash natural?) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))) (the-end (-> any/c state? any/c void?)) (field (*bad (listof player?)) (*players (listof player?)) (choice (-> (object/c-opaque (decisions (-> any/c (values (or/c #f tile?) (or/c string? #f) (listof (list/c player? (listof (list/c string? boolean?))))))) (eliminated (-> any/c (listof player?))) (place (-> any/c tile? string? (or/c void? (listof player?)))) (place-called (-> any/c boolean?)) (reconcile-shares (-> any/c (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))) (field (board (and/c hash? (hash/c tile? (or/c string? (quote taken-no-hotel) (quote UNTAKEN))))) (cash natural?) (current player?) (current-state state?) (hotels (listof string?)) (players (listof player?)) (shares (and/c hash? (hash/c string? exact-integer?))) (tiles (listof tile?)))) (values (or/c #f tile?) (or/c string? #f) (listof string?)))) (name #<procedure:string?>))) #:impersonator)))
+("/users/ben_g/uacquire/cfg/basics.rkt" "no-negative-party" "basics.rkt:221:9")
+  3 ms
+  (-> (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)) (and/c hash? (hash/c string? exact-integer?)))
+("/users/ben_g/uacquire/cfg/tree.rkt" "no-negative-party" "tree.rkt:144:8")
+  2 ms
+  (recursive-contract g341 #:impersonator)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  2 ms
+  (->* (flat-contract? chaperone-contract?) (#:immutable (or/c (quote dont-care) #t #f)) contract?)
