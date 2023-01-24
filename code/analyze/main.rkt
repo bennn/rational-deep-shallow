@@ -39,6 +39,9 @@
 (define overhead-hi 2)
 (define types-lo 2)
 
+(define (done-cfg? cfg overhead)
+  (and (< types-lo (cfg-count-typed cfg)) (<= overhead overhead-hi)))
+
 (define warning# (make-hash))
 
 (define (warning-set! k v)
@@ -49,9 +52,6 @@
     (for-each
       (lambda (ss) (printf "WARNING: ~a" ss))
       (map cdr (sort (hash->list warning#) string<? #:key car)))))
-
-(define (done-cfg? cfg overhead)
-  (and (< types-lo (cfg-count-typed cfg)) (<= overhead overhead-hi)))
 
 (define (cfg-count-typed cc)
 (for/sum ((c (in-string cc)) #:unless (eq? c #\0 )) 1))
@@ -88,15 +88,15 @@
 (define cfg-id first)
 (define cfg-perf second)
 
-(define (run-full-experiment bm-name)
+(define (run-full-experiment bm-name strategy)
   (define pi (benchmark->pi bm-name))
   (define prf-dir (benchmark->profile-dir bm-name))
   (define bnd-dir (benchmark->boundary-dir bm-name))
   (hash
     key:bm bm-name
     key:pi pi
-    key:prf (run-profile bm-name pi prf-dir)
-    key:bnd (run-boundary bm-name pi bnd-dir)))
+    key:prf (run-profile bm-name pi prf-dir #:S strategy)
+    key:bnd (run-boundary bm-name pi bnd-dir #:S strategy)))
 
 (define (benchmark->pi bm-name)
 ; #lang gtp-measure/output/deep-shallow-untyped
@@ -105,12 +105,16 @@
 ; ("0000002" ("cpu time: 2840 real time: 2841 gc time: 129" "cpu time: 3040 real time: 3040 gc time: 129" "cpu time: 2883 real time: 2883 gc time: 115" "cpu time: 2860 real time: 2860 gc time: 128" "cpu time: 2912 real time: 2912 gc time: 116" "cpu time: 2825 real time: 2825 gc time: 121" "cpu time: 2855 real time: 2855 gc time: 127" "cpu time: 2840 real time: 2840 gc time: 127"))
 ; ("0000010" ("cpu time: 1075 real time: 1075 gc time: 99" "cpu time: 1067 real time: 1067 gc time: 89" "cpu time: 1069 real time: 1069 gc time: 89" "cpu time: 1093 real time: 1093 gc time: 99" "cpu time: 1063 real time: 1063 gc time: 97" "cpu time: 1092 real time: 1092 gc time: 89" "cpu time: 1081 real time: 1082 gc time: 99" "cpu time: 1074 real time: 1074 gc time: 89"))
 ; ("0000020" ("cpu time: 1098 real time: 1098 gc time: 120" "cpu time: 1097 real time: 1097 gc time: 121" "cpu time: 1083 real time: 1083 gc time: 106" "cpu time: 1104 real time: 1104 gc time: 107" "cpu time: 1085 real time: 1085 gc time: 106" "cpu time: 1112 real time: 1112 gc time: 120" "cpu time: 1102 real time: 1102 gc time: 113" "cpu time: 1080 real time: 1080 gc time: 107"))
+  (define fn (glob1 (format "../../data/runtime/*-~a.out" bm-name)))
   (with-input-from-file
-    (glob1 (format "../../data/runtime/*-~a.out" bm-name))
+    fn
     (lambda ()
       (void (read-line))
-      (for/list ((ln (in-lines)))
-        (define vv (string->value ln))
+      (for/list ((ln (in-lines))
+                 (ii (in-naturals 1)))
+        (define vv
+          (with-handlers ((exn:fail? (lambda (xx) (printf "exn parsing ~s line ~s~n" fn ii) (raise xx))))
+            (string->value ln)))
         (define id (car vv))
         (define tt* (map time-string->cpu-time (cadr vv)))
         (list id (mean tt*))))))
@@ -140,14 +144,21 @@
   (benchmark->x-dir bm-name "boundary"))
 
 (define (benchmark->x-dir bm-name str)
-  (define dd (format "../../data/~a/~a/" str bm-name))
-  (if (directory-exists? dd)
-    dd
-    (raise-arguments-error
-    (string->symbol (format "benchmark->~a-dir" str))
-    (format "cannot find ~s dir" str)
-    "benchmark" bm-name
-    "inferred path" dd)))
+  (define u-name (string-append "u" bm-name))
+  (or (find-data-dir str u-name)
+      (find-data-dir str bm-name)
+      (raise-arguments-error
+        (string->symbol (format "benchmark->~a-dir" str))
+        (format "cannot find ~s dir" str)
+        "benchmark" bm-name
+        "inferred path" (format-data-dir str bm-name))))
+
+(define (find-data-dir str bm-name)
+  (define dd (format-data-dir str bm-name))
+  (and (directory-exists? dd) dd))
+
+(define (format-data-dir str bm-name)
+  (format "../../data/~a/~a/" str bm-name))
 
 (define (benchmark->home-dir bm-name)
   (define dd (format "../gtp-bench/~a/" bm-name))
@@ -158,14 +169,66 @@
     "benchmark" bm-name
     "inferred path" dd)))
 
-(define (run-profile bm-name pi prf-dir)
-  (run-exp bm-name pi (prf:json:greedy-find-next bm-name pi prf-dir)))
+(define (run-profile bm-name pi prf-dir #:S strategy)
+  (define s-next
+    (case strategy
+     ((greedy) prf:json:greedy-find-next)
+     ;((ben) prf:lazy-find-next)
+     ;((lazy) prf:lazy-find-next)
+     (else (raise-argument-error 'run-boundary "strategy?" strategy))))
+  (run-exp bm-name pi (s-next bm-name pi prf-dir)))
 
-(define (run-boundary bm-name pi bnd-dir)
-  (run-exp bm-name pi (bnd:greedy-find-next bm-name pi bnd-dir)))
+(define (run-boundary bm-name pi bnd-dir #:S strategy)
+  (define s-next
+    (case strategy
+     ((greedy) bnd:greedy-find-next)
+     ;((ben) bnd:lazy-find-next)
+     ;((lazy) bnd:lazy-find-next)
+     (else (raise-argument-error 'run-boundary "strategy?" strategy))))
+  (run-exp bm-name pi (s-next bm-name pi bnd-dir)))
 
 ;; find-next : (-> TODO (values Status string?))
 ;;  Status = (or/c TODO)
+
+(define (prf:lazy-find-next bm-name pi prf-dir)
+  (define (cfg->prf# str) (parse-profile-data:json (build-path prf-dir str)))
+  (define mod* (module-names bm-name))
+  (define (mod->idx str)
+    (define ii (index-of mod* str))
+    (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
+  (lambda (cfg)
+    ;; Rank top profile points by Total ms
+    ;;  [[ so many pitfalls
+    ;;     - shallow => higher self time than deep
+    ;;     - deep => costs spread across libraries
+    ;;  ]]
+    ;; Pick first non-Deep one, upgrade it
+    (let* ((prf# (cfg->prf# cfg))
+           (node* (hash-ref prf# 'nodes))
+           (node* (filter
+                    (lambda (nn)
+                      (define src (profile-node-src nn))
+                      (define filename
+                        (let ((ff (and (string? src) (srcloc-filename? src))))
+                          (and ff (cadr ff))))
+                      (and (member filename mod*) filename))
+                    node*))
+           (node* (sort node* > #:key profile-node-total-ms))
+           (name* (map profile-node-modname node*)))
+      (cond
+      [(null? name*)
+       (values '(error no-mods) #f)]
+      [else
+       (let ((r
+         (for*/first ((m (in-list name*)) (idx (in-value (mod->idx m)))
+                             #:unless (deep-module? cfg idx))
+           (if (shallow-module? cfg idx)
+             (list '(success S->D) (string-update cfg idx #\1))
+             (list '(success U->S) (string-update cfg idx #\2)))
+           )))
+           (if r
+           (apply values r)
+        (values '(error no-typed-mods) #f)))]))))
 
 ;; json = jsexpr
 (define (prf:json:greedy-find-next bm-name pi prf-dir)
@@ -258,7 +321,8 @@
   (define int-path (build-path "interface-for" bm-name))
   (cond
    ((file-exists? int-path)
-    (file->value int-path))
+    (with-handlers ((exn:fail? (lambda (xx) (printf "exn parsing ~s~n" int-path) (raise xx))))
+      (file->value int-path)))
    (else
     (raise-argument-error 'interface-resolver "unknown benchmark" bm-name))))
 
@@ -414,7 +478,9 @@
     fn
     (lambda ()
       (ignore-line fn #rx"^cpu time")
-      (define prf# (read))
+      (define prf#
+        (with-handlers ((exn:fail? (lambda (xx) (printf "exn parsing ~s~n" fn) (raise xx))))
+          (read)))
       (for/hash (((k v) (in-hash prf#)))
         (if (eq? k 'nodes)
           (values k (for/list ((nn (in-list v)) (idx (in-naturals)))
@@ -597,31 +663,37 @@
     (plot-out bm-name key:bnd pi bnd*)))
 
 (define (plot-out bm-name k:mode pi row*)
+  (define data-file (format "~a/~a-~a.rktd" out-dir bm-name k:mode))
   (void
-    (with-output-to-file
-    (format "~a/~a-~a.rktd" out-dir bm-name k:mode)
-    #:exists 'replace
-    (lambda ()
-    (pretty-write row*))))
+    (with-output-to-file data-file #:exists 'replace
+      (lambda ()
+      (pretty-write row*)))
+    (eprintf "saved data: ~s~n" data-file))
   (define n-success (count-success row*))
   (define n-fast (count-fast row* pi))
   (void
-    (save-pict (format "~a/~a-overhead-~a.png" out-dir bm-name k:mode)
-     (histogram-overhead pi row* n-fast))
-    (save-pict (format "~a/~a-steps-~a.png" out-dir bm-name k:mode)
-     (histogram-steps row* n-fast)))
+    (save-pict+ (format "~a/~a-overhead-~a.png" out-dir bm-name k:mode)
+     (histogram-overhead pi row* n-fast bm-name k:mode))
+    (save-pict+ (format "~a/~a-steps-~a.png" out-dir bm-name k:mode)
+     (histogram-steps row* n-fast bm-name k:mode)))
   (printf "~a ~a quick stats:~n" bm-name k:mode)
   (printf " ~a improved scenarios~n" n-success)
   (printf " ~a scenarios ended under ~ax~n" n-fast overhead-hi)
   (void))
 
+(define (save-pict+ str pp)
+  (save-pict str pp)
+  (eprintf "save-pict: ~s~n" str)
+  (void))
+
 (define (count-fast row* pi)
   (count-perf row* (lambda (tt) (<= (overhead tt pi) overhead-hi))))
 
-(define (histogram-overhead pi row* [num-fast #f])
+(define (histogram-overhead pi row* num-fast bm-name k:mode)
   (parameterize ((plot-x-label "End Overhead vs untyped")
                  (plot-y-label "Trails")
-                 (plot-title (format "Successful trails: ~a/~a"
+                 (plot-title (format "~a greedy ~a (success: ~a/~a)"
+                                     bm-name k:mode
                                      (or num-fast "??") (length row*))))
     (plot-rect
       (for/fold ((acc (hash)))
@@ -629,12 +701,12 @@
         (hash-update acc (rnd (overhead (row-end-perf r) pi)) add1 (lambda () 0)))
       #:color 3)))
 
-(define (histogram-steps row* [num-fast #f])
+(define (histogram-steps row* num-fast bm-name k:mode)
   (parameterize ((plot-x-label "Steps")
                  (plot-y-label "Trails")
-                 (plot-title (format "(~a/~a successful trails)"
-                               (or num-fast "??")
-                               (length row*))))
+                 (plot-title (format "~a greedy ~a (success: ~a/~a)"
+                                     bm-name k:mode
+                                     (or num-fast "??") (length row*))))
     (plot-histogram
       (for/fold ((acc (hash)))
                 ((r (in-list row*)))
@@ -646,8 +718,7 @@
     (discrete-histogram
     (hash->cat-vals h#)
     #:alpha 0.8
-    #:color color
-    )))
+    #:color color)))
 
 (define (plot-rect h# #:color [color 1])
   (define k-max
@@ -688,11 +759,11 @@
 
 ;; ---
 
-(module+
-main
-(require racket/cmdline)
-(command-line
-#:args (bm-name)
-(plot-full-output (run-full-experiment bm-name))
-(print-warnings)
-(void)))
+(module+ main
+  (require racket/cmdline)
+  (command-line
+    ;; TODO strategy flag
+    #:args (bm-name)
+    (plot-full-output (run-full-experiment bm-name 'greedy))
+    (print-warnings)
+    (void)))
