@@ -159,36 +159,31 @@ The plan is to follow a rational program approach:
  Note: Starting form configurations where the migration target is
  fulfilled and all other components are untyped is sufficient. If the
  slowdown of this configuration is below the slowdown threshold then the
- scenario is uninteresting. If the slowdown is above the threshold, given
- that the target must be fulfilled eventually, the goal is to determine
- what other components besides the type need to be typed in order for the
- slowdown to fall below the threshold. After all, the slowdown of a
- configuration does not depend on how the configuration was constructed,
- it is an intrinsic characteristic of the configuration. 
+ scenario is uninteresting. If the slowdown is above the threshold,
+ given that the target must be fulfilled eventually, the goal is to
+ determine what other components besides the typed one need to become
+ typed or untyped in order for the slowdown to fall below the threshold.
+ After all, the slowdown of a configuration does not depend on how the
+ configuration was constructed, it is an intrinsic characteristic of the
+ configuration. 
 
  2) Construction of modes: 
       +++ We will use domain knowledge and the existing types of the modules
       to encode the possible ways a developer can interact with a program
       after a possible profiling round.
-      +++ We will construct one mode per strategy. Each mode will have a
-      profiling data interpretation function that given profiler data will
-      return the next module to annotate. Then, the mode will use the
-      domain knowledge to construct the next configuration. 
-      +++ Current modes: 
-          --- Boundary Eager (UD => DD, US => SS, SD => DD):
-           look at the top boundary identified by the
-           feature profiler and the least-typed module in the boundary. If
-           it is untyped, change it to match the other module. If it is shallow,
-           change it to deep.
-          --- Statistical Eager (U => S, S => D):
-           look at the module with the highest **self** time and improve its
-           types by one step.
-      +++ Mode failure condition: A mode produces no configuration that is
-      below the accepted performance threshold within the tolerated number of
-      typing steps.
-      +++ Mode success condition: A mode produces a configuration that is below
-      the accepted performance threshold within the tolerated number of typing
-      steps.
+      +++ We will construct one mode per strategy. Each mode's strategy
+      corresponds to a function that consumes profiling data and the
+      current configuration, and computes how the configuration should
+      change (or that there is no next configuration). Each mode uses its
+      strategy function to construct the next configuration, or to declare
+      success or failure. See dedicated Strategies section for details and
+      examples of strategies.
+      +++ Failure condition for all modes: A mode produces no
+      configuration that is below the accepted performance threshold
+      within the tolerated number of typing steps.
+      +++ Success condition for all modes: A mode produces a configuration
+      that is below the accepted performance threshold within the
+      tolerated number of typing steps.
 
  3) Mode comparison: 
       ++ Success or Failure comparison
@@ -214,14 +209,129 @@ The plan is to follow a rational program approach:
 
       (ii) We construct the set of scenarios. [[We need more details here]]
 
-      (ii) Starting from the scenarios, we use the profilers 
+      (ii) Starting from the scenarios, we use the profiler data 
       to construct the navigations.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;; Threats To validity ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; STRATEGIES ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+There are two pieces of information that the rational programmer can act
+on: 
+
+1) the feedback of the profiler(s), and
+2) the characteristics of the current scenario. 
+
+Hence, the space of strategies can be described as the set of functions
+from the profiler feedback and the current scenario to an action.
+Roughly, an action corresponds to the rational programmer's next step
+given the available information; it can be either a description of what
+component must change and how, or a declaration of failure if no change is
+possible under the given strategy.  Specifically, an action is either
+FAILURE,. or it consists of two pieces: a component name and the (new)
+type-checking semantics for the component (U,S or D).
+
+
+At a high level, each strategy function aims to improve how the current
+configuration fares against a specific metric of configuration
+``goodness''. Such metrics are (imperfect) proxies of how close is the
+current configuration to the  actual goal of reaching a configuration that
+has performance below the target threshold. In contrast though to the
+actual goal, these metrics can be expressed in terms of the available
+information/inputs to the strategy function and, thus, they can be the
+basis for the construction of feasible (but sub-optimal) actions. 
+
+Given that the boundary and the statistical profiler
+produce different feedback, the precise definition of the strategy function 
+changes depends on the profiler used. However, analogous
+strategy functions form groups of comparable strategies based on their metrics.  
+
+
+The following is a list of the working groups of strategies:
+
+1. Greedy typing strategies: 
+
+Metric: A configuration C has a higher score than a
+configuration D, if the most costly component of D according to the
+profiler has stricter checks by one level, where stricter means U<S<D.
+
+Intuitively, this strategy gives priority to the feedback of the profiler
+and aims to reduce the performance hit from the most costly component,
+presumably due to checks that are happening because the component
+interacts with other components with stricter checks. Hence, the strategy 
+aims to eliminate these checks by making the
+checks of the component stricter. 
+
+Details:*
+  - [bnd] find the slowest boundary:
+     + UD => SD
+     + US => SS
+     + SD => DD
+   - [prf] find the module with the highest total% time:
+     + U => S
+     + S => D
+   - [prf] with the highest self time
+     + U => S
+     + S => D
+
+
+* [bnd] indicates use of the feedback from the boundary profiler
+* [prf] indicates use of the feedback from the statistical profiler 
+
+2. Greedy boundary elimination strategies: 
+
+Metric: A configuration C has a higher score than a
+configuration D, if the most costly component of D according to the
+profiler has stricter checks to a level that matches that of an
+interacting component.
+
+Intuitively, this strategy gives priority to the feedback of the profiler
+and aims to reduce the performance hit from a costly boundary. Hence, the
+strategy aims to eliminate these checks by making the checks of the
+component stricter. 
+
+Details:
+  - [bnd] find the slowest boundary:
+     + UD => DD
+     + US => SS
+     + SD => DD
+   - [prf] find the module with the highest total% time:
+     + U/S => D, if the module requires or is required by a component with D
+     + U => S, if the module requires or is required by a component with S
+   - [prf] with the highest self time
+     + U/S => D, if the module requires or is required by a component with D
+     + U => S, if the module requires or is required by a component with S
+
+
+;;;;;;;;;;;;;; ????????? We need to discuss these ??????? ;;;;;;;;;;;;;
+2. Busy strategy (Lazy), add types as a last resort
+   - [bnd] sort boundaries by TT > UU, then by slowdown
+     + SD => DD
+     + UD => SD (S types are easier than D types, less work)
+     + US => UD
+   - [prf] find slowest typed module, then fall back to untyped:
+     + S => D
+     + U => S
+
+3. TwoShot strategy, always add types, jump between D and S twice
+  - [bnd]
+    - (allowed once) if any D modules and overhead >10x, change all D to S
+    - (allowed once, after prev jump) if any S modules and overhead >2x, change all S to D
+    - otherwise find slowest boundary:
+      + UD => DD
+      + US => SS
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;; THREATS TO VALIDITY ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  
 
  1) Selection of benchmarks.
  2) Selection of migration targets for the construction of scenarios.
  3) Unaccounted overhead due to profiling.
+ 4) Set of considered strategies is not exhaustive (for instance,
+ strategies that use metrics that use the whole history of the navigation
+ so far, or strategies that use a combination of metrics, or strategies
+ that back track).
