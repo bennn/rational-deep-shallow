@@ -1,0 +1,65 @@
+cpu time: 87774 real time: 87775 gc time: 571
+Running time is 78.19% contracts
+69177/88470 ms
+
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "data.rkt:9:15")
+  47216.5 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? any)
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:9:2")
+  15884.5 ms
+  (-> Any Any boolean?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "#<blame-no-swap>")
+  2796.5 ms
+  (-> (vectorof (or/c symbol? char?)) natural? natural? any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "data.rkt:18:15")
+  1238 ms
+  (-> node? (listof node?) any)
+  (-> node? any)
+  (-> node? label? any)
+  (-> node? (or/c #f node?) any)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:11:2")
+  746 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  375 ms
+  (-> Any Any boolean?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "#<blame-no-swap>")
+  228 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) any)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:93:9")
+  192 ms
+  (-> node? any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  107 ms
+  (-> node? any)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:204:9")
+  95.5 ms
+  (-> node? index? boolean?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  95.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:161:9")
+  75.5 ms
+  (-> node? label? (-> any/c any/c) (-> any/c any/c any/c) (-> any/c any/c any/c any/c) (-> node? index? label? index? any/c) any/c)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:126:9")
+  38.5 ms
+  (-> node? index? label? (values node? node?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:49:9")
+  27 ms
+  (-> node? boolean?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:56:9")
+  22 ms
+  (-> node? label? node?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:12:2")
+  16.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  11.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("(interface for make-label)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:8:2")
+  5.5 ms
+  (-> (or/c string? (vectorof (or/c symbol? char?))) label?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

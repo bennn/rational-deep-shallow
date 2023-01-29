@@ -1,0 +1,42 @@
+cpu time: 14248 real time: 14248 gc time: 189
+Running time is 14.47% contracts
+2160/14926 ms
+
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  772 ms
+  (-> node? (or/c #f node?))
+  (-> node? label?)
+  (-> node? (or/c #f node?) void?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:116:9")
+  397.5 ms
+  (-> label? exact-integer? (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:93:9")
+  291 ms
+  (-> node? any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:161:9")
+  200.5 ms
+  (-> node? label? (-> any/c any/c) (-> any/c any/c any/c) (-> any/c any/c any/c any/c) (-> node? index? label? index? any/c) any/c)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:204:9")
+  154.5 ms
+  (-> node? index? boolean?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:107:9")
+  147 ms
+  (-> label? index?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:124:8")
+  97 ms
+  (->* (label? index?) (index?) label?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:56:9")
+  46.5 ms
+  (-> node? label? node?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:126:9")
+  22.5 ms
+  (-> node? index? label? (values node? node?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:49:9")
+  20.5 ms
+  (-> node? boolean?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:12:15")
+  5.5 ms
+  (-> suffix-tree? node?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)

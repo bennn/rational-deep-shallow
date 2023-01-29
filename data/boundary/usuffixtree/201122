@@ -1,0 +1,39 @@
+cpu time: 52487 real time: 52487 gc time: 433
+Running time is 57.16% contracts
+30394/53170 ms
+
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:9:2")
+  27395 ms
+  (-> Any Any boolean?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:11:2")
+  1327 ms
+  (-> any/c any/c (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  874 ms
+  (-> node? (listof node?))
+  (-> node? label?)
+  (-> node? (or/c #f node?))
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  618 ms
+  (-> Any Any boolean?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  142 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:16:2")
+  6.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for make-label)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:8:2")
+  6.5 ms
+  (-> (or/c string? (vectorof (or/c symbol? char?))) label?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "#<blame-no-swap>")
+  6.5 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) node?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  6.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  6.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))
+("(interface for vector->label)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:15:2")
+  5.5 ms
+  (-> (vectorof (or/c symbol? char?)) label?)

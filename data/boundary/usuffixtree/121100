@@ -1,0 +1,33 @@
+cpu time: 45259 real time: 45259 gc time: 203
+Running time is 78.65% contracts
+36163/45978 ms
+
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "data.rkt:9:15")
+  32683 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "#<blame-no-swap>")
+  2133 ms
+  (-> (vectorof (or/c symbol? char?)) natural? natural? any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "data.rkt:18:15")
+  933.5 ms
+  (-> node? any)
+  (-> node? (listof node?) any)
+  (-> node? (or/c #f node?) any)
+  (-> node? label? any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "#<blame-no-swap>")
+  196.5 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  159 ms
+  (-> node? any)
+  (-> node? (or/c #f node?) any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:251:8")
+  37.5 ms
+  (-> label? label? boolean?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:107:9")
+  15.5 ms
+  (-> label? index?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

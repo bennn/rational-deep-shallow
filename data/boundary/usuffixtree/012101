@@ -1,0 +1,55 @@
+cpu time: 51482 real time: 51482 gc time: 299
+Running time is 77.59% contracts
+40473/52166 ms
+
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for label-datum)" "typed-data.rkt:31:4")
+  35395.5 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for make-label)" "typed-data.rkt:39:5")
+  2312.5 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("(interface for node-find-child)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  895.5 ms
+  (-> any/c Any (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:116:9")
+  745.5 ms
+  (-> label? exact-integer? any)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt lcs)" "(interface for node-children)" "typed-data.rkt:62:4")
+  297 ms
+  (-> any/c (listof node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-suffix-link)" "typed-data.rkt:89:4")
+  231.5 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:236:9")
+  151 ms
+  (-> label? exact-integer? any)
+("(interface for node-follow/k)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  131.5 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:251:8")
+  87.5 ms
+  (-> label? label? any)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-parent)" "typed-data.rkt:87:4")
+  65 ms
+  (-> any/c (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-up-label)" "typed-data.rkt:86:4")
+  48 ms
+  (-> any/c label?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:107:9")
+  40.5 ms
+  (-> label? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:124:8")
+  28 ms
+  (->* (label? index?) (index?) any)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt lcs)" "(interface for node-up-label)" "typed-data.rkt:60:4")
+  16.5 ms
+  (-> any/c label?)
+("(interface for node-add-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:29:3")
+  11 ms
+  (-> any/c any/c node?)
+("(interface for node-up-splice-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  11 ms
+  (-> any/c any/c any/c (values node? node?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:245:2")
+  5.5 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) any))) (_r void?))

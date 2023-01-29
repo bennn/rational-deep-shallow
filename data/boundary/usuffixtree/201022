@@ -1,0 +1,42 @@
+cpu time: 48862 real time: 48862 gc time: 440
+Running time is 57.3% contracts
+28389/49547 ms
+
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:9:2")
+  25577.5 ms
+  (-> Any Any boolean?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:11:2")
+  1175.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  742 ms
+  (-> node? (listof node?))
+  (-> node? label?)
+  (-> node? (or/c #f node?))
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  642 ms
+  (-> Any Any boolean?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  173 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for vector->label)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:15:2")
+  23.5 ms
+  (-> (vectorof (or/c symbol? char?)) label?)
+("(interface for make-label)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:8:2")
+  13 ms
+  (-> (or/c string? (vectorof (or/c symbol? char?))) label?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:16:2")
+  12.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  11.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:12:2")
+  6 ms
+  (->* (any/c any/c) (any/c) label?)
+("/users/ben_g/usuffixtree/cfg/lcs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:283:8")
+  6 ms
+  (-> suffix-tree? label? void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:242:2")
+  6 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) any))) (_r (listof any/c)))

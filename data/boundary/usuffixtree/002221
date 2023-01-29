@@ -1,0 +1,73 @@
+cpu time: 58639 real time: 58639 gc time: 496
+Running time is 58.71% contracts
+34882/59414 ms
+
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:9:2")
+  25338.5 ms
+  (-> Any Any boolean?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-children)" "typed-data.rkt:88:4")
+  4060.5 ms
+  (-> any/c (listof node?))
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:11:2")
+  1177.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-up-label)" "typed-data.rkt:86:4")
+  679 ms
+  (-> any/c label?)
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  609 ms
+  (-> Any Any boolean?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt lcs)" "(interface for node-children)" "typed-data.rkt:62:4")
+  598 ms
+  (-> any/c (listof node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-suffix-link)" "typed-data.rkt:89:4")
+  476 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:93:9")
+  382.5 ms
+  (-> node? any/c (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-parent)" "typed-data.rkt:87:4")
+  369 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:204:9")
+  352.5 ms
+  (-> node? index? boolean?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  162.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:161:9")
+  106.5 ms
+  (-> node? label? (-> any/c any/c) (-> any/c any/c any/c) (-> any/c any/c any/c any/c) (-> node? index? label? index? any/c) any/c)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt lcs)" "(interface for node-up-label)" "typed-data.rkt:60:4")
+  104 ms
+  (-> any/c label?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:56:9")
+  98.5 ms
+  (-> node? label? node?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  87.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:49:9")
+  80.5 ms
+  (-> node? boolean?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for make-node)" "typed-data.rkt:93:5")
+  76 ms
+  (-> any/c any/c any/c any/c node?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:126:9")
+  53.5 ms
+  (-> node? index? label? (values node? node?))
+("(interface for vector->label)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:15:2")
+  29 ms
+  (-> (vectorof (or/c symbol? char?)) label?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:12:2")
+  23.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt lcs)" "(interface for node-parent)" "typed-data.rkt:61:4")
+  6 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/async-channel.rkt" "no-negative-party" "<collects>/racket/async-channel.rkt:271:19")
+  6 ms
+  (-> async-channel? any/c evt?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

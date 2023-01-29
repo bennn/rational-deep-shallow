@@ -1,0 +1,40 @@
+cpu time: 46034 real time: 46035 gc time: 238
+Running time is 80.57% contracts
+37655/46738 ms
+
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "data.rkt:9:15")
+  34502 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? natural?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "#<blame-no-swap>")
+  2044 ms
+  (-> (vectorof (or/c symbol? char?)) natural? natural? label?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:116:9")
+  447.5 ms
+  (-> label? exact-integer? any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  349.5 ms
+  (-> node? label?)
+  (-> node? (listof node?))
+  (-> node? (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:116:9")
+  107 ms
+  (-> label? exact-integer? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:236:9")
+  96.5 ms
+  (-> label? exact-integer? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:124:8")
+  44 ms
+  (->* (label? index?) (index?) any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:107:9")
+  27 ms
+  (-> label? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:124:8")
+  26 ms
+  (->* (label? index?) (index?) any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "no-negative-party" "#<blame-no-swap>")
+  6 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) node?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  5.5 ms
+  (->* (flat-contract? chaperone-contract?) (#:immutable (or/c (quote dont-care) #t #f)) contract?)

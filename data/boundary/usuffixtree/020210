@@ -1,0 +1,52 @@
+cpu time: 58671 real time: 58672 gc time: 417
+Running time is 76.84% contracts
+45619/59372 ms
+
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for label-datum)" "typed-data.rkt:31:4")
+  38316 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for make-label)" "typed-data.rkt:39:5")
+  2469 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-children)" "typed-data.rkt:88:4")
+  2216 ms
+  (-> any/c (listof node?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:116:9")
+  1404 ms
+  (-> label? exact-integer? (or/c symbol? char?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-up-label)" "typed-data.rkt:86:4")
+  317 ms
+  (-> any/c label?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:204:9")
+  212 ms
+  (-> node? index? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:236:9")
+  146.5 ms
+  (-> label? exact-integer? boolean?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-parent)" "typed-data.rkt:87:4")
+  124.5 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:161:9")
+  103.5 ms
+  (-> node? label? (-> any/c any/c) (-> any/c any/c any/c) (-> any/c any/c any/c any/c) (-> any/c any/c any/c any/c any/c) any)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:93:9")
+  77 ms
+  (-> node? any/c any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:124:8")
+  65 ms
+  (->* (label? index?) (index?) label?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:49:9")
+  44.5 ms
+  (-> node? any)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:56:9")
+  43.5 ms
+  (-> node? label? any)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for make-node)" "typed-data.rkt:93:5")
+  42.5 ms
+  (-> any/c any/c any/c any/c node?)
+("/users/ben_g/usuffixtree/cfg/structs.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "structs.rkt:126:9")
+  32 ms
+  (-> node? index? label? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "label.rkt:49:9")
+  6 ms
+  (-> (or/c string? (vectorof (or/c symbol? char?))) label?)

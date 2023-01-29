@@ -1,0 +1,40 @@
+cpu time: 51250 real time: 51250 gc time: 304
+Running time is 79.34% contracts
+41205/51934 ms
+
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for label-datum)" "typed-data.rkt:31:4")
+  36994.5 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for make-label)" "typed-data.rkt:39:5")
+  2338.5 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("(interface for node-find-child)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  908 ms
+  (-> any/c Any (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-suffix-link)" "typed-data.rkt:89:4")
+  231 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:116:9")
+  208.5 ms
+  (-> label? exact-integer? (or/c symbol? char?))
+("(interface for node-follow/k)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  175 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:107:9")
+  143.5 ms
+  (-> label? index?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:124:8")
+  71 ms
+  (->* (label? index?) (index?) label?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-parent)" "typed-data.rkt:87:4")
+  64.5 ms
+  (-> any/c (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-up-label)" "typed-data.rkt:86:4")
+  33 ms
+  (-> any/c label?)
+("(interface for node-up-splice-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  27 ms
+  (-> any/c any/c any/c (values node? node?))
+("(interface for node-add-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:29:3")
+  10 ms
+  (-> any/c any/c node?)

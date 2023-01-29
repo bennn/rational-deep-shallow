@@ -1,0 +1,42 @@
+cpu time: 47668 real time: 47669 gc time: 279
+Running time is 82.99% contracts
+40125/48349 ms
+
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "data.rkt:9:15")
+  34363.5 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? natural?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "data.rkt:18:15")
+  2758.5 ms
+  (-> node? (listof node?))
+  (-> node? label?)
+  (-> node? (listof node?) void?)
+  (-> node? (or/c #f node?))
+  (-> node? (or/c #f node?) void?)
+  (-> node? label? void?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "#<blame-no-swap>")
+  2234.5 ms
+  (-> (vectorof (or/c symbol? char?)) natural? natural? label?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  377 ms
+  (-> node? (or/c #f node?))
+  (-> node? label?)
+  (-> node? (or/c #f node?) void?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "#<blame-no-swap>")
+  259 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) node?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:251:8")
+  63 ms
+  (-> label? label? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:107:9")
+  48.5 ms
+  (-> label? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:116:9")
+  10 ms
+  (-> label? exact-integer? any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:12:15")
+  5.5 ms
+  (-> suffix-tree? node?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  5 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

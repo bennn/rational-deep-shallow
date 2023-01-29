@@ -1,0 +1,42 @@
+cpu time: 84690 real time: 84691 gc time: 499
+Running time is 78.91% contracts
+67411/85423 ms
+
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "data.rkt:9:15")
+  46666 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? any)
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:9:2")
+  15607 ms
+  (-> Any Any boolean?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "#<blame-no-swap>")
+  2855.5 ms
+  (-> (vectorof (or/c symbol? char?)) natural? natural? any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "data.rkt:18:15")
+  1237 ms
+  (-> node? (listof node?) any)
+  (-> node? (or/c #f node?) any)
+  (-> node? any)
+  (-> node? label? any)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:11:2")
+  692 ms
+  (-> any/c any/c (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "#<blame-no-swap>")
+  266.5 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) any)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  65 ms
+  (-> node? any)
+  (-> node? (or/c #f node?) any)
+("(interface for vector->label)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:15:2")
+  5.5 ms
+  (-> (vectorof (or/c symbol? char?)) label?)
+("/users/ben_g/usuffixtree/cfg/lcs.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:211:8")
+  5.5 ms
+  (-> suffix-tree?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:260:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (listof (cons/c (dict-key-contract d) (dict-value-contract d)))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)

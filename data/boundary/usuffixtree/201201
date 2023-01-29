@@ -1,0 +1,44 @@
+cpu time: 15566 real time: 15566 gc time: 207
+Running time is 26.61% contracts
+4325/16254 ms
+
+("(interface for node-find-child)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  1812.5 ms
+  (-> any/c Any (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  809.5 ms
+  (-> node? label?)
+  (-> node? (or/c #f node?))
+  (-> node? (or/c #f node?) void?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  749.5 ms
+  (-> node? (listof node?))
+  (-> node? label?)
+  (-> node? (or/c #f node?))
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  470 ms
+  (-> Any Any boolean?)
+("(interface for node-follow/k)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  282.5 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  135 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for node-up-splice-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  22 ms
+  (-> any/c any/c any/c (values node? node?))
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  16.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("(interface for vector->label)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:15:2")
+  10.5 ms
+  (-> (vectorof (or/c symbol? char?)) label?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "#<blame-no-swap>")
+  5.5 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) node?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:12:15")
+  5.5 ms
+  (-> suffix-tree? node?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:16:2")
+  5.5 ms
+  (-> any/c any/c (or/c symbol? char?))

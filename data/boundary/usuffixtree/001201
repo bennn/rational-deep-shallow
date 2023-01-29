@@ -1,0 +1,46 @@
+cpu time: 14918 real time: 14918 gc time: 205
+Running time is 25.3% contracts
+3947/15601 ms
+
+("(interface for node-find-child)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  1670 ms
+  (-> any/c Any (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt lcs)" "(interface for node-children)" "typed-data.rkt:62:4")
+  573.5 ms
+  (-> any/c (listof node?))
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  516 ms
+  (-> Any Any boolean?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-suffix-link)" "typed-data.rkt:89:4")
+  363 ms
+  (-> any/c (or/c #f node?))
+("(interface for node-follow/k)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  295 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  160 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-parent)" "typed-data.rkt:87:4")
+  134 ms
+  (-> any/c (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt lcs)" "(interface for node-up-label)" "typed-data.rkt:60:4")
+  75 ms
+  (-> any/c label?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  57.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-up-label)" "typed-data.rkt:86:4")
+  43 ms
+  (-> any/c label?)
+("(interface for node-up-splice-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  22.5 ms
+  (-> any/c any/c any/c (values node? node?))
+("(interface for node-add-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:29:3")
+  22 ms
+  (-> any/c any/c node?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:16:2")
+  10.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("(interface for vector->label)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:15:2")
+  5 ms
+  (-> (vectorof (or/c symbol? char?)) label?)

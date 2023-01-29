@@ -1,0 +1,40 @@
+cpu time: 51389 real time: 51389 gc time: 299
+Running time is 78.93% contracts
+41100/52070 ms
+
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for label-datum)" "typed-data.rkt:31:4")
+  36695 ms
+  (-> any/c (vectorof (or/c symbol? char?)))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt label)" "(interface for make-label)" "typed-data.rkt:39:5")
+  2538.5 ms
+  (-> (vectorof (or/c symbol? char?)) any/c any/c label?)
+("(interface for node-find-child)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:26:3")
+  990.5 ms
+  (-> any/c Any (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-suffix-link)" "typed-data.rkt:89:4")
+  230 ms
+  (-> any/c (or/c #f node?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:116:9")
+  180.5 ms
+  (-> label? exact-integer? (or/c symbol? char?))
+("(interface for node-follow/k)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:31:3")
+  168.5 ms
+  (-> any/c any/c (-> node? any) (-> node? index? any) (-> node? label? index? any) (-> node? index? label? index? any) (cons/c node? index?))
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:107:9")
+  110.5 ms
+  (-> label? index?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "label.rkt:124:8")
+  70 ms
+  (->* (label? index?) (index?) label?)
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-parent)" "typed-data.rkt:87:4")
+  60.5 ms
+  (-> any/c (or/c #f node?))
+("(/users/ben_g/usuffixtree/cfg/typed-data.rkt structs)" "(interface for node-up-label)" "typed-data.rkt:86:4")
+  33 ms
+  (-> any/c label?)
+("(interface for node-up-splice-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:30:3")
+  17 ms
+  (-> any/c any/c any/c (values node? node?))
+("(interface for node-add-leaf!)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:29:3")
+  5.5 ms
+  (-> any/c any/c node?)

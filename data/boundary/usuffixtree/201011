@@ -1,0 +1,51 @@
+cpu time: 49132 real time: 49132 gc time: 456
+Running time is 65.54% contracts
+32608/49752 ms
+
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:9:2")
+  23586.5 ms
+  (-> Any Any boolean?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "data.rkt:18:15")
+  5368 ms
+  (-> node? (listof node?))
+  (-> node? (listof node?) void?)
+  (-> node? label?)
+  (-> node? (or/c #f node?))
+  (-> node? (or/c #f node?) void?)
+  (-> node? label? void?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:11:2")
+  978 ms
+  (-> any/c any/c (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  693 ms
+  (-> node? (or/c #f node?))
+  (-> node? label?)
+  (-> node? (or/c #f node?) void?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "data.rkt:18:15")
+  668.5 ms
+  (-> node? (listof node?))
+  (-> node? label?)
+("(interface for label-element-equal?)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:17:3")
+  582.5 ms
+  (-> Any Any boolean?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "#<blame-no-swap>")
+  560.5 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) node?)
+("(interface for label-ref)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:13:3")
+  125.5 ms
+  (-> any/c any/c (or/c symbol? char?))
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "#<blame-no-swap>")
+  16.5 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) node?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "ukkonen.rkt:21:3")
+  12 ms
+  (->* (any/c any/c) (any/c) label?)
+("(interface for vector->label)" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "lcs.rkt:15:2")
+  5.5 ms
+  (-> (vectorof (or/c symbol? char?)) label?)
+("(interface for sublabel)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:12:2")
+  5.5 ms
+  (->* (any/c any/c) (any/c) label?)
+("(interface for make-label)" "/users/ben_g/usuffixtree/cfg/structs.rkt" "structs.rkt:8:2")
+  5.5 ms
+  (-> (or/c string? (vectorof (or/c symbol? char?))) label?)

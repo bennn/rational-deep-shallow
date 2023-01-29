@@ -1,0 +1,39 @@
+cpu time: 47559 real time: 47560 gc time: 277
+Running time is 82.48% contracts
+39796/48250 ms
+
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "data.rkt:9:15")
+  34465.5 ms
+  (-> label? (vectorof (or/c symbol? char?)))
+  (-> label? natural?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "data.rkt:18:15")
+  2635 ms
+  (-> node? (listof node?))
+  (-> node? (listof node?) void?)
+  (-> node? label?)
+  (-> node? (or/c #f node?) void?)
+  (-> node? (or/c #f node?))
+  (-> node? label? void?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/label.rkt" "#<blame-no-swap>")
+  2039 ms
+  (-> (vectorof (or/c symbol? char?)) natural? natural? label?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/ukkonen.rkt" "data.rkt:18:15")
+  286.5 ms
+  (-> node? (or/c #f node?))
+  (-> node? (or/c #f node?) void?)
+  (-> node? label?)
+("/users/ben_g/usuffixtree/cfg/data.rkt" "/users/ben_g/usuffixtree/cfg/structs.rkt" "#<blame-no-swap>")
+  279 ms
+  (-> label? (or/c #f node?) (listof node?) (or/c #f node?) node?)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:251:8")
+  61.5 ms
+  (-> label? label? any)
+("/users/ben_g/usuffixtree/cfg/label.rkt" "/users/ben_g/usuffixtree/cfg/lcs.rkt" "label.rkt:107:9")
+  18.5 ms
+  (-> label? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:61:4")
+  5.5 ms
+  (-> module-identifier-mapping? identifier? any/c void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:204:2")
+  5 ms
+  (->i ((d (dict-implements/c dict-set))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r dict?))
