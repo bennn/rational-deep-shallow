@@ -1,0 +1,37 @@
+cpu time: 7414 real time: 7414 gc time: 305
+Running time is 41.12% contracts
+3348/8140 ms
+
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:10:3")
+  889.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:12:3")
+  744.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "array-utils.rkt:152:9")
+  561.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (vectorof exact-integer?) void?)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:20:3")
+  420 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:15:3")
+  358.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:16:3")
+  268 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for array-shape)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:19:3")
+  30 ms
+  (-> any/c (vectorof exact-integer?))
+("(interface for build-array)" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:7:3")
+  29.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:70:9")
+  17.5 ms
+  (-> natural? (listof (cons/c (or/c natural? #f) natural?)) natural? (-> any/c (-> (vectorof exact-integer?) flonum?)) any)
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:98:8")
+  17 ms
+  (-> flonum? (-> (vectorof exact-integer?) any))
+("(interface for array-shape)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:13:3")
+  11.5 ms
+  (-> any/c (vectorof exact-integer?))

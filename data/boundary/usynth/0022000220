@@ -1,0 +1,25 @@
+cpu time: 8029 real time: 8029 gc time: 296
+Running time is 41.41% contracts
+3609/8715 ms
+
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:12:3")
+  1029.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:12:3")
+  923 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:10:3")
+  801.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:13:3")
+  800 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for build-array)" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:7:3")
+  37 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for array-shape-broadcast)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:17:3")
+  12 ms
+  (->* ((listof (vectorof exact-integer?))) (any/c) (vectorof exact-integer?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/format.rkt" "no-negative-party" "<collects>/racket/format.rkt:56:2")
+  6 ms
+  (->* () (#:align (or/c (quote left) (quote right) (quote center)) #:left-pad-string non-empty-string? #:limit-marker string? #:limit-prefix? boolean? #:max-width (or/c natural? +inf.0) #:min-width natural? #:pad-string non-empty-string? #:right-pad-string non-empty-string? #:separator string? #:width (or/c natural? #f)) #:rest (listof any/c) string?)

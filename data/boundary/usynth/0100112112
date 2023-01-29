@@ -1,0 +1,36 @@
+cpu time: 6758 real time: 6758 gc time: 297
+Running time is 40.64% contracts
+3033/7464 ms
+
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-struct.rkt:196:9")
+  800 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-transform.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  698 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+("(interface for next-indexes!)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:15:3")
+  545.5 ms
+  (-> (vectorof exact-integer?) any/c (vectorof exact-integer?) void?)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  376.5 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "data.rkt:8:10")
+  342.5 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:196:9")
+  227.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("(interface for unsafe-array-index->value-index)" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:9:3")
+  26.5 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("(interface for array-shape-broadcast)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:17:3")
+  5.5 ms
+  (->* ((listof (vectorof exact-integer?))) (any/c) (vectorof exact-integer?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> mutable-bound-id-set? identifier? void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))

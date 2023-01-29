@@ -1,0 +1,37 @@
+cpu time: 9949 real time: 9949 gc time: 323
+Running time is 40.59% contracts
+4324/10654 ms
+
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-unsafe-proc)" "typed-data.rkt:55:5")
+  2497 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-struct.rkt:196:9")
+  689 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "array-utils.rkt:152:9")
+  644.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (vectorof exact-integer?) void?)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:196:9")
+  342.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-shape)" "typed-data.rkt:51:5")
+  58 ms
+  (-> any/c (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "array-struct.rkt:221:9")
+  23.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("(interface for array-shape-broadcast)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:17:3")
+  23.5 ms
+  (->* ((listof (vectorof exact-integer?))) (any/c) (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-utils.rkt" "array-utils.rkt:63:11")
+  23 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/drum.rkt" "array-struct.rkt:258:9")
+  11 ms
+  (-> (vectorof exact-integer?) (vectorof flonum?) any)
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:98:8")
+  6 ms
+  (-> flonum? (-> (vectorof exact-integer?) any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  6 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

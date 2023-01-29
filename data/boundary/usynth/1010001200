@@ -1,0 +1,40 @@
+cpu time: 9373 real time: 9373 gc time: 311
+Running time is 41.73% contracts
+4205/10076 ms
+
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:12:3")
+  1062.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:12:3")
+  828 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:10:3")
+  759.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:13:3")
+  700.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:15:3")
+  356 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for make-thread-local-indexes)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:19:3")
+  227 ms
+  (-> any/c (-> (vectorof exact-integer?)))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:16:3")
+  213 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for vector-copy-all)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:20:3")
+  21.5 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-broadcast.rkt:115:9")
+  16 ms
+  (->* ((listof (vectorof exact-integer?))) ((or/c #t #f (quote permissive))) (vectorof exact-integer?))
+("(interface for sequence)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:8:3")
+  11 ms
+  (-> any/c any/c any/c (-> flonum? (-> (vectorof exact-integer?) any)) Array?)
+("(interface for array-shape)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:13:3")
+  5 ms
+  (-> any/c (vectorof exact-integer?))
+("(interface for sawtooth-wave)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:18:3")
+  5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))

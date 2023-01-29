@@ -1,0 +1,34 @@
+cpu time: 16383 real time: 16384 gc time: 364
+Running time is 35.54% contracts
+6072/17085 ms
+
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/typed-data.rkt" "typed-data.rkt:16:12")
+  2598 ms
+  (-> (vectorof exact-integer?) exact-integer? (box/c boolean?) (-> void?) (-> (vectorof exact-integer?) flonum?) any)
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-unsafe-proc)" "typed-data.rkt:55:5")
+  2485 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "array-utils.rkt:152:9")
+  745 ms
+  (-> (vectorof exact-integer?) exact-integer? (vectorof exact-integer?) any)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-utils.rkt" "array-utils.rkt:143:9")
+  176.5 ms
+  (-> exact-integer? (-> (vectorof exact-integer?)))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-utils.rkt" "array-utils.rkt:63:11")
+  28 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) any)
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/typed-data.rkt" "typed-data.rkt:22:13")
+  11.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (box/c boolean?) (-> void?) (-> (vectorof exact-integer?) flonum?) (-> (vectorof exact-integer?) any/c void?) (vectorof flonum?) any)
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-shape)" "typed-data.rkt:51:5")
+  11 ms
+  (-> any/c (vectorof exact-integer?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:204:2")
+  6 ms
+  (->i ((d (dict-implements/c dict-set))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r dict?))
+("(interface for sequence)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:8:3")
+  5.5 ms
+  (-> any/c any/c any/c (-> flonum? (-> (vectorof exact-integer?) any)) Array?)
+("(/users/ben_g/usynth/cfg/typed-data.rkt main)" "(interface for Mutable-Array-data)" "typed-data.rkt:109:5")
+  5.5 ms
+  (-> any/c (vectorof flonum?))

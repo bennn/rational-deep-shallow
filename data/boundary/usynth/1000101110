@@ -1,0 +1,44 @@
+cpu time: 15220 real time: 15220 gc time: 355
+Running time is 36.51% contracts
+5834/15981 ms
+
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  2173.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (box/c boolean?) (-> void?) (-> (vectorof exact-integer?) flonum?) any)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:12:3")
+  1041 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:13:3")
+  712 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("/users/ben_g/usynth/cfg/array-transform.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  588 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:15:3")
+  357 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "data.rkt:8:10")
+  341.5 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:16:3")
+  278.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for make-thread-local-indexes)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:19:3")
+  263.5 ms
+  (-> any/c (-> (vectorof exact-integer?)))
+("(interface for build-array)" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:7:3")
+  26.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for array-shape)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:13:3")
+  16.5 ms
+  (-> any/c (vectorof exact-integer?))
+("(interface for sawtooth-wave)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:18:3")
+  16 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:14:10")
+  15 ms
+  (-> (vectorof exact-integer?) exact-integer? (box/c boolean?) (-> void?) (-> (vectorof exact-integer?) flonum?) (-> (vectorof exact-integer?) any/c void?) (vectorof flonum?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:221:2")
+  5 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r dict?))

@@ -1,0 +1,39 @@
+cpu time: 8760 real time: 8760 gc time: 311
+Running time is 39.1% contracts
+3694/9446 ms
+
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "data.rkt:8:10")
+  958 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-struct.rkt:196:9")
+  806.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "array-utils.rkt:152:9")
+  664 ms
+  (-> (vectorof exact-integer?) exact-integer? (vectorof exact-integer?) any)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  354.5 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:196:9")
+  305 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "data.rkt:8:10")
+  278 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-utils.rkt" "array-utils.rkt:143:9")
+  231 ms
+  (-> exact-integer? (-> (vectorof exact-integer?)))
+("(interface for sawtooth-wave)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:18:3")
+  39 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "array-struct.rkt:221:9")
+  35 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("(interface for sequence)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:8:3")
+  11.5 ms
+  (-> any/c any/c any/c (-> flonum? (-> (vectorof exact-integer?) any)) Array?)
+("(interface for array-shape-broadcast)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:17:3")
+  11 ms
+  (->* ((listof (vectorof exact-integer?))) (any/c) (vectorof exact-integer?))

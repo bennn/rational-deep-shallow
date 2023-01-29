@@ -1,0 +1,37 @@
+cpu time: 9982 real time: 9982 gc time: 275
+Running time is 35.35% contracts
+3780/10693 ms
+
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:12:3")
+  1122 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "data.rkt:8:10")
+  1052.5 ms
+  (-> Array? (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:13:3")
+  695 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:20:3")
+  276.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:16:3")
+  270 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:15:3")
+  246.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-broadcast.rkt:115:9")
+  58.5 ms
+  (->* ((listof (vectorof exact-integer?))) ((or/c #t #f (quote permissive))) (vectorof exact-integer?))
+("(interface for build-array)" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:7:3")
+  21 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for array-shape)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:13:3")
+  21 ms
+  (-> any/c (vectorof exact-integer?))
+("(interface for array-shape)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:19:3")
+  11 ms
+  (-> any/c (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/drum.rkt" "array-utils.rkt:51:11")
+  5.5 ms
+  (-> (vectorof exact-integer?) (-> none/c) (vectorof exact-integer?))

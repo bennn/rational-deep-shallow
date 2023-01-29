@@ -1,0 +1,28 @@
+cpu time: 9916 real time: 9916 gc time: 318
+Running time is 43.05% contracts
+4569/10611 ms
+
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-unsafe-proc)" "typed-data.rkt:55:5")
+  2473 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-struct.rkt:196:9")
+  871 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-struct.rkt:196:9")
+  809.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:196:9")
+  299 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-shape)" "typed-data.rkt:51:5")
+  69 ms
+  (-> any/c (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-utils.rkt" "array-utils.rkt:63:11")
+  23.5 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("(interface for array-shape-broadcast)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:17:3")
+  12 ms
+  (->* ((listof (vectorof exact-integer?))) (any/c) (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:70:9")
+  11.5 ms
+  (-> natural? (listof (cons/c (or/c natural? #f) natural?)) natural? (-> any/c (-> (vectorof exact-integer?) flonum?)) any)

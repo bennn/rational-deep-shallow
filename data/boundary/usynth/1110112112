@@ -1,0 +1,23 @@
+cpu time: 3978 real time: 3978 gc time: 233
+Running time is 32.93% contracts
+1543/4685 ms
+
+("(interface for next-indexes!)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:15:3")
+  696.5 ms
+  (-> (vectorof exact-integer?) any/c (vectorof exact-integer?) void?)
+("(interface for make-thread-local-indexes)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:19:3")
+  467.5 ms
+  (-> any/c (-> (vectorof exact-integer?)))
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "data.rkt:8:10")
+  304.5 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("(interface for unsafe-array-index->value-index)" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:9:3")
+  34 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("(interface for vector-copy-all)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:20:3")
+  23.5 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:70:9")
+  17 ms
+  (-> natural? (listof (cons/c (or/c natural? #f) natural?)) natural? (-> any/c (-> (vectorof exact-integer?) flonum?)) any)

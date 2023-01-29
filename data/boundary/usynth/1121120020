@@ -1,0 +1,38 @@
+cpu time: 9037 real time: 9037 gc time: 308
+Running time is 42.45% contracts
+4139/9749 ms
+
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "data.rkt:8:10")
+  1009 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-struct.rkt:196:9")
+  823.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-struct.rkt:196:9")
+  693.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-transform.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  656 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "array-utils.rkt:152:9")
+  530.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (vectorof exact-integer?) any)
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "data.rkt:8:10")
+  340 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "array-struct.rkt:221:9")
+  58.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-broadcast.rkt:115:9")
+  11 ms
+  (->* ((listof (vectorof exact-integer?))) ((or/c #t #f (quote permissive))) (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/drum.rkt" "array-utils.rkt:51:11")
+  5.5 ms
+  (-> (vectorof exact-integer?) (-> none/c) (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-broadcast.rkt:115:9")
+  5.5 ms
+  (->* ((listof (vectorof exact-integer?))) ((or/c #t #f (quote permissive))) (vectorof exact-integer?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:233:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d))))

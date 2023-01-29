@@ -1,0 +1,34 @@
+cpu time: 10180 real time: 10180 gc time: 329
+Running time is 41.82% contracts
+4563/10912 ms
+
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-unsafe-proc)" "typed-data.rkt:55:5")
+  2483 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-struct.rkt:196:9")
+  866 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-struct.rkt:196:9")
+  760.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:196:9")
+  300.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-shape)" "typed-data.rkt:51:5")
+  46 ms
+  (-> any/c (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "array-struct.rkt:221:9")
+  38.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) any)
+("(interface for sawtooth-wave)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:18:3")
+  34.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-utils.rkt" "array-utils.rkt:63:11")
+  23 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:70:9")
+  5.5 ms
+  (-> natural? (listof (cons/c (or/c natural? #f) natural?)) natural? (-> flonum? (-> (vectorof exact-integer?) flonum?)) Array?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/async-channel.rkt" "no-negative-party" "<collects>/racket/async-channel.rkt:277:19")
+  5.5 ms
+  (->* (async-channel? (-> any/c any/c) (-> any/c any/c)) #:rest (listof any/c) (and/c chaperone? async-channel?))

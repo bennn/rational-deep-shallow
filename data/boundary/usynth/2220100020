@@ -1,0 +1,36 @@
+cpu time: 12895 real time: 12895 gc time: 323
+Running time is 35.05% contracts
+4766/13597 ms
+
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  2388.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (box/c boolean?) (-> void?) (-> (vectorof exact-integer?) flonum?) any)
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "data.rkt:8:10")
+  739 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+("/users/ben_g/usynth/cfg/array-transform.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  662 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  389 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/data.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "data.rkt:8:10")
+  310.5 ms
+  (-> Array? (-> (vectorof exact-integer?) any))
+  (-> Array? (vectorof exact-integer?))
+("(interface for make-thread-local-indexes)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:19:3")
+  234 ms
+  (-> any/c (-> (vectorof exact-integer?)))
+("(interface for unsafe-array-index->value-index)" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:9:3")
+  21 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("(interface for vector-copy-all)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:20:3")
+  11 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:221:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r dict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:57:4")
+  5 ms
+  (-> module-identifier-mapping?)

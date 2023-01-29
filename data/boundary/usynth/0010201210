@@ -1,0 +1,34 @@
+cpu time: 9915 real time: 9915 gc time: 315
+Running time is 37.56% contracts
+3984/10607 ms
+
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:12:3")
+  1061.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-transform.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  859 ms
+  (-> Array? (-> (vectorof exact-integer?) flonum?))
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:12:3")
+  698 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for unsafe-build-array)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:13:3")
+  669.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:10:3")
+  648 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for build-array)" "/users/ben_g/usynth/cfg/sequencer.rkt" "sequencer.rkt:7:3")
+  17.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) any) Array?)
+("(interface for sawtooth-wave)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:18:3")
+  11.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("(interface for array-shape-broadcast)" "/users/ben_g/usynth/cfg/mixer.rkt" "mixer.rkt:17:3")
+  7 ms
+  (->* ((listof (vectorof exact-integer?))) (any/c) (vectorof exact-integer?))
+("(interface for vector-copy-all)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:20:3")
+  6 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/mixer.rkt" "no-negative-party" "mixer.rkt:69:9")
+  5.5 ms
+  (->* () #:rest (listof (list/c Array? real?)) Array?)

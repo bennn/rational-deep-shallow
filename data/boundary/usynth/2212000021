@@ -1,0 +1,25 @@
+cpu time: 16584 real time: 16585 gc time: 371
+Running time is 36.99% contracts
+6392/17281 ms
+
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/typed-data.rkt" "typed-data.rkt:16:12")
+  2684.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (box/c boolean?) (-> void?) (-> (vectorof exact-integer?) flonum?) any)
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-unsafe-proc)" "typed-data.rkt:55:5")
+  2445 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-struct.rkt:196:9")
+  730.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) Array?)
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "array-utils.rkt:152:9")
+  482.5 ms
+  (-> (vectorof exact-integer?) exact-integer? (vectorof exact-integer?) void?)
+("(/users/ben_g/usynth/cfg/typed-data.rkt array-struct)" "(interface for Array-shape)" "typed-data.rkt:51:5")
+  38.5 ms
+  (-> any/c (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:98:8")
+  5.5 ms
+  (-> flonum? (-> (vectorof exact-integer?) any))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (->* () (generic-set? #:phase (or/c #f exact-integer?)) immutable-free-id-set?)

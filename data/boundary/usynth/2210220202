@@ -1,0 +1,28 @@
+cpu time: 6326 real time: 6326 gc time: 294
+Running time is 35.82% contracts
+2514/7018 ms
+
+("/users/ben_g/usynth/cfg/array-transform.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  792.5 ms
+  (-> Array? (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-struct.rkt" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-struct.rkt:196:9")
+  771 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) Array?)
+("(interface for next-indexes!)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:15:3")
+  517.5 ms
+  (-> (vectorof exact-integer?) any/c (vectorof exact-integer?) void?)
+("(interface for make-thread-local-indexes)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:19:3")
+  334.5 ms
+  (-> any/c (-> (vectorof exact-integer?)))
+("(interface for unsafe-array-index->value-index)" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:9:3")
+  61.5 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("(interface for vector-copy-all)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:20:3")
+  24.5 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:242:2")
+  6.5 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) any))) (_r (listof any/c)))
+("(interface for check-array-shape)" "/users/ben_g/usynth/cfg/drum.rkt" "drum.rkt:14:3")
+  6 ms
+  (-> (vectorof exact-integer?) any/c (vectorof exact-integer?))

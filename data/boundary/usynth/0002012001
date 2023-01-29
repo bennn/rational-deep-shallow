@@ -1,0 +1,22 @@
+cpu time: 2946 real time: 2946 gc time: 225
+Running time is 29.33% contracts
+1075/3663 ms
+
+("(interface for unsafe-array-proc)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:20:3")
+  583.5 ms
+  (-> any/c (-> (vectorof exact-integer?) flonum?))
+("/users/ben_g/usynth/cfg/array-utils.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "array-utils.rkt:152:9")
+  426 ms
+  (-> (vectorof exact-integer?) exact-integer? (vectorof exact-integer?) void?)
+("(interface for array-shape)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:19:3")
+  22.5 ms
+  (-> any/c (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/main.rkt" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:98:8")
+  20 ms
+  (-> flonum? (-> (vectorof exact-integer?) any))
+("(interface for sequence)" "/users/ben_g/usynth/cfg/main.rkt" "main.rkt:8:3")
+  16.5 ms
+  (-> any/c any/c any/c (-> flonum? (-> (vectorof exact-integer?) any)) Array?)
+("(interface for unsafe-vector->array)" "/users/ben_g/usynth/cfg/drum.rkt" "drum.rkt:10:3")
+  6 ms
+  (-> (vectorof exact-integer?) (vectorof flonum?) Mutable-Array?)

@@ -1,0 +1,32 @@
+cpu time: 4843 real time: 4843 gc time: 248
+Running time is 33.63% contracts
+1860/5531 ms
+
+("(interface for next-indexes!)" "/users/ben_g/usynth/cfg/synth.rkt" "synth.rkt:15:3")
+  596 ms
+  (-> (vectorof exact-integer?) any/c (vectorof exact-integer?) void?)
+("(interface for make-thread-local-indexes)" "/users/ben_g/usynth/cfg/array-broadcast.rkt" "array-broadcast.rkt:19:3")
+  412.5 ms
+  (-> any/c (-> (vectorof exact-integer?)))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/data.rkt" "data.rkt:8:10")
+  404.5 ms
+  (-> Array? (-> (vectorof exact-integer?) flonum?))
+  (-> Array? (vectorof exact-integer?))
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:196:9")
+  311.5 ms
+  (-> (vectorof exact-integer?) (-> (vectorof exact-integer?) flonum?) Array?)
+("/users/ben_g/usynth/cfg/array-broadcast.rkt" "/users/ben_g/usynth/cfg/mixer.rkt" "array-broadcast.rkt:115:9")
+  79 ms
+  (->* ((listof (vectorof exact-integer?))) ((or/c #t #f (quote permissive))) (vectorof exact-integer?))
+("(interface for vector-copy-all)" "/users/ben_g/usynth/cfg/array-transform.rkt" "array-transform.rkt:20:3")
+  23 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?))
+("(interface for unsafe-array-index->value-index)" "/users/ben_g/usynth/cfg/array-struct.rkt" "array-struct.rkt:9:3")
+  22.5 ms
+  (-> (vectorof exact-integer?) (vectorof exact-integer?) exact-integer?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:242:2")
+  6 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) any))) (_r (listof any/c)))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/modcollapse.rkt" "no-negative-party" "<collects>/syntax/modcollapse.rkt:33:2")
+  5 ms
+  (case-> (-> module-path-index? (or/c #f module-path?)) (-> (or/c symbol? module-path-index?) (or/c (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?)))))) path? symbol? (-> (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?)))))))) (and/c module-path? (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c) (cons/c (quote submod) (cons/c (or/c path? (cons/c (quote lib) any/c) (cons/c (quote file) any/c) (cons/c (quote planet) any/c) (cons/c (quote quote) any/c)) (cons/c symbol? (listof symbol?))))))))
