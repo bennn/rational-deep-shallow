@@ -1,33 +1,33 @@
-cpu time: 6852 real time: 6852 gc time: 126
-Running time is 30.17% contracts
-2349/7784 ms
+cpu time: 6956 real time: 6956 gc time: 126
+Running time is 31.5% contracts
+2495/7920 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  1435 ms
+  1429 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
   (-> snake? any)
 ("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
-  492 ms
+  560 ms
   (-> (cons/c posn? (listof posn?)) any)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  161.5 ms
-  (-> real? real? any)
+  163 ms
   (-> posn? any)
+  (-> real? real? any)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  137 ms
+  115.5 ms
   (-> world? (or/c right left down up) any)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
-  54 ms
-  (-> world? any)
-("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
-  35 ms
+  101 ms
   (-> world? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
-  23 ms
+  70 ms
   (-> snake? any)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  41 ms
+  (-> world? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
-  5.5 ms
+  10 ms
   (-> snake? any)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
-  5.5 ms
+  5 ms
   (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

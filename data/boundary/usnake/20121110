@@ -1,25 +1,25 @@
-cpu time: 8093 real time: 8093 gc time: 126
-Running time is 46.34% contracts
-4178/9015 ms
+cpu time: 8436 real time: 8436 gc time: 122
+Running time is 46.85% contracts
+4395/9382 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3725.5 ms
+  3807.5 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
   (-> snake? (or/c right left down up))
   (-> snake? (cons/c posn? (listof posn?)))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  263 ms
-  (-> posn? real?)
+  364 ms
   (-> real? real? posn?)
+  (-> posn? real?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
-  93 ms
+  123.5 ms
   (-> world? snake?)
-("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
-  53 ms
-  (-> snake? boolean?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  37.5 ms
+  50.5 ms
   (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  44 ms
+  (-> snake? boolean?)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:239:2")
   5.5 ms
   (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d)))

@@ -1,34 +1,37 @@
-cpu time: 12649 real time: 12649 gc time: 144
-Running time is 46.62% contracts
-6299/13512 ms
+cpu time: 12810 real time: 12810 gc time: 142
+Running time is 46.44% contracts
+6376/13729 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3774 ms
+  3942 ms
   (-> snake? (or/c right left down up))
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
   (-> snake? (cons/c posn? (listof posn?)))
 ("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
-  903 ms
+  930.5 ms
   (-> (cons/c posn? (listof posn?)) (listof posn?))
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
-  844.5 ms
+  795.5 ms
   (-> snake? (cons/c posn? (listof posn?)))
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
+  293 ms
+  (-> posn? real?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  324.5 ms
+  275 ms
   (-> posn? real?)
   (-> real? real? posn?)
-("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
-  289 ms
-  (-> posn? real?)
-("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
-  54.5 ms
-  (-> snake? any)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  50.5 ms
+  46.5 ms
   (-> snake? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
-  48.5 ms
+  41 ms
   (-> posn? posn? boolean?)
-("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
-  10.5 ms
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  36 ms
   (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
+  11 ms
+  (-> snake? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-table.rkt" "no-negative-party" "(lib syntax/id-table.rkt)")
+  5.5 ms
+  (->* (bound-id-table? identifier?) (any/c) any)

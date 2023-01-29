@@ -1,37 +1,43 @@
-cpu time: 13885 real time: 13885 gc time: 147
-Running time is 40.57% contracts
-6007/14805 ms
+cpu time: 13553 real time: 13553 gc time: 145
+Running time is 38.51% contracts
+5589/14513 ms
 
 ("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:8:12")
-  1586 ms
+  1445 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-segs)" "data-adaptor.rkt:96:5")
-  1332.5 ms
+  1403 ms
   (-> any/c (cons/c posn? (listof posn?)))
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion-help)" "(interface for snake-dir)" "data-adaptor.rkt:95:5")
-  1067.5 ms
+  787 ms
   (-> any/c (or/c up down left right))
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for snake-segs)" "data-adaptor.rkt:108:5")
-  824.5 ms
+  629 ms
   (-> any/c (cons/c posn? (listof posn?)))
 ("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
-  557.5 ms
+  506.5 ms
   (-> any/c (listof posn?))
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  168.5 ms
+  180.5 ms
   (-> snake? snake?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  110 ms
+  172.5 ms
   (-> world? (or/c up down left right) any)
-("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
-  107 ms
-  (-> real? real? any)
 ("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
-  98.5 ms
+  139.5 ms
   (-> world? any)
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
-  84 ms
+  122 ms
   (-> any/c posn?)
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-snake)" "data-adaptor.rkt:109:5")
-  70.5 ms
+  120.5 ms
   (-> any/c snake?)
+("/users/ben_g/usnake/cfg/data-adaptor.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data-adaptor.rkt:6:12")
+  71 ms
+  (-> real? real? any)
+("(interface for handle-key)" "/users/ben_g/usnake/cfg/main.rkt" "main.rkt:11:22")
+  6 ms
+  (-> any/c any/c world?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:221:2")
+  6 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r dict?))

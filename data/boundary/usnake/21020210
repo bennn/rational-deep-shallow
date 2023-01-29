@@ -1,19 +1,22 @@
-cpu time: 10051 real time: 10051 gc time: 136
-Running time is 40.87% contracts
-4484/10971 ms
+cpu time: 9910 real time: 9911 gc time: 133
+Running time is 39.42% contracts
+4273/10841 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3649.5 ms
-  (-> snake? (cons/c posn? (listof posn?)))
+  3525 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
   (-> snake? (or/c right left down up))
+  (-> snake? (cons/c posn? (listof posn?)))
 ("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
-  482 ms
+  405 ms
   (-> any/c (listof posn?))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  324 ms
+  309 ms
   (-> real? real? posn?)
   (-> posn? real?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  28.5 ms
+  29 ms
   (-> snake? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse.rkt" "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/provide.rkt" "(lib syntax/parse.rkt):11:26")
+  5 ms
+  macro argument contract

@@ -1,45 +1,45 @@
-cpu time: 7888 real time: 7888 gc time: 131
-Running time is 25.61% contracts
-2258/8818 ms
+cpu time: 7887 real time: 7887 gc time: 130
+Running time is 27.92% contracts
+2468/8840 ms
 
 ("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
-  924 ms
+  1014 ms
   (-> (cons/c posn? (listof posn?)) (listof posn?))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
-  330 ms
+  356.5 ms
   (-> world? any)
   (-> snake? posn? any)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
-  211.5 ms
+  317 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) any)
   (-> snake? any)
-("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
-  183.5 ms
-  (-> posn? any)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
-  141 ms
+  176 ms
   (-> posn? posn? any)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  139 ms
+  174 ms
   (-> world? (or/c up down left right) world?)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
+  131 ms
+  (-> posn? any)
 ("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
-  87.5 ms
+  106 ms
   (-> world? world?)
-("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
-  73.5 ms
-  (-> snake? boolean?)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
-  70.5 ms
+  63.5 ms
   (-> snake? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  52.5 ms
+  (-> snake? boolean?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  65 ms
+  50.5 ms
   (-> snake? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
-  17 ms
+  16 ms
   (-> posn? posn? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
-  10.5 ms
+  5.5 ms
   (-> snake? boolean?)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
-  5 ms
+  5.5 ms
   (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))

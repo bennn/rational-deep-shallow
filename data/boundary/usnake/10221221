@@ -1,43 +1,40 @@
-cpu time: 9746 real time: 9746 gc time: 135
-Running time is 28.75% contracts
-3050/10608 ms
+cpu time: 9586 real time: 9586 gc time: 133
+Running time is 29.76% contracts
+3127/10507 ms
 
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
-  990 ms
+  1017.5 ms
   (-> snake? (cons/c posn? (listof posn?)))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
-  758.5 ms
+  906 ms
   (-> snake? (cons/c posn? (listof posn?)))
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
-  561.5 ms
+  548 ms
   (-> world? posn?)
   (-> world? snake?)
   (-> snake? posn? world?)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
-  226.5 ms
+  249 ms
   (-> posn? real?)
-("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
-  150.5 ms
-  (-> posn? posn? boolean?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
-  125.5 ms
+  130.5 ms
   (-> world? snake?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  101.5 ms
+  77.5 ms
   (-> snake? snake?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  65 ms
+  (-> posn? posn? boolean?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
-  49 ms
+  63.5 ms
+  (-> world? any)
+("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
+  43 ms
   (-> world? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
-  36.5 ms
+  22 ms
   (-> posn? posn? boolean?)
-("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
-  35.5 ms
-  (-> world? any)
-("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
-  10 ms
-  (-> world? string? any)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:182:2")
   5 ms
   (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any)

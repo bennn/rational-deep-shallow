@@ -1,37 +1,31 @@
-cpu time: 9018 real time: 9018 gc time: 128
-Running time is 43.5% contracts
-4324/9940 ms
+cpu time: 9712 real time: 9712 gc time: 130
+Running time is 45.87% contracts
+4878/10633 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3535 ms
+  4093.5 ms
+  (-> snake? (or/c right left down up))
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
   (-> snake? (cons/c posn? (listof posn?)))
-  (-> snake? (or/c right left down up))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  286 ms
+  333.5 ms
   (-> real? real? posn?)
   (-> posn? real?)
-("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
-  142.5 ms
-  (-> world? snake?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  141.5 ms
+  191 ms
   (-> world? (or/c up down left right) world?)
-("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
-  94.5 ms
-  (-> snake? boolean?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
+  111 ms
+  (-> world? snake?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
-  51.5 ms
+  52.5 ms
   (-> world? any)
+("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
+  48.5 ms
+  (-> snake? boolean?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  44.5 ms
+  42 ms
   (-> snake? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
-  18 ms
-  (-> snake? boolean?)
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
   5.5 ms
-  (->* (mutable-bound-id-set?) #:rest (listof bound-id-set?) void?)
-("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
-  5 ms
-  (-> world? string? any)
+  (-> snake? boolean?)

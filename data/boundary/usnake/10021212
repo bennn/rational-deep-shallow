@@ -1,37 +1,43 @@
-cpu time: 10757 real time: 10757 gc time: 131
-Running time is 53.94% contracts
-6310/11697 ms
+cpu time: 11001 real time: 11001 gc time: 132
+Running time is 52.18% contracts
+6304/12081 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3600.5 ms
+  3784 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
   (-> snake? (cons/c posn? (listof posn?)))
   (-> snake? (or/c right left down up))
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:3:9")
-  1080 ms
+  1114.5 ms
   (-> snake? (cons/c posn? (listof posn?)))
 ("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
-  593.5 ms
+  547 ms
   (-> any/c (listof posn?))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  337.5 ms
-  (-> real? real? posn?)
+  269 ms
   (-> posn? real?)
+  (-> real? real? posn?)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:8:9")
-  229 ms
+  238.5 ms
   (-> posn? real?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  148.5 ms
+  144.5 ms
   (-> world? (or/c up down left right) world?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
-  116 ms
+  90 ms
   (-> world? snake?)
-("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  98.5 ms
-  (-> snake? any)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
-  81.5 ms
+  51.5 ms
   (-> world? any)
+("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
+  31 ms
+  (-> snake? any)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/data.rkt" "data.rkt:17:9")
-  24.5 ms
+  22.5 ms
   (-> posn? posn? boolean?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
+  6 ms
+  (-> world? string? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> free-id-set? free-id-set? boolean?)

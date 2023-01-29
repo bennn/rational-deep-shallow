@@ -1,39 +1,39 @@
-cpu time: 14169 real time: 14169 gc time: 148
-Running time is 46.99% contracts
-7100/15109 ms
+cpu time: 13144 real time: 13144 gc time: 148
+Running time is 46.27% contracts
+6479/14003 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  4421.5 ms
-  (-> snake? (or/c right left down up))
-  (-> snake? (cons/c posn? (listof posn?)))
+  3935.5 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (cons/c posn? (listof posn?)))
+  (-> snake? (or/c right left down up))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
-  936.5 ms
+  990.5 ms
   (-> snake? (cons/c posn? (listof posn?)))
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
-  568 ms
-  (-> world? posn?)
+  495.5 ms
   (-> world? snake?)
   (-> snake? posn? world?)
+  (-> world? posn?)
 ("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
-  458.5 ms
+  405.5 ms
   (-> any/c (listof posn?))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  323 ms
-  (-> posn? real?)
+  338 ms
   (-> real? real? posn?)
+  (-> posn? real?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  215 ms
+  152 ms
   (-> world? (or/c up down left right) any)
-("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
-  84.5 ms
-  (-> world? boolean?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
-  77 ms
+  88 ms
   (-> posn? posn? boolean?)
+("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:21:9")
+  63 ms
+  (-> world? boolean?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/main.rkt" "handlers.rkt:13:9")
-  10.5 ms
+  5.5 ms
   (-> world? string? world?)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
   5.5 ms

@@ -1,25 +1,25 @@
-cpu time: 6238 real time: 6238 gc time: 120
-Running time is 33.81% contracts
-2421/7160 ms
+cpu time: 6604 real time: 6604 gc time: 119
+Running time is 29.14% contracts
+2201/7552 ms
 
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
-  1066 ms
+  1022 ms
   (-> any/c (cons/c posn? (listof posn?)))
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for snake-segs)" "data-adaptor.rkt:108:5")
-  791.5 ms
+  669 ms
   (-> any/c (cons/c posn? (listof posn?)))
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  180 ms
+  190.5 ms
   (-> world? (or/c right left down up) any)
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-snake)" "data-adaptor.rkt:109:5")
-  144 ms
+  141.5 ms
   (-> any/c snake?)
-("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
-  115.5 ms
-  (-> any/c posn?)
 ("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
-  89.5 ms
+  74.5 ms
   (-> world? any)
 ("(interface for snake-slither)" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:12:22")
-  34.5 ms
+  63 ms
   (-> any/c snake?)
+("(/users/ben_g/usnake/cfg/data-adaptor.rkt motion)" "(interface for world-food)" "data-adaptor.rkt:110:5")
+  40 ms
+  (-> any/c posn?)

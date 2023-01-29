@@ -1,13 +1,16 @@
-cpu time: 4893 real time: 4893 gc time: 121
-Running time is 17.5% contracts
-1006/5747 ms
+cpu time: 5522 real time: 5522 gc time: 121
+Running time is 19.87% contracts
+1282/6453 ms
 
 ("(/users/ben_g/usnake/cfg/data-adaptor.rkt collide)" "(interface for snake-segs)" "data-adaptor.rkt:36:5")
-  959.5 ms
+  1220 ms
   (-> any/c (cons/c posn? (listof posn?)))
 ("(interface for world->world)" "/users/ben_g/usnake/cfg/main.rkt" "main.rkt:9:22")
-  41 ms
+  39.5 ms
   (-> any/c world?)
+("(interface for handle-key)" "/users/ben_g/usnake/cfg/main.rkt" "main.rkt:11:22")
+  17 ms
+  (-> any/c any/c world?)
 ("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:184:2")
-  5 ms
+  5.5 ms
   (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r (d) (dict-value-contract d)))

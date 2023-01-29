@@ -1,28 +1,25 @@
-cpu time: 6811 real time: 6811 gc time: 125
-Running time is 33.35% contracts
-2584/7746 ms
+cpu time: 6704 real time: 6704 gc time: 124
+Running time is 33.25% contracts
+2541/7643 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
-  1007.5 ms
-  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  1009.5 ms
   (-> snake? (cons/c posn? (listof posn?)))
-("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
-  618.5 ms
-  (-> world? snake?)
-  (-> snake? posn? world?)
-  (-> world? posn?)
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
 ("/users/ben_g/usnake/cfg/cut-tail.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "cut-tail.rkt:11:9")
-  590 ms
+  674 ms
   (-> (cons/c posn? (listof posn?)) any)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
+  642.5 ms
+  (-> world? snake?)
+  (-> world? posn?)
+  (-> snake? posn? world?)
 ("/users/ben_g/usnake/cfg/handlers.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:42:9")
-  181 ms
+  107.5 ms
   (-> world? (or/c right left down up) any)
-("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
-  129.5 ms
-  (-> posn? posn? boolean?)
 ("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
-  51.5 ms
+  60 ms
   (-> world? any)
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
-  5.5 ms
-  (->* (mutable-bound-id-set?) #:rest (listof bound-id-set?) void?)
+("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
+  47.5 ms
+  (-> posn? posn? boolean?)

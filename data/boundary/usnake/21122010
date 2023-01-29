@@ -1,16 +1,16 @@
-cpu time: 7457 real time: 7458 gc time: 118
-Running time is 50.15% contracts
-4172/8319 ms
+cpu time: 6949 real time: 6949 gc time: 119
+Running time is 49.48% contracts
+3906/7893 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3667 ms
+  3568 ms
   (-> snake? (or/c right left down up))
-  (-> snake? (cons/c posn? (listof posn?)))
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (cons/c posn? (listof posn?)))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  459 ms
-  (-> posn? real?)
+  300 ms
   (-> real? real? posn?)
+  (-> posn? real?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  46 ms
+  37.5 ms
   (-> snake? any)

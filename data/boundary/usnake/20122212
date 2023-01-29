@@ -1,16 +1,19 @@
-cpu time: 7471 real time: 7471 gc time: 121
-Running time is 46.29% contracts
-3887/8396 ms
+cpu time: 7361 real time: 7361 gc time: 119
+Running time is 48.64% contracts
+4001/8225 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3545 ms
-  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  3646 ms
   (-> snake? (or/c right left down up))
   (-> snake? (cons/c posn? (listof posn?)))
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  315 ms
+  321.5 ms
   (-> real? real? posn?)
   (-> posn? real?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  26.5 ms
+  27.5 ms
   (-> snake? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> mutable-free-id-set? identifier? void?)

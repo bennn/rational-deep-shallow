@@ -1,22 +1,22 @@
-cpu time: 9727 real time: 9727 gc time: 133
-Running time is 42.58% contracts
-4551/10688 ms
+cpu time: 9646 real time: 9646 gc time: 131
+Running time is 44.52% contracts
+4712/10585 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  3731.5 ms
-  (-> snake? (or/c right left down up))
+  3750.5 ms
   (-> snake? (cons/c posn? (listof posn?)))
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (or/c right left down up))
 ("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
-  448.5 ms
+  520.5 ms
   (-> any/c (listof posn?))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  248 ms
-  (-> posn? real?)
+  340.5 ms
   (-> real? real? posn?)
+  (-> posn? real?)
 ("/users/ben_g/usnake/cfg/main.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion.rkt:22:9")
-  81.5 ms
+  63 ms
   (-> world? world?)
 ("/users/ben_g/usnake/cfg/motion-help.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "motion-help.rkt:20:9")
-  41 ms
+  37.5 ms
   (-> snake? any)

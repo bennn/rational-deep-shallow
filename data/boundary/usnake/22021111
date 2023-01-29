@@ -1,37 +1,37 @@
-cpu time: 13490 real time: 13490 gc time: 142
-Running time is 51.3% contracts
-7396/14415 ms
+cpu time: 13084 real time: 13084 gc time: 143
+Running time is 50.3% contracts
+7049/14012 ms
 
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:3:9")
-  4411 ms
-  (-> snake? (cons/c posn? (listof posn?)))
+  4148.5 ms
   (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  (-> snake? (cons/c posn? (listof posn?)))
   (-> snake? (or/c right left down up))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:3:9")
-  1130 ms
-  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
+  1115 ms
   (-> snake? (cons/c posn? (listof posn?)))
-("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
-  607.5 ms
-  (-> any/c (listof posn?))
+  (-> (or/c right left down up) (cons/c posn? (listof posn?)) snake?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:5:9")
-  585.5 ms
-  (-> world? posn?)
-  (-> snake? posn? world?)
+  603 ms
   (-> world? snake?)
+  (-> snake? posn? world?)
+  (-> world? posn?)
+("(interface for cut-tail)" "/users/ben_g/usnake/cfg/motion-help.rkt" "motion-help.rkt:6:22")
+  512 ms
+  (-> any/c (listof posn?))
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion-help.rkt" "data.rkt:8:9")
-  325 ms
-  (-> real? real? posn?)
+  365.5 ms
   (-> posn? real?)
+  (-> real? real? posn?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "data.rkt:5:9")
-  166 ms
+  132.5 ms
   (-> world? snake?)
 ("/users/ben_g/usnake/cfg/data.rkt" "/users/ben_g/usnake/cfg/motion.rkt" "data.rkt:17:9")
-  92.5 ms
+  117 ms
   (-> posn? posn? boolean?)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:13:9")
-  66.5 ms
+  49.5 ms
   (-> snake? boolean?)
 ("/users/ben_g/usnake/cfg/collide.rkt" "/users/ben_g/usnake/cfg/handlers.rkt" "collide.rkt:24:9")
-  11.5 ms
+  5.5 ms
   (-> snake? boolean?)
