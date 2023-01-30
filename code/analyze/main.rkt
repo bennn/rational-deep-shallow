@@ -39,6 +39,8 @@
 (define overhead-hi 2)
 (define types-lo 2)
 
+(define twoshot-deep-too-slow 12) ;; overhead vs untyped
+
 (define (done-cfg? cfg overhead)
   (and (< types-lo (cfg-count-typed cfg)) (<= overhead overhead-hi)))
 
@@ -59,9 +61,11 @@
 (define out-dir "img")
 
 (define key:bm 'benchmark)
-(define key:prf 'profile)
+(define key:prf 'prf_total)
+(define key:prf2 'prf_self)
 (define key:bnd 'boundary)
 (define key:pi 'perf)
+(define key:strategy 'strategy)
 
 (struct row (start-cfg end-status end-perf n-steps step*) #:prefab)
 (struct profile-sample (idx total% self% name+src) #:prefab)
@@ -85,6 +89,12 @@
 (define (profile-node-total-ms nn)
   (hash-ref nn 'total))
 
+(define (prf#-nodes prf#)
+  (hash-ref prf# 'nodes))
+
+(define (prf#-cpu-time prf)
+  (hash-ref prf 'cpu_time))
+
 (define cfg-id first)
 (define cfg-perf second)
 
@@ -94,7 +104,9 @@
   (define bnd-dir (benchmark->boundary-dir bm-name))
   (hash
     key:bm bm-name
+    key:strategy strategy
     key:pi pi
+    key:prf2 (run-profile bm-name pi prf-dir #:S strategy #:P 'self)
     key:prf (run-profile bm-name pi prf-dir #:S strategy)
     key:bnd (run-boundary bm-name pi bnd-dir #:S strategy)))
 
@@ -169,40 +181,115 @@
     "benchmark" bm-name
     "inferred path" dd)))
 
-(define (run-profile bm-name pi prf-dir #:S strategy)
+(define (run-profile bm-name pi prf-dir #:S strategy #:P [pmode 'total])
   (define s-next
     (case strategy
      ((greedy) prf:json:greedy-find-next)
-     ;((ben) prf:lazy-find-next)
-     ;((lazy) prf:lazy-find-next)
+     ((busy) prf:busy-find-next)
+     ((twoson) prf:twoson-find-next)
      (else (raise-argument-error 'run-boundary "strategy?" strategy))))
-  (run-exp bm-name pi (s-next bm-name pi prf-dir)))
+  (run-exp bm-name pi (s-next bm-name pi prf-dir #:P pmode)))
 
 (define (run-boundary bm-name pi bnd-dir #:S strategy)
   (define s-next
     (case strategy
      ((greedy) bnd:greedy-find-next)
-     ;((ben) bnd:lazy-find-next)
-     ;((lazy) bnd:lazy-find-next)
+     ((busy) bnd:busy-find-next)
+     ((twoson) bnd:twoson-find-next)
      (else (raise-argument-error 'run-boundary "strategy?" strategy))))
   (run-exp bm-name pi (s-next bm-name pi bnd-dir)))
 
 ;; find-next : (-> TODO (values Status string?))
 ;;  Status = (or/c TODO)
 
-(define (prf:lazy-find-next bm-name pi prf-dir)
+(define (prf:twoson-find-next bm-name pi prf-dir #:P [pmode 'total])
   (define (cfg->prf# str) (parse-profile-data:json (build-path prf-dir str)))
   (define mod* (module-names bm-name))
   (define (mod->idx str)
     (define ii (index-of mod* str))
     (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
+  (define ms-key
+    (case pmode
+     ((total)  profile-node-total-ms)
+     ((self) profile-node-self-ms)
+     (else (raise-argument-error 'prf:json:greedy-find-next "profile-mode?" pmode))))
+  (define (node-typed? cfg nn)
+    (define name (profile-node-modname nn))
+    (define idx (mod->idx name))
+    (if (or (deep-module? cfg idx) (shallow-module? cfg idx))
+      1 0))
+  (define TST '(D S))
+  (define (state0?)
+    (and (pair? TST) (eq? 'D (car TST))))
+  (define (state1?)
+    (and (pair? TST) (eq? 'S (car TST))))
+  (define (state2?)
+    (null? TST))
+  (define (next-state!)
+    (set! TST (cdr TST)))
+  (define foverhead
+    (let ((u-perf (prf#-cpu-time (cfg->prf# (make-string (length mod*) #\0)))))
+      (lambda (prf)
+        (define cpu (prf#-cpu-time prf))
+        (/ cpu u-perf))))
   (lambda (cfg)
-    ;; Rank top profile points by Total ms
-    ;;  [[ so many pitfalls
-    ;;     - shallow => higher self time than deep
-    ;;     - deep => costs spread across libraries
-    ;;  ]]
-    ;; Pick first non-Deep one, upgrade it
+    ;; Rank top profile points by types then by `pmode` ms
+    ;; Pick top non-Deep, upgrade it
+    (let* ((prf# (cfg->prf# cfg))
+           (node* (prf#-nodes prf#))
+           (node* (filter
+                    (lambda (nn)
+                      (define src (profile-node-src nn))
+                      (define filename
+                        (let ((ff (and (string? src) (srcloc-filename? src))))
+                          (and ff (cadr ff))))
+                      (and (member filename mod*)
+                           (not (node-typed? cfg nn))
+                           filename))
+                    node*))
+           (node* (sort node* > #:key ms-key))
+           (name* (map profile-node-modname node*)))
+      (cond
+      [(and (state0?) (< twoshot-deep-too-slow (foverhead prf#)))
+       ;; switch all D to S
+       (next-state!)
+       (values '(success D*=>S*) (string-swap* cfg #\1 #\2))]
+      [(null? name*)
+       (cond
+        [(state1?)
+         (next-state!)
+         (values '(success S*=>D*) (string-swap* cfg #\2 #\1))]
+        [else
+         (values '(error no-mods) #f)])]
+      [else
+       (let ((r
+         (for*/first ((m (in-list name*)) (idx (in-value (mod->idx m))))
+           (if (state1?)
+             (list '(success U->S) (string-update cfg idx #\2))
+             (list '(success U->D) (string-update cfg idx #\1))))))
+           (if r
+           (apply values r)
+        (values '(error no-untyped-mods) #f)))]))))
+
+(define (prf:busy-find-next bm-name pi prf-dir #:P [pmode 'total])
+  (define (cfg->prf# str) (parse-profile-data:json (build-path prf-dir str)))
+  (define mod* (module-names bm-name))
+  (define (mod->idx str)
+    (define ii (index-of mod* str))
+    (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
+  (define ms-key
+    (case pmode
+     ((total)  profile-node-total-ms)
+     ((self) profile-node-self-ms)
+     (else (raise-argument-error 'prf:json:busy-find-next "profile-mode?" pmode))))
+  (define (node-typed? cfg nn)
+    (define name (profile-node-modname nn))
+    (define idx (mod->idx name))
+    (if (or (deep-module? cfg idx) (shallow-module? cfg idx))
+      1 0))
+  (lambda (cfg)
+    ;; Rank top profile points by types then by `pmode` ms
+    ;; Pick top non-Deep, upgrade it
     (let* ((prf# (cfg->prf# cfg))
            (node* (hash-ref prf# 'nodes))
            (node* (filter
@@ -213,7 +300,7 @@
                           (and ff (cadr ff))))
                       (and (member filename mod*) filename))
                     node*))
-           (node* (sort node* > #:key profile-node-total-ms))
+           (node* (sort node* >> #:key (lambda (x) (list (node-typed? cfg x) (ms-key x)))))
            (name* (map profile-node-modname node*)))
       (cond
       [(null? name*)
@@ -231,18 +318,19 @@
         (values '(error no-typed-mods) #f)))]))))
 
 ;; json = jsexpr
-(define (prf:json:greedy-find-next bm-name pi prf-dir)
+(define (prf:json:greedy-find-next bm-name pi prf-dir #:P [pmode 'total])
   (define (cfg->prf# str) (parse-profile-data:json (build-path prf-dir str)))
   (define mod* (module-names bm-name))
   (define (mod->idx str)
     (define ii (index-of mod* str))
     (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
+  (define ms-key
+    (case pmode
+     ((total)  profile-node-total-ms)
+     ((self) profile-node-self-ms)
+     (else (raise-argument-error 'prf:json:greedy-find-next "profile-mode?" pmode))))
   (lambda (cfg)
-    ;; Rank top profile points by Total ms
-    ;;  [[ so many pitfalls
-    ;;     - shallow => higher self time than deep
-    ;;     - deep => costs spread across libraries
-    ;;  ]]
+    ;; Rank top profile points by `pmode` ms (total or self)
     ;; Pick first non-Deep one, upgrade it
     (let* ((prf# (cfg->prf# cfg))
            (node* (hash-ref prf# 'nodes))
@@ -254,7 +342,7 @@
                           (and ff (cadr ff))))
                       (and (member filename mod*) filename))
                     node*))
-           (node* (sort node* > #:key profile-node-total-ms))
+           (node* (sort node* > #:key ms-key))
            (name* (map profile-node-modname node*)))
       (cond
       [(null? name*)
@@ -279,10 +367,6 @@
     (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
   (lambda (cfg)
     ;; Rank top profile points by Total ms
-    ;;  [[ so many pitfalls
-    ;;     - shallow => higher self time than deep
-    ;;     - deep => costs spread across libraries
-    ;;  ]]
     ;; Pick first non-Deep one, upgrade it
     (let* ((row* (cfg->prf cfg))
            (row* (filter (lambda (rr) (string-contains? (profile-sample-name+src rr) bm-name))
@@ -312,12 +396,16 @@
     (cadr mm)
     (raise-argument-error 'name+src->modname "parse error in module name" str)))
 
+(define (string-swap* str a b)
+  (apply string
+    (for/list ((cc (in-string str)))
+      (if (eq? cc a) b cc))))
+
 (define (string-update str idx c)
   (apply string
     (for/list ((cc (in-string str)) (jj (in-naturals))) (if (eqv? idx jj) c cc))))
 
 (define (interface-resolver bm-name)
-;; TODO add more benchmarks!
   (define int-path (build-path "interface-for" bm-name))
   (cond
    ((file-exists? int-path)
@@ -437,22 +525,278 @@
            (apply values r)
         (values '(error no-actionable) #f)))]))))
 
+(define (bnd:busy-find-next bm-name pi bnd-dir)
+  (define (cfg->bnd str) (parse-bnd-data (build-path bnd-dir str)))
+  (define mod* (module-names bm-name))
+  (define (mod->idx str)
+    (define ii (index-of mod* str))
+    (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
+  (define (mod-typed? cfg mod)
+    (define idx (mod->idx mod))
+    (or (deep-module? cfg idx)
+      (shallow-module? cfg idx)))
+  (define blame:infer-modname
+    (let* ((ii# (interface-resolver bm-name))
+           (interface->modname (lambda (k) (hash-ref ii# k k))))
+      (lambda (str)
+        (define fn
+          (cond
+           [(ignore-filename? str)
+            #f]
+           [(interface-for? str)
+            => (compose1 interface->modname cadr)]
+           [(submod-path? str)
+            ;; case must come after interface-for?
+            => cadr]
+           [(srcloc-filename? str)
+            => (compose1 interface->modname cadr)]
+           [else
+            ;; resolve "denotable-adapted.rkt" etc.
+            (let* ((ff (path->string (file-name-from-path str)))
+                   (ss (srcloc-filename? ff))
+                   (ff (if ss (cadr ss) ff)))
+              (interface->modname ff))]))
+         (if (or (not fn) (member fn mod*))
+           fn
+           (#;raise-arguments-error
+            begin
+            (warning-set!
+              str
+              (format "resolved to a module name that does not exist~n ~a: ~a~n ~a: ~a~n ~a: ~a~n"
+               "original" str
+               "modname" fn
+               "expected one of" mod*))
+             #f)))))
+  (lambda (cfg)
+    ;; Parse the file, pick the worst valid boundary, then upgrade
+    ;; Upgrade plan:
+    ;; - U-D ==> D-D
+    ;; - U-S ==> S-S
+    ;; - S-D ==> D-D
+    (let* ((bnd* (cfg->bnd cfg))
+           (bnd* (filter values
+                   (for/list ((bb (in-list bnd*)))
+                     (define blm (bnd->blame bb))
+                     (define mods
+                       (let* ((mm (map blame:infer-modname blm))
+                              (mm (filter values mm))
+                              (mm (remove-duplicates mm)))
+                         (cond
+                          [(null? mm) ;; OK
+                           ;; TODO #false or null? do we want the null later?
+                           #f]
+                          [(null? (cdr mm))
+                           (if (blame-whitelist? bm-name mm blm)
+                             #f
+                             (begin #;raise-arguments-error
+                              #;(printf
+                               "WARNING ~a ~a~n ~a: ~a~n ~a: ~a~n ~a: ~a~n ~a: ~a~n"
+                               'bnd:busy
+                               "malformed bnd profile output, only one module name"
+                               "mods" mm "original" blm "context" bb "benchmark" bm-name)
+                               #f))]
+                          [(not (null? (cdr (cdr mm))))
+                           (raise-arguments-error 'bnd:busy
+                             "malformed bnd profile output, +2 module names"
+                             "mods" mm "original" blm "context" bb "benchmark" bm-name)]
+                          [else
+                           mm])))
+                     (and mods (list mods (bnd->ms bb) (bnd->ctc bb))))))
+           (bnd* (sort bnd* >> #:key (lambda (x)
+                                       (define mods (map blame:infer-modname (bnd->blame x)))
+                                       (list (for/sum ((bb (in-list (bnd->blame x))))
+                                               (define mm (blame:infer-modname bb))
+                                               (define tt (mod-typed? cfg mm))
+                                               (if tt 1 0))
+                                             (bnd->ms x))))))
+      (cond
+      [(null? bnd*)
+       (values '(error no-mods) #f)]
+      [else
+       (let ((r
+         (for/or ((bnd (in-list bnd*)))
+           (define mod-info*
+             (sort
+               (for/list ((mm (in-list (bnd->blame bnd))))
+                 (define idx (mod->idx mm))
+                 (define knd (string-ref cfg idx))
+                 (list knd idx mm))
+               char<?
+               #:key car))
+           (define key (map car mod-info*))
+           (cond
+            ;; DS => DD / 21 => 11
+            ;; UD => SD / 01 => 21
+            ;; US => UD / 02 => 01
+            [(equal? key '(#\1 #\2))
+             (list '(success DS->DD) (string-update cfg (cadr (cadr mod-info*)) #\1))]
+            [(equal? key '(#\0 #\1))
+             (list '(success UD->SD) (string-update cfg (cadr (car mod-info*)) #\2))]
+            [(equal? key '(#\0 #\2))
+             (list '(success US->UD) (string-update cfg (cadr (cadr mod-info*)) #\1))]
+            [else
+             (raise-arguments-error 'bnd:busy
+               "unknown key / boundary"
+               "key" key
+               "boundary info" mod-info*
+               "cfg" cfg
+               "bm" bm-name)])))
+           )
+           (if r
+           (apply values r)
+        (values '(error no-actionable) #f)))]))))
+
+(define (bnd:twoson-find-next bm-name pi bnd-dir)
+  (define (cfg->bnd str) (parse-bnd-data (build-path bnd-dir str)))
+  (define (bnd-cpu-time str)
+    (bndpath-cpu-time (build-path bnd-dir str)))
+  (define mod* (module-names bm-name))
+  (define (mod->idx str)
+    (define ii (index-of mod* str))
+    (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
+  (define blame:infer-modname
+    (let* ((ii# (interface-resolver bm-name))
+           (interface->modname (lambda (k) (hash-ref ii# k k))))
+      (lambda (str)
+        (define fn
+          (cond
+           [(ignore-filename? str)
+            #f]
+           [(interface-for? str)
+            => (compose1 interface->modname cadr)]
+           [(submod-path? str)
+            ;; case must come after interface-for?
+            => cadr]
+           [(srcloc-filename? str)
+            => (compose1 interface->modname cadr)]
+           [else
+            ;; resolve "denotable-adapted.rkt" etc.
+            (let* ((ff (path->string (file-name-from-path str)))
+                   (ss (srcloc-filename? ff))
+                   (ff (if ss (cadr ss) ff)))
+              (interface->modname ff))]))
+         (if (or (not fn) (member fn mod*))
+           fn
+           (#;raise-arguments-error
+            begin
+            (warning-set!
+              str
+              (format "resolved to a module name that does not exist~n ~a: ~a~n ~a: ~a~n ~a: ~a~n"
+               "original" str
+               "modname" fn
+               "expected one of" mod*))
+             #f)))))
+  (define TST '(D S))
+  (define (state0?)
+    (and (pair? TST) (eq? 'D (car TST))))
+  (define (state1?)
+    (and (pair? TST) (eq? 'S (car TST))))
+  (define (state2?)
+    (null? TST))
+  (define (next-state!)
+    (set! TST (cdr TST)))
+  (define foverhead
+  ;; TODO
+    (let ((u-perf (bnd-cpu-time (make-string (length mod*) #\0))))
+      (lambda (cfg)
+        (define cpu (bnd-cpu-time cfg))
+        (/ cpu u-perf))))
+  (lambda (cfg)
+    ;; Parse the file, pick the worst valid boundary, then upgrade
+    ;; Upgrade plan:
+    ;; - U-D ==> D-D
+    ;; - U-S ==> S-S
+    ;; - S-D ==> D-D
+    (let* ((bnd* (cfg->bnd cfg))
+           (bnd* (filter values
+                   (for/list ((bb (in-list bnd*)))
+                     (define blm (bnd->blame bb))
+                     (define mods
+                       (let* ((mm (map blame:infer-modname blm))
+                              (mm (filter values mm))
+                              (mm (remove-duplicates mm)))
+                         (cond
+                          [(null? mm) ;; OK
+                           ;; TODO #false or null? do we want the null later?
+                           #f]
+                          [(null? (cdr mm))
+                           (if (blame-whitelist? bm-name mm blm)
+                             #f
+                             (begin #;raise-arguments-error
+                              #;(printf
+                               "WARNING ~a ~a~n ~a: ~a~n ~a: ~a~n ~a: ~a~n ~a: ~a~n"
+                               'bnd:greedy
+                               "malformed bnd profile output, only one module name"
+                               "mods" mm "original" blm "context" bb "benchmark" bm-name)
+                               #f))]
+                          [(not (null? (cdr (cdr mm))))
+                           (raise-arguments-error 'bnd:greedy
+                             "malformed bnd profile output, +2 module names"
+                             "mods" mm "original" blm "context" bb "benchmark" bm-name)]
+                          [else
+                           mm])))
+                     (and mods (list mods (bnd->ms bb) (bnd->ctc bb))))))
+           (bnd* (sort bnd* > #:key bnd->ms)))
+      (cond
+      [(null? bnd*)
+       (cond
+       [(state1?)
+        (next-state!)
+        (values '(success S*=>D*) (string-swap* cfg #\2 #\1))]
+       [else
+        (values '(error no-mods) #f)])]
+      [else
+       (let ((r
+         (for/or ((bnd (in-list bnd*)))
+           (define mod-info*
+             (sort
+               (for/list ((mm (in-list (bnd->blame bnd))))
+                 (define idx (mod->idx mm))
+                 (define knd (string-ref cfg idx))
+                 (list knd idx mm))
+               char<?
+               #:key car))
+           (define key (map car mod-info*))
+           (cond
+            ;; U-D / 0-1 => 1-1
+            ;; U-S / 0-2 => 2-2
+            ;; D-S / 1-2 => 1-1
+            [(equal? key '(#\0 #\1))
+             (list '(success U-D->D-D) (string-update cfg (cadr (car mod-info*)) #\1))]
+            [(equal? key '(#\0 #\2))
+             (list '(success U-S->S-S) (string-update cfg (cadr (car mod-info*)) #\2))]
+            [(equal? key '(#\1 #\2))
+             (list '(success D-S->D-D) (string-update cfg (cadr (cadr mod-info*)) #\1))]
+            [else
+             (raise-arguments-error 'bnd:greedy
+               "unknown key / boundary"
+               "key" key
+               "boundary info" mod-info*
+               "cfg" cfg
+               "bm" bm-name)])))
+           )
+           (if r
+           (apply values r)
+        (values '(error no-actionable) #f)))]))))
+
 (define (blame-whitelist? bm-name mm blm)
   (define (match? . rx*)
     (for*/or ((rx (in-list rx*))
               (bb (in-list blm)))
       (regexp-match? rx bb)))
-  (case bm-name
-    (("kcfa")
-     (or
-       (match? #rx"Closure?" #rx"Closure-benv" #rx"Closure-lam" #rx"Binding?"
-         #rx"Binding-var" #rx"Binding-time" #rx"Store?" #rx"Store-call"
-         #rx"Store-benv" #rx"Store-store" #rx"Store-time" #rx"Stx?"
-         #rx"Stx-label" #rx"exp?" #rx"Ref?" #rx"Ref-var" #rx"Lam?"
-         #rx"Lam-formals" #rx"Lam-call" #rx"Call?" #rx"Call-fun" #rx"Call-args")
-       #false))
-    (else
-     #f)))
+  (or
+    (match? #rx"IDKABOUTHTHISformat\\.rkt")
+    (case bm-name
+      #;(("kcfa")
+       (or
+         #;(match? #rx"Closure?" #rx"Closure-benv" #rx"Closure-lam" #rx"Binding?"
+           #rx"Binding-var" #rx"Binding-time" #rx"Store?" #rx"Store-call"
+           #rx"Store-benv" #rx"Store-store" #rx"Store-time" #rx"Stx?"
+           #rx"Stx-label" #rx"exp?" #rx"Ref?" #rx"Ref-var" #rx"Lam?"
+           #rx"Lam-formals" #rx"Lam-call" #rx"Call?" #rx"Call-fun" #rx"Call-args")
+         #false))
+      (else
+       #f))))
 
 (define (bnd->blame bb)
   (car bb))
@@ -520,6 +864,12 @@
   (if mm
   (string->number (cadr mm))
   (raise-argument-error 'parse-pct "parse error" str)))
+
+(define (bndpath-cpu-time fn)
+  (with-input-from-file
+    fn
+    (lambda ()
+      (time-string->cpu-time (read-line)))))
 
 (define (parse-bnd-data fn)
   (with-input-from-file
@@ -626,7 +976,11 @@
 (eq? c #\0))
 
 (define (run-exp bm-name pi find-next-cfg)
-  (for/list ((ci (in-list pi)))
+  (for/list ((ci (in-list pi))
+             (ii (in-naturals)))
+    (when (or (< ii 10)
+              (zero? (modulo ii 10000)))
+      (printf "run-exp: cfg ~s~n" ii))
     (define start-cfg (cfg-id ci))
     (define-values [status end-perf step*] (follow-trail start-cfg pi find-next-cfg))
    ;; (printf "follow trail: ~a => ~a ~a~n" start-cfg status end-perf)
@@ -654,12 +1008,18 @@
      (values st (pi-perf pi cfg) (reverse step*))])))
 
 (define (plot-full-output run#)
-  (define bm-name (hash-ref run# key:bm))
+  (define bm-name
+    (let* ((name (hash-ref run# key:bm))
+           (strat (hash-ref run# key:strategy)))
+      (format "~a-~a" name strat)))
   (define profile* (hash-ref run# key:prf))
+  (define p2* (hash-ref run# key:prf2))
   (define bnd* (hash-ref run# key:bnd))
   (define pi (hash-ref run# key:pi))
+  ;; TODO same y axis for horizontal plots!!!
   (void
     (plot-out bm-name key:prf pi profile*)
+    (plot-out bm-name key:prf2 pi p2*)
     (plot-out bm-name key:bnd pi bnd*)))
 
 (define (plot-out bm-name k:mode pi row*)
@@ -692,7 +1052,7 @@
 (define (histogram-overhead pi row* num-fast bm-name k:mode)
   (parameterize ((plot-x-label "End Overhead vs untyped")
                  (plot-y-label "Trails")
-                 (plot-title (format "~a greedy ~a (success: ~a/~a)"
+                 (plot-title (format "~a ~a (success: ~a/~a)"
                                      bm-name k:mode
                                      (or num-fast "??") (length row*))))
     (plot-rect
@@ -704,7 +1064,7 @@
 (define (histogram-steps row* num-fast bm-name k:mode)
   (parameterize ((plot-x-label "Steps")
                  (plot-y-label "Trails")
-                 (plot-title (format "~a greedy ~a (success: ~a/~a)"
+                 (plot-title (format "~a ~a (success: ~a/~a)"
                                      bm-name k:mode
                                      (or num-fast "??") (length row*))))
     (plot-histogram
@@ -757,13 +1117,20 @@
   (for/list (((k v) (in-hash h#)))
     (vector k v)))
 
+(define (>> x0 x1)
+  (or (> (first x0) (first x1))
+      (and (= (first x0) (first x1))
+           (> (second x0) (second x1)))))
+
 ;; ---
 
 (module+ main
   (require racket/cmdline)
+  (define *strategy (box 'greedy))
   (command-line
-    ;; TODO strategy flag
+    #:once-each
+    [("-s") str "strategy" (set-box! *strategy (string->symbol str))]
     #:args (bm-name)
-    (plot-full-output (run-full-experiment bm-name 'greedy))
+    (plot-full-output (run-full-experiment bm-name (unbox *strategy)))
     (print-warnings)
     (void)))
