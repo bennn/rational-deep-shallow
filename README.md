@@ -28,8 +28,15 @@ Current success critieria:
 3. TwoShot strategy, always add types, jump between D and S twice
   - [bnd]
     - (allowed once) if any D modules and overhead >10x, change all D to S
-    - (allowed once, after prev jump) if any S modules and overhead >2x, change all S to D
+    - (allowed once, after prev jump) if no other steps, change all S to D
     - otherwise find slowest boundary:
       + UD => DD
       + US => SS
+      + DS => DD
+  - [prf]
+    - (allowed once) if any D modules and overhead >10x, change all D to S
+    - (allowed once, after prev jump) if no other steps, change all S to D
+    - otherwise find slowest module
+      + U => D // U => S depending on stage
+      + ???
 
