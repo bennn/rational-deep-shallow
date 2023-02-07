@@ -1,9 +1,17 @@
 #lang racket/base
 
 ;; TODO
-;; - [ ] build / run simple versions (profile + boundary)
-;; - [ ] improve the profile parsing ... deep vs shallow how to compute time
-;; - [ ] ...?
+;; - [X] build / run simple versions (profile + boundary)
+;; - [X] improve the profile parsing ... deep vs shallow how to compute time
+;; - [ ] debug twoshot, why so awful?
+;; - [ ] implement CD strategies:
+;;        + ???
+;;        + ???
+;; - [ ] more hspace between stategy picts
+;; - [ ] make all-strategy plots for everyone
+;; - [ ] 
+;; - [ ] 
+;; - [ ] 
 
 ;; analyze = run a rational programmer experiment on a benchmark
 ;;
@@ -186,7 +194,7 @@
     (case strategy
      ((greedy) prf:json:greedy-find-next)
      ((busy) prf:busy-find-next)
-     ((twoson) prf:twoson-find-next)
+     ((twoshot) prf:twoshot-find-next)
      (else (raise-argument-error 'run-boundary "strategy?" strategy))))
   (run-exp bm-name pi (s-next bm-name pi prf-dir #:P pmode)))
 
@@ -195,14 +203,14 @@
     (case strategy
      ((greedy) bnd:greedy-find-next)
      ((busy) bnd:busy-find-next)
-     ((twoson) bnd:twoson-find-next)
+     ((twoshot) bnd:twoshot-find-next)
      (else (raise-argument-error 'run-boundary "strategy?" strategy))))
   (run-exp bm-name pi (s-next bm-name pi bnd-dir)))
 
 ;; find-next : (-> TODO (values Status string?))
 ;;  Status = (or/c TODO)
 
-(define (prf:twoson-find-next bm-name pi prf-dir #:P [pmode 'total])
+(define (prf:twoshot-find-next bm-name pi prf-dir #:P [pmode 'total])
   (define (cfg->prf# str) (parse-profile-data:json (build-path prf-dir str)))
   (define mod* (module-names bm-name))
   (define (mod->idx str)
@@ -514,12 +522,17 @@
             [(equal? key '(#\1 #\2))
              (list '(success D-S->D-D) (string-update cfg (cadr (cadr mod-info*)) #\1))]
             [else
-             (raise-arguments-error 'bnd:greedy
+            ;; TODO print warning
+            ;; TODO ... should TT boundary get filtered out?
+             #;(raise-arguments-error 'bnd:greedy
                "unknown key / boundary"
                "key" key
                "boundary info" mod-info*
                "cfg" cfg
-               "bm" bm-name)])))
+               "bm" bm-name)
+             #f #;(values '(error no-untyped-mods) #f)
+
+               ])))
            )
            (if r
            (apply values r)
@@ -635,18 +648,23 @@
             [(equal? key '(#\0 #\2))
              (list '(success US->UD) (string-update cfg (cadr (cadr mod-info*)) #\1))]
             [else
-             (raise-arguments-error 'bnd:busy
+            ;; TODO print warning
+            ;; TODO ... should TT boundary get filtered out?
+             #;(raise-arguments-error 'bnd:busy
                "unknown key / boundary"
                "key" key
                "boundary info" mod-info*
                "cfg" cfg
-               "bm" bm-name)])))
+               "bm" bm-name)
+             #f #;(values '(error no-untyped-mods) #f)
+
+               ])))
            )
            (if r
            (apply values r)
         (values '(error no-actionable) #f)))]))))
 
-(define (bnd:twoson-find-next bm-name pi bnd-dir)
+(define (bnd:twoshot-find-next bm-name pi bnd-dir)
   (define (cfg->bnd str) (parse-bnd-data (build-path bnd-dir str)))
   (define (bnd-cpu-time str)
     (bndpath-cpu-time (build-path bnd-dir str)))
@@ -768,12 +786,18 @@
             [(equal? key '(#\1 #\2))
              (list '(success D-S->D-D) (string-update cfg (cadr (cadr mod-info*)) #\1))]
             [else
+            ;; TODO print warning
+            ;; TODO ... should TT boundary get filtered out?
+            #;
              (raise-arguments-error 'bnd:greedy
                "unknown key / boundary"
                "key" key
                "boundary info" mod-info*
                "cfg" cfg
-               "bm" bm-name)])))
+               "bm" bm-name)
+             #f
+
+               ])))
            )
            (if r
            (apply values r)
