@@ -39,7 +39,7 @@
   plot/no-gui
   pict pict-abbrevs
   (only-in math/statistics mean)
-  (only-in gtp-util rnd string->value time-string->cpu-time)
+  (only-in gtp-util pct rnd string->value time-string->cpu-time)
 )
 
 ;; ---
@@ -48,6 +48,16 @@
 (define types-lo 2)
 
 (define twoshot-deep-too-slow 12) ;; overhead vs untyped
+
+(define strategy* '(greedy-mod greedy-bnd busy))
+
+(define (strategy? xx)
+  (memq xx strategy*))
+
+(define micro-strategy* '(D+ S+))
+
+(define (micro? xx)
+  (memq xx micro-strategy*))
 
 (define (done-cfg? cfg overhead)
   (and (< types-lo (cfg-count-typed cfg)) (<= overhead overhead-hi)))
@@ -117,6 +127,36 @@
     key:prf2 (run-profile bm-name pi prf-dir #:S strategy #:P 'self)
     key:prf (run-profile bm-name pi prf-dir #:S strategy)
     key:bnd (run-boundary bm-name pi bnd-dir #:S strategy)))
+
+(define (micro-fn sym)
+  (case sym
+   ((D+) (lambda (cfg) (string-swap* cfg #\2 #\1)))
+   ((S+) (lambda (cfg) (string-swap* cfg #\1 #\2)))
+   (else (raise-argument-error 'micro-fn "micro-strategy?" sym))))
+
+(define (run-micro bm-name ms)
+  (define pi (benchmark->pi bm-name))
+  (define fs (micro-fn ms))
+  (define num-cfg (length pi))
+  (define better*
+   (filter values
+    (for/list ((ci (in-list pi)))
+      (define cfg (cfg-id ci))
+      (define t (cfg-perf ci))
+      (define cfg+ (fs cfg))
+      (define t+ (and cfg+ (not (equal? cfg cfg+)) (pi-perf pi cfg+)))
+      (and t+ (< t+ t) (list cfg t+)))))
+  (define win*
+    (for/list ((bb (in-list better*))
+               #:when (<= (overhead (cfg-perf bb) pi) overhead-hi))
+      bb))
+  (define num-better (length better*))
+  (define num-win (length win*))
+  (printf "~a ~a~n" bm-name ms)
+  (printf " ~a cfgs~n" num-cfg)
+  (printf " ~a improved at all (~a%)~n" num-better (rnd (pct num-better num-cfg)))
+  (printf " ~a under ~ax (~a%)~n" num-win overhead-hi (rnd (pct num-win num-cfg)))
+  (void))
 
 (define (benchmark->pi bm-name)
 ; #lang gtp-measure/output/deep-shallow-untyped
@@ -1155,6 +1195,11 @@
     #:once-each
     [("-s") str "strategy" (set-box! *strategy (string->symbol str))]
     #:args (bm-name)
-    (plot-full-output (run-full-experiment bm-name (unbox *strategy)))
+    (define strategy (unbox *strategy))
+    (cond
+     [(micro? strategy)
+      (run-micro bm-name strategy)]
+     [else
+      (plot-full-output (run-full-experiment bm-name strategy))])
     (print-warnings)
     (void)))
