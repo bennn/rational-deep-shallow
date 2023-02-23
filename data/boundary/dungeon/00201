@@ -1,0 +1,22 @@
+cpu time: 77933 real time: 77934 gc time: 3458
+Running time is 98.08% contracts
+77064/78573 ms
+
+("(interface for grid-ref)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:49:3")
+  44380 ms
+  (-> (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g669 #:impersonator))))) #:impersonator))) (vector/c index? index?) (or/c #f (recursive-contract g670 #:impersonator)))
+("(interface for build-array)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:44:3")
+  18942 ms
+  (-> (vector/c index? index?) (-> any/c (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g669 #:impersonator))))) #:impersonator)) (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g669 #:impersonator))))) #:impersonator))))
+("(interface for show-grid)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:52:3")
+  13708 ms
+  (-> (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g669 #:impersonator))))) #:impersonator))) string?)
+("(interface for array-set!)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:43:3")
+  22 ms
+  (-> (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g669 #:impersonator))))) #:impersonator))) (vector/c index? index?) (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g669 #:impersonator))))) #:impersonator) void?)
+("/users/ben_g/dungeon/cfg/main.rkt" "/users/ben_g/dungeon/cfg/utils.rkt" "utils.rkt:53:9")
+  6 ms
+  (-> (listof any/c) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  5.5 ms
+  (-> free-id-set? (-> identifier? any/c) void?)

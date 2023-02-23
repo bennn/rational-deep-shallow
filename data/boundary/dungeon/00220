@@ -1,0 +1,22 @@
+cpu time: 75370 real time: 75371 gc time: 3360
+Running time is 98.13% contracts
+74596/76016 ms
+
+("(interface for grid-ref)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:49:3")
+  43565 ms
+  (-> (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g673 #:impersonator))))) #:impersonator))) (vector/c index? index?) (or/c #f (recursive-contract g674 #:impersonator)))
+("(interface for build-array)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:44:3")
+  18116.5 ms
+  (-> (vector/c index? index?) (-> any/c (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g673 #:impersonator))))) #:impersonator)) (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g673 #:impersonator))))) #:impersonator))))
+("(interface for show-grid)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:52:3")
+  12731 ms
+  (-> (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g673 #:impersonator))))) #:impersonator))) string?)
+("(interface for random-from)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:57:3")
+  160.5 ms
+  (parametric->/c (A712) (->* ((listof A712)) () (values A712)))
+("(interface for array-set!)" "/users/ben_g/dungeon/cfg/main.rkt" "main.rkt:43:3")
+  17.5 ms
+  (-> (vectorof (vectorof (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g673 #:impersonator))))) #:impersonator))) (vector/c index? index?) (recursive-contract (object/c-opaque (close (-> any/c void?)) (free? (-> any/c boolean?)) (open (-> any/c void?)) (show (-> any/c char?)) (field (items (listof (and/c any/c Any))) (occupant (or/c #f (recursive-contract g673 #:impersonator))))) #:impersonator) void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:166:2")
+  5.5 ms
+  (struct-type-property/c (list/c (vector/c (->i ((d dict?) (k (d) (dict-key-contract d))) ((default any/c)) any) (or/c #f (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r dict?))) (or/c #f (->i ((d (dict-implements/c dict-remove!)) (k (d) (dict-key-contract d))) (_r void?))) (or/c #f (->i ((d (dict-implements/c dict-remove)) (k (d) (dict-key-contract d))) (_r dict?))) (-> dict? natural?) (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d)))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d))) (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-value-contract d))) #:immutable #t) (vector/c contract? contract? contract? (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) (or/c #f (-> dict? contract?)) #:immutable #t)))
