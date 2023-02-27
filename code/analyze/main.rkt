@@ -141,7 +141,7 @@
     key:strategy strategy
     key:pi pi
     key:prf2 (run-profile bm-name pi prf-dir #:S strategy #:P 'self)
-    key:prf (run-profile bm-name pi prf-dir #:S strategy)
+    key:prf (run-profile bm-name pi prf-dir #:S strategy #:P 'total)
     key:bnd (run-boundary bm-name pi bnd-dir #:S strategy)))
 
 (define (sym->char xx)
@@ -303,8 +303,56 @@
 ;; TODO
 (define (prf:opt-find-next bm-name pi prf-dir #:P [pmode 'total])
   ;; find slowest module that requires / provides to one with stricter checks
-  ;; TODO why not slowest that r/p to weaker??!
-  (void))
+  ;;  [[ TODO why not slowest that r/p to weaker??! ]]
+  ;; - UD US SD SS(?) => DD
+  (define cfg->prf (make-cfg->prf prf-dir))
+  (define mod* (module-names bm-name))
+  (define mod->idx (make-mod->idx mod*))
+  (define ms-key (pmode->key pmode))
+  (define node-typed? (make-profile-node-typed mod->idx))
+  (define node-typelevel (make-profile-node-typelevel mod->idx))
+  (define modgraph (make-modulegraph bm-name))
+  (define stricter-neighbor* (make-stricter-neighbor* modgraph mod->idx))
+  (lambda (cfg)
+    (let* ((prf# (cfg->prf cfg))
+           (node* (hash-ref prf# 'node))
+           (node* (filter-prf mod* node*))
+           (node* (sort node* > #:key ms-key))
+           (nondeep* (for/list ((nn (in-list node*))
+                                #:when (< (node-typelevel nn)
+                                          (typelevel->nat (sym->char 'D))))
+                      nn)))
+      (cond
+        [(null? node*)
+         (values '(error no-mods) #f)]
+        [(null? nondeep*)
+         (values '(error no-nondeep-mods) #f)]
+        [else
+         (let* ((r (for/or ((nondeep (in-list nondeep*)))
+                     (define neigh*
+                       (for/list ((nn (in-list (stricter-neighbor* cfg nondeep))))
+                         (define rank (index-where node* (lambda (n) (equal? nn (profile-node-modname nn)))))
+                         (list nn rank)))
+                     (define topn
+                       (for/fold ((name #f) (rank #f) #:result name)
+                                 ((vv (in-list neigh*)))
+                         (define curr-name (car vv))
+                         (define curr-rank (cadr vv))
+                         (if (or (not rank) (< rank curr-rank))
+                           (values curr-name curr-rank)
+                           (values name rank))))
+                     (and topn (list nondeep topn))))
+                (bnd-info (map (lambda (mm)
+                                 (define idx (mod->idx mm))
+                                 (define knd (string-ref cfg idx))
+                                 (list knd idx mm))
+                               r))
+                (r (or
+                     (bnd-opt-upgrade cfg bnd-info mod->idx)
+                     #f)))
+          (if r
+            (apply values r)
+            (values '(error no-actionable) #f)))]))))
 
 (define (prf:con-find-next bm-name pi prf-dir #:P [pmode 'total])
   (void))
@@ -1284,6 +1332,16 @@
       (glob (build-path u-dir "*rkt")))
    string<?))
 
+(define (make-modulegraph bm-name)
+  ;; TODO code from gtpbench repo?
+  (error 'dieth)
+  (void))
+
+(define (modulegraph-neighbor* gg mm)
+  ;; TODO
+  (error 'dieth)
+  (void))
+
 (define (typed-module? cfg modidx)
   (typed-bit? (string-ref cfg modidx)))
 
@@ -1455,9 +1513,15 @@
       (and (= (first x0) (first x1))
            (> (second x0) (second x1)))))
 
+(define (make-cfg->prf prf-dir)
+  (make-cfg->X prf-dir parse-profile-data:json))
+
 (define (make-cfg->bnd bnd-dir)
+  (make-cfg->X bnd-dir parse-bnd-data))
+
+(define (make-cfg->X data-dir f-parse)
   (lambda (str)
-    (parse-bnd-data (build-path bnd-dir str))))
+    (f-parse (build-path data-dir str))))
 
 (define (make-mod-typed? mod->idx)
   (lambda (cfg mod)
@@ -1471,6 +1535,51 @@
     (if (exact-nonnegative-integer? ii)
       ii
       (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*))))
+
+(define ((make-profile-node-typed mod->idx) cfg nn)
+  (define name (profile-node-modname nn))
+  (define idx (mod->idx name))
+  (if (or (deep-module? cfg idx) (shallow-module? cfg idx))
+    1 0))
+
+(define ((make-profile-node-typelevel mod->idx) cfg nn)
+  (define name (profile-node-modname nn))
+  (define idx (mod->idx name))
+  (string-ref cfg idx))
+
+(define (typelevel< l0 l1)
+  (< (typelevel->nat l0) (typelevel->nat l1)))
+
+(define (typelevel->nat cc)
+  (case cc
+   ((#\0) 0) ;; untyped = lowest
+   ((#\2) 1) ;; shallow
+   ((#\1) 2) ;; deep = highest
+   (else (raise-argument-error 'typelevel->nat cc))))
+
+(define (filter-prf mod* node*)
+  (filter
+    (lambda (nn)
+      (define src (profile-node-src nn))
+      (define filename
+        (let ((ff (and (string? src) (srcloc-filename? src))))
+          (and ff (cadr ff))))
+      (and (member filename mod*) filename))
+    node*))
+
+(define ((make-stricter-neighbor* modgraph mod->idx) cfg modname)
+  (define level (string-ref cfg (mod->idx modname)))
+  (define n* (modulegraph-neighbor* modgraph modname))
+  (for*/list ((nn (in-list (modulegraph-neighbor* modgraph modname)))
+              (ii (in-value (mod->idx nn)))
+              #:when (typelevel< level (string-ref cfg ii)))
+    nn))
+
+(define (pmode->key pmode)
+  (case pmode
+   ((total)  profile-node-total-ms)
+   ((self) profile-node-self-ms)
+   (else (raise-argument-error 'pmode->key "profile-mode?" pmode))))
 
 (define (make-infer-modname bm-name mod*)
   (let* ((ii# (interface-resolver bm-name))
@@ -1558,7 +1667,7 @@
       (if tt 1 0))))
 
 (define (bnd-opt-upgrade cfg bnd* mod->idx)
-  (bnd-upgrade cfg bnd* mod->idx (sym->char 'S)))
+  (bnd-upgrade cfg bnd* mod->idx (sym->char 'D)))
 
 (define (bnd-con-upgrade cfg bnd* mod->idx)
   (bnd-upgrade cfg bnd* mod->idx (sym->char 'S)))
