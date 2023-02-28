@@ -42,6 +42,7 @@
   racket/port
   plot/no-gui
   pict pict-abbrevs
+  with-cache
   (only-in math/statistics mean)
   (only-in gtp-util pct rnd string->value time-string->cpu-time)
 )
@@ -101,6 +102,8 @@
 (define key:pi 'perf)
 (define key:strategy 'strategy)
 
+(define prf:nodes-key 'nodes)
+
 (struct row (start-cfg end-status end-perf n-steps step*) #:prefab)
 (struct profile-sample (idx total% self% name+src) #:prefab)
 
@@ -140,8 +143,8 @@
     key:bm bm-name
     key:strategy strategy
     key:pi pi
-    key:prf2 (run-profile bm-name pi prf-dir #:S strategy #:P 'self)
-    key:prf (run-profile bm-name pi prf-dir #:S strategy #:P 'total)
+;    key:prf2 (run-profile bm-name pi prf-dir #:S strategy #:P 'self)
+;    key:prf (run-profile bm-name pi prf-dir #:S strategy #:P 'total)
     key:bnd (run-boundary bm-name pi bnd-dir #:S strategy)))
 
 (define (sym->char xx)
@@ -297,14 +300,18 @@
      (else (raise-argument-error 'run-boundary "strategy?" strategy))))
   (run-exp bm-name pi (s-next bm-name pi bnd-dir)))
 
-;; find-next : (-> TODO (values Status string?))
-;;  Status = (or/c TODO)
-
-;; TODO
 (define (prf:opt-find-next bm-name pi prf-dir #:P [pmode 'total])
   ;; find slowest module that requires / provides to one with stricter checks
   ;;  [[ TODO why not slowest that r/p to weaker??! ]]
   ;; - UD US SD SS(?) => DD
+  (prf:optcon-find-next bm-name pi prf-dir #:P pmode #:U bnd-opt-upgrade))
+
+(define (prf:con-find-next bm-name pi prf-dir #:P [pmode 'total])
+  ;; find slowest module that requires / provides to one with stricter checks
+  ;; - UD US SD SS(?) => SS
+  (prf:optcon-find-next bm-name pi prf-dir #:P pmode #:U bnd-con-upgrade))
+
+(define (prf:optcon-find-next bm-name pi prf-dir #:P pmode #:U f-upgrade)
   (define cfg->prf (make-cfg->prf prf-dir))
   (define mod* (module-names bm-name))
   (define mod->idx (make-mod->idx mod*))
@@ -315,12 +322,12 @@
   (define stricter-neighbor* (make-stricter-neighbor* modgraph mod->idx))
   (lambda (cfg)
     (let* ((prf# (cfg->prf cfg))
-           (node* (hash-ref prf# 'node))
+           (node* (hash-ref prf# prf:nodes-key))
            (node* (filter-prf mod* node*))
            (node* (sort node* > #:key ms-key))
            (nondeep* (for/list ((nn (in-list node*))
-                                #:when (< (node-typelevel nn)
-                                          (typelevel->nat (sym->char 'D))))
+                                #:when (typelevel< (node-typelevel cfg nn)
+                                                   (sym->char 'D)))
                       nn)))
       (cond
         [(null? node*)
@@ -328,46 +335,52 @@
         [(null? nondeep*)
          (values '(error no-nondeep-mods) #f)]
         [else
-         (let* ((r (for/or ((nondeep (in-list nondeep*)))
-                     (define neigh*
-                       (for/list ((nn (in-list (stricter-neighbor* cfg nondeep))))
-                         (define rank (index-where node* (lambda (n) (equal? nn (profile-node-modname nn)))))
-                         (list nn rank)))
+         (define L (length node*))
+         (let* ((r ;; first nondeep with a stricter neighbor, pick slowest neighbor
+                   (for*/first ((nondeep (in-list nondeep*))
+                                (nd-name (in-value (profile-node-modname nondeep)))
+                                (neigh* (in-value
+                                         (for/list ((nn (in-list (stricter-neighbor* cfg nd-name))))
+                                           (define rank
+                                             (or (index-where node* (lambda (node) (equal? nn (profile-node-modname node))))
+                                                 L))
+                                           (list nn rank))))
+                                #:unless (null? neigh*))
                      (define topn
                        (for/fold ((name #f) (rank #f) #:result name)
                                  ((vv (in-list neigh*)))
                          (define curr-name (car vv))
                          (define curr-rank (cadr vv))
-                         (if (or (not rank) (< rank curr-rank))
+                         (unless curr-rank
+                           (raise-arguments-error 'prf "curr-rank is #f" "curr-name" curr-name "src" nd-name))
+                         (if (or (not rank) (< curr-rank rank))
                            (values curr-name curr-rank)
                            (values name rank))))
-                     (and topn (list nondeep topn))))
-                (bnd-info (map (lambda (mm)
-                                 (define idx (mod->idx mm))
-                                 (define knd (string-ref cfg idx))
-                                 (list knd idx mm))
-                               r))
+                     (list nd-name topn)))
+                (bnd-info (list (blame->bnd r)))
                 (r (or
-                     (bnd-opt-upgrade cfg bnd-info mod->idx)
+                     (and r (bnd-opt-upgrade cfg bnd-info mod->idx))
                      #f)))
           (if r
             (apply values r)
             (values '(error no-actionable) #f)))]))))
 
-(define (prf:con-find-next bm-name pi prf-dir #:P [pmode 'total])
-  (void))
-
 (define (prf:cost-opt-find-next bm-name pi prf-dir #:P [pmode 'total])
-  (void))
+  ;; ... get node + neighbors
+  ;; ... then sort by speed and types
+  ;; ... then pick best pair
+  ;;  ugh do limit first, then refactor
+  (values '(error not-implement) #f))
 
 (define (prf:cost-con-find-next bm-name pi prf-dir #:P [pmode 'total])
-  (void))
+  (values '(error not-implement) #f))
 
 (define (prf:limit-opt-find-next bm-name pi prf-dir #:P [pmode 'total])
-  (void))
+  ;; limit based on cfg ... 
+  (values '(error not-implement) #f))
 
 (define (prf:limit-con-find-next bm-name pi prf-dir #:P [pmode 'total])
-  (void))
+  (values '(error not-implement) #f))
 
 (define (prf:randomD-find-next bm-name pi prf-dir #:P [pmode 'total])
   (random-next 'D bm-name pi))
@@ -576,7 +589,7 @@
   (define blame:infer-modname (make-infer-modname bm-name mod*))
   (lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname))
+           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (bnd* (sort bnd* > #:key bnd->ms)))
       (cond
        [(null? bnd*)
@@ -600,7 +613,7 @@
   (define blame:infer-modname (make-infer-modname bm-name mod*))
   (lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname))
+           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (bnd* (sort bnd* > #:key bnd->ms)))
       (cond
        [(null? bnd*)
@@ -611,7 +624,7 @@
             (bnd-con-upgrade cfg bnd* mod->idx)
             #;(raise-arguments-error 'bnd "unknown key / boundary" "key" key "boundary info" mod-info* "cfg" cfg "bm" bm-name)
             #f))
-        (if next-cfg
+        (if (and next-cfg (not (equal? cfg next-cfg)))
           (apply values next-cfg)
           (values '(error no-actionable) #f))]))))
 
@@ -626,7 +639,7 @@
   (define blame:infer-modname (make-infer-modname bm-name mod*))
   (lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname))
+           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (num-typed (make-bnd->num-typed blame:infer-modname mod-typed? cfg))
            (bnd* (sort bnd* >> #:key (flist num-typed bnd->ms))))
       (cond
@@ -653,7 +666,7 @@
   (define blame:infer-modname (make-infer-modname bm-name mod*))
   (lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname))
+           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (num-typed (make-bnd->num-typed blame:infer-modname mod-typed? cfg))
            (bnd* (sort bnd* >> #:key (flist num-typed bnd->ms))))
       (cond
@@ -679,7 +692,7 @@
   (define blame:infer-modname (make-infer-modname bm-name mod*))
   (lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname))
+           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (bnd* (sort bnd* > #:key bnd->ms)))
       (cond
        [(null? bnd*)
@@ -704,7 +717,7 @@
   (define blame:infer-modname (make-infer-modname bm-name mod*))
   (lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname))
+           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (bnd* (sort bnd* > #:key bnd->ms)))
       (cond
        [(null? bnd*)
@@ -1021,7 +1034,6 @@
   (define (next-state!)
     (set! TST (cdr TST)))
   (define foverhead
-  ;; TODO
     (let ((u-perf (bnd-cpu-time (make-string (length mod*) #\0))))
       (lambda (cfg)
         (define cpu (bnd-cpu-time cfg))
@@ -1176,6 +1188,9 @@
          #false))
       (else
        #f))))
+
+(define (blame->bnd x)
+  (list x))
 
 (define (bnd->blame bb)
   (car bb))
@@ -1332,15 +1347,36 @@
       (glob (build-path u-dir "*rkt")))
    string<?))
 
+(define benchmarks-key* '(acquire dungeon forth fsm fsmoo gregor jpeg kcfa lnm
+mbta morsecode quadT quadU sieve snake suffixtree synth take5 tetris zombie
+zordoz))
+
+(define modulegraph-cache
+  (parameterize ([*with-cache-fasl?* #false]
+                 [*current-cache-directory* "modulegraph"]
+                 [*current-cache-keys* (list (lambda () benchmarks-key*))])
+    (with-cache (cachefile "modulegraph.rktd")
+      (lambda ()
+        (printf "collecting module graphs (ETA 30 minutes)\n")
+        (raise-user-error 'notimplemented)
+        #;(for/hash ((bm (in-list BENCHMARK-NAME*)))
+          (log-gtp-benchmarks-info "collecting module graph for ~a" bm)
+          (define tu (benchmark->typed/untyped-dir bm))
+          (define G (get-modulegraph tu))
+          (void
+            (clean-staging!))
+          (values bm (simplify-module-names G tu)))))))
+
 (define (make-modulegraph bm-name)
-  ;; TODO code from gtpbench repo?
-  (error 'dieth)
-  (void))
+  (hash-ref modulegraph-cache (string->symbol bm-name)
+    (lambda () (raise-argument-error 'make-modulegraph "benchmark-name?" bm-name))))
 
 (define (modulegraph-neighbor* gg mm)
-  ;; TODO
-  (error 'dieth)
-  (void))
+  (or
+    (for/first ((ne (in-list gg))
+                #:when (equal? (car ne) mm))
+      (cdr ne))
+    (raise-argument-error 'modulegraph-neighbor* "module-name?" mm)))
 
 (define (typed-module? cfg modidx)
   (typed-bit? (string-ref cfg modidx)))
