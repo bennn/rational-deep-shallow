@@ -1,9 +1,17 @@
 #lang racket/base
 
+;; TODO 03-01
+;; [X] fsm con infinite loop?!
+;; [X] debug mbta take5 acquire
+;; [ ] take5 boundary/profile is weird compared to runtime, better check all
+;;     - forall, get stddev from runtime and compare to B,P
+;;     -  warn for 2sd, 1sd ... how common are weirdos?
+;;     could be that overhead's all that matters, compare plots
+
 ;; TODO
 ;; - [X] build / run simple versions (profile + boundary)
 ;; - [X] improve the profile parsing ... deep vs shallow how to compute time
-;; - [ ] debug twoshot, why so awful?
+;; - [-] debug twoshot, why so awful?
 ;; - [ ] implement CD strategies:
 ;;        + optimistic: bnd, prf
 ;;        + conservative: bnd, prf
@@ -12,7 +20,7 @@
 ;;        + 
 ;; - [ ] more hspace between stategy picts
 ;; - [ ] make all-strategy plots for everyone
-;; - [ ] 
+;; - [ ] perf opt: memoize
 ;; - [ ] 
 ;; - [ ] 
 
@@ -143,8 +151,8 @@
     key:bm bm-name
     key:strategy strategy
     key:pi pi
-;    key:prf2 (run-profile bm-name pi prf-dir #:S strategy #:P 'self)
-;    key:prf (run-profile bm-name pi prf-dir #:S strategy #:P 'total)
+    key:prf2 (run-profile bm-name pi prf-dir #:S strategy #:P 'self)
+    key:prf (run-profile bm-name pi prf-dir #:S strategy #:P 'total)
     key:bnd (run-boundary bm-name pi bnd-dir #:S strategy)))
 
 (define (sym->char xx)
@@ -166,6 +174,18 @@
    ((D+) (lambda (cfg) (string-swap* cfg #\2 #\1)))
    ((S+) (lambda (cfg) (string-swap* cfg #\1 #\2)))
    (else (raise-argument-error 'micro-fn "micro-strategy?" sym))))
+
+(define-syntax-rule (memo2lambda arg body ...)
+  (let* ((H (make-hash))
+         (L (lambda arg body ...)))
+    (lambda (cfg)
+      (define memo (hash-ref H cfg #f))
+      (cond
+        (memo (apply values memo))
+        (else
+         (define-values [A B] (L cfg))
+         (hash-set! H cfg (list A B))
+         (values A B))))))
 
 (define (run-micro bm-name ms)
   (define pi (benchmark->pi bm-name))
@@ -298,6 +318,7 @@
      ((busy) bnd:busy-find-next)
      ((twoshot) bnd:twoshot-find-next)
      (else (raise-argument-error 'run-boundary "strategy?" strategy))))
+  (printf "run-exp ~s~n" strategy)
   (run-exp bm-name pi (s-next bm-name pi bnd-dir)))
 
 (define (prf:opt-find-next bm-name pi prf-dir #:P [pmode 'total])
@@ -320,7 +341,7 @@
   (define node-typelevel (make-profile-node-typelevel mod->idx))
   (define modgraph (make-modulegraph bm-name))
   (define stricter-neighbor* (make-stricter-neighbor* modgraph mod->idx))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     (let* ((prf# (cfg->prf cfg))
            (node* (hash-ref prf# prf:nodes-key))
            (node* (filter-prf mod* node*))
@@ -359,28 +380,88 @@
                      (list nd-name topn)))
                 (bnd-info (list (blame->bnd r)))
                 (r (or
-                     (and r (bnd-opt-upgrade cfg bnd-info mod->idx))
+                     (and r (f-upgrade cfg bnd-info mod->idx))
                      #f)))
           (if r
             (apply values r)
             (values '(error no-actionable) #f)))]))))
 
 (define (prf:cost-opt-find-next bm-name pi prf-dir #:P [pmode 'total])
+  (prf:cost-X-find-next bm-name pi prf-dir #:P pmode #:U bnd-opt-upgrade))
+
+(define (prf:cost-con-find-next bm-name pi prf-dir #:P [pmode 'total])
+  (prf:cost-X-find-next bm-name pi prf-dir #:P pmode #:U bnd-con-upgrade))
+
+(define (prf:cost-X-find-next bm-name pi prf-dir #:P pmode #:U f-upgrade)
   ;; ... get node + neighbors
   ;; ... then sort by speed and types
   ;; ... then pick best pair
-  ;;  ugh do limit first, then refactor
-  (values '(error not-implement) #f))
+  (define cfg->prf (make-cfg->prf prf-dir))
+  (define mod* (module-names bm-name))
+  (define mod->idx (make-mod->idx mod*))
+  (define ms-key (pmode->key pmode))
+  (define mod-typed? (make-mod-typed? mod->idx))
+  (define node-typed? (make-profile-node-typed mod->idx))
+  (define node-typelevel (make-profile-node-typelevel mod->idx))
+  (define modgraph (make-modulegraph bm-name))
+  (define stricter-neighbor* (make-stricter-neighbor* modgraph mod->idx))
+  (memo2lambda (cfg)
+    (let* ((prf# (cfg->prf cfg))
+           (node* (hash-ref prf# prf:nodes-key))
+           (node* (filter-prf mod* node*))
+           (t-key (lambda (nn) (if (node-typed? cfg nn) 1 0)))
+           (node* (sort node* >> #:key (flist t-key ms-key)))
+           (nondeep* (for/list ((nn (in-list node*))
+                                #:when (typelevel< (node-typelevel cfg nn)
+                                                   (sym->char 'D)))
+                      nn)))
+      (cond
+        [(null? node*)
+         (values '(error no-mods) #f)]
+        [(null? nondeep*)
+         (values '(error no-nondeep-mods) #f)]
+        [else
+         (define L (length node*))
+         (let* ((r ;; first nondeep with a stricter neighbor, pick slowest neighbor
+                   (for*/first ((nondeep (in-list nondeep*))
+                                (nd-name (in-value (profile-node-modname nondeep)))
+                                (neigh* (in-value
+                                         (for/list ((nn (in-list (stricter-neighbor* cfg nd-name))))
+                                           (define rank
+                                             (or (index-where node* (lambda (node) (equal? nn (profile-node-modname node))))
+                                                 L))
+                                           (list nn rank))))
+                                #:unless (null? neigh*))
+                     (define topn
+                       (for/fold ((name #f) (rank #f) #:result name)
+                                 ((vv (in-list neigh*)))
+                         (define curr-name (car vv))
+                         (define curr-rank (cadr vv))
+                         (unless curr-rank
+                           (raise-arguments-error 'prf "curr-rank is #f" "curr-name" curr-name "src" nd-name))
+                         (if (or (not rank) (< curr-rank rank))
+                           (values curr-name curr-rank)
+                           (values name rank))))
+                     (list nd-name topn)))
+                (bnd-info (list (blame->bnd r)))
+                (r (or
+                     (and r (f-upgrade cfg bnd-info mod->idx))
+                     #f)))
+          (if r
+            (apply values r)
+            (values '(error no-actionable) #f)))]))))
 
-(define (prf:cost-con-find-next bm-name pi prf-dir #:P [pmode 'total])
-  (values '(error not-implement) #f))
-
-(define (prf:limit-opt-find-next bm-name pi prf-dir #:P [pmode 'total])
+(define (prf:limit-opt-find-next bm-name pi prf-dir #:P [pmode 'total] #:limit [limit 1/2])
   ;; limit based on cfg ... 
-  (values '(error not-implement) #f))
+  (prf:limit-X-find-next bm-name pi prf-dir #:P pmode #:limit limit #:default 'D))
 
-(define (prf:limit-con-find-next bm-name pi prf-dir #:P [pmode 'total])
-  (values '(error not-implement) #f))
+(define (prf:limit-con-find-next bm-name pi prf-dir #:P [pmode 'total] #:limit [limit 1/2])
+  (prf:limit-X-find-next bm-name pi prf-dir #:P pmode #:limit limit #:default 'S))
+
+(define (prf:limit-X-find-next bm-name pi prf-dir #:P pmode #:limit limit #:default default-sym)
+  (define (f-upgrade cfg bnd-info mod->idx)
+    (bnd-limit-upgrade cfg bnd-info mod->idx #:limit limit #:default default-sym))
+  (prf:optcon-find-next bm-name pi prf-dir #:P pmode #:U f-upgrade))
 
 (define (prf:randomD-find-next bm-name pi prf-dir #:P [pmode 'total])
   (random-next 'D bm-name pi))
@@ -410,7 +491,7 @@
     (define idx (mod->idx name))
     (if (or (deep-module? cfg idx) (shallow-module? cfg idx))
       1 0))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     ;; Rank top profile points by types then by `pmode` ms
     ;; Pick top non-Deep, upgrade it
     (let* ((prf# (cfg->prf# cfg))
@@ -452,7 +533,7 @@
      ((total)  profile-node-total-ms)
      ((self) profile-node-self-ms)
      (else (raise-argument-error 'prf:json:greedy-find-next "profile-mode?" pmode))))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     ;; Rank top profile points by `pmode` ms (total or self)
     ;; Pick first non-Deep one, upgrade it
     (let* ((prf# (cfg->prf# cfg))
@@ -512,7 +593,7 @@
       (lambda (prf)
         (define cpu (prf#-cpu-time prf))
         (/ cpu u-perf))))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     ;; Rank top profile points by types then by `pmode` ms
     ;; Pick top non-Deep, upgrade it
     (let* ((prf# (cfg->prf# cfg))
@@ -557,7 +638,7 @@
   (define (mod->idx str)
     (define ii (index-of mod* str))
     (if (exact-nonnegative-integer? ii) ii (raise-arguments-error 'mod->idx "module not found" "name" str "modules" mod*)))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     ;; Rank top profile points by Total ms
     ;; Pick first non-Deep one, upgrade it
     (let* ((row* (cfg->prf cfg))
@@ -587,7 +668,7 @@
   (define mod* (module-names bm-name))
   (define mod->idx (make-mod->idx mod*))
   (define blame:infer-modname (make-infer-modname bm-name mod*))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
            (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (bnd* (sort bnd* > #:key bnd->ms)))
@@ -611,7 +692,7 @@
   (define mod* (module-names bm-name))
   (define mod->idx (make-mod->idx mod*))
   (define blame:infer-modname (make-infer-modname bm-name mod*))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
            (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (bnd* (sort bnd* > #:key bnd->ms)))
@@ -632,39 +713,21 @@
   ;; sort boundaries by num types, then by speed, upgrade to DD
   ;; - SD SS(?) => DD
   ;; - UD US => DD
-  (define cfg->bnd (make-cfg->bnd bnd-dir))
-  (define mod* (module-names bm-name))
-  (define mod->idx (make-mod->idx mod*))
-  (define mod-typed? (make-mod-typed? mod->idx))
-  (define blame:infer-modname (make-infer-modname bm-name mod*))
-  (lambda (cfg)
-    (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
-           (num-typed (make-bnd->num-typed blame:infer-modname mod-typed? cfg))
-           (bnd* (sort bnd* >> #:key (flist num-typed bnd->ms))))
-      (cond
-       [(null? bnd*)
-        (values '(error no-internal-mods) #f)]
-       [else
-        (define next-cfg
-          (or
-            (bnd-opt-upgrade cfg bnd* mod->idx)
-            #;(raise-arguments-error 'bnd:greedy "unknown key / boundary" "key" key "boundary info" mod-info* "cfg" cfg "bm" bm-name)
-            #f))
-        (if next-cfg
-          (apply values next-cfg)
-          (values '(error no-actionable) #f))]))))
+  (bnd:cost-X-find-next bm-name pi bnd-dir #:U bnd-opt-upgrade))
 
 (define (bnd:cost-con-find-next bm-name pi bnd-dir)
   ;; sort boundaries by num types, then by speed, upgrade to SS
   ;; - SD => SS
   ;; - UD US => SS
+  (bnd:cost-X-find-next bm-name pi bnd-dir #:U bnd-con-upgrade))
+
+(define (bnd:cost-X-find-next bm-name pi bnd-dir #:U f-upgrade)
   (define cfg->bnd (make-cfg->bnd bnd-dir))
   (define mod* (module-names bm-name))
   (define mod->idx (make-mod->idx mod*))
   (define mod-typed? (make-mod-typed? mod->idx))
   (define blame:infer-modname (make-infer-modname bm-name mod*))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
            (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (num-typed (make-bnd->num-typed blame:infer-modname mod-typed? cfg))
@@ -675,7 +738,7 @@
        [else
         (define next-cfg
           (or
-            (bnd-con-upgrade cfg bnd* mod->idx)
+            (f-upgrade cfg bnd* mod->idx)
             #;(raise-arguments-error 'bnd "unknown key / boundary" "key" key "boundary info" mod-info* "cfg" cfg "bm" bm-name)
             #f))
         (if next-cfg
@@ -686,36 +749,20 @@
   ;; find slowest boundary,
   ;; upgrade to DD if [< limit%] are typed, to SS otherwise
   ;; - UD US SD SS(?) => XX
-  (define cfg->bnd (make-cfg->bnd bnd-dir))
-  (define mod* (module-names bm-name))
-  (define mod->idx (make-mod->idx mod*))
-  (define blame:infer-modname (make-infer-modname bm-name mod*))
-  (lambda (cfg)
-    (let* ((bnd* (cfg->bnd cfg))
-           (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
-           (bnd* (sort bnd* > #:key bnd->ms)))
-      (cond
-       [(null? bnd*)
-        (values '(error no-internal-mods) #f)]
-       [else
-        (define next-cfg
-          (or
-            (bnd-limit-upgrade cfg bnd* mod->idx #:limit limit #:default 'D)
-            #;(raise-arguments-error 'bnd "unknown key / boundary" "key" key "boundary info" mod-info* "cfg" cfg "bm" bm-name)
-            #f))
-        (if next-cfg
-          (apply values next-cfg)
-          (values '(error no-actionable) #f))]))))
+  (bnd:limit-X-find-next bm-name pi bnd-dir #:limit limit #:default 'D))
 
 (define (bnd:limit-con-find-next bm-name pi bnd-dir #:limit [limit 1/2])
   ;; find slowest boundary,
   ;; upgrade to SS if [< limit%] are typed, to DD otherwise
   ;; - UD US SD SS(?) => XX
+  (bnd:limit-X-find-next bm-name pi bnd-dir #:limit limit #:default 'S))
+
+(define (bnd:limit-X-find-next bm-name pi bnd-dir #:limit limit #:default default-sym)
   (define cfg->bnd (make-cfg->bnd bnd-dir))
   (define mod* (module-names bm-name))
   (define mod->idx (make-mod->idx mod*))
   (define blame:infer-modname (make-infer-modname bm-name mod*))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     (let* ((bnd* (cfg->bnd cfg))
            (bnd* (bnd:filter-internal* bnd* blame:infer-modname bm-name))
            (bnd* (sort bnd* > #:key bnd->ms)))
@@ -725,7 +772,7 @@
        [else
         (define next-cfg
           (or
-            (bnd-limit-upgrade cfg bnd* mod->idx #:limit limit #:default 'S)
+            (bnd-limit-upgrade cfg bnd* mod->idx #:limit limit #:default default-sym)
             #;(raise-arguments-error 'bnd "unknown key / boundary" "key" key "boundary info" mod-info* "cfg" cfg "bm" bm-name)
             #f))
         (if next-cfg
@@ -782,7 +829,7 @@
                "modname" fn
                "expected one of" mod*))
              #f)))))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     ;; Parse the file, pick the worst valid boundary, then upgrade
     ;; Upgrade plan:
     ;; - U-D ==> D-D
@@ -901,7 +948,7 @@
                "modname" fn
                "expected one of" mod*))
              #f)))))
-  (lambda (cfg)
+  (memo2lambda (cfg)
     ;; Parse the file, pick the worst valid boundary, then upgrade
     ;; Upgrade plan:
     ;; - U-D ==> D-D
@@ -1133,7 +1180,7 @@
     (if (null? cc*)
       (values '(error no-mods) #f)
       (let ((idx (random-ref cc*)))
-        (values `(success ,idx) (string-update cfg idx tgt))))))
+        (values `(success ,idx) (string-update cfg idx src))))))
 
 (define (toggle-next tgt bm-name pi)
   (define tgt-char (sym->char tgt))
@@ -1176,7 +1223,10 @@
               (bb (in-list blm)))
       (regexp-match? rx bb)))
   (or
-    (match? #rx"IDKABOUTHTHISformat\\.rkt")
+    (match? #rx"format\\.rkt"
+            #rx"modcollapse\\.rkt"
+            #rx"provide\\.rkt"
+            #rx"id-table\\.rkt")
     (case bm-name
       #;(("kcfa")
        (or
@@ -1607,8 +1657,8 @@ zordoz))
   (define level (string-ref cfg (mod->idx modname)))
   (define n* (modulegraph-neighbor* modgraph modname))
   (for*/list ((nn (in-list (modulegraph-neighbor* modgraph modname)))
-              (ii (in-value (mod->idx nn)))
-              #:when (typelevel< level (string-ref cfg ii)))
+              (ii (in-value (with-handlers ((exn:fail:contract? (lambda (_) #f))) (mod->idx nn))))
+              #:when (and ii (typelevel< level (string-ref cfg ii))))
     nn))
 
 (define (pmode->key pmode)
@@ -1703,12 +1753,7 @@ zordoz))
       (if tt 1 0))))
 
 (define (bnd-opt-upgrade cfg bnd* mod->idx)
-  (bnd-upgrade cfg bnd* mod->idx (sym->char 'D)))
-
-(define (bnd-con-upgrade cfg bnd* mod->idx)
-  (bnd-upgrade cfg bnd* mod->idx (sym->char 'S)))
-
-(define (bnd-upgrade cfg bnd* mod->idx tgt)
+  (define tgt (sym->char 'D))
   (for/or ((bnd (in-list bnd*)))
     (define mod-info* (bnd->mod-info bnd cfg mod->idx))
     (define key (map car mod-info*))
@@ -1732,14 +1777,46 @@ zordoz))
      [else
       #f])))
 
+(define (bnd-con-upgrade cfg bnd* mod->idx)
+  (define tgt (sym->char 'S))
+  (for/or ((bnd (in-list bnd*)))
+    (define mod-info* (bnd->mod-info bnd cfg mod->idx))
+    (define key (map car mod-info*))
+    (cond
+     [(equal? key '(#\0 #\1))
+      (list '(success UD->SS)
+            (string-update
+              (string-update cfg (cadr (car mod-info*)) tgt)
+              (cadr (cadr mod-info*)) tgt))]
+     [(equal? key '(#\0 #\2))
+      (list '(success US->SS)
+            (string-update cfg (cadr (car mod-info*)) tgt))]
+     [(equal? key '(#\1 #\2))
+      (list '(success DS->SS)
+            (string-update cfg (cadr (car mod-info*)) tgt))]
+     [(equal? key '(#\1 #\1))
+      (list '(success DD->SS)
+            (string-update
+              (string-update cfg (cadr (car mod-info*)) tgt)
+              (cadr (cadr mod-info*)) tgt))]
+     [else
+      #f])))
+
 (define (bnd-limit-upgrade cfg bnd* mod->idx #:limit limit #:default default)
   (define num-cfg (string-length cfg))
   (define num-typed (for/sum ((cc (in-string cfg)) #:when (typed-bit? cc)) 1))
-  (define tgt
-    (if (< (/ num-typed num-cfg) limit)
-      default
-      (if (eq? default 'D) 'S 'D)))
-  (bnd-upgrade cfg bnd* mod->idx tgt))
+  (define fn-upgrade
+    (sym->fn
+      (if (< (/ num-typed num-cfg) limit)
+        default
+        (if (eq? default 'D) 'S 'D))))
+  (fn-upgrade cfg bnd* mod->idx))
+
+(define (sym->fn tgt)
+  (case tgt
+   ((D) bnd-opt-upgrade)
+   ((S) bnd-con-upgrade)
+   (else (raise-argument-error 'sym->fn "(or/c 'D 'S)" tgt))))
 
 ;; ---
 
