@@ -1,28 +1,28 @@
 #lang racket/base
 
-;; TODO 03-01
-;; [X] fsm con infinite loop?!
-;; [X] debug mbta take5 acquire
-;; [ ] take5 boundary/profile is weird compared to runtime, better check all
-;;     - forall, get stddev from runtime and compare to B,P
-;;     -  warn for 2sd, 1sd ... how common are weirdos?
-;;     could be that overhead's all that matters, compare plots
 
 ;; TODO
 ;; - [X] build / run simple versions (profile + boundary)
 ;; - [X] improve the profile parsing ... deep vs shallow how to compute time
 ;; - [-] debug twoshot, why so awful?
-;; - [ ] implement CD strategies:
-;;        + optimistic: bnd, prf
-;;        + conservative: bnd, prf
-;;        + 
-;;        + 
-;;        + 
-;; - [ ] more hspace between stategy picts
-;; - [ ] make all-strategy plots for everyone
-;; - [ ] perf opt: memoize
-;; - [ ] 
-;; - [ ] 
+;; - [X] implement CD strategies: ... see doc
+;; - [X] perf opt: memoize (doesn't help much!)
+;; - [X] make all-strategy plots for everyone
+;; - [ ] take5 boundary/profile is weird compared to runtime, better check ALL THE DATA
+;;     - forall, get stddev from runtime and compare to B,P
+;;     -  warn for 2sd, 1sd ... how common are weirdos?
+;;     could be that overhead's all that matters, compare plots
+;; - [X] why does toggle take 2 steps? = count starts at 1, should be zero!
+;; - [X] plot perf ... is top 2 levels of LNM lattice all success?
+;;       (level-success.rkt)
+;; - [X] rerun for takikawa 1
+;; - [-] more hspace between stategy picts
+;; - [ ] synth: why is profile getting stuck at bad points?
+;; - [ ] ?more takikawa?  1.2 1.4 1.6 1.8 __ 3
+
+;; TODO 03-01
+;; [X] fsm con infinite loop?!
+;; [X] debug mbta take5 acquire
 
 ;; analyze = run a rational programmer experiment on a benchmark
 ;;
@@ -37,6 +37,18 @@
 ;; - histogram of end overhead
 ;; - success proportion
 ;; - histogram of num steps
+
+(provide
+hash-add1!
+toggle-D toggle-S
+ all-benchmarks
+ sym->char
+cfg-id
+cfg-perf
+overhead
+overhead-hi
+benchmark->pi
+string-swap*)
 
 (require
   file/glob
@@ -57,8 +69,32 @@
 
 ;; ---
 
-(define overhead-hi 2)
-(define types-lo 2)
+(define all-benchmarks '(
+morsecode
+forth
+fsm
+fsmoo
+mbta
+sieve
+acquire
+dungeon
+jpeg
+kcfa
+lnm
+snake
+suffixtree
+take5
+tetris
+zombie
+;; quadT
+synth
+;; zordoz
+))
+
+
+;; Takikawa
+(define overhead-hi (make-parameter 1))
+(define types-lo -1)
 
 (define twoshot-deep-too-slow 12) ;; overhead vs untyped
 
@@ -85,7 +121,7 @@
   (memq xx micro-strategy*))
 
 (define (done-cfg? cfg overhead)
-  (and (< types-lo (cfg-count-typed cfg)) (<= overhead overhead-hi)))
+  (and (< types-lo (cfg-count-typed cfg)) (<= overhead (overhead-hi))))
 
 (define warning# (make-hash))
 
@@ -201,14 +237,14 @@
       (and t+ (< t+ t) (list cfg t+)))))
   (define win*
     (for/list ((bb (in-list better*))
-               #:when (<= (overhead (cfg-perf bb) pi) overhead-hi))
+               #:when (<= (overhead (cfg-perf bb) pi) (overhead-hi)))
       bb))
   (define num-better (length better*))
   (define num-win (length win*))
   (printf "~a ~a~n" bm-name ms)
   (printf " ~a cfgs~n" num-cfg)
   (printf " ~a improved at all (~a%)~n" num-better (rnd (pct num-better num-cfg)))
-  (printf " ~a under ~ax (~a%)~n" num-win overhead-hi (rnd (pct num-win num-cfg)))
+  (printf " ~a under ~ax (~a%)~n" num-win (overhead-hi) (rnd (pct num-win num-cfg)))
   (void))
 
 (define (benchmark->pi bm-name)
@@ -1515,7 +1551,7 @@ zordoz))
      (histogram-steps row* n-fast bm-name k:mode)))
   (printf "~a ~a quick stats:~n" bm-name k:mode)
   (printf " ~a improved scenarios~n" n-success)
-  (printf " ~a scenarios ended under ~ax~n" n-fast overhead-hi)
+  (printf " ~a scenarios ended under ~ax~n" n-fast (overhead-hi))
   (void))
 
 (define (save-pict+ str pp)
@@ -1524,7 +1560,7 @@ zordoz))
   (void))
 
 (define (count-fast row* pi)
-  (count-perf row* (lambda (tt) (<= (overhead tt pi) overhead-hi))))
+  (count-perf row* (lambda (tt) (<= (overhead tt pi) (overhead-hi)))))
 
 (define (histogram-overhead pi row* num-fast bm-name k:mode)
   (parameterize ((plot-x-label "End Overhead vs untyped")
@@ -1559,7 +1595,7 @@ zordoz))
 
 (define (plot-rect h# #:color [color 1])
   (define k-max
-    (max overhead-hi
+    (max (overhead-hi)
       (exact-ceiling
         (for/fold ((acc 0)) ((k (in-hash-keys h#)))
           (max acc (string->number k))))))
@@ -1818,24 +1854,36 @@ zordoz))
    ((S) bnd-con-upgrade)
    (else (raise-argument-error 'sym->fn "(or/c 'D 'S)" tgt))))
 
+(define (toggle-D cfg)
+  (string-swap* cfg (sym->char 'S) (sym->char 'D)))
+
+(define (toggle-S cfg)
+  (string-swap* cfg (sym->char 'D) (sym->char 'S)))
+
+(define (hash-add1! h k)
+  (hash-update! h k add1 (lambda () 0)))
+
 ;; ---
 
 (module+ main
   (require racket/cmdline)
   (define *strategy (box 'all))
+  (define *asumu (box #f))
   (command-line
     #:once-each
-    [("-s") str "strategy" (set-box! *strategy (string->symbol str))]
+    [("-t") n "Takikawa constant" (set-box! *asumu (string->number n))]
+    [("-s") sym "strategy" (set-box! *strategy (string->symbol sym))]
     #:args (bm-name)
     (define strategy (unbox *strategy))
-    (cond
-     [(micro? strategy)
-      (run-micro bm-name strategy)]
-     [(eq? 'all strategy)
-      (for ((S (in-list strategy*)))
-        (printf "run strategy ~s ~s~n" bm-name S)
-        (plot-full-output (run-full-experiment bm-name S)))]
-     [else
-      (plot-full-output (run-full-experiment bm-name strategy))])
+    (parameterize ((overhead-hi (or (unbox *asumu) (overhead-hi))))
+      (cond
+       [(micro? strategy)
+        (run-micro bm-name strategy)]
+       [(eq? 'all strategy)
+        (for ((S (in-list strategy*)))
+          (printf "run strategy ~s ~s~n" bm-name S)
+          (plot-full-output (run-full-experiment bm-name S)))]
+       [else
+        (plot-full-output (run-full-experiment bm-name strategy))]))
     (print-warnings)
     (void)))
