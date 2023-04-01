@@ -1,7 +1,7 @@
-cpu time: 25033 real time: 25038 gc time: 137
-Running time is 0.02% contracts
-6/25561 ms
+cpu time: 5331 real time: 5331 gc time: 103
+Running time is 0.09% contracts
+6/5976 ms
 
-("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "dict.rkt:204:2")
-  6 ms
-  (->i ((d (dict-implements/c dict-set))) #:rest (rst (d) (let ((key/c (dict-key-contract d)) (val/c (dict-value-contract d))) (letrec ((args/c ...)) (and/c even-length-list? args/c)))) (_r dict?))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "dict.rkt:221:2")
+  5.5 ms
+  (->i ((d (dict-implements/c dict-set)) (k (d) (dict-key-contract d)) (update (d) (-> (dict-value-contract d) (dict-value-contract d)))) ((default (d) (or/c (dict-value-contract d) (-> (dict-value-contract d))))) (_r dict?))
