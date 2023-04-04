@@ -48,6 +48,9 @@ cfg-perf
 overhead
 overhead-hi
 benchmark->pi
+deep-config?
+untyped-config?
+shallow-config?
 string-swap*)
 
 (require
@@ -334,7 +337,7 @@ synth
      ((greedy) prf:json:greedy-find-next)
      ((busy) prf:busy-find-next)
      ((twoshot) prf:twoshot-find-next)
-     (else (raise-argument-error 'run-boundary "strategy?" strategy))))
+     (else (raise-argument-error 'run-profile "strategy?" strategy))))
   (run-exp bm-name pi (s-next bm-name pi prf-dir #:P pmode)))
 
 (define (run-boundary bm-name pi bnd-dir #:S strategy)
@@ -1470,17 +1473,29 @@ zordoz))
 (define (typed-bit? c)
 (memq c '(#\1 #\2)))
 
+(define (deep-config? cfg)
+  (for/and ((cc (in-string cfg)))
+    (or (untyped-bit? cc) (deep-bit? cc))))
+
 (define (deep-module? cfg modidx)
   (deep-bit? (string-ref cfg modidx)))
 
 (define (deep-bit? c)
-(eq? c #\1))
+  (eq? c #\1))
+
+(define (shallow-config? cfg)
+  (for/and ((cc (in-string cfg)))
+    (or (untyped-bit? cc) (shallow-bit? cc))))
 
 (define (shallow-module? cfg modidx)
   (shallow-bit? (string-ref cfg modidx)))
 
 (define (shallow-bit? c)
-(eq? c #\2))
+  (eq? c #\2))
+
+(define (untyped-config? cfg)
+  (for/and ((cc (in-string cfg)))
+    (untyped-bit? cc)))
 
 (define (untyped-module? cfg modidx)
   (untyped-bit? (string-ref cfg modidx)))
