@@ -19,7 +19,7 @@
   (define-values [fast-cfgs other-cfgs]
     (partition (lambda (x) (<= (uovr x) (overhead-hi))) pi))
   (define num-fast (length fast-cfgs))
-  (define other-perf (map cfg-perf other-cfgs))
+  (define other-perf (map uovr other-cfgs))
   (printf "~a~n" bm-name)
   (printf " ~a configs, ~a under 1x, ~a over 1x, ~a mean ~a median~n"
           num-configs num-fast (length other-cfgs) (mean other-perf) (median < other-perf))
@@ -63,23 +63,29 @@
 (define (step1-lattice pi-lvl)
   (define u-perf (cfg-perf (caar pi-lvl)))
   (define (uoverhead t) (overhead (cfg-perf t) u-perf))
-  (for/list ((lvl (in-list pi-lvl)))
-    (define trivial-level?
-      (let* ((untyped-lvl? (and (null? (cdr lvl)) (untyped-config? (caar lvl))))
-             (deep-good? (or untyped-lvl? (<= (uoverhead (find-deep lvl)) (overhead-hi))))
-             (ds-good? (or deep-good? (<= (uoverhead (find-shallow lvl)) (overhead-hi)))))
-        ds-good?))
-    (define trouble*
-      (if trivial-level?
-        '()
-        (for/list ((cfg (in-list lvl))
-                   #:unless (<= (uoverhead cfg) (overhead-hi)))
-          (uoverhead cfg))))
-    (list
-      (cannonize (cfg-id (car lvl)))
-      (length trouble*)
-      (and (not (null? trouble*)) (apply min trouble*))
-      (and (not (null? trouble*)) (apply max trouble*)))))
+  (define all-trouble* (box '()))
+  (define vv
+    (for/list ((lvl (in-list pi-lvl)))
+      (define trivial-level?
+        (let* ((untyped-lvl? (and (null? (cdr lvl)) (untyped-config? (caar lvl))))
+               (deep-good? (or untyped-lvl? (<= (uoverhead (find-deep lvl)) (overhead-hi))))
+               (ds-good? (or deep-good? (<= (uoverhead (find-shallow lvl)) (overhead-hi)))))
+          ds-good?))
+      (define trouble*
+        (if trivial-level?
+          '()
+          (for/list ((cfg (in-list lvl))
+                     #:unless (<= (uoverhead cfg) (overhead-hi)))
+            (uoverhead cfg))))
+      (set-box! all-trouble* (append trouble* (unbox all-trouble*)))
+      (list
+        (cannonize (cfg-id (car lvl)))
+        (length trouble*)
+        (and (not (null? trouble*)) (apply min trouble*))
+        (and (not (null? trouble*)) (apply max trouble*)))))
+  (define at* (unbox all-trouble*))
+  (printf "end: ~a trouble configs, ~a mean, ~a median~n" (length at*) (mean at*) (median < at*))
+  vv)
 
 (define (find-deep lvl)
   (or (for/first ((cfg (in-list lvl))

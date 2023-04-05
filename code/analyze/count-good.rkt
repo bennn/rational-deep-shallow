@@ -11,6 +11,8 @@
   (only-in "main.rkt" sym->char benchmark->pi overhead overhead-hi cfg-id
   cfg-perf string-swap* all-benchmarks str-toggle-D str-toggle-S))
 
+;; ---
+
 (define str-toggle-D toggle-D)
 (define str-toggle-S toggle-S)
 
