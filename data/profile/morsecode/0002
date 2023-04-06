@@ -1,85 +1,647 @@
-cpu time: 2791 real time: 2791 gc time: 148
-Profiling results
------------------
-  Total cpu time observed: 3364ms (out of 3394ms)
-  Number of samples taken: 64 (once every 53ms)
-
-============================================================================================================================
-                                Caller
- Idx   Total        Self      Name+src                                                                                Local%
-       ms(pct)      ms(pct)     Callee
-============================================================================================================================
- [1] 3364(100.0%)    0(0.0%)  body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/main.rkt" ...
-                                body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/raco.rkt" [2]         100.0%
-----------------------------------------------------------------------------------------------------------------------------
-                                body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/main.rkt" [1]         100.0%
- [2] 3364(100.0%)    0(0.0%)  body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/raco.rkt" ...
-                                ??? [3]                                                                               100.0%
-----------------------------------------------------------------------------------------------------------------------------
-                                body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/raco.rkt" [2]         100.0%
- [3] 3364(100.0%)    0(0.0%)  ??? .../racket-8.6.0.2/collects/raco/raco.rkt:41:0
-                                body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/raco.rkt" [4]100.0%
-----------------------------------------------------------------------------------------------------------------------------
-                                ??? [3]                                                                               100.0%
- [4] 3364(100.0%)    0(0.0%)  body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/raco.rkt" ...
-                                profile-thunk [5]                                                                     100.0%
-----------------------------------------------------------------------------------------------------------------------------
-                                body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/raco.rkt" [4]100.0%
- [5] 3364(100.0%)    0(0.0%)  profile-thunk ...are/pkgs/profile-lib/main.rkt:9:0
-                                ??? [6]                                                                               100.0%
-----------------------------------------------------------------------------------------------------------------------------
-                                profile-thunk [5]                                                                     100.0%
- [6] 3364(100.0%)   52(1.5%)  ??? ...6.0.2/share/pkgs/profile-lib/main.rkt:40:10
-                                body of "/users/ben_g/morsecode/cfg/main.rkt" [7]                                      83.5%
-                                t [8]                                                                                  14.9%
-----------------------------------------------------------------------------------------------------------------------------
-                                ??? [6]                                                                               100.0%
- [7] 2810(83.5%)     0(0.0%)  body of "/users/ben_g/morsecode/cfg/main.rkt" ...)
-                                ??? [9]                                                                                97.1%
-                                file->words [11]                                                                        2.9%
-----------------------------------------------------------------------------------------------------------------------------
-                                ??? [6]                                                                               100.0%
- [8]  502(14.9%)     0(0.0%)  t ...-8.6.0.2/share/pkgs/profile-lib/raco.rkt:53:0
-                                module-to-profile [10]                                                                100.0%
-----------------------------------------------------------------------------------------------------------------------------
-                                body of "/users/ben_g/morsecode/cfg/main.rkt" [7]                                     100.0%
- [9] 2728(81.1%)     0(0.0%)  ??? /users/ben_g/morsecode/cfg/main.rkt:52:0
-                                main [12]                                                                             100.0%
-----------------------------------------------------------------------------------------------------------------------------
-                                t [8]                                                                                 100.0%
-[10]  502(14.9%)   245(7.3%)  module-to-profile ...rofile-lib/raco-utils.rkt:5:0
-                                body of decl [13]                                                                      20.8%
-                                body of data [14]                                                                      20.2%
-                                body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/ffi/unsafe.rkt" [15]        10.2%
-----------------------------------------------------------------------------------------------------------------------------
-                                body of "/users/ben_g/morsecode/cfg/main.rkt" [7]                                     100.0%
-[11]   82(2.4%)     82(2.4%)  file->words ...s/ben_g/morsecode/cfg/main.rkt:33:0
-----------------------------------------------------------------------------------------------------------------------------
-                                ??? [9]                                                                               100.0%
-[12] 2728(81.1%)   152(4.5%)  main /users/ben_g/morsecode/cfg/main.rkt:43:0
-                                vector-levenshtein/predicate/get-scratch [16]                                          48.8%
-                                string->morse [17]                                                                     40.1%
-                                string-levenshtein [18]                                                                 5.6%
-----------------------------------------------------------------------------------------------------------------------------
-                                module-to-profile [10]                                                                100.0%
-[13]  104(3.1%)    104(3.1%)  body of decl (unknown source)
-----------------------------------------------------------------------------------------------------------------------------
-                                module-to-profile [10]                                                                100.0%
-[14]  102(3.0%)    102(3.0%)  body of data (unknown source)
-----------------------------------------------------------------------------------------------------------------------------
-                                module-to-profile [10]                                                                100.0%
-[15]   51(1.5%)     51(1.5%)  body of "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/ffi/unsafe.rkt" ...
-----------------------------------------------------------------------------------------------------------------------------
-                                main [12]                                                                             100.0%
-[16] 1332(39.6%)  1332(39.6%) vector-levenshtein/predicate/get-scratch ...t:70:0
-----------------------------------------------------------------------------------------------------------------------------
-                                main [12]                                                                             100.0%
-[17] 1093(32.5%)   891(26.5%) string->morse ...e/cfg/morse-code-strings.rkt:24:0
-                                reverse [19]                                                                           18.5%
-----------------------------------------------------------------------------------------------------------------------------
-                                main [12]                                                                             100.0%
-[18]  152(4.5%)    152(4.5%)  string-levenshtein ...de/cfg/levenshtein.rkt:175:0
-----------------------------------------------------------------------------------------------------------------------------
-                                string->morse [17]                                                                    100.0%
-[19]  202(6.0%)    202(6.0%)  reverse ...collects/racket/private/reverse.rkt:6:4
-----------------------------------------------------------------------------------------------------------------------------
+cpu time: 2725 real time: 2725 gc time: 110
+#hash((cpu_time . 3245.0)
+      (nodes
+       .
+       (#hash((callees
+               .
+               (#hash((callee . 1)
+                      (callee_time . 3218.0)
+                      (caller . 0)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (callers
+               .
+               (#hash((callee . 0)
+                      (callee_time . 101.0)
+                      (caller . 21)
+                      (caller_time . 101.0)
+                      (total . 101.0))
+                #hash((callee . 0)
+                      (callee_time . 100.0)
+                      (caller . 23)
+                      (caller_time . 100.0)
+                      (total . 100.0))
+                #hash((callee . 0)
+                      (callee_time . 50.5)
+                      (caller . 25)
+                      (caller_time . 50.5)
+                      (total . 50.5))
+                #hash((callee . 0)
+                      (callee_time . 460.5)
+                      (caller . 20)
+                      (caller_time . 460.5)
+                      (total . 460.5))
+                #hash((callee . 0)
+                      (callee_time . 359.5)
+                      (caller . 14)
+                      (caller_time . 359.5)
+                      (total . 359.5))
+                #hash((callee . 0)
+                      (callee_time . 1637.0)
+                      (caller . 19)
+                      (caller_time . 1637.0)
+                      (total . 1637.0))
+                #hash((callee . 0)
+                      (callee_time . 51.5)
+                      (caller . 12)
+                      (caller_time . 51.5)
+                      (total . 51.5))
+                #hash((callee . 0)
+                      (callee_time . 51.0)
+                      (caller . 24)
+                      (caller_time . 51.0)
+                      (total . 51.0))
+                #hash((callee . 0)
+                      (callee_time . 50.5)
+                      (caller . 18)
+                      (caller_time . 50.5)
+                      (total . 50.5))
+                #hash((callee . 0)
+                      (callee_time . 194.5)
+                      (caller . 15)
+                      (caller_time . 194.5)
+                      (total . 194.5))
+                #hash((callee . 0)
+                      (callee_time . 58.0)
+                      (caller . 16)
+                      (caller_time . 58.0)
+                      (total . 58.0))
+                #hash((callee . 0)
+                      (callee_time . 104.0)
+                      (caller . 11)
+                      (caller_time . 104.0)
+                      (total . 104.0))))
+              (id . #f)
+              (self . 0.0)
+              (src . #f)
+              (thread_ids . ())
+              (total . 3218.0))
+        #hash((callees
+               .
+               (#hash((callee . 2)
+                      (callee_time . 3218.0)
+                      (caller . 1)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (callers
+               .
+               (#hash((callee . 1)
+                      (callee_time . 3218.0)
+                      (caller . 0)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (id
+               .
+               "body of \"/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/main.rkt\"")
+              (self . 0.0)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 3218.0))
+        #hash((callees
+               .
+               (#hash((callee . 3)
+                      (callee_time . 3218.0)
+                      (caller . 2)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (callers
+               .
+               (#hash((callee . 2)
+                      (callee_time . 3218.0)
+                      (caller . 1)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (id
+               .
+               "body of \"/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/raco.rkt\"")
+              (self . 0.0)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 3218.0))
+        #hash((callees
+               .
+               (#hash((callee . 4)
+                      (callee_time . 3218.0)
+                      (caller . 3)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (callers
+               .
+               (#hash((callee . 3)
+                      (callee_time . 3218.0)
+                      (caller . 2)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (id . #f)
+              (self . 0.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/raco/raco.rkt:41:0")
+              (thread_ids . (0))
+              (total . 3218.0))
+        #hash((callees
+               .
+               (#hash((callee . 5)
+                      (callee_time . 3218.0)
+                      (caller . 4)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (callers
+               .
+               (#hash((callee . 4)
+                      (callee_time . 3218.0)
+                      (caller . 3)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (id
+               .
+               "body of \"/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/raco.rkt\"")
+              (self . 0.0)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 3218.0))
+        #hash((callees
+               .
+               (#hash((callee . 6)
+                      (callee_time . 3218.0)
+                      (caller . 5)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (callers
+               .
+               (#hash((callee . 5)
+                      (callee_time . 3218.0)
+                      (caller . 4)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (id . "profile-thunk")
+              (self . 0.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/main.rkt:9:0")
+              (thread_ids . (0))
+              (total . 3218.0))
+        #hash((callees
+               .
+               (#hash((callee . 7)
+                      (callee_time . 2760.0)
+                      (caller . 6)
+                      (caller_time . 2760.0)
+                      (total . 2760.0))
+                #hash((callee . 8)
+                      (callee_time . 407.0)
+                      (caller . 6)
+                      (caller_time . 407.0)
+                      (total . 407.0))
+                #hash((callee . 9)
+                      (callee_time . 51.0)
+                      (caller . 6)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (callers
+               .
+               (#hash((callee . 6)
+                      (callee_time . 3218.0)
+                      (caller . 5)
+                      (caller_time . 3218.0)
+                      (total . 3218.0))))
+              (id . #f)
+              (self . 0.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/main.rkt:40:10")
+              (thread_ids . (0))
+              (total . 3218.0))
+        #hash((callees
+               .
+               (#hash((callee . 10)
+                      (callee_time . 2708.5)
+                      (caller . 7)
+                      (caller_time . 2708.5)
+                      (total . 2708.5))
+                #hash((callee . 12)
+                      (callee_time . 51.5)
+                      (caller . 7)
+                      (caller_time . 51.5)
+                      (total . 51.5))))
+              (callers
+               .
+               (#hash((callee . 7)
+                      (callee_time . 2760.0)
+                      (caller . 6)
+                      (caller_time . 2760.0)
+                      (total . 2760.0))))
+              (id
+               .
+               "body of \"/users/ben_g/rds-cloudlab/benchmarks/morsecode/cfg/main.rkt\"")
+              (self . 0.0)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 2760.0))
+        #hash((callees
+               .
+               (#hash((callee . 11)
+                      (callee_time . 407.0)
+                      (caller . 8)
+                      (caller_time . 407.0)
+                      (total . 407.0))))
+              (callers
+               .
+               (#hash((callee . 8)
+                      (callee_time . 407.0)
+                      (caller . 6)
+                      (caller_time . 407.0)
+                      (total . 407.0))))
+              (id . "t")
+              (self . 0.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/raco.rkt:53:0")
+              (thread_ids . (0))
+              (total . 407.0))
+        #hash((callees
+               .
+               (#hash((callee . 13)
+                      (callee_time . 51.0)
+                      (caller . 9)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (callers
+               .
+               (#hash((callee . 9)
+                      (callee_time . 51.0)
+                      (caller . 6)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (id
+               .
+               "body of \"/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt\"")
+              (self . 0.0)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 51.0))
+        #hash((callees
+               .
+               (#hash((callee . 14)
+                      (callee_time . 2708.5)
+                      (caller . 10)
+                      (caller_time . 2708.5)
+                      (total . 2708.5))))
+              (callers
+               .
+               (#hash((callee . 10)
+                      (callee_time . 2708.5)
+                      (caller . 7)
+                      (caller_time . 2708.5)
+                      (total . 2708.5))))
+              (id . #f)
+              (self . 0.0)
+              (src . "main.rkt:52:0")
+              (thread_ids . (0))
+              (total . 2708.5))
+        #hash((callees
+               .
+               (#hash((callee . 15)
+                      (callee_time . 194.5)
+                      (caller . 11)
+                      (caller_time . 194.5)
+                      (total . 194.5))
+                #hash((callee . 0)
+                      (callee_time . 104.0)
+                      (caller . 11)
+                      (caller_time . 104.0)
+                      (total . 104.0))
+                #hash((callee . 16)
+                      (callee_time . 58.0)
+                      (caller . 11)
+                      (caller_time . 58.0)
+                      (total . 58.0))
+                #hash((callee . 18)
+                      (callee_time . 50.5)
+                      (caller . 11)
+                      (caller_time . 50.5)
+                      (total . 50.5))))
+              (callers
+               .
+               (#hash((callee . 11)
+                      (callee_time . 407.0)
+                      (caller . 8)
+                      (caller_time . 407.0)
+                      (total . 407.0))))
+              (id . "module-to-profile")
+              (self . 104.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/share/pkgs/profile-lib/raco-utils.rkt:5:0")
+              (thread_ids . (0))
+              (total . 407.0))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 51.5)
+                      (caller . 12)
+                      (caller_time . 51.5)
+                      (total . 51.5))))
+              (callers
+               .
+               (#hash((callee . 12)
+                      (callee_time . 51.5)
+                      (caller . 7)
+                      (caller_time . 51.5)
+                      (total . 51.5))))
+              (id . "file->words")
+              (self . 51.5)
+              (src . "main.rkt:33:0")
+              (thread_ids . (0))
+              (total . 51.5))
+        #hash((callees
+               .
+               (#hash((callee . 17)
+                      (callee_time . 51.0)
+                      (caller . 13)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (callers
+               .
+               (#hash((callee . 13)
+                      (callee_time . 51.0)
+                      (caller . 9)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (id . "do-partial-app")
+              (self . 0.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/contract/private/provide.rkt:525:0")
+              (thread_ids . (0))
+              (total . 51.0))
+        #hash((callees
+               .
+               (#hash((callee . 19)
+                      (callee_time . 1637.0)
+                      (caller . 14)
+                      (caller_time . 1637.0)
+                      (total . 1637.0))
+                #hash((callee . 20)
+                      (callee_time . 611.0)
+                      (caller . 14)
+                      (caller_time . 611.0)
+                      (total . 611.0))
+                #hash((callee . 0)
+                      (callee_time . 359.5)
+                      (caller . 14)
+                      (caller_time . 359.5)
+                      (total . 359.5))
+                #hash((callee . 21)
+                      (callee_time . 101.0)
+                      (caller . 14)
+                      (caller_time . 101.0)
+                      (total . 101.0))))
+              (callers
+               .
+               (#hash((callee . 14)
+                      (callee_time . 2708.5)
+                      (caller . 10)
+                      (caller_time . 2708.5)
+                      (total . 2708.5))))
+              (id . "main")
+              (self . 359.5)
+              (src . "main.rkt:43:0")
+              (thread_ids . (0))
+              (total . 2708.5))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 194.5)
+                      (caller . 15)
+                      (caller_time . 194.5)
+                      (total . 194.5))))
+              (callers
+               .
+               (#hash((callee . 15)
+                      (callee_time . 194.5)
+                      (caller . 11)
+                      (caller_time . 194.5)
+                      (total . 194.5))))
+              (id . "body of decl")
+              (self . 194.5)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 194.5))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 58.0)
+                      (caller . 16)
+                      (caller_time . 58.0)
+                      (total . 58.0))))
+              (callers
+               .
+               (#hash((callee . 16)
+                      (callee_time . 58.0)
+                      (caller . 11)
+                      (caller_time . 58.0)
+                      (total . 58.0))))
+              (id
+               .
+               "body of \"/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/sequence.rkt\"")
+              (self . 58.0)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 58.0))
+        #hash((callees
+               .
+               (#hash((callee . 22)
+                      (callee_time . 51.0)
+                      (caller . 17)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (callers
+               .
+               (#hash((callee . 17)
+                      (callee_time . 51.0)
+                      (caller . 13)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (id . #f)
+              (self . 0.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/contract/private/arrow-higher-order.rkt:575:2")
+              (thread_ids . (0))
+              (total . 51.0))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 50.5)
+                      (caller . 18)
+                      (caller_time . 50.5)
+                      (total . 50.5))))
+              (callers
+               .
+               (#hash((callee . 18)
+                      (callee_time . 50.5)
+                      (caller . 11)
+                      (caller_time . 50.5)
+                      (total . 50.5))))
+              (id
+               .
+               "body of \"/users/ben_g/rds-cloudlab/typed-racket/typed-racket-lib/typed-racket/private/parse-type.rkt\"")
+              (self . 50.5)
+              (src . #f)
+              (thread_ids . (0))
+              (total . 50.5))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 1637.0)
+                      (caller . 19)
+                      (caller_time . 1637.0)
+                      (total . 1637.0))))
+              (callers
+               .
+               (#hash((callee . 19)
+                      (callee_time . 1637.0)
+                      (caller . 14)
+                      (caller_time . 1637.0)
+                      (total . 1637.0))))
+              (id . "vector-levenshtein/predicate/get-scratch")
+              (self . 1637.0)
+              (src . "levenshtein.rkt:70:0")
+              (thread_ids . (0))
+              (total . 1637.0))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 460.5)
+                      (caller . 20)
+                      (caller_time . 460.5)
+                      (total . 460.5))
+                #hash((callee . 23)
+                      (callee_time . 100.0)
+                      (caller . 20)
+                      (caller_time . 100.0)
+                      (total . 100.0))
+                #hash((callee . 25)
+                      (callee_time . 50.5)
+                      (caller . 20)
+                      (caller_time . 50.5)
+                      (total . 50.5))))
+              (callers
+               .
+               (#hash((callee . 20)
+                      (callee_time . 611.0)
+                      (caller . 14)
+                      (caller_time . 611.0)
+                      (total . 611.0))))
+              (id . "string->morse")
+              (self . 460.5)
+              (src . "morse-code-strings.rkt:24:0")
+              (thread_ids . (0))
+              (total . 611.0))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 101.0)
+                      (caller . 21)
+                      (caller_time . 101.0)
+                      (total . 101.0))))
+              (callers
+               .
+               (#hash((callee . 21)
+                      (callee_time . 101.0)
+                      (caller . 14)
+                      (caller_time . 101.0)
+                      (total . 101.0))))
+              (id . "string-levenshtein")
+              (self . 101.0)
+              (src . "levenshtein.rkt:175:0")
+              (thread_ids . (0))
+              (total . 101.0))
+        #hash((callees
+               .
+               (#hash((callee . 24)
+                      (callee_time . 51.0)
+                      (caller . 22)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (callers
+               .
+               (#hash((callee . 22)
+                      (callee_time . 51.0)
+                      (caller . 17)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (id . "build-subcontract-late-negs")
+              (self . 0.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/contract/private/arrow-higher-order.rkt:711:0")
+              (thread_ids . (0))
+              (total . 51.0))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 100.0)
+                      (caller . 23)
+                      (caller_time . 100.0)
+                      (total . 100.0))))
+              (callers
+               .
+               (#hash((callee . 23)
+                      (callee_time . 100.0)
+                      (caller . 20)
+                      (caller_time . 100.0)
+                      (total . 100.0))))
+              (id . "reverse")
+              (self . 100.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/private/reverse.rkt:6:4")
+              (thread_ids . (0))
+              (total . 100.0))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 51.0)
+                      (caller . 24)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (callers
+               .
+               (#hash((callee . 24)
+                      (callee_time . 51.0)
+                      (caller . 22)
+                      (caller_time . 51.0)
+                      (total . 51.0))))
+              (id . "do-blame-add-context")
+              (self . 51.0)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/contract/private/blame.rkt:192:0")
+              (thread_ids . (0))
+              (total . 51.0))
+        #hash((callees
+               .
+               (#hash((callee . 0)
+                      (callee_time . 50.5)
+                      (caller . 25)
+                      (caller_time . 50.5)
+                      (total . 50.5))))
+              (callers
+               .
+               (#hash((callee . 25)
+                      (callee_time . 50.5)
+                      (caller . 20)
+                      (caller_time . 50.5)
+                      (total . 50.5))))
+              (id . "make-sequence")
+              (self . 50.5)
+              (src
+               .
+               "/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/private/for.rkt:557:2")
+              (thread_ids . (0))
+              (total . 50.5))))
+      (sample_number . 62)
+      (thread_times . (#hash((id . 0) (time . 3218.0))))
+      (total_time . 3218.0))
