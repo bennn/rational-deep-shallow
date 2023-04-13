@@ -1,0 +1,31 @@
+cpu time: 16112 real time: 16112 gc time: 343
+Running time is 78.66% contracts
+13224/16812 ms
+
+("/users/ben_g/utake5/cfg/dealer.rkt" "/users/ben_g/utake5/cfg/player.rkt" "player.rkt:35:8")
+  12482 ms
+  g99
+("/users/ben_g/utake5/cfg/main.rkt" "/users/ben_g/utake5/cfg/player.rkt" "player.rkt:27:9")
+  392.5 ms
+  (->* (natural?) ((-> any/c (listof card?))) (object/c-opaque (choose (-> any/c (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator) (listof card?))) (name (-> any/c natural?)) (start-round (-> any/c (listof card?) void?)) (start-turn (-> any/c (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator) card?)) (field (my-cards (listof card?)) (n #<procedure:exact-nonnegative-integer?>) (order (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/dealer.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "deck.rkt:32:9")
+  264 ms
+  (-> (object/c (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))) (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator))
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card.rkt:20:8")
+  36.5 ms
+  (-> card? any)
+("/users/ben_g/utake5/cfg/deck.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "stack.rkt:39:9")
+  24.5 ms
+  (-> (listof card?) natural?)
+("/users/ben_g/utake5/cfg/card-pool.rkt" "/users/ben_g/utake5/cfg/card.rkt" "card.rkt:20:8")
+  6.5 ms
+  (-> natural? natural? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/id-set.rkt" "no-negative-party" "(lib syntax/id-set.rkt)")
+  6.5 ms
+  (-> mutable-free-id-set? identifier? void?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/parse/experimental/contract.rkt" "no-negative-party" "<collects>/syntax/parse/experimental/provide.rkt:94:18")
+  6 ms
+  (syntax-class/c (syntax?) (#:arg? any/c #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:name (or/c identifier? string? symbol? #f) #:macro (or/c identifier? string? symbol? #f) #:context (or/c syntax? #f) #:phase exact-integer?))
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "card.rkt:20:8")
+  5 ms
+  (-> card? any)

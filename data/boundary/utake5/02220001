@@ -1,0 +1,19 @@
+cpu time: 15726 real time: 15726 gc time: 286
+Running time is 80.02% contracts
+13153/16437 ms
+
+("(interface for player%)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:39:3")
+  12837 ms
+  g372
+("(interface for create-deck)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:36:3")
+  249.5 ms
+  (-> (object/c-opaque (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))) (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator))
+("/users/ben_g/utake5/cfg/deck.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "stack.rkt:39:9")
+  47.5 ms
+  (-> (listof card?) any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "card.rkt:20:8")
+  12 ms
+  (-> card? natural?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:189:2")
+  6.5 ms
+  (->i ((d (dict-implements/c dict-set!)) (k (d) (dict-key-contract d)) (value (d) (dict-value-contract d))) (_r void?))

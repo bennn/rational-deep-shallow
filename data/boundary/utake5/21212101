@@ -1,0 +1,22 @@
+cpu time: 16228 real time: 16229 gc time: 352
+Running time is 75.22% contracts
+12748/16947 ms
+
+("(interface for player%)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:39:3")
+  12143 ms
+  g200
+("(interface for create-player)" "/users/ben_g/utake5/cfg/main.rkt" "main.rkt:16:3")
+  345 ms
+  (-> any/c (object/c (choose (-> any/c (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator) (listof card?))) (name (-> any/c natural?)) (start-round (-> any/c (listof card?) void?)) (start-turn (-> any/c (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator) card?)) (field (my-cards (listof card?)) (n natural?) (order (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/dealer.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "deck.rkt:32:9")
+  194 ms
+  (-> (object/c (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))) (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator))
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card.rkt:20:8")
+  24.5 ms
+  (-> card? natural?)
+("/users/ben_g/utake5/cfg/deck.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "stack.rkt:39:9")
+  24 ms
+  (-> (listof card?) any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "card.rkt:20:8")
+  17.5 ms
+  (-> card? natural?)

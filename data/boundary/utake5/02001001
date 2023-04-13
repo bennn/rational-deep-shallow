@@ -1,0 +1,16 @@
+cpu time: 2455 real time: 2455 gc time: 122
+Running time is 6.63% contracts
+209/3147 ms
+
+("/users/ben_g/utake5/cfg/dealer.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "deck.rkt:32:9")
+  185 ms
+  (-> (object/c (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))) (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator))
+("/users/ben_g/utake5/cfg/card-adapted.rkt" "/users/ben_g/utake5/cfg/card-pool.rkt" "card-adapted.rkt:13:11")
+  12 ms
+  (-> natural? natural? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:235:2")
+  6 ms
+  (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (or/c #f (dict-iter-contract d))))
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:61:4")
+  5.5 ms
+  (-> module-identifier-mapping? identifier? any/c void?)

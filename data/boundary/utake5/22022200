@@ -1,0 +1,16 @@
+cpu time: 15325 real time: 15326 gc time: 352
+Running time is 75.77% contracts
+12134/16014 ms
+
+("(interface for player%)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:39:3")
+  11737 ms
+  g331
+("(interface for create-player)" "/users/ben_g/utake5/cfg/main.rkt" "main.rkt:16:3")
+  367.5 ms
+  (-> any/c (object/c (choose (-> any/c (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator) (listof card?))) (name (-> any/c natural?)) (start-round (-> any/c (listof card?) void?)) (start-turn (-> any/c (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator) card?)) (field (my-cards (listof card?)) (n natural?) (order (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/card-adapted.rkt" "/users/ben_g/utake5/cfg/card-pool.rkt" "card-adapted.rkt:13:11")
+  23.5 ms
+  (-> natural? natural? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:63:4")
+  6 ms
+  (-> module-identifier-mapping? (-> identifier? any/c any) (listof any/c))

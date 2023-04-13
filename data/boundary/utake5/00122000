@@ -1,0 +1,25 @@
+cpu time: 15140 real time: 15140 gc time: 282
+Running time is 73.8% contracts
+11692/15843 ms
+
+("(interface for player%)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:39:3")
+  11432 ms
+  g356
+("(interface for create-card-pool)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:33:3")
+  123 ms
+  (-> (-> (listof card?) any) any/c (object/c (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "card.rkt:27:9")
+  69 ms
+  (-> card? card? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card.rkt:20:8")
+  25.5 ms
+  (-> card? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "card.rkt:20:8")
+  18.5 ms
+  (-> card? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "card.rkt:35:9")
+  18 ms
+  (-> card? card? any)
+("/users/ben_g/utake5/cfg/card-pool.rkt" "/users/ben_g/utake5/cfg/card.rkt" "card.rkt:20:8")
+  6 ms
+  (-> natural? natural? any)

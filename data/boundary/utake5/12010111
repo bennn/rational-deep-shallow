@@ -1,0 +1,16 @@
+cpu time: 2418 real time: 2418 gc time: 118
+Running time is 11.39% contracts
+356/3122 ms
+
+("(interface for create-deck)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:36:3")
+  181.5 ms
+  (-> (object/c-opaque (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))) (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator))
+("/users/ben_g/utake5/cfg/card-pool.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card-pool.rkt:38:9")
+  104 ms
+  (->* () ((-> (listof card?) (listof card?)) (-> natural?)) (object/c-opaque (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/deck.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "stack.rkt:39:9")
+  59 ms
+  (-> (listof card?) any)
+("/users/ben_g/utake5/cfg/card-adapted.rkt" "/users/ben_g/utake5/cfg/card-pool.rkt" "card-adapted.rkt:13:11")
+  11 ms
+  (-> natural? natural? any)

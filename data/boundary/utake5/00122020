@@ -1,0 +1,22 @@
+cpu time: 3630 real time: 3630 gc time: 127
+Running time is 4.38% contracts
+190/4336 ms
+
+("(interface for create-card-pool)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:33:3")
+  76 ms
+  (-> (-> (listof card?) any) any/c (object/c (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/card-pool.rkt" "/users/ben_g/utake5/cfg/card.rkt" "card.rkt:20:8")
+  53 ms
+  (-> natural? natural? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "card.rkt:27:9")
+  33 ms
+  (-> card? card? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "card.rkt:35:9")
+  11.5 ms
+  (-> card? card? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card.rkt:20:8")
+  11 ms
+  (-> card? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:248:2")
+  5.5 ms
+  (->i ((d dict?) (proc (d) (-> (dict-key-contract d) (dict-value-contract d) (values (dict-key-contract d) (dict-value-contract d))))) (_r dict?))

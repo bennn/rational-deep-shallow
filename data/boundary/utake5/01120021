@@ -1,0 +1,28 @@
+cpu time: 3236 real time: 3236 gc time: 125
+Running time is 11.85% contracts
+459/3868 ms
+
+("(interface for create-deck)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:36:3")
+  221 ms
+  (-> (object/c-opaque (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))) (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator))
+("/users/ben_g/utake5/cfg/card-pool.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card-pool.rkt:38:9")
+  89 ms
+  (->* () ((-> any/c (listof card?)) (-> natural?)) (object/c-opaque (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/deck.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "stack.rkt:39:9")
+  44 ms
+  (-> (listof card?) any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card.rkt:20:8")
+  39 ms
+  (-> card? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "card.rkt:27:9")
+  33 ms
+  (-> card? card? any)
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "card.rkt:35:9")
+  21.5 ms
+  (-> card? card? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/contract.rkt" "no-negative-party" "<collects>/syntax/contract.rkt:9:2")
+  5.5 ms
+  (->* (syntax? syntax?) (#:arg? any/c #:context (or/c syntax? #f) #:macro (or/c identifier? symbol? string? #f) #:name (or/c identifier? symbol? string? #f) #:negative (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown)) #:phase exact-integer? #:positive (or/c syntax? string? module-path-index? (quote from-macro) (quote use-site) (quote unknown))) syntax?)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:260:2")
+  5.5 ms
+  (->i ((d dict?)) (_r (d) (listof (cons/c (dict-key-contract d) (dict-value-contract d)))))

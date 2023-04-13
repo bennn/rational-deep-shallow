@@ -1,0 +1,19 @@
+cpu time: 1338 real time: 1338 gc time: 103
+Running time is 5.06% contracts
+102/2016 ms
+
+("(interface for create-card-pool)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:33:3")
+  65 ms
+  (-> (-> (listof card?) any) any/c (object/c (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/card.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "card.rkt:20:8")
+  20.5 ms
+  (-> card? any)
+("/users/ben_g/utake5/cfg/card-pool.rkt" "/users/ben_g/utake5/cfg/card.rkt" "card.rkt:20:8")
+  6 ms
+  (-> natural? natural? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/syntax/boundmap.rkt" "no-negative-party" "<collects>/syntax/boundmap.rkt:60:4")
+  5.5 ms
+  (->* (module-identifier-mapping? identifier?) ((-> any)) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:233:2")
+  5 ms
+  (->i ((d dict?)) (_r (d) (or/c #f (dict-iter-contract d))))

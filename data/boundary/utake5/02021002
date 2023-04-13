@@ -1,0 +1,19 @@
+cpu time: 16310 real time: 16310 gc time: 298
+Running time is 75.81% contracts
+12897/17013 ms
+
+("(interface for player%)" "/users/ben_g/utake5/cfg/dealer.rkt" "dealer.rkt:39:3")
+  12654.5 ms
+  g349
+("/users/ben_g/utake5/cfg/dealer.rkt" "/users/ben_g/utake5/cfg/deck.rkt" "deck.rkt:32:9")
+  193.5 ms
+  (-> (object/c (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))) (recursive-contract (object/c-opaque (fewest-bulls (-> any/c (listof card?))) (fit (-> any/c card? (listof card?))) (larger-than-some-top-of-stacks? (-> any/c card? boolean?)) (push (-> any/c card? void?)) (replace (-> any/c (listof card?) card? natural?)) (replace-stack (-> any/c card? (or/c card? (listof card?)) natural?)) (field (cards0 (listof card?)) (my-stacks (listof (listof card?))))) #:impersonator))
+("/users/ben_g/utake5/cfg/deck.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "stack.rkt:39:9")
+  24.5 ms
+  (-> (listof card?) natural?)
+("/users/ben_g/utake5/cfg/card-adapted.rkt" "/users/ben_g/utake5/cfg/card-pool.rkt" "card-adapted.rkt:13:11")
+  18 ms
+  (-> natural? natural? any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:277:2")
+  6.5 ms
+  (->* (dict?) #:rest (listof (or/c (quote dict-ref) (quote dict-set!) (quote dict-set) (quote dict-remove!) (quote dict-remove) (quote dict-count) (quote dict-iterate-first) (quote dict-iterate-next) (quote dict-iterate-key) (quote dict-iterate-value) (quote dict-has-key?) (quote dict-ref!) (quote dict-set*!) (quote dict-set*) (quote dict-update!) (quote dict-update) (quote dict-map) (quote dict-for-each) (quote dict-keys) (quote dict-values) (quote dict->list) (quote dict-copy) (quote dict-empty?) (quote dict-clear) (quote dict-clear!))) boolean?)

@@ -1,0 +1,13 @@
+cpu time: 2805 real time: 2805 gc time: 106
+Running time is 4.82% contracts
+173/3591 ms
+
+("/users/ben_g/utake5/cfg/card-pool.rkt" "/users/ben_g/utake5/cfg/dealer.rkt" "card-pool.rkt:38:9")
+  93 ms
+  (->* () ((-> any/c (listof card?)) (-> natural?)) (object/c-opaque (draw-card (-> any/c card?)) (draw-hand (-> any/c (listof card?))) (field (random-bulls (-> natural?)) (shuffle (-> (listof card?) (listof card?))))))
+("/users/ben_g/utake5/cfg/deck.rkt" "/users/ben_g/utake5/cfg/stack.rkt" "stack.rkt:39:9")
+  74 ms
+  (-> (listof card?) any)
+("/users/ben_g/rds-cloudlab/racket-8.6.0.2/collects/racket/dict.rkt" "no-negative-party" "<collects>/racket/dict.rkt:237:2")
+  6 ms
+  (->i ((d dict?) (iter (d) (dict-iter-contract d))) (_r (d) (dict-key-contract d)))
