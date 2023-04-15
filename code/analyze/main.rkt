@@ -2,23 +2,23 @@
 
 
 ;; TODO
+;; - [X] take5 boundary/profile is weird compared to runtime, better check ALL THE DATA
+;;     - forall, get stddev from runtime and compare overheads to B,P
+;;     -  warn for 2sd, 1sd ... how common are weirdos?
+;;     could be that overhead's all that matters, compare plots
+;; - [ ] synth: why is profile getting stuck at bad points?
+;; - [ ] ?more takikawa?  1.2 1.4 1.6 1.8 __ 3
 ;; - [X] build / run simple versions (profile + boundary)
 ;; - [X] improve the profile parsing ... deep vs shallow how to compute time
 ;; - [-] debug twoshot, why so awful?
 ;; - [X] implement CD strategies: ... see doc
 ;; - [X] perf opt: memoize (doesn't help much!)
 ;; - [X] make all-strategy plots for everyone
-;; - [ ] take5 boundary/profile is weird compared to runtime, better check ALL THE DATA
-;;     - forall, get stddev from runtime and compare to B,P
-;;     -  warn for 2sd, 1sd ... how common are weirdos?
-;;     could be that overhead's all that matters, compare plots
 ;; - [X] why does toggle take 2 steps? = count starts at 1, should be zero!
 ;; - [X] plot perf ... is top 2 levels of LNM lattice all success?
 ;;       (level-success.rkt)
 ;; - [X] rerun for takikawa 1
 ;; - [-] more hspace between stategy picts
-;; - [ ] synth: why is profile getting stuck at bad points?
-;; - [ ] ?more takikawa?  1.2 1.4 1.6 1.8 __ 3
 
 ;; TODO 03-01
 ;; [X] fsm con infinite loop?!
@@ -72,6 +72,11 @@ string-swap*)
 
 ;; ---
 
+(define FUEL #f)
+
+(define (reset-FUEL!)
+  (set! FUEL 200))
+
 (define all-benchmarks '(
 morsecode
 forth
@@ -111,8 +116,9 @@ synth
   limit-con
   randomD
   randomS
-  toggleD
-  toggleS
+  randomB
+;  toggleD
+;  toggleS
 ))
 
 (define (strategy? xx)
@@ -151,7 +157,7 @@ synth
 
 (define prf:nodes-key 'nodes)
 
-(struct row (start-cfg end-status end-perf n-steps step*) #:prefab)
+(struct row (start-cfg end-status step*) #:prefab)
 (struct profile-sample (idx total% self% name+src) #:prefab)
 
 (define (profile-node-src nn)
@@ -330,6 +336,7 @@ synth
      ((cost-con) prf:cost-con-find-next)
      ((limit-opt) prf:limit-opt-find-next)
      ((limit-con) prf:limit-con-find-next)
+     ((randomB) prf:randomB-find-next)
      ((randomD) prf:randomD-find-next)
      ((randomS) prf:randomS-find-next)
      ((toggleD) prf:toggleD-find-next)
@@ -349,6 +356,7 @@ synth
      ((cost-con) bnd:cost-con-find-next)
      ((limit-opt) bnd:limit-opt-find-next)
      ((limit-con) bnd:limit-con-find-next)
+     ((randomB) bnd:randomB-find-next)
      ((randomD) bnd:randomD-find-next)
      ((randomS) bnd:randomS-find-next)
      ((toggleD) bnd:toggleD-find-next)
@@ -501,6 +509,9 @@ synth
   (define (f-upgrade cfg bnd-info mod->idx)
     (bnd-limit-upgrade cfg bnd-info mod->idx #:limit limit #:default default-sym))
   (prf:optcon-find-next bm-name pi prf-dir #:P pmode #:U f-upgrade))
+
+(define (prf:randomB-find-next bm-name pi prf-dir #:P [pmode 'total])
+  (random-boundary bm-name pi))
 
 (define (prf:randomD-find-next bm-name pi prf-dir #:P [pmode 'total])
   (random-next 'D bm-name pi))
@@ -817,6 +828,9 @@ synth
         (if next-cfg
           (apply values next-cfg)
           (values '(error no-actionable) #f))]))))
+
+(define (bnd:randomB-find-next bm-name pi bnd-dir)
+  (random-boundary bm-name pi))
 
 (define (bnd:randomD-find-next bm-name pi bnd-dir)
   (random-next 'D bm-name pi))
@@ -1221,6 +1235,40 @@ synth
       (let ((idx (random-ref cc*)))
         (values `(success ,idx) (string-update cfg idx src))))))
 
+(define (random-boundary bm-name pi)
+  (define modgraph (make-modulegraph bm-name))
+  (define mod* (module-names bm-name))
+  (define mod->idx (make-mod->idx mod*))
+  (define bnd*
+    (let* ((strbnd*
+            (for*/list ((from+to* (in-list modgraph))
+                        (to (in-list (cdr from+to*))))
+              (list (car from+to*) to))))
+      (filter
+        values
+        (map (lambda (x)
+               (with-handlers ((exn:fail:contract? (lambda (_e) #f)))
+                 (map mod->idx x)))
+             strbnd*))))
+  (define (cfg->candidate* cfg)
+    (for/list ((bnd (in-list bnd*))
+               #:unless (eq? (string-ref cfg (first bnd))
+                             (string-ref cfg (second bnd))))
+      bnd))
+  (lambda (cfg)
+    (define tgt (sym->char (if (< 0 (random 2)) 'D 'S)))
+    (define bb* (cfg->candidate* cfg))
+    (cond
+    ((null? bb*)
+     (values '(error no-bnds) #f))
+    ((zero? FUEL)
+     (values '(error timeout) #f))
+    (else
+     (set! FUEL (sub1 FUEL))
+     (define idx* (random-ref bb*))
+     (values `(success ,idx*) (string-update
+                                (string-update cfg (first idx*) tgt) (second idx*) tgt))))))
+
 (define (toggle-next tgt bm-name pi)
   (define tgt-char (sym->char tgt))
   (define src-char (sym->char (if (eq? tgt 'D) 'S 'D)))
@@ -1510,30 +1558,33 @@ zordoz))
               (zero? (modulo ii 10000)))
       (printf "run-exp: cfg ~s~n" ii))
     (define start-cfg (cfg-id ci))
-    (define-values [status end-perf step*] (follow-trail start-cfg pi find-next-cfg))
+    (define start-perf (cfg-perf ci))
+    (define-values [status end-perf step*] (follow-trail start-cfg start-perf pi find-next-cfg))
    ;; (printf "follow trail: ~a => ~a ~a~n" start-cfg status end-perf)
     (row
       start-cfg
       status
-      end-perf
-      (length step*)
       step*)))
 
-(define (follow-trail start-cfg pi find-next-cfg)
+(define (follow-trail start-cfg start-perf pi find-next-cfg)
+ (reset-FUEL!)
+ (define init-trail (list (list start-cfg start-perf)))
+ (if (done-cfg? start-cfg (overhead start-perf pi))
+  (values '(success immediate) start-perf init-trail)
   (let loop ([cfg start-cfg]
-             [step* (list start-cfg)]
+             [step* init-trail]
              ;[prf (cfg-perf ci)]
              )
     (define-values [st cfg+] (find-next-cfg cfg))
     (cond
     [(success-status? st)
-     (define step+ (cons cfg+ step*))
      (define pp (pi-perf pi cfg+))
+     (define step+ (cons (list cfg+ pp) step*))
      (if (done-cfg? cfg+ (overhead pp pi))
        (values st pp (reverse step+))
        (loop cfg+ step+))]
     [else
-     (values st (pi-perf pi cfg) (reverse step*))])))
+     (values st (pi-perf pi cfg) (reverse step*))]))))
 
 (define (plot-full-output run#)
   (define bm-name
@@ -1555,15 +1606,16 @@ zordoz))
   (void
     (with-output-to-file data-file #:exists 'replace
       (lambda ()
-      (pretty-write row*)))
+      (parameterize ((pretty-print-columns 120))
+        (pretty-write row*))))
     (eprintf "saved data: ~s~n" data-file))
   (define n-success (count-success row*))
   (define n-fast (count-fast row* pi))
-  (void
-    (save-pict+ (format "~a/~a-overhead-~a.png" out-dir bm-name k:mode)
-     (histogram-overhead pi row* n-fast bm-name k:mode))
-    (save-pict+ (format "~a/~a-steps-~a.png" out-dir bm-name k:mode)
-     (histogram-steps row* n-fast bm-name k:mode)))
+  ;; (void
+  ;;   (save-pict+ (format "~a/~a-overhead-~a.png" out-dir bm-name k:mode)
+  ;;    (histogram-overhead pi row* n-fast bm-name k:mode))
+  ;;   (save-pict+ (format "~a/~a-steps-~a.png" out-dir bm-name k:mode)
+  ;;    (histogram-steps row* n-fast bm-name k:mode)))
   (printf "~a ~a quick stats:~n" bm-name k:mode)
   (printf " ~a improved scenarios~n" n-success)
   (printf " ~a scenarios ended under ~ax~n" n-fast (overhead-hi))
@@ -1576,6 +1628,12 @@ zordoz))
 
 (define (count-fast row* pi)
   (count-perf row* (lambda (tt) (<= (overhead tt pi) (overhead-hi)))))
+
+(define (row-n-steps rr)
+  (length (row-step* rr)))
+
+(define (row-end-perf rr)
+  (second (last (row-step* rr))))
 
 (define (histogram-overhead pi row* num-fast bm-name k:mode)
   (parameterize ((plot-x-label "End Overhead vs untyped")
